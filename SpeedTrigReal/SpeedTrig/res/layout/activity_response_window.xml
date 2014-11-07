@@ -167,11 +167,11 @@
         android:onClick="updateEverything" />
 
     <Button
+        android:id="@+id/button_submit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="submit"
-        android:id="@+id/button"
-        android:layout_toEndOf="@+id/button8"
+        android:layout_toRightOf="@+id/button8"
         android:layout_below="@+id/response"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
@@ -185,17 +185,19 @@
         android:typeface="sans"
         android:id="@+id/button10"
         android:layout_alignTop="@+id/buttonDiv"
-        android:layout_alignLeft="@+id/button"
-        android:layout_alignStart="@+id/button" />
+        android:layout_alignLeft="@+id/button_submit"
+        android:layout_alignStart="@+id/button_submit"
+        android:onClick="removeLast"/>
 
     <Button
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="DNE"
-        android:id="@+id/button11"
+        android:id="@+id/button_dne"
         android:layout_alignTop="@+id/buttonNeg"
         android:layout_toLeftOf="@+id/buttonNeg"
-        android:layout_toStartOf="@+id/buttonNeg" />
+        android:layout_toStartOf="@+id/buttonNeg"
+        android:onClick="updateEverything"/>
 
 </RelativeLayout>

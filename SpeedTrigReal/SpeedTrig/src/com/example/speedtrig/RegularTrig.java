@@ -41,7 +41,7 @@ public class RegularTrig extends ListActivity {
 		lv.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, questionList));
 		lv.setTextFilterEnabled(true);
 		if (entranceButtonClicked)
-			trigTimer.schedule(new EndTrigTime(this), 60000);	// 3 minutes starting now!
+			trigTimer.schedule(new EndTrigTime(this), 20000);	// 3 minutes starting now!
 		entranceButtonClicked = false;
 
         // start on first question
@@ -148,6 +148,7 @@ public class RegularTrig extends ListActivity {
 		finish();
 	}
 
+    @Override
     public void finish(){
         trigTimer.cancel();
         super.finish();

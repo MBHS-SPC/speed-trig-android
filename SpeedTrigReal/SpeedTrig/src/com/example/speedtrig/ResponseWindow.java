@@ -24,6 +24,20 @@ public class ResponseWindow extends Activity {
 		question.setText(questionVal);
         responseCopy.setText(getIntent().getStringExtra(RegularTrig.EXTRA_RESPONSE));
 	}
+
+    public void removeLast(View v){
+        CharSequence text = responseCopy.getText();
+
+        // Don't try to delete what's not there
+        if (text.length() == 0)
+            return;
+
+        char last = text.charAt(text.length()-1);
+        if (last == 'E')    // Basically if the last thing inputted was "DNE"
+            responseCopy.setText(text.subSequence(0,text.length()-3));
+        else
+            responseCopy.setText(text.subSequence(0,text.length()-1));
+    }
 	
 	public void updateEverything(View v){
 		appendButton(v.getId());
@@ -31,10 +45,10 @@ public class ResponseWindow extends Activity {
 		RegularTrig.responses.put(questionVal, responseCopy.getText().toString());
 	}
 	
-	public void appendButton(int id){
-		String textToAppend = (String) ((Button) findViewById(id)).getText();
-		responseCopy.append(textToAppend);
-	}
+	public void appendButton(int id) {
+        String textToAppend = (String) ((Button) findViewById(id)).getText();
+        responseCopy.append(textToAppend);
+    }
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
