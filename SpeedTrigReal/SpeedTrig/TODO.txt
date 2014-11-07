@@ -1,0 +1,6 @@
+- Make static things non-static in "RegularTrig"
+- Fade in/out animation
+- Activity names (the ones that show up in the action bar)
+- Inverse Trig
+- Record Scores / Average scores
+- Settings window where stuff can be changed (time, clear scores, background change?)

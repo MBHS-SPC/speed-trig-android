@@ -1,0 +1,138 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.speedtrig.FinalWindow" >
+
+    <TextView
+        android:id="@+id/header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="40dp"
+        android:text="Question    Response    Answer"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+    
+    <TextView
+        android:id="@+id/entry1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/header"
+        android:layout_below="@+id/header"
+        android:layout_marginTop="20dp"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/entry2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/entry1"
+        android:layout_below="@+id/entry1"
+        android:layout_marginTop="10dp"
+        android:text="TextView" />
+    
+    <TextView
+        android:id="@+id/entry3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/entry2"
+        android:layout_below="@+id/entry2"
+        android:layout_marginTop="10dp"
+        android:text="TextView" />
+    
+    <TextView
+        android:id="@+id/entry4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/entry3"
+        android:layout_below="@+id/entry3"
+        android:layout_marginTop="10dp"
+        android:text="TextView" />
+    
+    <TextView
+        android:id="@+id/entry5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/entry4"
+        android:layout_below="@+id/entry4"
+        android:layout_marginTop="10dp"
+        android:text="TextView" />
+    
+    <TextView
+        android:id="@+id/entry6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/entry5"
+        android:layout_below="@+id/entry5"
+        android:layout_marginTop="10dp"
+        android:text="TextView" />
+    
+    <TextView
+        android:id="@+id/entry7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/entry6"
+        android:layout_below="@+id/entry6"
+        android:layout_marginTop="10dp"
+        android:text="TextView" />
+    
+    <TextView
+        android:id="@+id/entry8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/entry7"
+        android:layout_below="@+id/entry7"
+        android:layout_marginTop="10dp"
+        android:text="TextView" />
+    
+    <TextView
+        android:id="@+id/entry9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/entry8"
+        android:layout_below="@+id/entry8"
+        android:layout_marginTop="10dp"
+        android:text="TextView" />
+    
+    <TextView
+        android:id="@+id/entry10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/entry9"
+        android:layout_below="@+id/entry9"
+        android:layout_marginTop="10dp"
+        android:text="TextView" />
+    
+    <TextView
+        android:id="@+id/entry11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/entry10"
+        android:layout_below="@+id/entry10"
+        android:layout_marginTop="10dp"
+        android:text="TextView" />
+    
+    <TextView
+        android:id="@+id/entry12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/entry11"
+        android:layout_below="@+id/entry11"
+        android:layout_marginTop="10dp"
+        android:text="TextView" />
+
+    <Button
+        android:id="@+id/mainMenuButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="Main Menu"
+        android:onClick="destroyActivity" />
+    
+</RelativeLayout>
