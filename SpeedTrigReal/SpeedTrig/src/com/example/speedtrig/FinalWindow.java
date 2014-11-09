@@ -2,6 +2,7 @@ package com.example.speedtrig;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -69,6 +70,7 @@ public class FinalWindow extends Activity {
 				flip = true;
 				break;
 			case 'o'://cotangent
+                if (operation.charAt(2) == 's') break; // because cot and cos have the same second letter
 				operation = "tan";
 				flip = true;
 				break;
@@ -90,7 +92,7 @@ public class FinalWindow extends Activity {
 						Integer.parseInt(strOperand.substring(strOperand.indexOf('/')+1));
 			}
 			//GET THA FIRST CHAR
-			switch (operation.charAt(0)){
+            switch (operation.charAt(0)){
             case 's'://sin
 				badAnswer = Math.sin(operand);
 				break;

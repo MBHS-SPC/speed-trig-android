@@ -170,24 +170,23 @@
         android:id="@+id/button_submit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="submit"
-        android:layout_toRightOf="@+id/button8"
-        android:layout_below="@+id/response"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:onClick="submitData"/>
+        android:text="back to list"
+        android:onClick="submitData"
+        android:layout_toEndOf="@+id/question"
+        android:layout_below="@+id/button0"
+        android:layout_toRightOf="@+id/question" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="&#9003;"
-        android:typeface="sans"
+        android:text=""
+        android:typeface="serif"
         android:id="@+id/button10"
+        android:onClick="removeLast"
         android:layout_alignTop="@+id/buttonDiv"
-        android:layout_alignLeft="@+id/button_submit"
-        android:layout_alignStart="@+id/button_submit"
-        android:onClick="removeLast"/>
+        android:layout_toRightOf="@+id/buttonDiv"
+        android:layout_toEndOf="@+id/buttonDiv" />
 
     <Button
         style="?android:attr/buttonStyleSmall"

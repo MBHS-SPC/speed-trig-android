@@ -24,19 +24,19 @@
         </activity>
         <activity
             android:name="com.example.speedtrig.RegularTrig"
-            android:label="@string/title_activity_regular_trig" >
+            android:label="@string/app_name" >
         </activity>
         <activity
             android:name="com.example.speedtrig.InverseTrig"
-            android:label="@string/title_activity_inverse_trig" >
+            android:label="@string/app_name" >
         </activity>
         <activity
             android:name="com.example.speedtrig.ResponseWindow"
-            android:label="@string/title_activity_response_window" >
+            android:label="@string/app_name" >
         </activity>
         <activity
             android:name="com.example.speedtrig.FinalWindow"
-            android:label="@string/title_activity_final_window" >
+            android:label="@string/app_name" >
         </activity>
     </application>
 

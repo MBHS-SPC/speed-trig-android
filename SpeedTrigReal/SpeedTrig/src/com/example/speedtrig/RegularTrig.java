@@ -9,6 +9,7 @@ import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Looper;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -35,10 +36,14 @@ public class RegularTrig extends ListActivity {
 			getFragmentManager().beginTransaction()
 					.add(R.id.container, new PlaceholderFragment()).commit();
 		}
+        Log.d("regularTrig", "onCreate started");
 		if (entranceButtonClicked)
 			questionList = generateList();
 		ListView lv = getListView();
-		lv.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, questionList));
+        Log.d("msg", this+"");
+        Log.d("msg", android.R.layout.simple_list_item_1+"");
+        Log.d("msg", questionList+"");
+        lv.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, questionList));
 		lv.setTextFilterEnabled(true);
 		if (entranceButtonClicked)
 			trigTimer.schedule(new EndTrigTime(this), 20000);	// 3 minutes starting now!
@@ -50,6 +55,7 @@ public class RegularTrig extends ListActivity {
         String question = questionList[0];
         i.putExtra(EXTRA_QUESTION, question);
         startActivity(i);
+        Log.d("RegularTrig", "onCreate finished");
 	}
 	
 	public String getQuestion(){
@@ -118,6 +124,7 @@ public class RegularTrig extends ListActivity {
 	
 	public String[] generateList(){
 		String[] questions = new String[12];
+        Log.d("generateList", "I totes initialized an array "+questions);
 		for (int i = 0; i <= 11; i++){
 			questions[i] = i+1 + ". " + getQuestion();
 		}
