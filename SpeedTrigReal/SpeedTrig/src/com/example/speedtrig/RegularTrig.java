@@ -140,8 +140,8 @@ public class RegularTrig extends ListActivity {
 		// pass the question to the response window
 		String question = questionList[position];
 		i.putExtra(EXTRA_QUESTION, question);
-        if (responses.get("question") != null)
-            i.putExtra(EXTRA_RESPONSE, responses.get("question"));
+        if (responses.get(question) != null)
+            i.putExtra(EXTRA_RESPONSE, responses.get(question));
         else
             i.putExtra(EXTRA_RESPONSE, "");
 		startActivity(i);
