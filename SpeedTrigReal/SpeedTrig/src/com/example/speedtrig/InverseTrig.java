@@ -1,4 +1,4 @@
-package edu.mbhs.sppc.SpeedTrig;
+package com.example.speedtrig;
 
 import android.app.Fragment;
 import android.app.ListActivity;

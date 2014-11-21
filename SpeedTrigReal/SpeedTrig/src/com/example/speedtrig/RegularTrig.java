@@ -1,4 +1,4 @@
-package edu.mbhs.sppc.SpeedTrig;
+package com.example.speedtrig;
 
 import java.util.Hashtable;
 import java.util.Timer;
@@ -63,9 +63,9 @@ public class RegularTrig extends ListActivity {
 		String operation = "", question;
 		
 		random = (int)(Math.random()*10);
-		if (random == 0) {
+		if (random == 0){
 			// generate random number from 2*rand_denom to 20
-			random = (int)(Math.random() * 5) + 1;
+			random = (int)(Math.random()*5)+1;
 			denominator = random == 5 ? 6 : random;
 			numerator = (int)(Math.random()*(21-2*denominator))+2*denominator;
 			int num = numerator;
@@ -80,7 +80,7 @@ public class RegularTrig extends ListActivity {
 		}
 		
 		random = (int)(Math.random()*6);
-		switch(random) {
+		switch(random){
 		case 0:
 			operation = "sin";
 			break;
