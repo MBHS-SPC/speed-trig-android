@@ -180,13 +180,12 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=""
-        android:typeface="serif"
         android:id="@+id/button10"
         android:onClick="removeLast"
         android:layout_alignTop="@+id/buttonDiv"
         android:layout_toRightOf="@+id/buttonDiv"
-        android:layout_toEndOf="@+id/buttonDiv" />
+        android:layout_toEndOf="@+id/buttonDiv"
+        android:text="&lt;==" />
 
     <Button
         style="?android:attr/buttonStyleSmall"

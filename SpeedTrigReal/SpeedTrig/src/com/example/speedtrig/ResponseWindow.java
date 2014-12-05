@@ -56,6 +56,34 @@ public class ResponseWindow extends Activity {
         responseCopy.append(textToAppend);
     }
 
+    public String flipFraction(String frac){
+        String flipped = "";
+
+        if (frac.equals("0"))
+            return "DNE";
+        else if (frac.equals("DNE"))
+            return "0";
+        else if (frac.equals("-1") || frac.equals("1"))
+            return frac;
+
+        if (frac.contains("/"))
+            flipped += frac.substring(frac.indexOf('/')+1);
+        if (frac.contains("\u221A")){
+            char coolChar = frac.charAt(frac.indexOf("\u221A")+1);
+            flipped += "\u221A" + coolChar + "/" + coolChar;
+        }
+
+        if (flipped.charAt(0) == flipped.charAt(flipped.length()-1) && flipped.contains("/")){
+            // it's either going to be "3 root 3 over 3" or "2 over root 2"
+            if (flipped.length() == 5) flipped = "\u221A3";
+            else flipped = "\u221A2";
+        }
+
+        if (frac.charAt(0) == '-') flipped = "-" + flipped;
+
+        return flipped;
+    }
+
     public String getCorrectValue(String question){
         boolean flip = false;
         double operand;
@@ -156,34 +184,6 @@ public class ResponseWindow extends Activity {
         return goodAnswer;
     }
 
-    public String flipFraction(String frac){
-        String flipped = "";
-
-        if (frac.equals("0"))
-            return "DNE";
-        else if (frac.equals("DNE"))
-            return "0";
-        else if (frac.equals("-1") || frac.equals("1"))
-            return frac;
-
-        if (frac.contains("/"))
-            flipped += frac.substring(frac.indexOf('/')+1);
-        if (frac.contains("\u221A")){
-            char coolChar = frac.charAt(frac.indexOf("\u221A")+1);
-            flipped += "\u221A" + coolChar + "/" + coolChar;
-        }
-
-        if (flipped.charAt(0) == flipped.charAt(flipped.length()-1) && flipped.contains("/")){
-            // it's either going to be "3 root 3 over 3" or "2 over root 2"
-            if (flipped.length() == 5) flipped = "\u221A3";
-            else flipped = "\u221A2";
-        }
-
-        if (frac.charAt(0) == '-') flipped = "-" + flipped;
-
-        return flipped;
-    }
-
     public String formatOutput(String q, String r, String c){
         String outputString = q;
         String spacing = mult(" ", (15-q.length())*2);
@@ -235,11 +235,12 @@ public class ResponseWindow extends Activity {
     @Override
     public void finish(){
         if (!finishCalled && !quizDone) {
-            boolean isCorrect = responseCopy.getText().toString().equals(getCorrectValue(questionVal.substring(questionVal.indexOf('.') + 2)));
+            String response = responseCopy.getText().toString().trim();
+            String correct = getCorrectValue(questionVal.substring(questionVal.indexOf('.') + 2)).trim();
+            boolean isCorrect = response.equals(correct);
             String text = "incorrect";
             if (isCorrect) text = "correct";
             Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
-            Log.d("ResponseWindow", "finish() called");
         }
         finishCalled = true;
         super.finish();

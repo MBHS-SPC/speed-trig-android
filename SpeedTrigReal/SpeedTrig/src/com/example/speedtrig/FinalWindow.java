@@ -44,134 +44,134 @@ public class FinalWindow extends Activity {
 		return results;
 	}
 	
-	public String getCorrectValue(String question){
-		boolean flip = false;
-		double operand;
-		double badAnswer = 0;
-		String goodAnswer = "";
-		 
-		if (question.substring(0,3).equals("arc")){
-			// I'm an inverse trig problem!!!
-		}
-		
-		else {
-			String operation = question.substring(0,3);
-			String strOperand = question.substring(4,question.length()-1);
-			
-			// some mathing skills <-- yes that's a word
-            //takes the character in second place
-			switch (operation.charAt(1)){
-			case 'e'://secant
-				operation = "cos";
-				flip = true;
-				break;
-			case 's'://cosecant
-				operation = "sin";
-				flip = true;
-				break;
-			case 'o'://cotangent
-                if (operation.charAt(2) == 's') break; // because cot and cos have the same second letter
-				operation = "tan";
-				flip = true;
-				break;
-			}
-			
-			if (!strOperand.contains("\u03C0"))
-				operand = 0;
-			else if (!strOperand.contains("/")){
-				int number;
-				if (strOperand.substring(0,strOperand.length()-1).equals("")) number = 1;
-				else number = Integer.parseInt(strOperand.substring(0,strOperand.length()-1));
-				operand = Math.PI * number;
-			}
-			else {	// Note: operator contains both a pi and a fraction ('/')
-				int numerator;
-				if (strOperand.substring(0,strOperand.indexOf('\u03C0')).equals("")) numerator = 1;
-				else numerator = Integer.parseInt(strOperand.substring(0,strOperand.indexOf('\u03C0')));
-				operand = Math.PI * numerator /
-						Integer.parseInt(strOperand.substring(strOperand.indexOf('/')+1));
-			}
-			//GET THA FIRST CHAR
-            switch (operation.charAt(0)){
-            case 's'://sin
-				badAnswer = Math.sin(operand);
-				break;
-			case 'c'://cos
-				badAnswer = Math.cos(operand);
-				break;
-			case 't'://tan
-				badAnswer = Math.tan(operand);
-				break;
-			}
-			// I'm sorry, lots of bad code... It's a chiseled unit circle
-			// +- 1
-			if (Math.abs(badAnswer-1) < incompetenceDiminisher ||
-					Math.abs(badAnswer+1) < incompetenceDiminisher)
-				goodAnswer = (Math.signum(badAnswer)==1 ? "" : "-") + "1";
-			// +- root 3 over 2
-			else if (Math.abs(badAnswer-Math.sqrt(3)/2) < incompetenceDiminisher ||
-					Math.abs(badAnswer+Math.sqrt(3)/2) < incompetenceDiminisher)
-				goodAnswer = (Math.signum(badAnswer)==1 ? "" : "-") + "\u221A3/2";
-			// +- root 2 over 2
- 			else if (Math.abs(badAnswer-Math.sqrt(2)/2) < incompetenceDiminisher ||
-					Math.abs(badAnswer+Math.sqrt(2)/2) < incompetenceDiminisher)
-				goodAnswer = (Math.signum(badAnswer)==1 ? "" : "-") + "\u221A2/2";
-			// +- 1/2
-			else if (Math.abs(badAnswer-0.5) < incompetenceDiminisher ||
-					Math.abs(badAnswer+0.5) < incompetenceDiminisher)
-				goodAnswer = (Math.signum(badAnswer)==1 ? "" : "-") + "1/2";
-			// 0
-			else if (Math.abs(badAnswer) < incompetenceDiminisher)
-				goodAnswer = "0";
-			// +- root 3 over 3
-			else if (Math.abs(badAnswer-Math.sqrt(3)/3) < incompetenceDiminisher ||
-					Math.abs(badAnswer+Math.sqrt(3)/3) < incompetenceDiminisher)
-				goodAnswer = (Math.signum(badAnswer)==1 ? "" : "-") + "\u221A3/3";
-			// +- root 3
-			else if (Math.abs(badAnswer-Math.sqrt(3)) < incompetenceDiminisher ||
-					Math.abs(badAnswer+Math.sqrt(3)) < incompetenceDiminisher)
-				goodAnswer = (Math.signum(badAnswer)==1 ? "" : "-") + "\u221A3";
-			// DNE = tan(pi/2)
-			else if (badAnswer-10 > 0)
-				goodAnswer = "DNE";
-			else
-				goodAnswer = "Java is incompetent";
-			
-			if (flip)
-				goodAnswer = flipFraction(goodAnswer);
-		}
-		
-		return goodAnswer;
-	}
-	
 	public String flipFraction(String frac){
 		String flipped = "";
-		
+
 		if (frac.equals("0"))
 			return "DNE";
 		else if (frac.equals("DNE"))
 			return "0";
 		else if (frac.equals("-1") || frac.equals("1"))
 			return frac;
-		
+
 		if (frac.contains("/"))
 			flipped += frac.substring(frac.indexOf('/')+1);
 		if (frac.contains("\u221A")){
 			char coolChar = frac.charAt(frac.indexOf("\u221A")+1);
 			flipped += "\u221A" + coolChar + "/" + coolChar;
 		}
-		
+
 		if (flipped.charAt(0) == flipped.charAt(flipped.length()-1) && flipped.contains("/")){
 			// it's either going to be "3 root 3 over 3" or "2 over root 2"
 			if (flipped.length() == 5) flipped = "\u221A3";
 			else flipped = "\u221A2";
 		}
-		
+
 		if (frac.charAt(0) == '-') flipped = "-" + flipped;
-		
+
 		return flipped;
 	}
-	
+
+    public String getCorrectValue(String question){
+        boolean flip = false;
+        double operand;
+        double badAnswer = 0;
+        String goodAnswer = "";
+
+        if (question.substring(0,3).equals("arc")){
+            // I'm an inverse trig problem!!!
+        }
+
+        else {
+            String operation = question.substring(0,3);
+            String strOperand = question.substring(4,question.length()-1);
+
+            // some mathing skills <-- yes that's a word
+            //takes the character in second place
+            switch (operation.charAt(1)){
+                case 'e'://secant
+                    operation = "cos";
+                    flip = true;
+                    break;
+                case 's'://cosecant
+                    operation = "sin";
+                    flip = true;
+                    break;
+                case 'o'://cotangent
+                    if (operation.charAt(2) == 's') break; // because cot and cos have the same second letter
+                    operation = "tan";
+                    flip = true;
+                    break;
+            }
+
+            if (!strOperand.contains("\u03C0"))
+                operand = 0;
+            else if (!strOperand.contains("/")){
+                int number;
+                if (strOperand.substring(0,strOperand.length()-1).equals("")) number = 1;
+                else number = Integer.parseInt(strOperand.substring(0,strOperand.length()-1));
+                operand = Math.PI * number;
+            }
+            else {	// Note: operator contains both a pi and a fraction ('/')
+                int numerator;
+                if (strOperand.substring(0,strOperand.indexOf('\u03C0')).equals("")) numerator = 1;
+                else numerator = Integer.parseInt(strOperand.substring(0,strOperand.indexOf('\u03C0')));
+                operand = Math.PI * numerator /
+                        Integer.parseInt(strOperand.substring(strOperand.indexOf('/')+1));
+            }
+            //GET THA FIRST CHAR
+            switch (operation.charAt(0)){
+                case 's'://sin
+                    badAnswer = Math.sin(operand);
+                    break;
+                case 'c'://cos
+                    badAnswer = Math.cos(operand);
+                    break;
+                case 't'://tan
+                    badAnswer = Math.tan(operand);
+                    break;
+            }
+            // I'm sorry, lots of bad code... It's a chiseled unit circle
+            // +- 1
+            if (Math.abs(badAnswer-1) < incompetenceDiminisher ||
+                    Math.abs(badAnswer+1) < incompetenceDiminisher)
+                goodAnswer = (Math.signum(badAnswer)==1 ? "" : "-") + "1";
+                // +- root 3 over 2
+            else if (Math.abs(badAnswer-Math.sqrt(3)/2) < incompetenceDiminisher ||
+                    Math.abs(badAnswer+Math.sqrt(3)/2) < incompetenceDiminisher)
+                goodAnswer = (Math.signum(badAnswer)==1 ? "" : "-") + "\u221A3/2";
+                // +- root 2 over 2
+            else if (Math.abs(badAnswer-Math.sqrt(2)/2) < incompetenceDiminisher ||
+                    Math.abs(badAnswer+Math.sqrt(2)/2) < incompetenceDiminisher)
+                goodAnswer = (Math.signum(badAnswer)==1 ? "" : "-") + "\u221A2/2";
+                // +- 1/2
+            else if (Math.abs(badAnswer-0.5) < incompetenceDiminisher ||
+                    Math.abs(badAnswer+0.5) < incompetenceDiminisher)
+                goodAnswer = (Math.signum(badAnswer)==1 ? "" : "-") + "1/2";
+                // 0
+            else if (Math.abs(badAnswer) < incompetenceDiminisher)
+                goodAnswer = "0";
+                // +- root 3 over 3
+            else if (Math.abs(badAnswer-Math.sqrt(3)/3) < incompetenceDiminisher ||
+                    Math.abs(badAnswer+Math.sqrt(3)/3) < incompetenceDiminisher)
+                goodAnswer = (Math.signum(badAnswer)==1 ? "" : "-") + "\u221A3/3";
+                // +- root 3
+            else if (Math.abs(badAnswer-Math.sqrt(3)) < incompetenceDiminisher ||
+                    Math.abs(badAnswer+Math.sqrt(3)) < incompetenceDiminisher)
+                goodAnswer = (Math.signum(badAnswer)==1 ? "" : "-") + "\u221A3";
+                // DNE = tan(pi/2)
+            else if (badAnswer-10 > 0)
+                goodAnswer = "DNE";
+            else
+                goodAnswer = "Java is incompetent";
+
+            if (flip)
+                goodAnswer = flipFraction(goodAnswer);
+        }
+
+        return goodAnswer;
+    }
+
 	public String formatOutput(String q, String r, String c){
 		String outputString = q;
 		String spacing = mult(" ", (15-q.length())*2);
