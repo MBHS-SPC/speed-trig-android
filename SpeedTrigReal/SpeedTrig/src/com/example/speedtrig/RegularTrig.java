@@ -114,7 +114,7 @@ public class RegularTrig extends ListActivity {
 	
 	public int[] simplify (int numer, int denom){
 		for (int i = Math.min(numer, denom); i > 1; i--){
-			if ((double)numer/i == (int)(numer/i) && (double)denom/i == (int)(denom/i)){
+			if ((double)numer/i == (numer/i) && (double)denom/i == (denom/i)){
 				numer /= i;
 				denom /= i;
 			}
