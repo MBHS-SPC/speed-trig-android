@@ -12,6 +12,8 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 public class MainMenu extends Activity {
+
+    public static boolean isRegularTrig = true;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -47,12 +49,16 @@ public class MainMenu extends Activity {
 		//Toast.makeText(this, "Set!", Toast.LENGTH_SHORT).show();
 		//Toast.makeText(this, "Go!", Toast.LENGTH_SHORT).show();
 		RegularTrig.entranceButtonClicked = true;
+        isRegularTrig = true;
 		startActivity(new Intent(this, RegularTrig.class));
 	}
-	
+
 	public void startInverse(View v){
-		Toast.makeText(this, "Coming Soon!!!", Toast.LENGTH_SHORT).show();
+		//Toast.makeText(this, "Coming Soon!!!", Toast.LENGTH_SHORT).show();
 		//startActivity(new Intent(this, InverseTrig.class));
+        InverseTrig.entranceButtonClicked = true;
+        isRegularTrig = false;
+        startActivity(new Intent(this, InverseTrig.class));
 	}
 
 	/**

@@ -34,13 +34,26 @@ public class FinalWindow extends Activity {
 	
 	public String[] getResults(){
 		String[] results = new String[12];
-		for (int i = 0; i < RegularTrig.questionList.length; i++){
-			String question = RegularTrig.questionList[i];
-			String response = RegularTrig.responses.get(question);
-			String correctValue = getCorrectValue(question.substring(question.indexOf('.')+2));
-			if (response.equals(" ")) response = "NONE";
-			results[i] = formatOutput(question, response, correctValue);
-		}
+
+        if(MainMenu.isRegularTrig) {
+            for (int i = 0; i < RegularTrig.questionList.length; i++) {
+                String question = RegularTrig.questionList[i];
+                String response = RegularTrig.responses.get(question);
+                String correctValue = getCorrectValue(question.substring(question.indexOf('.') + 2));
+                if (response.equals(" ")) response = "NONE";
+                results[i] = formatOutput(question, response, correctValue);
+            }
+        }
+
+        else{
+            for (int i = 0; i < InverseTrig.questionList.length; i++) {
+                String question = InverseTrig.questionList[i];
+                String response = InverseTrig.responses.get(question);
+                String correctValue = getCorrectValue(question.substring(question.indexOf('.') + 2));
+                if (response.equals(" ")) response = "NONE";
+                results[i] = formatOutput(question, response, correctValue);
+            }
+        }
 		return results;
 	}
 	
@@ -80,6 +93,9 @@ public class FinalWindow extends Activity {
 
         if (question.substring(0,3).equals("arc")){
             // I'm an inverse trig problem!!!
+
+            String operation = question.substring(0, 6);
+            return "0";
         }
 
         else {

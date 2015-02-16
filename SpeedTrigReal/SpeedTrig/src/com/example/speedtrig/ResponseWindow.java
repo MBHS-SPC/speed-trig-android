@@ -26,9 +26,16 @@ public class ResponseWindow extends Activity {
 		setContentView(R.layout.activity_response_window);
 		question = (TextView) findViewById(R.id.question);
 		responseCopy = (TextView) findViewById(R.id.response);
-		questionVal = getIntent().getStringExtra(RegularTrig.EXTRA_QUESTION);
-		question.setText(questionVal);
-        responseCopy.setText(getIntent().getStringExtra(RegularTrig.EXTRA_RESPONSE));
+        if(MainMenu.isRegularTrig) {
+            questionVal = getIntent().getStringExtra(RegularTrig.EXTRA_QUESTION);
+            question.setText(questionVal);
+            responseCopy.setText(getIntent().getStringExtra(RegularTrig.EXTRA_RESPONSE));
+        }
+        else{
+            questionVal = getIntent().getStringExtra(InverseTrig.EXTRA_QUESTION);
+            question.setText(questionVal);
+            responseCopy.setText(getIntent().getStringExtra(InverseTrig.EXTRA_RESPONSE));
+        }
 	}
 
     public void removeLast(View v){
@@ -47,8 +54,14 @@ public class ResponseWindow extends Activity {
 	
 	public void updateEverything(View v){
 		appendButton(v.getId());
-		RegularTrig.responses.remove(questionVal);
-		RegularTrig.responses.put(questionVal, responseCopy.getText().toString());
+        if(MainMenu.isRegularTrig) {
+            RegularTrig.responses.remove(questionVal);
+            RegularTrig.responses.put(questionVal, responseCopy.getText().toString());
+        }
+        else{
+            InverseTrig.responses.remove(questionVal);
+            InverseTrig.responses.put(questionVal, responseCopy.getText().toString());
+        }
 	}
 	
 	public void appendButton(int id) {
@@ -92,6 +105,7 @@ public class ResponseWindow extends Activity {
 
         if (question.substring(0,3).equals("arc")){
             // I'm an inverse trig problem!!!
+            return "0";
         }
 
         else {
