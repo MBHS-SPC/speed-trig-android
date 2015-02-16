@@ -178,7 +178,7 @@ public class FinalWindow extends Activity {
                 if(operand.equals("(2√3)/3"))
                     correctAnswer = "π/3";
 
-                if(operand.equals("(2√3)/3"))
+                if(operand.equals("-(2√3)/3"))
                     correctAnswer = "-π/3";
             }
 
@@ -205,8 +205,8 @@ public class FinalWindow extends Activity {
                 if(operand.equals("(2√3)/3"))
                     correctAnswer = "π/6";
 
-                if(operand.equals("(2√3)/3"))
-                    correctAnswer = "5π/3";
+                if(operand.equals("-(2√3)/3"))
+                    correctAnswer = "5π/6";
             }
 
             if((operation.equals("arctan"))) {
