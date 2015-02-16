@@ -186,9 +186,9 @@ public class InverseTrig extends ListActivity {
                         break;
                     case 3:
                         if (generator.nextBoolean())
-                            question = "(√3)/3";
+                            question = "√3/3";
                         else
-                            question = "-(√3)/3";
+                            question = "-√3/3";
                         break;
                 }
             }
