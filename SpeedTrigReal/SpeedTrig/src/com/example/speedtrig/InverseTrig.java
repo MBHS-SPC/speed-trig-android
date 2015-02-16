@@ -103,32 +103,94 @@ public class InverseTrig extends ListActivity {
                     break;
             }
 
-            random = generator.nextInt(5);
-            switch(random) {
-                case 0:
-                    question = "0";
-                    break;
-                case 1:
-                    question = "1";
-                    break;
-                case 2:
-                    if(generator.nextBoolean())
-                        question = "1/2";
-                    else
-                        question = "-1/2";
-                    break;
-                case 3:
-                    if(generator.nextBoolean())
-                        question = "√2/2";
-                    else
-                        question = "-√2/2";
-                    break;
-                case 4:
-                    if(generator.nextBoolean())
-                        question = "√3/2";
-                    else
-                        question = "-√3/2";
-                    break;
+            if((operation.equals("arcsin")) || (operation.equals("arccos"))) {
+                random = generator.nextInt(5);
+                switch (random) {
+                    case 0:
+                        question = "0";
+                        break;
+                    case 1:
+                        if (generator.nextBoolean())
+                            question = "1";
+                        else
+                            question = "-1";
+                        break;
+                    case 2:
+                        if (generator.nextBoolean())
+                            question = "1/2";
+                        else
+                            question = "-1/2";
+                        break;
+                    case 3:
+                        if (generator.nextBoolean())
+                            question = "√2/2";
+                        else
+                            question = "-√2/2";
+                        break;
+                    case 4:
+                        if (generator.nextBoolean())
+                            question = "√3/2";
+                        else
+                            question = "-√3/2";
+                        break;
+                }
+            }
+
+            if((operation.equals("arccsc")) || (operation.equals("arcsec"))){
+                random = generator.nextInt(4);
+                switch (random) {
+                    case 0:
+                        if (generator.nextBoolean())
+                            question = "1";
+                        else
+                            question = "-1";
+                        break;
+                    case 1:
+                        if (generator.nextBoolean())
+                            question = "2";
+                        else
+                            question = "-2";
+                        break;
+                    case 2:
+                        if (generator.nextBoolean())
+                            question = "√2";
+                        else
+                            question = "-√2";
+                        break;
+                    case 3:
+                        if (generator.nextBoolean())
+                            question = "(2√3)/3";
+                        else
+                            question = "-(2√3)/3";
+                        break;
+                }
+            }
+
+            if((operation.equals("arctan")) || (operation.equals("arccot"))){
+                random = generator.nextInt(4);
+                switch (random) {
+                    case 0:
+                        question = "0";
+                        break;
+                    case 1:
+                        if (generator.nextBoolean())
+                            question = "1";
+                        else
+                            question = "-1";
+                        break;
+                    case 2:
+                        if (generator.nextBoolean())
+                            question = "√3";
+                        else
+                            question = "-√3";
+                        break;
+                    case 3:
+                        if (generator.nextBoolean())
+                            question = "(√3)/3";
+                        else
+                            question = "-(√3)/3";
+                        break;
+                }
             }
 
             question = operation + "(" + question + ")";
