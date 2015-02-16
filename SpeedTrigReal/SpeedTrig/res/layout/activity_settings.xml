@@ -50,6 +50,48 @@
             android:onClick="onCheckboxClicked"
             android:checked="true" />
 
+    <CheckBox android:id="@+id/checkbox_arcsin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="arcsin"
+        android:onClick="onCheckboxClicked"
+        android:checked="true" />
+
+    <CheckBox android:id="@+id/checkbox_arccos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="arccos"
+        android:onClick="onCheckboxClicked"
+        android:checked="true" />
+
+    <CheckBox android:id="@+id/checkbox_arccsc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="arccsc"
+        android:onClick="onCheckboxClicked"
+        android:checked="true" />
+
+    <CheckBox android:id="@+id/checkbox_arcsec"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="arcsec"
+        android:onClick="onCheckboxClicked"
+        android:checked="true" />
+
+    <CheckBox android:id="@+id/checkbox_arctan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="arctan"
+        android:onClick="onCheckboxClicked"
+        android:checked="true" />
+
+    <CheckBox android:id="@+id/checkbox_arccot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="arccot"
+        android:onClick="onCheckboxClicked"
+        android:checked="true" />
+
     <ListView
         android:id="@android:id/list"
         android:layout_width="match_parent"

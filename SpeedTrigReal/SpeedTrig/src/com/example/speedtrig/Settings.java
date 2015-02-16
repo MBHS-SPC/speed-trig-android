@@ -23,18 +23,20 @@ import android.widget.ListView;
 public class Settings extends PreferenceActivity {
 
     static boolean isSinActive;
-    static boolean isCosActive = true;
-    static boolean isCscActive = true;
-    static boolean isSecActive = true;
-    static boolean isCotActive = true;
-    static boolean isTanActive = true;
+    static boolean isCosActive;
+    static boolean isCscActive;
+    static boolean isSecActive;
+    static boolean isCotActive;
+    static boolean isTanActive;
 
-    static boolean isArcsinActive = true;
-    static boolean isArccosActive = true;
-    static boolean isArccscActive = true;
-    static boolean isArcsecActive = true;
-    static boolean isArccotActive = true;
-    static boolean isArctanActive = true;
+    static boolean isArcsinActive;
+    static boolean isArccosActive;
+    static boolean isArccscActive;
+    static boolean isArcsecActive;
+    static boolean isArccotActive;
+    static boolean isArctanActive;
+
+    String[] functions = {"sin", "cos", "csc", "sec", "tan", "cot", "arcsin", "arccos", "arccsc", "arcsec", "arctan", "arccot"};
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,19 +45,43 @@ public class Settings extends PreferenceActivity {
         SharedPreferences settings = getPreferences(MODE_PRIVATE);
 
         isSinActive = settings.getBoolean("isSinActive", true);
-        isCosActive = true;
-        isCscActive = true;
-        isSecActive = true;
-        isCotActive = true;
-        isTanActive = true;
+        isCosActive = settings.getBoolean("isCosActive", true);
+        isCscActive = settings.getBoolean("isCscActive", true);
+        isSecActive = settings.getBoolean("isSecActive", true);
+        isTanActive = settings.getBoolean("isTanActive", true);
+        isCotActive = settings.getBoolean("isCotActive", true);
 
-        isArcsinActive = true;
-        isArccosActive = true;
-        isArccscActive = true;
-        isArcsecActive = true;
-        isArccotActive = true;
-        isArctanActive = true;
+        isArcsinActive = settings.getBoolean("isArcsinActive", true);
+        isArccosActive = settings.getBoolean("isArccosActive", true);
+        isArccscActive = settings.getBoolean("isArccscActive", true);
+        isArcsecActive = settings.getBoolean("isArcsecActive", true);
+        isArctanActive = settings.getBoolean("isArctanActive", true);
+        isArccotActive = settings.getBoolean("isArccotActive", true);
 
+        CheckBox checkbox_sin = (CheckBox) findViewById(R.id.checkbox_sin);
+        CheckBox checkbox_cos = (CheckBox) findViewById(R.id.checkbox_cos);
+        CheckBox checkbox_csc = (CheckBox) findViewById(R.id.checkbox_csc);
+        CheckBox checkbox_sec = (CheckBox) findViewById(R.id.checkbox_sec);
+        CheckBox checkbox_tan = (CheckBox) findViewById(R.id.checkbox_tan);
+        CheckBox checkbox_cot = (CheckBox) findViewById(R.id.checkbox_cot);
+
+        CheckBox checkbox_arcsin = (CheckBox) findViewById(R.id.checkbox_arcsin);
+        CheckBox checkbox_arccos = (CheckBox) findViewById(R.id.checkbox_arccos);
+        CheckBox checkbox_arccsc = (CheckBox) findViewById(R.id.checkbox_arccsc);
+        CheckBox checkbox_arcsec = (CheckBox) findViewById(R.id.checkbox_arcsec);
+        CheckBox checkbox_arctan = (CheckBox) findViewById(R.id.checkbox_arctan);
+        CheckBox checkbox_arccot = (CheckBox) findViewById(R.id.checkbox_arccot);
+
+        CheckBox[] functionCheckBoxes = {checkbox_sin, checkbox_cos, checkbox_csc, checkbox_sec, checkbox_tan, checkbox_cot,
+                                         checkbox_arcsin, checkbox_arccos, checkbox_arccsc, checkbox_arcsec, checkbox_arctan, checkbox_arccot};
+
+        for(int i = 0; i < functions.length; i++){
+
+            if(isOperationActive(functions[i]))
+                functionCheckBoxes[i].setChecked(true);
+            else
+                functionCheckBoxes[i].setChecked(false);
+        }
     }
 
     public static boolean isOperationActive(String operation){
@@ -111,37 +137,79 @@ public class Settings extends PreferenceActivity {
 
             case R.id.checkbox_cos:
                 if (checked)
-                    isCosActive = true;
+                    editor.putBoolean("isCosActive", true);
                 else
-                    isCosActive = false;
+                    editor.putBoolean("isCosActive", false);
                 break;
 
             case R.id.checkbox_csc:
                 if (checked)
-                    isCscActive = true;
+                    editor.putBoolean("isCscActive", true);
                 else
-                    isCscActive = false;
+                    editor.putBoolean("isCscActive", false);
                 break;
 
             case R.id.checkbox_sec:
                 if (checked)
-                    isSecActive = true;
+                    editor.putBoolean("isSecActive", true);
                 else
-                    isSecActive = false;
+                    editor.putBoolean("isSecActive", false);
                 break;
 
             case R.id.checkbox_tan:
                 if (checked)
-                    isTanActive = true;
+                    editor.putBoolean("isTanActive", true);
                 else
-                    isTanActive = false;
+                    editor.putBoolean("isTanActive", false);
                 break;
 
             case R.id.checkbox_cot:
                 if (checked)
-                    isCotActive = true;
+                    editor.putBoolean("isCotActive", true);
                 else
-                    isCotActive = false;
+                    editor.putBoolean("isCotActive", false);
+                break;
+
+            case R.id.checkbox_arcsin:
+                if (checked)
+                    editor.putBoolean("isArcsinActive", true);
+                else
+                    editor.putBoolean("isArcsinActive", false);
+                break;
+
+            case R.id.checkbox_arccos:
+                if (checked)
+                    editor.putBoolean("isArccosActive", true);
+                else
+                    editor.putBoolean("isArccosActive", false);
+                break;
+
+            case R.id.checkbox_arccsc:
+                if (checked)
+                    editor.putBoolean("isArccscActive", true);
+                else
+                    editor.putBoolean("isArccscActive", false);
+                break;
+
+            case R.id.checkbox_arcsec:
+                if (checked)
+                    editor.putBoolean("isArcsecActive", true);
+                else
+                    editor.putBoolean("isArcsecActive", false);
+                break;
+
+            case R.id.checkbox_arctan:
+                if (checked)
+                    editor.putBoolean("isArctanActive", true);
+                else
+                    editor.putBoolean("isArctanActive", false);
+                break;
+
+            case R.id.checkbox_arccot:
+                if (checked)
+                    editor.putBoolean("isArccotActive", true);
+                else
+                    editor.putBoolean("isArccotActive", false);
                 break;
         }
 
