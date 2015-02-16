@@ -61,6 +61,11 @@ public class MainMenu extends Activity {
         startActivity(new Intent(this, InverseTrig.class));
 	}
 
+    public void startSettings(View v){
+
+        startActivity(new Intent(this, Settings.class));
+    }
+
 	/**
 	 * A placeholder fragment containing a simple view.
 	 */

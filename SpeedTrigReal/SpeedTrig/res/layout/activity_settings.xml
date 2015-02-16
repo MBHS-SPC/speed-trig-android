@@ -1,0 +1,59 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/container"
+        tools:context="com.example.speedtrig.Settings"
+        tools:ignore="MergeRootFrame" >
+
+
+    <CheckBox android:id="@+id/checkbox_sin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="sin"
+            android:onClick="onCheckboxClicked"
+            android:checked="true" />
+
+        <CheckBox android:id="@+id/checkbox_cos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="cos"
+            android:onClick="onCheckboxClicked"
+            android:checked="true" />
+
+        <CheckBox android:id="@+id/checkbox_csc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="csc"
+            android:onClick="onCheckboxClicked"
+            android:checked="true" />
+
+        <CheckBox android:id="@+id/checkbox_sec"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="sec"
+            android:onClick="onCheckboxClicked"
+            android:checked="true" />
+
+        <CheckBox android:id="@+id/checkbox_tan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="tan"
+            android:onClick="onCheckboxClicked"
+            android:checked="true" />
+
+        <CheckBox android:id="@+id/checkbox_cot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="cot"
+            android:onClick="onCheckboxClicked"
+            android:checked="true" />
+
+    <ListView
+        android:id="@android:id/list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+    </ListView>
+
+    </LinearLayout>
