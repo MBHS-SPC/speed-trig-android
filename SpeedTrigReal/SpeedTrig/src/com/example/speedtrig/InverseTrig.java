@@ -37,8 +37,6 @@ public class InverseTrig extends ListActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
-        System.out.println("CODE WORKED");
 		setContentView(R.layout.activity_inverse_trig);
 
 		if (savedInstanceState == null) {
@@ -71,11 +69,9 @@ public class InverseTrig extends ListActivity {
 
         Random generator = new Random();
 
-        boolean getRegularQuestion = generator.nextBoolean();
+        boolean getRegularTrigQuestion = generator.nextBoolean();
 
-        System.out.println("CODE WORKED");
-
-        if(getRegularQuestion){
+        if(getRegularTrigQuestion){
             RegularTrig rt = new RegularTrig();
             return rt.getQuestion();
         }
