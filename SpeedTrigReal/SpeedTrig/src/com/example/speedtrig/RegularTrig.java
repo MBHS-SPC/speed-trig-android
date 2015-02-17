@@ -126,7 +126,12 @@ public class RegularTrig extends ListActivity {
 		String[] questions = new String[12];
         Log.d("generateList", "I totes initialized an array "+questions);
 		for (int i = 0; i <= 11; i++){
-			questions[i] = i+1 + ". " + getQuestion();
+            String question = getQuestion();
+            while(!Settings.isOperationActive(question.substring(0, question.indexOf("(")))){
+                question = getQuestion();
+            }
+
+			questions[i] = i+1 + ". " + question;
 		}
 		for (String s : questions){
 			// The numbers preceding the question prevent bad things from happening
