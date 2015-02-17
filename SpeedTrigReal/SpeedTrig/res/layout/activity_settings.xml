@@ -92,6 +92,15 @@
         android:onClick="onCheckboxClicked"
         android:checked="true" />
 
+    <Button
+        android:id="@+id/reset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/holo_green_dark"
+        android:onClick="reset"
+        android:text="Reset"
+        android:layout_alignParentBottom="true" />
+
     <ListView
         android:id="@android:id/list"
         android:layout_width="match_parent"

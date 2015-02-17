@@ -44,19 +44,7 @@ public class Settings extends PreferenceActivity {
 
         SharedPreferences settings = getPreferences(MODE_PRIVATE);
 
-        isSinActive = settings.getBoolean("isSinActive", true);
-        isCosActive = settings.getBoolean("isCosActive", true);
-        isCscActive = settings.getBoolean("isCscActive", true);
-        isSecActive = settings.getBoolean("isSecActive", true);
-        isTanActive = settings.getBoolean("isTanActive", true);
-        isCotActive = settings.getBoolean("isCotActive", true);
-
-        isArcsinActive = settings.getBoolean("isArcsinActive", true);
-        isArccosActive = settings.getBoolean("isArccosActive", true);
-        isArccscActive = settings.getBoolean("isArccscActive", true);
-        isArcsecActive = settings.getBoolean("isArcsecActive", true);
-        isArctanActive = settings.getBoolean("isArctanActive", true);
-        isArccotActive = settings.getBoolean("isArccotActive", true);
+        updateFunctionStates();
 
         CheckBox checkbox_sin = (CheckBox) findViewById(R.id.checkbox_sin);
         CheckBox checkbox_cos = (CheckBox) findViewById(R.id.checkbox_cos);
@@ -73,7 +61,7 @@ public class Settings extends PreferenceActivity {
         CheckBox checkbox_arccot = (CheckBox) findViewById(R.id.checkbox_arccot);
 
         CheckBox[] functionCheckBoxes = {checkbox_sin, checkbox_cos, checkbox_csc, checkbox_sec, checkbox_tan, checkbox_cot,
-                                         checkbox_arcsin, checkbox_arccos, checkbox_arccsc, checkbox_arcsec, checkbox_arctan, checkbox_arccot};
+                checkbox_arcsin, checkbox_arccos, checkbox_arccsc, checkbox_arcsec, checkbox_arctan, checkbox_arccot};
 
         for(int i = 0; i < functions.length; i++){
 
@@ -115,6 +103,25 @@ public class Settings extends PreferenceActivity {
             booleanToReturn = isArccotActive;
 
         return booleanToReturn;
+    }
+
+    private void updateFunctionStates(){
+
+        SharedPreferences settings = getPreferences(MODE_PRIVATE);
+
+        isSinActive = settings.getBoolean("isSinActive", true);
+        isCosActive = settings.getBoolean("isCosActive", true);
+        isCscActive = settings.getBoolean("isCscActive", true);
+        isSecActive = settings.getBoolean("isSecActive", true);
+        isTanActive = settings.getBoolean("isTanActive", true);
+        isCotActive = settings.getBoolean("isCotActive", true);
+
+        isArcsinActive = settings.getBoolean("isArcsinActive", true);
+        isArccosActive = settings.getBoolean("isArccosActive", true);
+        isArccscActive = settings.getBoolean("isArccscActive", true);
+        isArcsecActive = settings.getBoolean("isArcsecActive", true);
+        isArctanActive = settings.getBoolean("isArctanActive", true);
+        isArccotActive = settings.getBoolean("isArccotActive", true);
     }
 
     public void onCheckboxClicked(View view) {
@@ -214,6 +221,53 @@ public class Settings extends PreferenceActivity {
         }
 
         editor.commit();
+
+        updateFunctionStates();
+    }
+
+    public void reset(View v){
+
+        SharedPreferences settings = getPreferences(MODE_PRIVATE);
+        SharedPreferences.Editor editor = settings.edit();
+
+        editor.putBoolean("isSinActive", true);
+        editor.putBoolean("isCosActive", true);
+        editor.putBoolean("isCscActive", true);
+        editor.putBoolean("isSecActive", true);
+        editor.putBoolean("isTanActive", true);
+        editor.putBoolean("isCotActive", true);
+
+        editor.putBoolean("isArcsinActive", true);
+        editor.putBoolean("isArccosActive", true);
+        editor.putBoolean("isArccscActive", true);
+        editor.putBoolean("isArcsecActive", true);
+        editor.putBoolean("isArctanActive", true);
+        editor.putBoolean("isArccotActive", true);
+
+        CheckBox checkbox_sin = (CheckBox) findViewById(R.id.checkbox_sin);
+        CheckBox checkbox_cos = (CheckBox) findViewById(R.id.checkbox_cos);
+        CheckBox checkbox_csc = (CheckBox) findViewById(R.id.checkbox_csc);
+        CheckBox checkbox_sec = (CheckBox) findViewById(R.id.checkbox_sec);
+        CheckBox checkbox_tan = (CheckBox) findViewById(R.id.checkbox_tan);
+        CheckBox checkbox_cot = (CheckBox) findViewById(R.id.checkbox_cot);
+
+        CheckBox checkbox_arcsin = (CheckBox) findViewById(R.id.checkbox_arcsin);
+        CheckBox checkbox_arccos = (CheckBox) findViewById(R.id.checkbox_arccos);
+        CheckBox checkbox_arccsc = (CheckBox) findViewById(R.id.checkbox_arccsc);
+        CheckBox checkbox_arcsec = (CheckBox) findViewById(R.id.checkbox_arcsec);
+        CheckBox checkbox_arctan = (CheckBox) findViewById(R.id.checkbox_arctan);
+        CheckBox checkbox_arccot = (CheckBox) findViewById(R.id.checkbox_arccot);
+
+        CheckBox[] functionCheckBoxes = {checkbox_sin, checkbox_cos, checkbox_csc, checkbox_sec, checkbox_tan, checkbox_cot,
+                checkbox_arcsin, checkbox_arccos, checkbox_arccsc, checkbox_arcsec, checkbox_arctan, checkbox_arccot};
+
+        for(int i = 0; i < functions.length; i++){
+                functionCheckBoxes[i].setChecked(true);
+        }
+
+        editor.commit();
+
+        updateFunctionStates();
     }
 
     @Override
