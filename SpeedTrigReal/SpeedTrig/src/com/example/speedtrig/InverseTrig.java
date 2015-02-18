@@ -204,7 +204,7 @@ public class InverseTrig extends ListActivity {
         Log.d("generateList", "I totes initialized an array " + questions);
         for (int i = 0; i <= 11; i++){
             String question = getQuestion();
-            while(!Settings.isOperationActive(question.substring(0, question.indexOf("(")))){
+            while(!Settings.isFunctionActive(question.substring(0, question.indexOf("(")))){
                 question = getQuestion();
             }
             questions[i] = i+1 + ". " + question;

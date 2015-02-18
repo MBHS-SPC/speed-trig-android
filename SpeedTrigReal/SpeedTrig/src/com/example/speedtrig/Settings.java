@@ -1,21 +1,15 @@
 package com.example.speedtrig;
 
-import android.app.Fragment;
-import android.app.ListActivity;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
-import android.widget.ListView;
 
 /**
  * Created by alia7_000 on 2/16/2015.
@@ -65,14 +59,14 @@ public class Settings extends PreferenceActivity {
 
         for(int i = 0; i < functions.length; i++){
 
-            if(isOperationActive(functions[i]))
+            if(isFunctionActive(functions[i]))
                 functionCheckBoxes[i].setChecked(true);
             else
                 functionCheckBoxes[i].setChecked(false);
         }
     }
 
-    public static boolean isOperationActive(String operation){
+    public static boolean isFunctionActive(String operation){
 
         boolean booleanToReturn = true;
 
