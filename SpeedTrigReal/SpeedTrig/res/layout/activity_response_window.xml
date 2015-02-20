@@ -34,7 +34,8 @@
         android:layout_alignBottom="@+id/response"
         android:layout_alignRight="@+id/button3"
         android:layout_marginRight="28dp"
-        android:text="Your answer: " />
+        android:text="Your Answer: "
+        android:textSize="15dp" />
 
     <Button 
         android:id="@+id/buttonNeg"
@@ -90,10 +91,11 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/button1"
-        android:layout_toLeftOf="@+id/button1"
         android:text="3"
-        android:onClick="updateEverything" />
+        android:onClick="updateEverything"
+        android:layout_below="@+id/buttonNeg"
+        android:layout_toLeftOf="@+id/buttonRoot"
+        android:layout_toStartOf="@+id/buttonRoot" />
 
 
     <Button
@@ -170,11 +172,12 @@
         android:id="@+id/button_submit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="back to list"
+        android:text="Back To List"
         android:onClick="submitData"
         android:layout_toEndOf="@+id/question"
         android:layout_below="@+id/button0"
-        android:layout_toRightOf="@+id/question" />
+        android:layout_toRightOf="@+id/question"
+        android:textSize="15dp" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -182,10 +185,10 @@
         android:layout_height="wrap_content"
         android:id="@+id/button10"
         android:onClick="removeLast"
-        android:layout_alignTop="@+id/buttonDiv"
-        android:layout_toRightOf="@+id/buttonDiv"
-        android:layout_toEndOf="@+id/buttonDiv"
-        android:text="&lt;==" />
+        android:text="&lt;=="
+        android:layout_alignTop="@+id/button2"
+        android:layout_toRightOf="@+id/button2"
+        android:layout_toEndOf="@+id/button2" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -193,9 +196,30 @@
         android:layout_height="wrap_content"
         android:text="DNE"
         android:id="@+id/button_dne"
-        android:layout_alignTop="@+id/buttonNeg"
+        android:onClick="updateEverything"
+        android:layout_above="@+id/button3"
         android:layout_toLeftOf="@+id/buttonNeg"
-        android:layout_toStartOf="@+id/buttonNeg"
-        android:onClick="updateEverything"/>
+        android:layout_toStartOf="@+id/buttonNeg" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="\u03C0"
+        android:onClick="updateEverything"
+        android:layout_above="@+id/button2"
+        android:layout_toRightOf="@+id/buttonDiv"
+        android:layout_toEndOf="@+id/buttonDiv" />
+
+    <TextView
+        android:id="@+id/timerTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Timer"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>

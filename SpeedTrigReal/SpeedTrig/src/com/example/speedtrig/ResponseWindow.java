@@ -1,7 +1,10 @@
 package com.example.speedtrig;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
+import android.os.Looper;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -19,6 +22,10 @@ public class ResponseWindow extends Activity {
 	String questionVal;
     boolean finishCalled = false;
     boolean quizDone = false;
+
+    long quizDuration = 15000;
+    TextView timer;
+    CountDownTimer quizTimer;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +33,26 @@ public class ResponseWindow extends Activity {
 		setContentView(R.layout.activity_response_window);
 		question = (TextView) findViewById(R.id.question);
 		responseCopy = (TextView) findViewById(R.id.response);
+
+        timer = (TextView) findViewById(R.id.timerTextView);
+
+        quizTimer = new CountDownTimer(quizDuration, 10000) {
+
+            public void onTick(long millisUntilFinished) {
+
+                //if(millisUntilFinished <= 30000)
+                //timer.setTextColor(Color.RED);
+
+                timer.setText((millisUntilFinished / 60000) + ":" + (millisUntilFinished % 60000));
+            }
+
+            public void onFinish() {
+                stopQuiz();
+            }
+        };
+
+        quizTimer.start();
+
         if(MainMenu.isRegularTrig) {
             questionVal = getIntent().getStringExtra(RegularTrig.EXTRA_QUESTION);
             question.setText(questionVal);
@@ -215,6 +242,14 @@ public class ResponseWindow extends Activity {
         return endString;
     }
 
+    public void stopQuiz(){
+        Looper.prepare();// LogCat told me to put this here
+        //Toast.makeText(this, "You're finished!", Toast.LENGTH_LONG).show();
+        Intent i = new Intent(this, FinalWindow.class);
+        finish();
+        startActivity(i);
+    }
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 
@@ -257,6 +292,7 @@ public class ResponseWindow extends Activity {
             Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
         }
         finishCalled = true;
+        quizTimer.cancel();
         super.finish();
     }
 
