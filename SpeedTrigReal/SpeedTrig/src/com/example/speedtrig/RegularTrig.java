@@ -45,8 +45,10 @@ public class RegularTrig extends ListActivity {
         Log.d("msg", questionList+"");
         lv.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, questionList));
 		lv.setTextFilterEnabled(true);
-		if (entranceButtonClicked)
-			trigTimer.schedule(new EndTrigTimeRegular(this), 20000);	// 3 minutes starting now!
+		if (entranceButtonClicked) {
+            trigTimer.schedule(new EndTrigTimeRegular(this), 20000);    // 3 minutes starting now!
+            ResponseWindow.newQuizStarted = true;
+        }
 		entranceButtonClicked = false;
 
         // start on first question

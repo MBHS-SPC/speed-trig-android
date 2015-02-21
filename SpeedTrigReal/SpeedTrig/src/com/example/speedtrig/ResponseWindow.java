@@ -56,7 +56,8 @@ public class ResponseWindow extends Activity {
             newQuizStarted = false;
         }
 
-        quizTimeRemaining = timerValue.getLong("quizTimeRemaining", quizDuration + 100);
+        quizTimeRemaining = timerValue.getLong("quizTimeRemaining", quizDuration);
+        quizTimeRemaining += 100;
 
         timer = (TextView) findViewById(R.id.timerTextView);
 
