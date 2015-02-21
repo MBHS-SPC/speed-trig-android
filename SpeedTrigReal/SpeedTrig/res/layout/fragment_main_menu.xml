@@ -11,59 +11,69 @@
     tools:context="com.example.speedtrig.MainMenu$PlaceholderFragment" >
 
 
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="63dp"
-        android:text="@string/title"
-        android:textColor="@android:color/holo_green_dark"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="By MBHS SPC"
-        android:id="@+id/textView2"
-        android:layout_below="@+id/textView1"
-        android:layout_centerHorizontal="true"
-        android:textColor="@android:color/holo_green_dark"
-        android:textAppearance="?android:attr/textAppearanceLarge"/>
-
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="63dp"
-        android:layout_marginLeft="5dp"
-        android:onClick="startRegular"
-        android:textColor="@android:color/holo_green_dark"
-        android:text="@string/option1" />
+        android:layout_alignParentStart="true">
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="63dp"
-        android:layout_marginRight="5dp"
-        android:textColor="@android:color/holo_green_dark"
-        android:onClick="startInverse"
-        android:text="@string/option2" />
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:onClick="startRegular"
+            android:textColor="@android:color/holo_green_dark"
+            android:text="Regular Quiz"
+            android:layout_above="@+id/button2"
+            android:layout_centerHorizontal="true" />
 
-    <Button
-        android:id="@+id/settings"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@android:color/holo_green_dark"
-        android:onClick="startSettings"
-        android:text="Settings"
-        android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/button2"
-        android:layout_alignEnd="@+id/button2" />
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:textColor="@android:color/holo_green_dark"
+            android:onClick="startInverse"
+            android:text="Inverse Quiz"
+            android:layout_above="@+id/settings"
+            android:layout_alignRight="@+id/button1"
+            android:layout_alignEnd="@+id/button1" />
+
+        <Button
+            android:id="@+id/settings"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/holo_green_dark"
+            android:onClick="startSettings"
+            android:text="Settings"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="37dp" />
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/holo_green_dark"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="40dp"
+            android:background="@drawable/logo_version_four"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="43dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView2"
+            android:textColor="@android:color/holo_green_dark"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textStyle="italic"
+            android:layout_below="@+id/textView1"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/mbhsspc_version_two" />
+
+    </RelativeLayout>
+
 </RelativeLayout>
