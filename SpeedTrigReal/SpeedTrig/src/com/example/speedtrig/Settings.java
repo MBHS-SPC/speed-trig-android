@@ -4,12 +4,15 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
+import android.widget.EditText;
 
 /**
  * Created by alia7_000 on 2/16/2015.
@@ -30,6 +33,9 @@ public class Settings extends PreferenceActivity {
     static boolean isArccotActive;
     static boolean isArctanActive;
 
+    static long quizDuration;
+    EditText quizTimeLimit;
+
     String[] functions = {"sin", "cos", "csc", "sec", "tan", "cot", "arcsin", "arccos", "arccsc", "arcsec", "arctan", "arccot"};
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +43,7 @@ public class Settings extends PreferenceActivity {
         setContentView(R.layout.activity_settings);
 
         SharedPreferences settings = getPreferences(MODE_PRIVATE);
+        SharedPreferences.Editor editor = settings.edit();
 
         updateFunctionStates();
 
@@ -64,6 +71,32 @@ public class Settings extends PreferenceActivity {
             else
                 functionCheckBoxes[i].setChecked(false);
         }
+
+        quizTimeLimit = (EditText) findViewById(R.id.editText);
+
+        quizDuration = settings.getLong("quizDuration", 180000);
+
+        quizTimeLimit.addTextChangedListener(new TextWatcher(){
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                updateQuizDuration();
+            }
+
+            public void afterTextChanged(Editable editable){
+
+            };
+
+            public void beforeTextChanged(CharSequence s, int start, int before, int count){
+
+            };
+
+        });
+
+        quizTimeLimit.setText("" + ResponseWindow.quizDuration / 60000);
+
+        //ResponseWindow.quizDuration = quizDuration;
     }
 
     public static boolean isFunctionActive(String operation){
@@ -116,6 +149,19 @@ public class Settings extends PreferenceActivity {
         isArcsecActive = settings.getBoolean("isArcsecActive", true);
         isArctanActive = settings.getBoolean("isArctanActive", true);
         isArccotActive = settings.getBoolean("isArccotActive", true);
+    }
+
+    private void updateQuizDuration(){
+
+        SharedPreferences settings = getPreferences(MODE_PRIVATE);
+        SharedPreferences.Editor editor = settings.edit();
+
+        if(!quizTimeLimit.getText().toString().equals(""))
+            editor.putLong("quizDuration", Long.parseLong(quizTimeLimit.getText().toString()));
+
+        editor.commit();
+
+        quizDuration = settings.getLong("quizDuration", 180000);
     }
 
     public void onCheckboxClicked(View view) {

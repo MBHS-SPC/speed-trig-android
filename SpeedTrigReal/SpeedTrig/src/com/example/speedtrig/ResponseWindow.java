@@ -2,6 +2,8 @@ package com.example.speedtrig;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Looper;
@@ -13,6 +15,10 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.concurrent.TimeUnit;
+
 public class ResponseWindow extends Activity {
 
     public static double incompetenceDiminisher = 0.0001;
@@ -23,9 +29,14 @@ public class ResponseWindow extends Activity {
     boolean finishCalled = false;
     boolean quizDone = false;
 
-    long quizDuration = 15000;
+    static boolean newQuizStarted = false;
+
+    static long quizDuration = 180000;
+    long quizTimeRemaining;
     TextView timer;
     CountDownTimer quizTimer;
+
+    public static final String timerValueStorage = "TIMER_VALUE_STORAGE";
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -34,20 +45,62 @@ public class ResponseWindow extends Activity {
 		question = (TextView) findViewById(R.id.question);
 		responseCopy = (TextView) findViewById(R.id.response);
 
+        SharedPreferences timerValue = getSharedPreferences(timerValueStorage, MODE_PRIVATE);
+        SharedPreferences.Editor editor = timerValue.edit();
+
+        if(newQuizStarted){
+            editor.putLong("quizTimeRemaining", quizDuration);
+
+            editor.commit();
+
+            newQuizStarted = false;
+        }
+
+        quizTimeRemaining = timerValue.getLong("quizTimeRemaining", quizDuration + 100);
+
         timer = (TextView) findViewById(R.id.timerTextView);
 
-        quizTimer = new CountDownTimer(quizDuration, 10000) {
+        quizTimer = new CountDownTimer(quizTimeRemaining, 1000) {
 
             public void onTick(long millisUntilFinished) {
 
-                //if(millisUntilFinished <= 30000)
-                //timer.setTextColor(Color.RED);
+                long formattedMillisUntilFinished = (((millisUntilFinished - (millisUntilFinished % 1000)) / 1000));
+                String formattedMillisUntilFinishedString;
 
-                timer.setText((millisUntilFinished / 60000) + ":" + (millisUntilFinished % 60000));
+                if((TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished)) >= 10)) {
+                    formattedMillisUntilFinishedString = String.format("%d:%d",
+                        TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished),
+                        TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished) -
+                        TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished))
+                    );
+                }
+                else{
+                    formattedMillisUntilFinishedString = String.format("%d:0%d",
+                        TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished),
+                        TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished) -
+                        TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished))
+                    );
+                }
+
+                if(formattedMillisUntilFinished <= 30)
+                    timer.setTextColor(Color.RED);
+
+                //timer.setText((millisUntilFinished / 60000) + ":" + (millisUntilFinished % 60000));
+                timer.setText(formattedMillisUntilFinishedString);
+
+                updateTimerValue(millisUntilFinished);
             }
 
             public void onFinish() {
-                stopQuiz();
+                timer.setText("Quiz Over");
+
+                new Timer().schedule(new TimerTask() {
+                    @Override
+                    public void run() {
+                        // this code will be executed after 5 seconds
+                        stopQuiz();
+                    }
+                }, 5000);
             }
         };
 
@@ -64,6 +117,17 @@ public class ResponseWindow extends Activity {
             responseCopy.setText(getIntent().getStringExtra(InverseTrig.EXTRA_RESPONSE));
         }
 	}
+
+    public void updateTimerValue(long millisUntilFinished){
+
+        SharedPreferences timerValue = getSharedPreferences(timerValueStorage, MODE_PRIVATE);
+        SharedPreferences.Editor editor = timerValue.edit();
+
+        editor.putLong("quizTimeRemaining", millisUntilFinished);
+
+        editor.commit();
+
+    }
 
     public void removeLast(View v){
         CharSequence text = responseCopy.getText();

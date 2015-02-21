@@ -14,5 +14,6 @@
     <string name="title_activity_tester">Tester</string>
     <string name="title_activity_trying">Trying</string>
     <string name="title_activity_final_window">FinalWindow</string>
+    <string name="timer">ResponseWindow</string>
 
 </resources>

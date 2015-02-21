@@ -216,10 +216,13 @@
         android:id="@+id/timerTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Timer"
+        android:text="@string/timer"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:textSize="34dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp" />
 
 </RelativeLayout>

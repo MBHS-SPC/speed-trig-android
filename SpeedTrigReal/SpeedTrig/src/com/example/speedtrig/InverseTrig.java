@@ -61,6 +61,8 @@ public class InverseTrig extends ListActivity {
             //trigTimer.schedule(new EndTrigTimeInverse(this), 20000);	// 3 minutes starting now!
             //quizTimer.start();
 
+        ResponseWindow.newQuizStarted = true;
+
         entranceButtonClicked = false;
 	}
 
