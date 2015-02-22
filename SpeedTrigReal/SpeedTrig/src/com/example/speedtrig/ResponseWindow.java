@@ -138,6 +138,39 @@ public class ResponseWindow extends Activity {
         responseCopy.append(textToAppend);
     }
 
+    public void openNextQuestion(View v) {
+        String response = responseCopy.getText().toString().trim();
+        String correct = getCorrectValue(questionVal.substring(questionVal.indexOf('.') + 2)).trim();
+        boolean isCorrect = response.equals(correct);
+        String text = "incorrect";
+        if (isCorrect) text = "correct";
+
+        int questionIndex = Integer.parseInt(questionVal.substring(0, questionVal.indexOf('.')))-1;
+
+        if(MainMenu.isRegularTrig) {
+            // if it's the last question, don't let them go further
+            if (questionIndex == RegularTrig.questionList.length-1)
+                Toast.makeText(this, "This is the last question", Toast.LENGTH_SHORT).show();
+            else {
+                questionVal = RegularTrig.questionList[questionIndex + 1];
+                question.setText(questionVal);
+                responseCopy.setText(RegularTrig.responses.get(questionVal));
+            }
+        }
+        else {
+            // if it's the last question, don't let them go further
+            if (questionIndex == InverseTrig.questionList.length-1)
+                Toast.makeText(this, "This is the last question", Toast.LENGTH_SHORT).show();
+            else {
+                questionVal = InverseTrig.questionList[questionIndex + 1];
+                question.setText(questionVal);
+                responseCopy.setText(InverseTrig.responses.get(questionVal));
+            }
+        }
+
+        Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
+    }
+
     public String flipFraction(String frac){
         String flipped = "";
 
@@ -318,6 +351,7 @@ public class ResponseWindow extends Activity {
     @Override
     public void finish(){
         if (!finishCalled && !quizDone) {
+            Looper.prepare();
             String response = responseCopy.getText().toString().trim();
             String correct = getCorrectValue(questionVal.substring(questionVal.indexOf('.') + 2)).trim();
             boolean isCorrect = response.equals(correct);
