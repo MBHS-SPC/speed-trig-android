@@ -73,7 +73,7 @@ public class Settings extends PreferenceActivity {
 
         quizTimeLimit = (EditText) findViewById(R.id.editText);
 
-        quizDuration = settings.getLong("quizDuration", 180100);
+        quizDuration = settings.getLong("quizDuration", 180000);
 
         quizTimeLimit.addTextChangedListener(new TextWatcher(){
 
@@ -160,7 +160,7 @@ public class Settings extends PreferenceActivity {
 
         editor.apply();
 
-        quizDuration = settings.getLong("quizDuration", 180100);
+        quizDuration = settings.getLong("quizDuration", 180000);
     }
 
     public void onCheckboxClicked(View view) {
