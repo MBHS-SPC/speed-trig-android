@@ -31,7 +31,7 @@ public class ResponseWindow extends Activity {
 
     static boolean newQuizStarted = false;
 
-    static long quizDuration;
+    static long quizDuration = 180000;
     long quizTimeRemaining;
     TextView timer;
     CountDownTimer quizTimer;
@@ -357,7 +357,7 @@ public class ResponseWindow extends Activity {
             boolean isCorrect = response.equals(correct);
             String text = "incorrect";
             if (isCorrect) text = "correct";
-            Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
             quizTimer.cancel();
             Intent i = new Intent();
             i.putExtra(RegularTrig.EXTRA_TIME, quizTimeRemaining);
