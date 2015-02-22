@@ -14,9 +14,10 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:text="Question    Response    Answer"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textSize="25dp" />
     
     <TextView
         android:id="@+id/entry1"
@@ -130,9 +131,9 @@
         android:id="@+id/mainMenuButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
         android:text="Main Menu"
-        android:onClick="destroyActivity" />
+        android:onClick="destroyActivity"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
     
 </RelativeLayout>

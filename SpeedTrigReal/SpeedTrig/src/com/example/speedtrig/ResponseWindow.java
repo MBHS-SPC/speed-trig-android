@@ -44,6 +44,7 @@ public class ResponseWindow extends Activity {
 		responseCopy = (TextView) findViewById(R.id.response);
 
         quizTimeRemaining = getIntent().getLongExtra(RegularTrig.EXTRA_TIME, Settings.quizDuration);
+        quizTimeRemaining += 100;
         Log.d("time2debug", "sub received"+quizTimeRemaining);
 
         timer = (TextView) findViewById(R.id.timerTextView);
