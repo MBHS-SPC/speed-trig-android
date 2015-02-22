@@ -5,7 +5,6 @@ import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.os.Looper;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -14,10 +13,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import java.util.Hashtable;
-import java.util.TimerTask;
 
 public class RegularTrig extends ListActivity {
 	
@@ -30,7 +27,6 @@ public class RegularTrig extends ListActivity {
     public long millisRemaining;
 	public CountDownTimer trigTimer;
 	public static boolean entranceButtonClicked;
-    public boolean responseWindowOpen;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +66,7 @@ public class RegularTrig extends ListActivity {
             millisRemaining = Settings.quizDuration;
             ResponseWindow.newQuizStarted = true;
         }
+
 		entranceButtonClicked = false;
 
         // start on first question
@@ -255,21 +252,6 @@ public class RegularTrig extends ListActivity {
 					container, false);
 			return rootView;
 		}
-	}
-
-}
-
-class EndTrigTimeRegular extends TimerTask {
-
-	RegularTrig activity;
-
-	public EndTrigTimeRegular(RegularTrig rt){
-		activity = rt;		// LogCat told me to put this here
-	}
-
-	@Override
-	public void run() {
-
 	}
 
 }

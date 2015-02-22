@@ -66,10 +66,24 @@
       <file leaf-file-name="ResponseWindow.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SpeedTrig/src/com/example/speedtrig/ResponseWindow.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="4403" max-vertical-offset="6307">
-              <caret line="349" column="0" selection-start-line="349" selection-start-column="0" selection-end-line="349" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="5165" max-vertical-offset="6052">
+              <caret line="338" column="0" selection-start-line="338" selection-start-column="0" selection-end-line="338" selection-end-column="0" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#13129#13130#0" expanded="true" />
+                <element signature="e#13153#13154#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="InverseTrig.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/SpeedTrig/src/com/example/speedtrig/InverseTrig.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5406">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <element signature="e#2201#2202#0" expanded="true" />
+                <element signature="e#2251#2252#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -78,18 +92,18 @@
       <file leaf-file-name="RegularTrig.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SpeedTrig/src/com/example/speedtrig/RegularTrig.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="3587" max-vertical-offset="4369">
-              <caret line="228" column="5" selection-start-line="228" selection-start-column="5" selection-end-line="228" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="476" max-vertical-offset="4148">
+              <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="activity_response_window.xml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="activity_response_window.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SpeedTrig/res/layout/activity_response_window.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4821192" vertical-offset="3410" max-vertical-offset="4182">
-              <caret line="222" column="45" selection-start-line="222" selection-start-column="45" selection-end-line="222" selection-end-column="45" />
+            <state vertical-scroll-proportion="-5.5555553" vertical-offset="2825" max-vertical-offset="4182">
+              <caret line="175" column="26" selection-start-line="175" selection-start-column="26" selection-end-line="175" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -108,6 +122,16 @@
           </provider>
           <provider editor-type-id="android-designer">
             <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Settings.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SpeedTrig/src/com/example/speedtrig/Settings.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5814">
+              <caret line="296" column="52" selection-start-line="296" selection-start-column="52" selection-end-line="296" selection-end-column="52" />
+              <folding />
+            </state>
           </provider>
         </entry>
       </file>
@@ -134,16 +158,16 @@
         <option value="$PROJECT_DIR$/SpeedTrig/src/com/example/speedtrig/Timer.java" />
         <option value="$PROJECT_DIR$/SpeedTrig/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/SpeedTrig/gen/com/example/speedtrig/R.java" />
-        <option value="$PROJECT_DIR$/SpeedTrig/src/com/example/speedtrig/InverseTrig.java" />
         <option value="$PROJECT_DIR$/SpeedTrig/res/layout/fragment_main_menu.xml" />
         <option value="$PROJECT_DIR$/SpeedTrig/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/SpeedTrig/res/layout/activity_settings.xml" />
         <option value="$PROJECT_DIR$/SpeedTrig/src/com/example/speedtrig/Settings.java" />
         <option value="$PROJECT_DIR$/SpeedTrig/src/com/example/speedtrig/MainMenu.java" />
         <option value="$PROJECT_DIR$/SpeedTrig/res/layout/activity_regular_trig.xml" />
+        <option value="$PROJECT_DIR$/SpeedTrig/res/layout/activity_response_window.xml" />
         <option value="$PROJECT_DIR$/SpeedTrig/src/com/example/speedtrig/ResponseWindow.java" />
         <option value="$PROJECT_DIR$/SpeedTrig/src/com/example/speedtrig/RegularTrig.java" />
-        <option value="$PROJECT_DIR$/SpeedTrig/res/layout/activity_response_window.xml" />
+        <option value="$PROJECT_DIR$/SpeedTrig/src/com/example/speedtrig/InverseTrig.java" />
       </list>
     </option>
   </component>
@@ -198,7 +222,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="AndroidView">
         <subPane>
@@ -274,28 +297,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="speedtrig" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SpeedTrigReal" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SpeedTrig" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="speedtrig" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="RegularTrig.java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -472,6 +473,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -707,7 +709,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32666665" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298351" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.09899889" sideWeight="0.5618337" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18131258" sideWeight="0.5618337" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24525547" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17697228" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -851,7 +853,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="714" max-vertical-offset="1224">
           <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#13129#13130#0" expanded="true" />
+            <element signature="e#13153#13154#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1129,25 +1132,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SpeedTrig/src/com/example/speedtrig/InverseTrig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7741935" vertical-offset="272" max-vertical-offset="4743">
-          <caret line="63" column="10" selection-start-line="63" selection-start-column="8" selection-end-line="63" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SpeedTrig/src/com/example/speedtrig/MainMenu.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="816" max-vertical-offset="1904">
           <caret line="73" column="8" selection-start-line="73" selection-start-column="8" selection-end-line="73" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SpeedTrig/src/com/example/speedtrig/Settings.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2754" max-vertical-offset="6018">
-          <caret line="162" column="62" selection-start-line="162" selection-start-column="62" selection-end-line="162" selection-end-column="62" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1175,20 +1163,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/SpeedTrig/src/com/example/speedtrig/ResponseWindow.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="4403" max-vertical-offset="6307">
-          <caret line="349" column="0" selection-start-line="349" selection-start-column="0" selection-end-line="349" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="5165" max-vertical-offset="6052">
+          <caret line="338" column="0" selection-start-line="338" selection-start-column="0" selection-end-line="338" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#13129#13130#0" expanded="true" />
+            <element signature="e#13153#13154#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SpeedTrig/src/com/example/speedtrig/RegularTrig.java">
+    <entry file="file://$PROJECT_DIR$/SpeedTrig/src/com/example/speedtrig/Settings.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3587" max-vertical-offset="4369">
-          <caret line="228" column="5" selection-start-line="228" selection-start-column="5" selection-end-line="228" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5814">
+          <caret line="296" column="52" selection-start-line="296" selection-start-column="52" selection-end-line="296" selection-end-column="52" />
           <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SpeedTrig/res/layout/activity_response_window.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.5555553" vertical-offset="2825" max-vertical-offset="4182">
+          <caret line="175" column="26" selection-start-line="175" selection-start-column="26" selection-end-line="175" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/SpeedTrig/res/layout/activity_settings.xml">
@@ -1202,15 +1202,23 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SpeedTrig/res/layout/activity_response_window.xml">
+    <entry file="file://$PROJECT_DIR$/SpeedTrig/src/com/example/speedtrig/RegularTrig.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4821192" vertical-offset="3410" max-vertical-offset="4182">
-          <caret line="222" column="45" selection-start-line="222" selection-start-column="45" selection-end-line="222" selection-end-column="45" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="476" max-vertical-offset="4148">
+          <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
           <folding />
         </state>
       </provider>
-      <provider editor-type-id="android-designer">
-        <state />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SpeedTrig/src/com/example/speedtrig/InverseTrig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5406">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#2201#2202#0" expanded="true" />
+            <element signature="e#2251#2252#0" expanded="true" />
+          </folding>
+        </state>
       </provider>
     </entry>
   </component>

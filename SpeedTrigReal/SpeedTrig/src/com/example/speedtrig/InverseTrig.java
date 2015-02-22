@@ -3,10 +3,8 @@ package com.example.speedtrig;
 import android.app.Fragment;
 import android.app.ListActivity;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.os.Looper;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -15,14 +13,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import java.text.SimpleDateFormat;
 import java.util.Hashtable;
-import java.util.Timer;
-import java.util.TimerTask;
-
 import java.util.Random;
 
 /**
@@ -34,8 +26,11 @@ public class InverseTrig extends ListActivity {
     public static String[] questionList;
     public static final String EXTRA_QUESTION = "edu.mbhs.speedtrig.QUESTION";
     public static final String EXTRA_RESPONSE = "edu.mbhs.speedtrig.RESPONSE";
+    public static final String EXTRA_TIME = "edu.mbhs.speedtrig.TIME";
+    public static final int TIME_REQUEST = 1;
     public static Hashtable<String,String> responses = new Hashtable<String,String>();
-    //public Timer trigTimer = new Timer();
+    public long millisRemaining;
+    public CountDownTimer trigTimer;
     public static boolean entranceButtonClicked;
 
 	@Override
@@ -47,9 +42,12 @@ public class InverseTrig extends ListActivity {
 			getFragmentManager().beginTransaction()
 					.add(R.id.container, new PlaceholderFragment()).commit();
 		}
+
         Log.d("inverseTrig", "onCreate started");
+
         if (entranceButtonClicked)
             questionList = generateList();
+
         ListView lv = getListView();
         Log.d("msg", this+"");
         Log.d("msg", android.R.layout.simple_list_item_1+"");
@@ -57,13 +55,35 @@ public class InverseTrig extends ListActivity {
         lv.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, questionList));
         lv.setTextFilterEnabled(true);
 
-        if (entranceButtonClicked)
-            //trigTimer.schedule(new EndTrigTimeInverse(this), 20000);	// 3 minutes starting now!
-            //quizTimer.start();
+        if (entranceButtonClicked) {
+            trigTimer = new CountDownTimer(Settings.quizDuration, 1000) {
 
-        ResponseWindow.newQuizStarted = true;
+                @Override
+                public void onTick(long millisUntilFinished) {
+                    millisRemaining = millisUntilFinished;
+                }
+
+                @Override
+                public void onFinish() {
+                    stopQuiz();
+                }
+            };
+            trigTimer.start();
+            millisRemaining = Settings.quizDuration;
+            ResponseWindow.newQuizStarted = true;
+        }
 
         entranceButtonClicked = false;
+
+        // start on first question
+        Intent i = new Intent(this, ResponseWindow.class);
+        String question = questionList[0];
+        i.putExtra(EXTRA_QUESTION, question);
+        i.putExtra(EXTRA_TIME, millisRemaining);
+        trigTimer.cancel();
+        startActivityForResult(i, TIME_REQUEST);
+
+        Log.d("InverseTrig", "onCreate finished");
 	}
 
     public String getQuestion(){
@@ -221,16 +241,44 @@ public class InverseTrig extends ListActivity {
         Intent i = new Intent(this, ResponseWindow.class);
         // pass the question to the response window
         String question = questionList[position];
+
+        Log.d("time2debug", "main sent: " + millisRemaining);
+        i.putExtra("millis remaining", millisRemaining);
         i.putExtra(EXTRA_QUESTION, question);
         if (responses.get(question) != null)
             i.putExtra(EXTRA_RESPONSE, responses.get(question));
         else
             i.putExtra(EXTRA_RESPONSE, "");
-        startActivity(i);
+        i.putExtra(EXTRA_TIME, millisRemaining);
+        trigTimer.cancel();
+        startActivityForResult(i, TIME_REQUEST);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == TIME_REQUEST && resultCode == RESULT_OK) {
+            // it doesn't matter how the activity was ended
+            millisRemaining = data.getLongExtra(EXTRA_TIME, millisRemaining);
+            Log.d("time2debug", "main received: "+millisRemaining);
+            trigTimer = new CountDownTimer(millisRemaining, 1000) {
+                @Override
+                public void onTick(long millisUntilFinished) {
+                    millisRemaining = millisUntilFinished;
+                }
+
+                @Override
+                public void onFinish() {
+                    stopQuiz();
+                }
+            };
+
+            // start up the timer again
+            trigTimer.start();
+        }
     }
 
     public void stopQuiz(){
-        Looper.prepare();// LogCat told me to put this here
+        //Looper.prepare();
         //Toast.makeText(this, "You're finished!", Toast.LENGTH_LONG).show();
         Intent i = new Intent(this, FinalWindow.class);
         startActivity(i);
@@ -239,7 +287,7 @@ public class InverseTrig extends ListActivity {
 
     @Override
     public void finish(){
-        //quizTimer.cancel();
+        trigTimer.cancel();
         super.finish();
     }
 
@@ -280,18 +328,3 @@ public class InverseTrig extends ListActivity {
 		}
 	}
 }
-
-// EndTrigTimeInverse extends TimerTask {
-
-    //InverseTrig activity;
-
-    //public EndTrigTimeInverse(InverseTrig it){
-        //activity = it;		// LogCat told me to put this here
-    //}
-
-    //@Override
-    //public void run() {
-        //activity.stopQuiz();
-    //}
-
-//}

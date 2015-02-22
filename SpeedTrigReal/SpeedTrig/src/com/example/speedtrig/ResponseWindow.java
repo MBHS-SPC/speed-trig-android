@@ -351,7 +351,7 @@ public class ResponseWindow extends Activity {
     @Override
     public void finish(){
         if (!finishCalled && !quizDone) {
-            Looper.prepare();
+            // Looper.prepare();
             String response = responseCopy.getText().toString().trim();
             String correct = getCorrectValue(questionVal.substring(questionVal.indexOf('.') + 2)).trim();
             boolean isCorrect = response.equals(correct);
