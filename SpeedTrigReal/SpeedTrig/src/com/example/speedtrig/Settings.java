@@ -43,7 +43,6 @@ public class Settings extends PreferenceActivity {
         setContentView(R.layout.activity_settings);
 
         SharedPreferences settings = getPreferences(MODE_PRIVATE);
-        SharedPreferences.Editor editor = settings.edit();
 
         updateFunctionStates();
 
@@ -86,11 +85,11 @@ public class Settings extends PreferenceActivity {
 
             public void afterTextChanged(Editable editable){
 
-            };
+            }
 
             public void beforeTextChanged(CharSequence s, int start, int before, int count){
 
-            };
+            }
 
         });
 
@@ -159,7 +158,7 @@ public class Settings extends PreferenceActivity {
         if(!quizTimeLimit.getText().toString().equals(""))
             editor.putLong("quizDuration", Long.parseLong(quizTimeLimit.getText().toString()));
 
-        editor.commit();
+        editor.apply();
 
         quizDuration = settings.getLong("quizDuration", 180000);
     }
@@ -260,7 +259,7 @@ public class Settings extends PreferenceActivity {
                 break;
         }
 
-        editor.commit();
+        editor.apply();
 
         updateFunctionStates();
     }
@@ -305,7 +304,7 @@ public class Settings extends PreferenceActivity {
                 functionCheckBoxes[i].setChecked(true);
         }
 
-        editor.commit();
+        editor.apply();
 
         updateFunctionStates();
     }

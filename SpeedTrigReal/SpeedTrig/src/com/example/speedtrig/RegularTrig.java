@@ -131,6 +131,7 @@ public class RegularTrig extends ListActivity {
             String question = getQuestion();
             while(!Settings.isFunctionActive(question.substring(0, question.indexOf("(")))){
                 question = getQuestion();
+                Log.d("infinite", "loop");
             }
 
 			questions[i] = i+1 + ". " + question;

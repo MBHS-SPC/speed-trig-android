@@ -3,6 +3,7 @@ package com.example.speedtrig;
 import android.app.Activity;
 import android.app.Fragment;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -23,6 +24,7 @@ public class MainMenu extends Activity {
 			getFragmentManager().beginTransaction()
 					.add(R.id.container, new PlaceholderFragment()).commit();
 		}
+        updateFunctionStates();
 	}
 
 	@Override
@@ -43,6 +45,25 @@ public class MainMenu extends Activity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
+
+    private void updateFunctionStates(){
+
+        SharedPreferences settings = getPreferences(MODE_PRIVATE);
+
+        Settings.isSinActive = settings.getBoolean("isSinActive", true);
+        Settings.isCosActive = settings.getBoolean("isCosActive", true);
+        Settings.isCscActive = settings.getBoolean("isCscActive", true);
+        Settings.isSecActive = settings.getBoolean("isSecActive", true);
+        Settings.isTanActive = settings.getBoolean("isTanActive", true);
+        Settings.isCotActive = settings.getBoolean("isCotActive", true);
+
+        Settings.isArcsinActive = settings.getBoolean("isArcsinActive", true);
+        Settings.isArccosActive = settings.getBoolean("isArccosActive", true);
+        Settings.isArccscActive = settings.getBoolean("isArccscActive", true);
+        Settings.isArcsecActive = settings.getBoolean("isArcsecActive", true);
+        Settings.isArctanActive = settings.getBoolean("isArctanActive", true);
+        Settings.isArccotActive = settings.getBoolean("isArccotActive", true);
+    }
 	
 	public void startRegular(View v){
 		//Toast.makeText(this, "Ready!", Toast.LENGTH_SHORT).show();
