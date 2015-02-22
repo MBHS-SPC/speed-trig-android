@@ -174,10 +174,11 @@
         android:layout_height="wrap_content"
         android:text="Back To List"
         android:onClick="submitData"
-        android:layout_toEndOf="@+id/question"
-        android:layout_below="@+id/button0"
-        android:layout_toRightOf="@+id/question"
-        android:textSize="15dp" />
+        android:textSize="21dp"
+        android:layout_alignTop="@+id/timerTextView"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:gravity="center_vertical" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -224,5 +225,16 @@
         android:textSize="34dp"
         android:layout_marginTop="5dp"
         android:layout_marginLeft="5dp" />
+
+    <Button
+        android:id="@+id/button11"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:text="Next"
+        android:onClick="openNextQuestion"
+        android:textSize="27dp"
+        android:layout_alignTop="@+id/auxiliary"
+        android:layout_alignRight="@+id/button_submit"
+        android:layout_alignEnd="@+id/button_submit" />
 
 </RelativeLayout>

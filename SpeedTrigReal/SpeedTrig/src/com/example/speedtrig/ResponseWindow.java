@@ -31,7 +31,7 @@ public class ResponseWindow extends Activity {
 
     static boolean newQuizStarted = false;
 
-    static long quizDuration = 180000;
+    static long quizDuration;
     long quizTimeRemaining;
     TextView timer;
     CountDownTimer quizTimer;

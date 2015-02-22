@@ -70,7 +70,8 @@ public class MainMenu extends Activity {
 
         SharedPreferences settings = getPreferences(MODE_PRIVATE);
 
-        Settings.quizDuration = settings.getLong("quizDuration", 180000);
+        Settings.quizDuration = settings.getLong("quizDuration", 180100);
+        Settings.quizDuration += 100;
     }
 	
 	public void startRegular(View v){

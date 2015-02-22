@@ -31,6 +31,7 @@ public class RegularTrig extends ListActivity {
 	public CountDownTimer trigTimer;
 	public static boolean entranceButtonClicked;
     public boolean responseWindowOpen;
+    public static int questionCounter;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -74,10 +75,12 @@ public class RegularTrig extends ListActivity {
 
         // start on first question
         Intent i = new Intent(this, ResponseWindow.class);
-        String question = questionList[0];
+        questionCounter = 0;
+        String question = questionList[questionCounter];
         i.putExtra(EXTRA_QUESTION, question);
         i.putExtra(EXTRA_TIME, millisRemaining);
         trigTimer.cancel();
+        questionCounter++;
         startActivityForResult(i, TIME_REQUEST);
 
         Log.d("RegularTrig", "onCreate finished");
@@ -207,7 +210,7 @@ public class RegularTrig extends ListActivity {
     }
 
 	public void stopQuiz(){
-        Looper.prepareMainLooper();
+        Looper.prepare();
 		Toast.makeText(this, "You're finished!", Toast.LENGTH_LONG).show();
 		Intent i = new Intent(this, FinalWindow.class);
 		startActivity(i);
