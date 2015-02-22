@@ -323,7 +323,7 @@ public class ResponseWindow extends Activity {
             boolean isCorrect = response.equals(correct);
             String text = "incorrect";
             if (isCorrect) text = "correct";
-            Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
             quizTimer.cancel();
             Intent i = new Intent();
             i.putExtra(RegularTrig.EXTRA_TIME, quizTimeRemaining);

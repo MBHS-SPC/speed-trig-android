@@ -207,8 +207,8 @@ public class RegularTrig extends ListActivity {
     }
 
 	public void stopQuiz(){
-        Looper.prepareMainLooper();
-		Toast.makeText(this, "You're finished!", Toast.LENGTH_LONG).show();
+        //Looper.prepareMainLooper();
+		//Toast.makeText(this, "You're finished!", Toast.LENGTH_LONG).show();
 		Intent i = new Intent(this, FinalWindow.class);
 		startActivity(i);
 		finish();
