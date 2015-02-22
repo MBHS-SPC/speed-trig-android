@@ -17,7 +17,7 @@
         android:layout_marginBottom="24dp"
         android:text="@string/hello_world"
         android:textAppearance="?android:attr/textAppearanceLarge" />
-    
+
     <TextView
         android:id="@+id/response"
         android:layout_width="wrap_content"
@@ -26,7 +26,7 @@
         android:layout_below="@+id/button0"
         android:layout_marginTop="17dp"
         android:text=" " />
-    
+
     <TextView
         android:id="@+id/auxiliary"
         android:layout_width="wrap_content"
@@ -37,7 +37,7 @@
         android:text="Your Answer: "
         android:textSize="15dp" />
 
-    <Button 
+    <Button
         android:id="@+id/buttonNeg"
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
@@ -55,8 +55,8 @@
         android:layout_above="@+id/button1"
         android:text="&#8730;"
         android:onClick="updateEverything" />
-    
-	<Button
+
+    <Button
         android:id="@+id/buttonDiv"
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
@@ -65,7 +65,7 @@
         android:layout_toRightOf="@+id/buttonRoot"
         android:text="/"
         android:onClick="updateEverything" />
-    
+
     <Button
         android:id="@+id/button1"
         style="?android:attr/buttonStyleSmall"
@@ -85,7 +85,7 @@
         android:layout_toRightOf="@+id/button1"
         android:text="2"
         android:onClick="updateEverything" />
-    
+
     <Button
         android:id="@+id/button3"
         style="?android:attr/buttonStyleSmall"
@@ -107,7 +107,7 @@
         android:layout_below="@+id/button1"
         android:text="4"
         android:onClick="updateEverything" />
-    
+
     <Button
         android:id="@+id/button5"
         style="?android:attr/buttonStyleSmall"
@@ -117,7 +117,7 @@
         android:layout_toRightOf="@+id/button4"
         android:text="5"
         android:onClick="updateEverything" />
-    
+
     <Button
         android:id="@+id/button6"
         style="?android:attr/buttonStyleSmall"
@@ -127,7 +127,7 @@
         android:layout_toLeftOf="@+id/button4"
         android:text="6"
         android:onClick="updateEverything" />
-    
+
     <Button
         android:id="@+id/button7"
         style="?android:attr/buttonStyleSmall"
@@ -137,7 +137,7 @@
         android:layout_below="@+id/button4"
         android:text="7"
         android:onClick="updateEverything" />
-    
+
     <Button
         android:id="@+id/button8"
         style="?android:attr/buttonStyleSmall"
@@ -147,7 +147,7 @@
         android:layout_toRightOf="@+id/button7"
         android:text="8"
         android:onClick="updateEverything" />
-    
+
     <Button
         android:id="@+id/button9"
         style="?android:attr/buttonStyleSmall"
@@ -157,7 +157,7 @@
         android:layout_toLeftOf="@+id/button7"
         android:text="9"
         android:onClick="updateEverything" />
-    
+
     <Button
         android:id="@+id/button0"
         style="?android:attr/buttonStyleSmall"
@@ -174,10 +174,11 @@
         android:layout_height="wrap_content"
         android:text="Back To List"
         android:onClick="submitData"
-        android:layout_toEndOf="@+id/question"
-        android:layout_below="@+id/button0"
-        android:layout_toRightOf="@+id/question"
-        android:textSize="15dp" />
+        android:textSize="21dp"
+        android:layout_alignTop="@+id/timerTextView"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:gravity="center_vertical" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -224,5 +225,16 @@
         android:textSize="34dp"
         android:layout_marginTop="5dp"
         android:layout_marginLeft="5dp" />
+
+    <Button
+        android:id="@+id/button11"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:text="Next"
+        android:onClick="openNextQuestion"
+        android:textSize="27dp"
+        android:layout_alignTop="@+id/auxiliary"
+        android:layout_alignRight="@+id/button_submit"
+        android:layout_alignEnd="@+id/button_submit" />
 
 </RelativeLayout>
