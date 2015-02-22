@@ -25,6 +25,7 @@ public class MainMenu extends Activity {
 					.add(R.id.container, new PlaceholderFragment()).commit();
 		}
         updateFunctionStates();
+        updateQuizDuration();
 	}
 
 	@Override
@@ -63,6 +64,13 @@ public class MainMenu extends Activity {
         Settings.isArcsecActive = settings.getBoolean("isArcsecActive", true);
         Settings.isArctanActive = settings.getBoolean("isArctanActive", true);
         Settings.isArccotActive = settings.getBoolean("isArccotActive", true);
+    }
+
+    private void updateQuizDuration(){
+
+        SharedPreferences settings = getPreferences(MODE_PRIVATE);
+
+        Settings.quizDuration = settings.getLong("quizDuration", 180000);
     }
 	
 	public void startRegular(View v){

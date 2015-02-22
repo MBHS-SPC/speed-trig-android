@@ -111,7 +111,7 @@
             android:id="@+id/editText"
             android:layout_gravity="center_horizontal|right"
             android:editable="true"
-            android:text="3"
+            android:text="1"
             android:textAlignment="center"
             android:layout_alignParentTop="true"
             android:layout_toRightOf="@+id/textView"

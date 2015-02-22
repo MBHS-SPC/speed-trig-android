@@ -35,8 +35,6 @@ public class ResponseWindow extends Activity {
     long quizTimeRemaining;
     TextView timer;
     CountDownTimer quizTimer;
-
-    public static final String timerValueStorage = "TIMER_VALUE_STORAGE";
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -45,25 +43,16 @@ public class ResponseWindow extends Activity {
 		question = (TextView) findViewById(R.id.question);
 		responseCopy = (TextView) findViewById(R.id.response);
 
-        SharedPreferences timerValue = getSharedPreferences(timerValueStorage, MODE_PRIVATE);
-        SharedPreferences.Editor editor = timerValue.edit();
-
-        if(newQuizStarted){
-            editor.putLong("quizTimeRemaining", quizDuration);
-
-            editor.commit();
-
-            newQuizStarted = false;
-        }
-
-        quizTimeRemaining = timerValue.getLong("quizTimeRemaining", quizDuration);
-        quizTimeRemaining += 100;
+        quizTimeRemaining = getIntent().getLongExtra(RegularTrig.EXTRA_TIME, Settings.quizDuration);
+        Log.d("time2debug", "sub received"+quizTimeRemaining);
 
         timer = (TextView) findViewById(R.id.timerTextView);
 
         quizTimer = new CountDownTimer(quizTimeRemaining, 1000) {
 
             public void onTick(long millisUntilFinished) {
+
+                quizTimeRemaining = millisUntilFinished;
 
                 long formattedMillisUntilFinished = (((millisUntilFinished - (millisUntilFinished % 1000)) / 1000));
                 String formattedMillisUntilFinishedString;
@@ -83,13 +72,12 @@ public class ResponseWindow extends Activity {
                     );
                 }
 
-                if(formattedMillisUntilFinished <= 30)
+                if(formattedMillisUntilFinished <= 30)   // 30 seconds left!
                     timer.setTextColor(Color.RED);
 
                 //timer.setText((millisUntilFinished / 60000) + ":" + (millisUntilFinished % 60000));
                 timer.setText(formattedMillisUntilFinishedString);
 
-                updateTimerValue(millisUntilFinished);
             }
 
             public void onFinish() {
@@ -99,7 +87,7 @@ public class ResponseWindow extends Activity {
                     @Override
                     public void run() {
                         // this code will be executed after 5 seconds
-                        stopQuiz();
+                        finish();
                     }
                 }, 5000);
             }
@@ -118,17 +106,6 @@ public class ResponseWindow extends Activity {
             responseCopy.setText(getIntent().getStringExtra(InverseTrig.EXTRA_RESPONSE));
         }
 	}
-
-    public void updateTimerValue(long millisUntilFinished){
-
-        SharedPreferences timerValue = getSharedPreferences(timerValueStorage, MODE_PRIVATE);
-        SharedPreferences.Editor editor = timerValue.edit();
-
-        editor.putLong("quizTimeRemaining", millisUntilFinished);
-
-        editor.commit();
-
-    }
 
     public void removeLast(View v){
         CharSequence text = responseCopy.getText();
@@ -179,7 +156,7 @@ public class ResponseWindow extends Activity {
         }
 
         if (flipped.charAt(0) == flipped.charAt(flipped.length()-1) && flipped.contains("/")){
-            // it's either going to be "3 root 3 over 3" or "2 over root 2"
+            // it's either going to be "2 root 3 over 3" or "2 over root 2"
             if (flipped.length() == 5) flipped = "\u221A3";
             else flipped = "\u221A2";
         }
@@ -307,14 +284,6 @@ public class ResponseWindow extends Activity {
         return endString;
     }
 
-    public void stopQuiz(){
-        Looper.prepare();// LogCat told me to put this here
-        //Toast.makeText(this, "You're finished!", Toast.LENGTH_LONG).show();
-        Intent i = new Intent(this, FinalWindow.class);
-        finish();
-        startActivity(i);
-    }
-
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 
@@ -355,9 +324,13 @@ public class ResponseWindow extends Activity {
             String text = "incorrect";
             if (isCorrect) text = "correct";
             Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
+            quizTimer.cancel();
+            Intent i = new Intent();
+            i.putExtra(RegularTrig.EXTRA_TIME, quizTimeRemaining);
+            setResult(RESULT_OK, i);
+            Log.d("time2debug", "sub sent: "+quizTimeRemaining);
         }
         finishCalled = true;
-        quizTimer.cancel();
         super.finish();
     }
 
