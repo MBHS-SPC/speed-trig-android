@@ -31,7 +31,6 @@ public class RegularTrig extends ListActivity {
 	public CountDownTimer trigTimer;
 	public static boolean entranceButtonClicked;
     public boolean responseWindowOpen;
-    public static int questionCounter;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -209,9 +208,6 @@ public class RegularTrig extends ListActivity {
 
 	public void stopQuiz(){
         //Looper.prepare();
-=======
-        //Looper.prepareMainLooper();
->>>>>>> origin/master
 		//Toast.makeText(this, "You're finished!", Toast.LENGTH_LONG).show();
 		Intent i = new Intent(this, FinalWindow.class);
 		startActivity(i);
