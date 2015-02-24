@@ -26,7 +26,8 @@
         android:layout_alignLeft="@+id/header"
         android:layout_below="@+id/header"
         android:layout_marginTop="20dp"
-        android:text="TextView" />
+        android:text="TextView"
+        android:textSize="15dp" />
 
     <TextView
         android:id="@+id/entry2"
@@ -35,7 +36,8 @@
         android:layout_alignLeft="@+id/entry1"
         android:layout_below="@+id/entry1"
         android:layout_marginTop="10dp"
-        android:text="TextView" />
+        android:text="TextView"
+        android:textSize="15dp" />
     
     <TextView
         android:id="@+id/entry3"
@@ -44,7 +46,8 @@
         android:layout_alignLeft="@+id/entry2"
         android:layout_below="@+id/entry2"
         android:layout_marginTop="10dp"
-        android:text="TextView" />
+        android:text="TextView"
+        android:textSize="15dp" />
     
     <TextView
         android:id="@+id/entry4"
@@ -53,7 +56,8 @@
         android:layout_alignLeft="@+id/entry3"
         android:layout_below="@+id/entry3"
         android:layout_marginTop="10dp"
-        android:text="TextView" />
+        android:text="TextView"
+        android:textSize="15dp" />
     
     <TextView
         android:id="@+id/entry5"
@@ -62,7 +66,8 @@
         android:layout_alignLeft="@+id/entry4"
         android:layout_below="@+id/entry4"
         android:layout_marginTop="10dp"
-        android:text="TextView" />
+        android:text="TextView"
+        android:textSize="15dp" />
     
     <TextView
         android:id="@+id/entry6"
@@ -71,7 +76,8 @@
         android:layout_alignLeft="@+id/entry5"
         android:layout_below="@+id/entry5"
         android:layout_marginTop="10dp"
-        android:text="TextView" />
+        android:text="TextView"
+        android:textSize="15dp" />
     
     <TextView
         android:id="@+id/entry7"
@@ -80,7 +86,8 @@
         android:layout_alignLeft="@+id/entry6"
         android:layout_below="@+id/entry6"
         android:layout_marginTop="10dp"
-        android:text="TextView" />
+        android:text="TextView"
+        android:textSize="15dp" />
     
     <TextView
         android:id="@+id/entry8"
@@ -89,7 +96,8 @@
         android:layout_alignLeft="@+id/entry7"
         android:layout_below="@+id/entry7"
         android:layout_marginTop="10dp"
-        android:text="TextView" />
+        android:text="TextView"
+        android:textSize="15dp" />
     
     <TextView
         android:id="@+id/entry9"
@@ -98,7 +106,8 @@
         android:layout_alignLeft="@+id/entry8"
         android:layout_below="@+id/entry8"
         android:layout_marginTop="10dp"
-        android:text="TextView" />
+        android:text="TextView"
+        android:textSize="15dp" />
     
     <TextView
         android:id="@+id/entry10"
@@ -107,7 +116,8 @@
         android:layout_alignLeft="@+id/entry9"
         android:layout_below="@+id/entry9"
         android:layout_marginTop="10dp"
-        android:text="TextView" />
+        android:text="TextView"
+        android:textSize="15dp" />
     
     <TextView
         android:id="@+id/entry11"
@@ -116,7 +126,8 @@
         android:layout_alignLeft="@+id/entry10"
         android:layout_below="@+id/entry10"
         android:layout_marginTop="10dp"
-        android:text="TextView" />
+        android:text="TextView"
+        android:textSize="15dp" />
     
     <TextView
         android:id="@+id/entry12"
@@ -125,7 +136,8 @@
         android:layout_alignLeft="@+id/entry11"
         android:layout_below="@+id/entry11"
         android:layout_marginTop="10dp"
-        android:text="TextView" />
+        android:text="TextView"
+        android:textSize="15dp" />
 
     <Button
         android:id="@+id/mainMenuButton"
