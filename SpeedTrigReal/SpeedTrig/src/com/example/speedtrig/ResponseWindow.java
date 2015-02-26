@@ -143,15 +143,15 @@ public class ResponseWindow extends Activity {
         String response = responseCopy.getText().toString().trim();
         String correct = getCorrectValue(questionVal.substring(questionVal.indexOf('.') + 2)).trim();
         boolean isCorrect = response.equals(correct);
-        String text = "incorrect";
-        if (isCorrect) text = "correct";
+        String text = "Incorrect!";
+        if (isCorrect) text = "Correct!";
 
         int questionIndex = Integer.parseInt(questionVal.substring(0, questionVal.indexOf('.')))-1;
 
         if(MainMenu.isRegularTrig) {
             // if it's the last question, don't let them go further
             if (questionIndex == RegularTrig.questionList.length-1)
-                Toast.makeText(this, "This is the last question", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "This is the last question.", Toast.LENGTH_SHORT).show();
             else {
                 questionVal = RegularTrig.questionList[questionIndex + 1];
                 question.setText(questionVal);
@@ -161,7 +161,7 @@ public class ResponseWindow extends Activity {
         else {
             // if it's the last question, don't let them go further
             if (questionIndex == InverseTrig.questionList.length-1)
-                Toast.makeText(this, "This is the last question", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "This is the last question.", Toast.LENGTH_SHORT).show();
             else {
                 questionVal = InverseTrig.questionList[questionIndex + 1];
                 question.setText(questionVal);
@@ -169,7 +169,41 @@ public class ResponseWindow extends Activity {
             }
         }
 
-        Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
+        if(!response.equals(""))
+            Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
+    }
+
+    public void openPreviousQuestion(View v) {
+        String response = responseCopy.getText().toString().trim();
+        //String correct = getCorrectValue(questionVal.substring(questionVal.indexOf('.') + 2)).trim();
+        //boolean isCorrect = response.equals(correct);
+        //String text = "Incorrect!";
+        //if (isCorrect) text = "Correct!";
+
+        int questionIndex = Integer.parseInt(questionVal.substring(0, questionVal.indexOf('.')))-1;
+
+        if(MainMenu.isRegularTrig) {
+            // if it's the first question, don't let them go further
+            if (questionIndex == 0)
+                Toast.makeText(this, "This is the last question.", Toast.LENGTH_SHORT).show();
+            else {
+                questionVal = RegularTrig.questionList[questionIndex - 1];
+                question.setText(questionVal);
+                responseCopy.setText(RegularTrig.responses.get(questionVal));
+            }
+        }
+        else {
+            // if it's the first question, don't let them go further
+            if (questionIndex == 0)
+                Toast.makeText(this, "This is the last question.", Toast.LENGTH_SHORT).show();
+            else {
+                questionVal = InverseTrig.questionList[questionIndex - 1];
+                question.setText(questionVal);
+                responseCopy.setText(InverseTrig.responses.get(questionVal));
+            }
+        }
+
+        //Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
     }
 
     public String flipFraction(String frac){
@@ -356,8 +390,8 @@ public class ResponseWindow extends Activity {
             String response = responseCopy.getText().toString().trim();
             String correct = getCorrectValue(questionVal.substring(questionVal.indexOf('.') + 2)).trim();
             boolean isCorrect = response.equals(correct);
-            String text = "incorrect";
-            if (isCorrect) text = "correct";
+            String text = "Incorrect!";
+            if (isCorrect) text = "Correct!";
             //Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
             quizTimer.cancel();
             Intent i = new Intent();

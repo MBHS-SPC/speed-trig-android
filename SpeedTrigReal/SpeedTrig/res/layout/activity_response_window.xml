@@ -12,30 +12,34 @@
         android:id="@+id/question"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/buttonRoot"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="24dp"
         android:text="@string/hello_world"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_below="@+id/button_submit"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="33dp" />
 
     <TextView
         android:id="@+id/response"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/button0"
-        android:layout_below="@+id/button0"
-        android:layout_marginTop="17dp"
-        android:text=" " />
+        android:text=" "
+        android:textSize="18dp"
+        android:layout_alignTop="@+id/auxiliary"
+        android:layout_alignBottom="@+id/auxiliary"
+        android:layout_toRightOf="@+id/auxiliary"
+        android:layout_toLeftOf="@+id/button_submit"
+        android:layout_toStartOf="@+id/button_submit" />
 
     <TextView
         android:id="@+id/auxiliary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/response"
-        android:layout_alignRight="@+id/button3"
-        android:layout_marginRight="28dp"
-        android:text="Your Answer: "
-        android:textSize="15dp" />
+        android:text="Your Answer:  "
+        android:textSize="18dp"
+        android:layout_below="@+id/question"
+        android:layout_toLeftOf="@+id/question"
+        android:layout_toStartOf="@+id/question"
+        android:layout_marginTop="25dp" />
 
     <Button
         android:id="@+id/buttonNeg"
@@ -173,12 +177,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Back To List"
-        android:onClick="submitData"
         android:textSize="21dp"
         android:layout_alignTop="@+id/timerTextView"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:gravity="center_vertical" />
+        android:gravity="center_vertical"
+        android:visibility="invisible" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -233,8 +237,20 @@
         android:text="Next"
         android:onClick="openNextQuestion"
         android:textSize="21dp"
-        android:layout_alignTop="@+id/auxiliary"
+        android:layout_alignParentBottom="true"
         android:layout_alignRight="@+id/button_submit"
         android:layout_alignEnd="@+id/button_submit" />
+
+    <Button
+        android:id="@+id/button12"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="Back"
+        android:onClick="openPreviousQuestion"
+        android:textSize="21dp"
+        android:layout_alignTop="@+id/button11"
+        android:layout_toLeftOf="@+id/button9"
+        android:layout_toStartOf="@+id/button9"
+        android:layout_alignParentStart="false" />
 
 </RelativeLayout>
