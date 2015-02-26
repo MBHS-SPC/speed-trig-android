@@ -43,7 +43,8 @@ public class ResponseWindow extends Activity {
 		question = (TextView) findViewById(R.id.question);
 		responseCopy = (TextView) findViewById(R.id.response);
 
-        quizTimeRemaining = getIntent().getLongExtra(RegularTrig.EXTRA_TIME, Settings.quizDuration);
+        //quizTimeRemaining = getIntent().getLongExtra(RegularTrig.EXTRA_TIME, Settings.quizDuration);
+        quizTimeRemaining = 180000;
         quizTimeRemaining += 100;
         Log.d("time2debug", "sub received"+quizTimeRemaining);
 
@@ -82,7 +83,7 @@ public class ResponseWindow extends Activity {
             }
 
             public void onFinish() {
-                timer.setText("Quiz Over");
+                timer.setText("Time's Up!");
 
                 new Timer().schedule(new TimerTask() {
                     @Override
@@ -185,7 +186,7 @@ public class ResponseWindow extends Activity {
         if(MainMenu.isRegularTrig) {
             // if it's the first question, don't let them go further
             if (questionIndex == 0)
-                Toast.makeText(this, "This is the last question.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "This is the first question.", Toast.LENGTH_SHORT).show();
             else {
                 questionVal = RegularTrig.questionList[questionIndex - 1];
                 question.setText(questionVal);
@@ -195,7 +196,7 @@ public class ResponseWindow extends Activity {
         else {
             // if it's the first question, don't let them go further
             if (questionIndex == 0)
-                Toast.makeText(this, "This is the last question.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "This is the first question.", Toast.LENGTH_SHORT).show();
             else {
                 questionVal = InverseTrig.questionList[questionIndex - 1];
                 question.setText(questionVal);

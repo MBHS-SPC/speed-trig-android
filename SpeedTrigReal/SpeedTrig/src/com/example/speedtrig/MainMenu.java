@@ -1,20 +1,27 @@
 package com.example.speedtrig;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Fragment;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.Toast;
 
 public class MainMenu extends Activity {
 
     public static boolean isRegularTrig = true;
+    public static final String PREFS_NAME = "MyPrefsFile1";
+    public CheckBox dontShowAgain;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +31,7 @@ public class MainMenu extends Activity {
 			getFragmentManager().beginTransaction()
 					.add(R.id.container, new PlaceholderFragment()).commit();
 		}
+
         updateFunctionStates();
         updateQuizDuration();
 	}
@@ -74,22 +82,175 @@ public class MainMenu extends Activity {
         Settings.quizDuration += 100;
     }
 	
-	public void startRegular(View v){
+	public void startRegularDialog(View v){
 		//Toast.makeText(this, "Ready!", Toast.LENGTH_SHORT).show();
 		//Toast.makeText(this, "Set!", Toast.LENGTH_SHORT).show();
 		//Toast.makeText(this, "Go!", Toast.LENGTH_SHORT).show();
-		RegularTrig.entranceButtonClicked = true;
-        isRegularTrig = true;
-		startActivity(new Intent(this, RegularTrig.class));
+
+        AlertDialog.Builder adb = new AlertDialog.Builder(this);
+        LayoutInflater adbInflater = LayoutInflater.from(this);
+        View eulaLayout = adbInflater.inflate(R.layout.checkbox, null);
+        dontShowAgain = (CheckBox) eulaLayout.findViewById(R.id.skip);
+        adb.setView(eulaLayout);
+        adb.setTitle("Instructions");
+        adb.setMessage("You are about to take a Regular Speed Trig quiz." +
+                       " You will have three minutes to compute twelve non-inverse trig functions. " +
+                       "\n\nControls:\n● Use the keypad to enter your answers." +
+                       "\n● Use the \"Back\" and \"Next\" buttons to scroll through questions.");
+        adb.setPositiveButton("Begin", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                String checkBoxResult = "NOT checked";
+                if (dontShowAgain.isChecked())
+                    checkBoxResult = "checked";
+                SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
+                SharedPreferences.Editor editor = settings.edit();
+                editor.putString("skipRegularInstructions", checkBoxResult);
+                // Commit the edits!
+                editor.commit();
+                startRegular();
+                return;
+            }
+        });
+
+        adb.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                String checkBoxResult = "NOT checked";
+                if (dontShowAgain.isChecked())
+                    checkBoxResult = "checked";
+                SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
+                SharedPreferences.Editor editor = settings.edit();
+                editor.putString("skipRegularInstructions", checkBoxResult);
+                // Commit the edits!
+                editor.commit();
+                return;
+            }
+        });
+        SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
+        String skipMessage = settings.getString("skipRegularInstructions", "NOT checked");
+        if (!skipMessage.equals("checked"))
+            adb.show();
 	}
 
-	public void startInverse(View v){
+    public void startRegular(){
+
+        RegularTrig.entranceButtonClicked = true;
+        isRegularTrig = true;
+        startActivity(new Intent(this, RegularTrig.class));
+    }
+
+    public void startInverseDialog(View v){
+        //Toast.makeText(this, "Ready!", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "Set!", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "Go!", Toast.LENGTH_SHORT).show();
+
+        AlertDialog.Builder adb = new AlertDialog.Builder(this);
+        LayoutInflater adbInflater = LayoutInflater.from(this);
+        View eulaLayout = adbInflater.inflate(R.layout.checkbox, null);
+        dontShowAgain = (CheckBox) eulaLayout.findViewById(R.id.skip);
+        adb.setView(eulaLayout);
+        adb.setTitle("Instructions");
+        adb.setMessage("You are about to take an Inverse Speed Trig quiz." +
+                " You will have three minutes to compute twelve trig functions (both inverse and non-inverse). " +
+                "\n\nControls:\n● Use the keypad to enter your answers." +
+                "\n● Use the \"Back\" and \"Next\" buttons to scroll through questions.");
+        adb.setPositiveButton("Begin", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                String checkBoxResult = "NOT checked";
+                if (dontShowAgain.isChecked())
+                    checkBoxResult = "checked";
+                SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
+                SharedPreferences.Editor editor = settings.edit();
+                editor.putString("skipInverseInstructions", checkBoxResult);
+                // Commit the edits!
+                editor.commit();
+                startInverse();
+                return;
+            }
+        });
+
+        adb.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                String checkBoxResult = "NOT checked";
+                if (dontShowAgain.isChecked())
+                    checkBoxResult = "checked";
+                SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
+                SharedPreferences.Editor editor = settings.edit();
+                editor.putString("skipInverseInstructions", checkBoxResult);
+                // Commit the edits!
+                editor.commit();
+                return;
+            }
+        });
+        SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
+        String skipMessage = settings.getString("skipInverseInstructions", "NOT checked");
+        if (!skipMessage.equals("checked"))
+            adb.show();
+    }
+
+	public void startInverse(){
 		//Toast.makeText(this, "Coming Soon!!!", Toast.LENGTH_SHORT).show();
 		//startActivity(new Intent(this, InverseTrig.class));
         InverseTrig.entranceButtonClicked = true;
         isRegularTrig = false;
         startActivity(new Intent(this, InverseTrig.class));
 	}
+
+    public void startCustomDialog(View v){
+        //Toast.makeText(this, "Ready!", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "Set!", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "Go!", Toast.LENGTH_SHORT).show();
+
+        AlertDialog.Builder adb = new AlertDialog.Builder(this);
+        LayoutInflater adbInflater = LayoutInflater.from(this);
+        View eulaLayout = adbInflater.inflate(R.layout.checkbox, null);
+        dontShowAgain = (CheckBox) eulaLayout.findViewById(R.id.skip);
+        adb.setView(eulaLayout);
+        adb.setTitle("Instructions");
+        adb.setMessage("You are about to take a Custom Speed Trig quiz." +
+                " The duration and active functions of a Custom quiz can be altered in the Settings Menu." +
+                "\n\nControls:\n● Use the keypad to enter your answers." +
+                "\n● Use the \"Back\" and \"Next\" buttons to scroll through questions.");
+        adb.setPositiveButton("Begin", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                String checkBoxResult = "NOT checked";
+                if (dontShowAgain.isChecked())
+                    checkBoxResult = "checked";
+                SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
+                SharedPreferences.Editor editor = settings.edit();
+                editor.putString("skipCustomInstructions", checkBoxResult);
+                // Commit the edits!
+                editor.commit();
+                startCustom();
+                return;
+            }
+        });
+
+        adb.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                String checkBoxResult = "NOT checked";
+                if (dontShowAgain.isChecked())
+                    checkBoxResult = "checked";
+                SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
+                SharedPreferences.Editor editor = settings.edit();
+                editor.putString("skipCustomInstructions", checkBoxResult);
+                // Commit the edits!
+                editor.commit();
+                return;
+            }
+        });
+        SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
+        String skipMessage = settings.getString("skipCustomInstructions", "NOT checked");
+        if (!skipMessage.equals("checked"))
+            adb.show();
+    }
+
+    public void startCustom(){
+        //Toast.makeText(this, "Coming Soon!!!", Toast.LENGTH_SHORT).show();
+        //startActivity(new Intent(this, InverseTrig.class));
+        InverseTrig.entranceButtonClicked = true;
+        isRegularTrig = false;
+        startActivity(new Intent(this, InverseTrig.class));
+    }
 
     public void startSettings(View v){
 
