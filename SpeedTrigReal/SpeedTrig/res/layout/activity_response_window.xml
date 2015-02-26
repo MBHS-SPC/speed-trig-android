@@ -26,9 +26,9 @@
         android:textSize="18dp"
         android:layout_alignTop="@+id/auxiliary"
         android:layout_alignBottom="@+id/auxiliary"
-        android:layout_toRightOf="@+id/auxiliary"
         android:layout_toLeftOf="@+id/button_submit"
-        android:layout_toStartOf="@+id/button_submit" />
+        android:layout_toRightOf="@+id/auxiliary"
+        android:layout_toEndOf="@+id/auxiliary" />
 
     <TextView
         android:id="@+id/auxiliary"
@@ -37,9 +37,9 @@
         android:text="Your Answer:  "
         android:textSize="18dp"
         android:layout_below="@+id/question"
-        android:layout_toLeftOf="@+id/question"
-        android:layout_toStartOf="@+id/question"
-        android:layout_marginTop="25dp" />
+        android:layout_toStartOf="@+id/buttonRoot"
+        android:layout_marginTop="25dp"
+        android:layout_toLeftOf="@+id/buttonRoot" />
 
     <Button
         android:id="@+id/buttonNeg"

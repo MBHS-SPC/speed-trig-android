@@ -96,6 +96,11 @@ public class MainMenu extends Activity {
         startActivity(new Intent(this, Settings.class));
     }
 
+    public void startAbout(View v){
+
+        startActivity(new Intent(this, About.class));
+    }
+
 	/**
 	 * A placeholder fragment containing a simple view.
 	 */

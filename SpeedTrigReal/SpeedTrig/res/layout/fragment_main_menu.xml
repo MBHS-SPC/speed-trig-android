@@ -22,24 +22,25 @@
             android:id="@+id/button1"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
             android:onClick="startRegular"
             android:textColor="@android:color/black"
             android:text="Regular Quiz"
-            android:layout_above="@+id/button2"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerVertical="true"
+            android:layout_alignLeft="@+id/settings"
+            android:layout_alignStart="@+id/settings"
+            android:layout_marginBottom="10dp" />
 
         <Button
             android:id="@+id/button2"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
             android:textColor="@android:color/black"
             android:onClick="startInverse"
             android:text="Inverse Quiz"
-            android:layout_above="@+id/settings"
-            android:layout_alignRight="@+id/button1"
-            android:layout_alignEnd="@+id/button1" />
+            android:layout_below="@+id/button1"
+            android:layout_alignLeft="@+id/button1"
+            android:layout_alignStart="@+id/button1"
+            android:layout_marginBottom="10dp" />
 
         <Button
             android:id="@+id/settings"
@@ -48,9 +49,9 @@
             android:textColor="@android:color/black"
             android:onClick="startSettings"
             android:text="Settings"
-            android:layout_alignParentBottom="true"
+            android:layout_below="@+id/button2"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="37dp" />
+            android:layout_marginBottom="10dp" />
 
         <TextView
             android:id="@+id/textView1"
@@ -73,6 +74,17 @@
             android:layout_below="@+id/textView1"
             android:layout_centerHorizontal="true"
             android:background="@drawable/mbhsspc_version_two" />
+
+        <Button
+            android:id="@+id/button13"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
+            android:onClick="startAbout"
+            android:text="About"
+            android:layout_below="@+id/settings"
+            android:layout_alignLeft="@+id/settings"
+            android:layout_alignStart="@+id/settings" />
 
     </RelativeLayout>
 
