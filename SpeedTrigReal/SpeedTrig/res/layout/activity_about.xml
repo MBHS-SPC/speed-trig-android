@@ -12,12 +12,11 @@
         android:id="@+id/header"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="20dp"
         android:text="About"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textSize="30dp" />
+        android:textSize="30dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:id="@+id/mainMenuButton"
@@ -41,8 +40,8 @@
             android:layout_alignLeft="@+id/header"
             android:layout_below="@+id/header"
             android:layout_marginTop="3dp"
-            android:text="     Speed Trig v1.0 is an application designed to help users improve their ability to compute basic trigonometric functions by practicing with digital quizzes on the unit circle. Speed Trig was inspired by the unit circle quizzes which are an integral part of the Pre-Calculus curriculum at MBHS."
-            android:textSize="19dp"
+            android:text="\tSpeed Trig v1.0 is an application designed to help users improve their ability to compute basic trigonometric functions by practicing with digital quizzes on the unit circle. Speed Trig was designed by the Montgomery Blair High School Smartphone Programming Club of 2014-2015 and inspired by the timed unit circle quizzes which are an integral part of the Pre-Calculus curriculum at MBHS."
+            android:textSize="18dp"
             android:textIsSelectable="false" />
 
         <TextView
@@ -54,7 +53,7 @@
             android:layout_marginTop="20dp"
             android:textSize="18dp"
             android:textIsSelectable="false"
-            android:text="[Credits Placeholder]" />
+            android:text="[Credits Placeholder]"/>
     </LinearLayout>
 
     <ListView

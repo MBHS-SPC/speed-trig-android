@@ -15,11 +15,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainMenu extends Activity {
 
     public static boolean isRegularTrig = true;
+    public static boolean isCustomTrig = false;
     public static final String PREFS_NAME = "MyPrefsFile1";
     public CheckBox dontShowAgain;
 	
@@ -92,12 +94,12 @@ public class MainMenu extends Activity {
         View eulaLayout = adbInflater.inflate(R.layout.checkbox, null);
         dontShowAgain = (CheckBox) eulaLayout.findViewById(R.id.skip);
         adb.setView(eulaLayout);
-        adb.setTitle("Instructions");
-        adb.setMessage("You are about to take a Regular Speed Trig quiz." +
-                       " You will have three minutes to compute twelve non-inverse trig functions. " +
-                       "\n\nControls:\n● Use the keypad to enter your answers." +
-                       "\n● Use the \"Back\" and \"Next\" buttons to scroll through questions.");
-        adb.setPositiveButton("Begin", new DialogInterface.OnClickListener() {
+        adb.setTitle("Regular Quiz");
+        adb.setMessage("You have chosen to take a Regular Speed Trig Quiz." +
+                " You will have three minutes to compute twelve non-inverse trig functions." +
+                "\n\nControls:\nUse \"Back\" and \"Next\" buttons to scroll through questions." +
+                " You can submit your quiz and receive results early with the \"Submit\" button located on the final question.");
+        adb.setPositiveButton("Start Quiz", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
                 String checkBoxResult = "NOT checked";
                 if (dontShowAgain.isChecked())
@@ -127,8 +129,9 @@ public class MainMenu extends Activity {
         });
         SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
         String skipMessage = settings.getString("skipRegularInstructions", "NOT checked");
-        if (!skipMessage.equals("checked"))
+        if (!skipMessage.equals("checked")) {
             adb.show();
+        }
         else
             startInverse();
 	}
@@ -150,12 +153,12 @@ public class MainMenu extends Activity {
         View eulaLayout = adbInflater.inflate(R.layout.checkbox, null);
         dontShowAgain = (CheckBox) eulaLayout.findViewById(R.id.skip);
         adb.setView(eulaLayout);
-        adb.setTitle("Instructions");
-        adb.setMessage("You are about to take an Inverse Speed Trig quiz." +
-                " You will have three minutes to compute twelve trig functions (both inverse and non-inverse). " +
-                "\n\nControls:\n● Use the keypad to enter your answers." +
-                "\n● Use the \"Back\" and \"Next\" buttons to scroll through questions.");
-        adb.setPositiveButton("Begin", new DialogInterface.OnClickListener() {
+        adb.setTitle("Inverse Quiz");
+        adb.setMessage("You have chosen to take an Inverse Speed Trig Quiz." +
+                " You will have three minutes to compute twelve trig functions (both inverse and non-inverse)." +
+                "\n\nControls:\nUse \"Back\" and \"Next\" buttons to navigate through questions." +
+                " You can submit your quiz and receive results early with the \"Submit\" button on the final question screen.");
+        adb.setPositiveButton("Start Quiz", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
                 String checkBoxResult = "NOT checked";
                 if (dontShowAgain.isChecked())
@@ -209,12 +212,12 @@ public class MainMenu extends Activity {
         View eulaLayout = adbInflater.inflate(R.layout.checkbox, null);
         dontShowAgain = (CheckBox) eulaLayout.findViewById(R.id.skip);
         adb.setView(eulaLayout);
-        adb.setTitle("Instructions");
-        adb.setMessage("You are about to take a Custom Speed Trig quiz." +
-                " The duration and active functions of a Custom quiz can be altered in the Settings Menu." +
-                "\n\nControls:\n● Use the keypad to enter your answers." +
-                "\n● Use the \"Back\" and \"Next\" buttons to scroll through questions.");
-        adb.setPositiveButton("Begin", new DialogInterface.OnClickListener() {
+        adb.setTitle("Custom Quiz");
+        adb.setMessage("You have chosen to take a Custom Speed Trig Quiz." +
+                " The duration and active functions of a Custom quiz can be altered in the Settings menu. By default, a Custom quiz is three minutes long and has both inverse and non-inverse functions." +
+                "\n\nControls:\nUse \"Back\" and \"Next\" buttons to scroll through questions." +
+                " You can submit your quiz and receive results early with the \"Submit\" button located on the final question.");
+        adb.setPositiveButton("Start Quiz", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
                 String checkBoxResult = "NOT checked";
                 if (dontShowAgain.isChecked())
@@ -253,9 +256,9 @@ public class MainMenu extends Activity {
     public void startCustom(){
         //Toast.makeText(this, "Coming Soon!!!", Toast.LENGTH_SHORT).show();
         //startActivity(new Intent(this, InverseTrig.class));
-        InverseTrig.entranceButtonClicked = true;
-        isRegularTrig = false;
-        startActivity(new Intent(this, InverseTrig.class));
+        CustomTrig.entranceButtonClicked = true;
+        isCustomTrig = true;
+        startActivity(new Intent(this, CustomTrig.class));
     }
 
     public void startSettings(View v){

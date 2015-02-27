@@ -160,13 +160,26 @@ public class ResponseWindow extends Activity {
             }
         }
         else {
-            // if it's the last question, don't let them go further
-            if (questionIndex == InverseTrig.questionList.length-1)
-                Toast.makeText(this, "This is the last question.", Toast.LENGTH_SHORT).show();
+
+            if(MainMenu.isCustomTrig){
+                // if it's the last question, don't let them go further
+                if (questionIndex == CustomTrig.questionList.length - 1)
+                    Toast.makeText(this, "This is the last question.", Toast.LENGTH_SHORT).show();
+                else {
+                    questionVal = CustomTrig.questionList[questionIndex + 1];
+                    question.setText(questionVal);
+                    responseCopy.setText(CustomTrig.responses.get(questionVal));
+                }
+            }
             else {
-                questionVal = InverseTrig.questionList[questionIndex + 1];
-                question.setText(questionVal);
-                responseCopy.setText(InverseTrig.responses.get(questionVal));
+                // if it's the last question, don't let them go further
+                if (questionIndex == InverseTrig.questionList.length - 1)
+                    Toast.makeText(this, "This is the last question.", Toast.LENGTH_SHORT).show();
+                else {
+                    questionVal = InverseTrig.questionList[questionIndex + 1];
+                    question.setText(questionVal);
+                    responseCopy.setText(InverseTrig.responses.get(questionVal));
+                }
             }
         }
 

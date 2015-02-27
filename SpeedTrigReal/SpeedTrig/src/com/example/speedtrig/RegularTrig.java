@@ -149,10 +149,6 @@ public class RegularTrig extends ListActivity {
         Log.d("generateList", "I totes initialized an array "+questions);
 		for (int i = 0; i <= 11; i++){
             String question = getQuestion();
-            while(!Settings.isFunctionActive(question.substring(0, question.indexOf("(")))){
-                question = getQuestion();
-                Log.d("infinite", "loop");
-            }
 
 			questions[i] = i+1 + ". " + question;
 		}
