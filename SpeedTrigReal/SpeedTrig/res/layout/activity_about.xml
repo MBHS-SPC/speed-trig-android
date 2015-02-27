@@ -40,9 +40,9 @@
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/header"
             android:layout_below="@+id/header"
-            android:layout_marginTop="10dp"
-            android:text="     Speed Trig is an application designed to help users improve their mental trigonometry skills. "
-            android:textSize="21dp"
+            android:layout_marginTop="3dp"
+            android:text="     Speed Trig v1.0 is an application designed to help users improve their ability to compute basic trigonometric functions by practicing with digital quizzes on the unit circle. Speed Trig was inspired by the unit circle quizzes which are an integral part of the Pre-Calculus curriculum at MBHS."
+            android:textSize="19dp"
             android:textIsSelectable="false" />
 
         <TextView
@@ -52,7 +52,7 @@
             android:layout_alignLeft="@+id/header"
             android:layout_below="@+id/header"
             android:layout_marginTop="20dp"
-            android:textSize="21dp"
+            android:textSize="18dp"
             android:textIsSelectable="false"
             android:text="[Credits Placeholder]" />
     </LinearLayout>
@@ -60,7 +60,8 @@
     <ListView
         android:id="@android:id/list"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/mainMenuButton">
     </ListView>
 
 </RelativeLayout>

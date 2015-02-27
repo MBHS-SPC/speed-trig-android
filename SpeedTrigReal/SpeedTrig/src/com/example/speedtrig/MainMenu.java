@@ -129,6 +129,8 @@ public class MainMenu extends Activity {
         String skipMessage = settings.getString("skipRegularInstructions", "NOT checked");
         if (!skipMessage.equals("checked"))
             adb.show();
+        else
+            startInverse();
 	}
 
     public void startRegular(){
@@ -185,6 +187,8 @@ public class MainMenu extends Activity {
         String skipMessage = settings.getString("skipInverseInstructions", "NOT checked");
         if (!skipMessage.equals("checked"))
             adb.show();
+        else
+            startInverse();
     }
 
 	public void startInverse(){
@@ -242,6 +246,8 @@ public class MainMenu extends Activity {
         String skipMessage = settings.getString("skipCustomInstructions", "NOT checked");
         if (!skipMessage.equals("checked"))
             adb.show();
+        else
+            startCustom();
     }
 
     public void startCustom(){
