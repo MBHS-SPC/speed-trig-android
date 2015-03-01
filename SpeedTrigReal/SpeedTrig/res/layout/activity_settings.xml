@@ -147,7 +147,7 @@
         android:id="@+id/reset"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@android:color/holo_green_dark"
+        android:textColor="@android:color/black"
         android:onClick="reset"
         android:text="Reset Functions"
         android:layout_alignParentBottom="true"
