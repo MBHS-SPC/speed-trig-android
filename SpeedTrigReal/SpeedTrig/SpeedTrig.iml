@@ -14,8 +14,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="android-support-v7-appcompat" level="project" />
-    <orderEntry type="library" name="android-support-v4" level="project" />
-    <orderEntry type="library" name="android-support-v4-f235f278d91a860e9c8faf7b4089d49d" level="project" />
   </component>
 </module>
 

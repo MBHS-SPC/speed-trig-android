@@ -6,7 +6,6 @@ import android.app.Fragment;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.res.TypedArray;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.Html;
@@ -19,15 +18,12 @@ import android.widget.CheckBox;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainMenu extends BaseActivity {
+public class MainMenu extends Activity {
 
     public static boolean isRegularTrig = true;
     public static boolean isCustomTrig = false;
     public static final String PREFS_NAME = "MyPrefsFile1";
     public CheckBox dontShowAgain;
-
-    private String[] navMenuTitles;
-    private TypedArray navMenuIcons;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -37,13 +33,6 @@ public class MainMenu extends BaseActivity {
 			getFragmentManager().beginTransaction()
 					.add(R.id.container, new PlaceholderFragment()).commit();
 		}
-
-        navMenuTitles = getResources().getStringArray(R.array.nav_drawer_items); // load titles from strings.xml
-
-        navMenuIcons = getResources()
-                .obtainTypedArray(R.array.nav_drawer_icons);//load icons from strings.xml
-
-        set(navMenuTitles,navMenuIcons);
 
         updateFunctionStates();
         updateQuizDuration();
