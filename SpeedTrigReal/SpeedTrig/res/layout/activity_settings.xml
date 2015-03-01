@@ -1,96 +1,147 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="vertical"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
+        android:layout_height="fill_parent"><![CDATA[
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/container"
         tools:context="com.example.speedtrig.Settings"
         tools:ignore="MergeRootFrame" >
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    ]]>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Custom Quiz Functions"
+        android:id="@+id/textView6"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:textSize="22dp"
+        android:layout_gravity="center" />
+
     <CheckBox android:id="@+id/checkbox_sin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="sin"
             android:onClick="onCheckboxClicked"
-            android:checked="true" />
+            android:checked="true"
+        android:layout_marginLeft="40dp" />
 
-        <CheckBox android:id="@+id/checkbox_cos"
+    <CheckBox android:id="@+id/checkbox_cos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="cos"
             android:onClick="onCheckboxClicked"
-            android:checked="true" />
+            android:checked="true"
+        android:layout_marginLeft="40dp" />
 
-        <CheckBox android:id="@+id/checkbox_csc"
+    <CheckBox android:id="@+id/checkbox_csc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="csc"
             android:onClick="onCheckboxClicked"
-            android:checked="true" />
+            android:checked="true"
+        android:layout_marginLeft="40dp" />
 
-        <CheckBox android:id="@+id/checkbox_sec"
+    <CheckBox android:id="@+id/checkbox_sec"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="sec"
             android:onClick="onCheckboxClicked"
-            android:checked="true" />
+            android:checked="true"
+        android:layout_marginLeft="40dp" />
 
-        <CheckBox android:id="@+id/checkbox_tan"
+    <CheckBox android:id="@+id/checkbox_tan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="tan"
             android:onClick="onCheckboxClicked"
-            android:checked="true" />
+            android:checked="true"
+        android:layout_marginLeft="40dp" />
 
-        <CheckBox android:id="@+id/checkbox_cot"
+    <CheckBox android:id="@+id/checkbox_cot"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="cot"
             android:onClick="onCheckboxClicked"
-            android:checked="true" />
-
-    <CheckBox android:id="@+id/checkbox_arcsin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="arcsin"
-        android:onClick="onCheckboxClicked"
-        android:checked="true" />
+            android:checked="true"
+        android:layout_marginLeft="40dp" />
 
     <CheckBox android:id="@+id/checkbox_arccos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="arccos"
         android:onClick="onCheckboxClicked"
-        android:checked="true" />
+        android:checked="true"
+        android:layout_marginLeft="40dp" />
+
+    <CheckBox android:id="@+id/checkbox_arcsin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="arcsin"
+        android:onClick="onCheckboxClicked"
+        android:checked="true"
+        android:layout_marginLeft="40dp" />
 
     <CheckBox android:id="@+id/checkbox_arccsc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="arccsc"
         android:onClick="onCheckboxClicked"
-        android:checked="true" />
+        android:checked="true"
+        android:layout_marginLeft="40dp" />
 
     <CheckBox android:id="@+id/checkbox_arcsec"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="arcsec"
         android:onClick="onCheckboxClicked"
-        android:checked="true" />
+        android:checked="true"
+        android:layout_marginLeft="40dp" />
 
     <CheckBox android:id="@+id/checkbox_arctan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="arctan"
         android:onClick="onCheckboxClicked"
-        android:checked="true" />
+        android:checked="true"
+        android:layout_marginLeft="40dp" />
 
     <CheckBox android:id="@+id/checkbox_arccot"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="arccot"
         android:onClick="onCheckboxClicked"
-        android:checked="true" />
+        android:checked="true"
+        android:layout_marginLeft="40dp" />
 
     <Button
         android:id="@+id/reset"
@@ -98,8 +149,9 @@
         android:layout_height="wrap_content"
         android:textColor="@android:color/holo_green_dark"
         android:onClick="reset"
-        android:text="Reset"
-        android:layout_alignParentBottom="true" />
+        android:text="Reset Functions"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="center_horizontal" />
 
     <RelativeLayout
         android:layout_width="fill_parent"
@@ -116,7 +168,8 @@
             android:layout_alignParentTop="true"
             android:layout_toRightOf="@+id/textView"
             android:layout_toEndOf="@+id/textView"
-            android:layout_marginLeft="10dp" />
+            android:layout_marginLeft="10dp"
+            android:visibility="invisible" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -130,7 +183,8 @@
             android:layout_alignParentStart="true"
             android:layout_marginLeft="17dp"
             android:layout_marginStart="17dp"
-            android:layout_marginBottom="5dp" />
+            android:layout_marginBottom="5dp"
+            android:visibility="invisible" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -143,7 +197,8 @@
             android:layout_toRightOf="@+id/editText"
             android:layout_toEndOf="@+id/editText"
             android:layout_marginLeft="5dp"
-            android:editable="true" />
+            android:editable="true"
+            android:visibility="invisible" />
     </RelativeLayout>
 
     <ListView
