@@ -12,13 +12,13 @@
         android:id="@+id/header"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="20dp"
         android:text="Question    Response    Answer"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textSize="25dp" />
-    
+        android:textSize="23dp"
+        android:visibility="invisible"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
     <TextView
         android:id="@+id/entry1"
         android:layout_width="wrap_content"
@@ -147,5 +147,40 @@
         android:onClick="destroyActivity"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
-    
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Question"
+        android:id="@+id/textView7"
+        android:layout_alignTop="@+id/header"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textSize="21dp"
+        android:layout_marginRight="15dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Your Ans."
+        android:id="@+id/textView8"
+        android:textSize="21dp"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/textView7"
+        android:layout_toEndOf="@+id/textView7"
+        android:layout_marginRight="15dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Correct Ans."
+        android:id="@+id/textView9"
+        android:textSize="21dp"
+        android:layout_alignTop="@+id/header"
+        android:layout_toRightOf="@+id/textView8"
+        android:layout_toEndOf="@+id/textView8" />
+
 </RelativeLayout>

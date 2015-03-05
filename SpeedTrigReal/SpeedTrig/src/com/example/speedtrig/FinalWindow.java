@@ -1,6 +1,7 @@
 package com.example.speedtrig;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -397,4 +398,8 @@ public class FinalWindow extends Activity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
+
+    public void finish(){
+        startActivity(new Intent(this, MainMenu.class));
+    }
 }

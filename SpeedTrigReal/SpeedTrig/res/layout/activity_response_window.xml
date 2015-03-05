@@ -20,26 +20,25 @@
 
     <TextView
         android:id="@+id/response"
-        android:layout_width="wrap_content"
+        android:layout_width="70dp"
         android:layout_height="wrap_content"
         android:text=" "
         android:textSize="18dp"
         android:layout_alignTop="@+id/auxiliary"
-        android:layout_alignBottom="@+id/auxiliary"
-        android:layout_toLeftOf="@+id/button_submit"
         android:layout_toRightOf="@+id/auxiliary"
-        android:layout_toEndOf="@+id/auxiliary" />
+        android:layout_alignRight="@+id/button"
+        android:layout_alignEnd="@+id/button" />
 
     <TextView
         android:id="@+id/auxiliary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Your Answer:  "
+        android:text="Your Answer: "
         android:textSize="18dp"
-        android:layout_below="@+id/question"
-        android:layout_toStartOf="@+id/buttonRoot"
-        android:layout_marginTop="25dp"
-        android:layout_toLeftOf="@+id/buttonRoot" />
+        android:layout_above="@+id/buttonNeg"
+        android:layout_alignLeft="@+id/button_dne"
+        android:layout_alignStart="@+id/button_dne"
+        android:layout_marginBottom="10dp" />
 
     <Button
         android:id="@+id/buttonNeg"
@@ -77,7 +76,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:text="1"
+        android:text="2"
         android:onClick="updateEverything" />
 
     <Button
@@ -87,7 +86,7 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/button1"
         android:layout_toRightOf="@+id/button1"
-        android:text="2"
+        android:text="3"
         android:onClick="updateEverything" />
 
     <Button
@@ -95,7 +94,7 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="3"
+        android:text="1"
         android:onClick="updateEverything"
         android:layout_below="@+id/buttonNeg"
         android:layout_toLeftOf="@+id/buttonRoot"
@@ -109,7 +108,7 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/button1"
         android:layout_below="@+id/button1"
-        android:text="4"
+        android:text="5"
         android:onClick="updateEverything" />
 
     <Button
@@ -119,7 +118,7 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/button4"
         android:layout_toRightOf="@+id/button4"
-        android:text="5"
+        android:text="6"
         android:onClick="updateEverything" />
 
     <Button
@@ -129,7 +128,7 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/button4"
         android:layout_toLeftOf="@+id/button4"
-        android:text="6"
+        android:text="4"
         android:onClick="updateEverything" />
 
     <Button
@@ -139,7 +138,7 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/button4"
         android:layout_below="@+id/button4"
-        android:text="7"
+        android:text="8"
         android:onClick="updateEverything" />
 
     <Button
@@ -149,7 +148,7 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/button7"
         android:layout_toRightOf="@+id/button7"
-        android:text="8"
+        android:text="9"
         android:onClick="updateEverything" />
 
     <Button
@@ -159,7 +158,7 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/button7"
         android:layout_toLeftOf="@+id/button7"
-        android:text="9"
+        android:text="7"
         android:onClick="updateEverything" />
 
     <Button
@@ -167,10 +166,12 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/button7"
-        android:layout_below="@+id/button7"
         android:text="0"
-        android:onClick="updateEverything" />
+        android:onClick="updateEverything"
+        android:layout_below="@+id/buttonNeg"
+        android:layout_toLeftOf="@+id/button3"
+        android:layout_alignLeft="@+id/button_dne"
+        android:layout_alignStart="@+id/button_dne" />
 
     <Button
         android:id="@+id/button_submit"
@@ -190,10 +191,12 @@
         android:layout_height="wrap_content"
         android:id="@+id/button10"
         android:onClick="removeLast"
-        android:text="&lt;=="
-        android:layout_alignTop="@+id/button2"
-        android:layout_toRightOf="@+id/button2"
-        android:layout_toEndOf="@+id/button2" />
+        android:text="Backspace"
+        android:layout_below="@+id/button7"
+        android:layout_alignRight="@+id/button8"
+        android:layout_alignEnd="@+id/button8"
+        android:layout_alignLeft="@+id/button9"
+        android:layout_alignStart="@+id/button9" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -252,5 +255,17 @@
         android:layout_toLeftOf="@+id/button9"
         android:layout_toStartOf="@+id/button9"
         android:layout_alignParentStart="false" />
+
+    <Button
+        android:id="@+id/button15"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        android:onClick="startSubmitDialog"
+        android:textSize="21dp"
+        android:layout_alignTop="@+id/button11"
+        android:layout_alignRight="@+id/button11"
+        android:layout_alignEnd="@+id/button11"
+        android:visibility="invisible" />
 
 </RelativeLayout>

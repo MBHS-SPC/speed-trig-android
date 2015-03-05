@@ -1,6 +1,8 @@
 package com.example.speedtrig;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -8,10 +10,12 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Looper;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,6 +34,7 @@ public class ResponseWindow extends Activity {
     boolean quizDone = false;
 
     static boolean newQuizStarted = false;
+    static boolean submitCalled = false;
 
     static long quizDuration = 180000;
     long quizTimeRemaining;
@@ -47,6 +52,9 @@ public class ResponseWindow extends Activity {
         quizTimeRemaining = 180000;
         quizTimeRemaining += 100;
         Log.d("time2debug", "sub received"+quizTimeRemaining);
+
+        TextView back_button = (TextView) findViewById(R.id.button12);
+        back_button.setVisibility(TextView.INVISIBLE);
 
         timer = (TextView) findViewById(R.id.timerTextView);
 
@@ -122,16 +130,65 @@ public class ResponseWindow extends Activity {
         else
             responseCopy.setText(text.subSequence(0,text.length()-1));
     }
+
+    public void startSubmitDialog(View v){
+        //Toast.makeText(this, "Ready!", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "Set!", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "Go!", Toast.LENGTH_SHORT).show();
+
+        AlertDialog.Builder adb = new AlertDialog.Builder(this);
+        LayoutInflater adbInflater = LayoutInflater.from(this);
+        adb.setView(adbInflater.inflate(R.layout.checkbox_submit_button, null));
+        adb.setTitle("Submit?");
+        adb.setMessage("Are you sure you want to submit your answers early and receive a quiz score?");
+        adb.setPositiveButton("Submit", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                submitCalled = true;
+                finish();
+                return;
+            }
+        });
+
+        adb.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                return;
+            }
+        });
+        adb.show();
+    }
 	
 	public void updateEverything(View v){
-		appendButton(v.getId());
         if(MainMenu.isRegularTrig) {
-            RegularTrig.responses.remove(questionVal);
-            RegularTrig.responses.put(questionVal, responseCopy.getText().toString());
+            if(responseCopy.getText().toString().length() >= 8) {
+                Toast.makeText(this, "Character Limit Reached", Toast.LENGTH_SHORT).show();
+            }
+            else{
+                appendButton(v.getId());
+                RegularTrig.responses.remove(questionVal);
+                RegularTrig.responses.put(questionVal, responseCopy.getText().toString());
+            }
         }
-        else{
-            InverseTrig.responses.remove(questionVal);
-            InverseTrig.responses.put(questionVal, responseCopy.getText().toString());
+        else {
+            if(MainMenu.isCustomTrig) {
+                if(responseCopy.getText().toString().length() >= 8) {
+                    Toast.makeText(this, "Character Limit Reached", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    appendButton(v.getId());
+                    CustomTrig.responses.remove(questionVal);
+                    CustomTrig.responses.put(questionVal, responseCopy.getText().toString());
+                }
+            }
+            else{
+                if(responseCopy.getText().toString().length() >= 8) {
+                    Toast.makeText(this, "Character Limit Reached", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    appendButton(v.getId());
+                    InverseTrig.responses.remove(questionVal);
+                    InverseTrig.responses.put(questionVal, responseCopy.getText().toString());
+                }
+            }
         }
 	}
 	
@@ -144,41 +201,74 @@ public class ResponseWindow extends Activity {
         String response = responseCopy.getText().toString().trim();
         String correct = getCorrectValue(questionVal.substring(questionVal.indexOf('.') + 2)).trim();
         boolean isCorrect = response.equals(correct);
-        String text = "Incorrect!";
-        if (isCorrect) text = "Correct!";
+        String text = "#" + questionVal.substring(0, questionVal.indexOf('.')) + " is incorrect!";
+        if (isCorrect) text = "#" + questionVal.substring(0, questionVal.indexOf('.')) + " is correct!";
 
         int questionIndex = Integer.parseInt(questionVal.substring(0, questionVal.indexOf('.')))-1;
 
         if(MainMenu.isRegularTrig) {
+
+            TextView next_button = (TextView) findViewById(R.id.button11);
+            TextView submit_button = (TextView) findViewById(R.id.button15);
+            TextView back_button = (TextView) findViewById(R.id.button12);
+
             // if it's the last question, don't let them go further
-            if (questionIndex == RegularTrig.questionList.length-1)
-                Toast.makeText(this, "This is the last question.", Toast.LENGTH_SHORT).show();
+            if (questionIndex == RegularTrig.questionList.length - 1) {
+                next_button.setVisibility(TextView.INVISIBLE);
+                submit_button.setVisibility(TextView.VISIBLE);
+                back_button.setVisibility(TextView.VISIBLE);
+            }
             else {
                 questionVal = RegularTrig.questionList[questionIndex + 1];
                 question.setText(questionVal);
                 responseCopy.setText(RegularTrig.responses.get(questionVal));
+                back_button.setVisibility(TextView.VISIBLE);
+                if (questionIndex + 1 == RegularTrig.questionList.length - 1) {
+                    next_button.setVisibility(TextView.INVISIBLE);
+                    submit_button.setVisibility(TextView.VISIBLE);
+                }
             }
         }
         else {
 
+            TextView next_button = (TextView) findViewById(R.id.button11);
+            TextView submit_button = (TextView) findViewById(R.id.button15);
+            TextView back_button = (TextView) findViewById(R.id.button12);
+
             if(MainMenu.isCustomTrig){
                 // if it's the last question, don't let them go further
-                if (questionIndex == CustomTrig.questionList.length - 1)
-                    Toast.makeText(this, "This is the last question.", Toast.LENGTH_SHORT).show();
+                if (questionIndex == CustomTrig.questionList.length - 1) {
+                    next_button.setVisibility(TextView.INVISIBLE);
+                    submit_button.setVisibility(TextView.VISIBLE);
+                    back_button.setVisibility(TextView.VISIBLE);
+                }
                 else {
                     questionVal = CustomTrig.questionList[questionIndex + 1];
                     question.setText(questionVal);
                     responseCopy.setText(CustomTrig.responses.get(questionVal));
+                    back_button.setVisibility(TextView.VISIBLE);
+                    if (questionIndex + 1 == CustomTrig.questionList.length - 1) {
+                        next_button.setVisibility(TextView.INVISIBLE);
+                        submit_button.setVisibility(TextView.VISIBLE);
+                    }
                 }
             }
             else {
                 // if it's the last question, don't let them go further
-                if (questionIndex == InverseTrig.questionList.length - 1)
-                    Toast.makeText(this, "This is the last question.", Toast.LENGTH_SHORT).show();
+                if (questionIndex == InverseTrig.questionList.length - 1) {
+                    next_button.setVisibility(TextView.INVISIBLE);
+                    submit_button.setVisibility(TextView.VISIBLE);
+                    back_button.setVisibility(TextView.VISIBLE);
+                }
                 else {
                     questionVal = InverseTrig.questionList[questionIndex + 1];
                     question.setText(questionVal);
                     responseCopy.setText(InverseTrig.responses.get(questionVal));
+                    back_button.setVisibility(TextView.VISIBLE);
+                    if (questionIndex + 1 == InverseTrig.questionList.length - 1) {
+                        next_button.setVisibility(TextView.INVISIBLE);
+                        submit_button.setVisibility(TextView.VISIBLE);
+                    }
                 }
             }
         }
@@ -196,24 +286,57 @@ public class ResponseWindow extends Activity {
 
         int questionIndex = Integer.parseInt(questionVal.substring(0, questionVal.indexOf('.')))-1;
 
+        TextView next_button = (TextView) findViewById(R.id.button11);
+        TextView submit_button = (TextView) findViewById(R.id.button15);
+        TextView back_button = (TextView) findViewById(R.id.button12);
+
         if(MainMenu.isRegularTrig) {
-            // if it's the first question, don't let them go further
+            next_button.setVisibility(TextView.VISIBLE);
+            submit_button.setVisibility(TextView.INVISIBLE);
+
+            // if it's the second question, don't let them go further
             if (questionIndex == 0)
-                Toast.makeText(this, "This is the first question.", Toast.LENGTH_SHORT).show();
+                back_button.setVisibility(TextView.INVISIBLE);
             else {
+                back_button.setVisibility(TextView.VISIBLE);
                 questionVal = RegularTrig.questionList[questionIndex - 1];
                 question.setText(questionVal);
                 responseCopy.setText(RegularTrig.responses.get(questionVal));
+                if (questionIndex - 1 == 0)
+                    back_button.setVisibility(TextView.INVISIBLE);
             }
         }
         else {
-            // if it's the first question, don't let them go further
-            if (questionIndex == 0)
-                Toast.makeText(this, "This is the first question.", Toast.LENGTH_SHORT).show();
-            else {
-                questionVal = InverseTrig.questionList[questionIndex - 1];
-                question.setText(questionVal);
-                responseCopy.setText(InverseTrig.responses.get(questionVal));
+            if (MainMenu.isCustomTrig) {
+                next_button.setVisibility(TextView.VISIBLE);
+                submit_button.setVisibility(TextView.INVISIBLE);
+
+                // if it's the second question, don't let them go further
+                if (questionIndex == 0)
+                    back_button.setVisibility(TextView.INVISIBLE);
+                else {
+                    back_button.setVisibility(TextView.VISIBLE);
+                    questionVal = RegularTrig.questionList[questionIndex - 1];
+                    question.setText(questionVal);
+                    responseCopy.setText(RegularTrig.responses.get(questionVal));
+                    if (questionIndex - 1 == 0)
+                        back_button.setVisibility(TextView.INVISIBLE);
+                }
+            } else {
+                next_button.setVisibility(TextView.VISIBLE);
+                submit_button.setVisibility(TextView.INVISIBLE);
+
+                // if it's the first question, don't let them go further
+                if (questionIndex == 0)
+                    back_button.setVisibility(TextView.INVISIBLE);
+                else {
+                    back_button.setVisibility(TextView.VISIBLE);
+                    questionVal = InverseTrig.questionList[questionIndex - 1];
+                    question.setText(questionVal);
+                    responseCopy.setText(InverseTrig.responses.get(questionVal));
+                    if (questionIndex - 1 == 0)
+                        back_button.setVisibility(TextView.INVISIBLE);
+                }
             }
         }
 
@@ -408,10 +531,11 @@ public class ResponseWindow extends Activity {
             if (isCorrect) text = "Correct!";
             //Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
             quizTimer.cancel();
-            Intent i = new Intent();
-            i.putExtra(RegularTrig.EXTRA_TIME, quizTimeRemaining);
-            setResult(RESULT_OK, i);
-            Log.d("time2debug", "sub sent: "+quizTimeRemaining);
+            startActivity(new Intent(this, FinalWindow.class));
+            //Intent i = new Intent();
+            //i.putExtra(RegularTrig.EXTRA_TIME, quizTimeRemaining);
+            //setResult(RESULT_OK, i);
+            //Log.d("time2debug", "sub sent: " + quizTimeRemaining);
         }
         finishCalled = true;
         super.finish();
