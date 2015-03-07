@@ -31,11 +31,11 @@ public class MainMenu extends BaseActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main_menu);
-		if (savedInstanceState == null) {
-			getFragmentManager().beginTransaction()
-					.add(R.id.container, new PlaceholderFragment()).commit();
-		}
+        setContentView(R.layout.fragment_main_menu);
+		//if (savedInstanceState == null) {
+			//getFragmentManager().beginTransaction()
+					//.add(R.id.container, new PlaceholderFragment()).commit();
+		//}
 
         navMenuTitles = getResources().getStringArray(R.array.nav_drawer_items); // load titles from strings.xml
 
@@ -108,8 +108,7 @@ public class MainMenu extends BaseActivity {
         adb.setTitle("Regular Quiz");
         adb.setMessage("You have chosen to take a Regular Speed Trig Quiz." +
                 " You will have three minutes to compute twelve non-inverse trig functions." +
-                "\n\nControls:\nUse \"Back\" and \"Next\" buttons to scroll through questions." +
-                " You can submit your quiz and receive results early with the \"Submit\" button located on the final question.");
+                "\n\nControls are listed in the \"Help\" section.");
         adb.setPositiveButton("Start Quiz", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
                 String checkBoxResult = "NOT checked";
@@ -167,8 +166,7 @@ public class MainMenu extends BaseActivity {
         adb.setTitle("Inverse Quiz");
         adb.setMessage("You have chosen to take an Inverse Speed Trig Quiz." +
                 " You will have three minutes to compute twelve trig functions (both inverse and non-inverse)." +
-                "\n\nControls:\nUse \"Back\" and \"Next\" buttons to navigate through questions." +
-                " You can submit your quiz and receive results early with the \"Submit\" button on the final question screen.");
+                "\n\nControls are listed in the \"Help\" section.");
         adb.setPositiveButton("Start Quiz", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
                 String checkBoxResult = "NOT checked";
@@ -226,8 +224,7 @@ public class MainMenu extends BaseActivity {
         adb.setTitle("Custom Quiz");
         adb.setMessage("You have chosen to take a Custom Speed Trig Quiz." +
                 " The duration and active functions of a Custom quiz can be altered in the Settings menu. By default, a Custom quiz is three minutes long and has both inverse and non-inverse functions." +
-                "\n\nControls:\nUse \"Back\" and \"Next\" buttons to scroll through questions." +
-                " You can submit your quiz and receive results early with the \"Submit\" button located on the final question.");
+                "\n\nControls are listed in the \"Help\" section.");
         adb.setPositiveButton("Start Quiz", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
                 String checkBoxResult = "NOT checked";

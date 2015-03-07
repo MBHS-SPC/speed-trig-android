@@ -3,12 +3,11 @@ package com.example.speedtrig;
 import android.app.ListActivity;
 import android.content.res.TypedArray;
 import android.os.Bundle;
-import android.view.View;
 
 /**
- * Created by AliAnwar7477 on 2/26/2015.
+ * Created by AliAnwar7477 on 3/7/2015.
  */
-public class About extends BaseActivity {
+public class Help extends BaseActivity {
 
     private String[] navMenuTitles;
     private TypedArray navMenuIcons;
@@ -16,7 +15,7 @@ public class About extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_about);
+        setContentView(R.layout.activity_help);
 
         navMenuTitles = getResources().getStringArray(R.array.nav_drawer_items); // load titles from strings.xml
 
@@ -26,5 +25,4 @@ public class About extends BaseActivity {
 
         set(navMenuTitles, navMenuIcons);
     }
-
 }

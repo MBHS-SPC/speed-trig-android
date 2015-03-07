@@ -1,6 +1,7 @@
 package com.example.speedtrig;
 
 import android.content.SharedPreferences;
+import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
@@ -17,7 +18,7 @@ import android.widget.EditText;
 /**
  * Created by alia7_000 on 2/16/2015.
  */
-public class Settings extends PreferenceActivity {
+public class Settings extends BaseActivity {
 
     static boolean isSinActive;
     static boolean isCosActive;
@@ -35,6 +36,9 @@ public class Settings extends PreferenceActivity {
 
     static long quizDuration;
     EditText quizTimeLimit;
+
+    private String[] navMenuTitles;
+    private TypedArray navMenuIcons;
 
     String[] functions = {"sin", "cos", "csc", "sec", "tan", "cot", "arcsin", "arccos", "arccsc", "arcsec", "arctan", "arccot"};
 
@@ -71,10 +75,19 @@ public class Settings extends PreferenceActivity {
                 functionCheckBoxes[i].setChecked(false);
         }
 
+        navMenuTitles = getResources().getStringArray(R.array.nav_drawer_items); // load titles from strings.xml
+
+        navMenuIcons = getResources()
+                .obtainTypedArray(R.array.nav_drawer_icons);// load icons from
+        // strings.xml
+
+        set(navMenuTitles, navMenuIcons);
+
         quizTimeLimit = (EditText) findViewById(R.id.editText);
 
         quizDuration = settings.getLong("quizDuration", 180000);
 
+        /**
         quizTimeLimit.addTextChangedListener(new TextWatcher(){
 
             @Override
@@ -96,6 +109,7 @@ public class Settings extends PreferenceActivity {
         quizTimeLimit.setText("" + ResponseWindow.quizDuration / 60000);
 
         //ResponseWindow.quizDuration = quizDuration;
+        */
     }
 
     public static boolean isFunctionActive(String operation){
