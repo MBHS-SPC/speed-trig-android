@@ -1,23 +1,18 @@
 package com.example.speedtrig;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Fragment;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.TypedArray;
-import android.net.Uri;
 import android.os.Bundle;
-import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
-import android.widget.TextView;
-import android.widget.Toast;
 
 public class MainMenu extends BaseActivity {
 
@@ -70,7 +65,7 @@ public class MainMenu extends BaseActivity {
 
     private void updateFunctionStates(){
 
-        SharedPreferences settings = getPreferences(MODE_PRIVATE);
+        SharedPreferences settings = getSharedPreferences("Settings", MODE_PRIVATE);
 
         Settings.isSinActive = settings.getBoolean("isSinActive", true);
         Settings.isCosActive = settings.getBoolean("isCosActive", true);
@@ -89,7 +84,7 @@ public class MainMenu extends BaseActivity {
 
     private void updateQuizDuration(){
 
-        SharedPreferences settings = getPreferences(MODE_PRIVATE);
+        SharedPreferences settings = getSharedPreferences("Settings", MODE_PRIVATE);
 
         Settings.quizDuration = settings.getLong("quizDuration", 180000);
         Settings.quizDuration += 100;

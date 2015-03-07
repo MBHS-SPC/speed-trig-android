@@ -3,10 +3,7 @@ package com.example.speedtrig;
 import android.content.SharedPreferences;
 import android.content.res.TypedArray;
 import android.os.Bundle;
-import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -118,28 +115,28 @@ public class Settings extends BaseActivity {
 
         if(operation.equals("sin"))
             booleanToReturn = isSinActive;
-        if(operation.equals("cos"))
+        else if(operation.equals("cos"))
             booleanToReturn = isCosActive;
-        if(operation.equals("csc"))
+        else if(operation.equals("csc"))
             booleanToReturn = isCscActive;
-        if(operation.equals("sec"))
+        else if(operation.equals("sec"))
             booleanToReturn = isSecActive;
-        if(operation.equals("tan"))
-            booleanToReturn = isCotActive;
-        if(operation.equals("cot"))
+        else if(operation.equals("tan"))
             booleanToReturn = isTanActive;
+        else if(operation.equals("cot"))
+            booleanToReturn = isCotActive;
 
-        if(operation.equals("arcsin"))
+        else if(operation.equals("arcsin"))
             booleanToReturn = isArcsinActive;
-        if(operation.equals("arccos"))
+        else if(operation.equals("arccos"))
             booleanToReturn = isArccosActive;
-        if(operation.equals("arccsc"))
+        else if(operation.equals("arccsc"))
             booleanToReturn = isArccscActive;
-        if(operation.equals("arcsec"))
+        else if(operation.equals("arcsec"))
             booleanToReturn = isArcsecActive;
-        if(operation.equals("arctan"))
+        else if(operation.equals("arctan"))
             booleanToReturn = isArctanActive;
-        if(operation.equals("arccot"))
+        else if(operation.equals("arccot"))
             booleanToReturn = isArccotActive;
 
         return booleanToReturn;
