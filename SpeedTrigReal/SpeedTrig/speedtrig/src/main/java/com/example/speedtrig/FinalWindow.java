@@ -57,8 +57,15 @@ public class FinalWindow extends Activity {
         }
 		return results;
 	}
-	
-	public String flipFraction(String frac){
+
+    public void onBackPressed(){
+
+        Intent intent = new Intent(this, MainMenu.class);
+        startActivity(intent);
+        finish();
+    }
+
+    public String flipFraction(String frac){
 		String flipped = "";
 
 		if (frac.equals("0"))

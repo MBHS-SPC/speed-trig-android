@@ -86,6 +86,13 @@ public class InverseTrig extends ListActivity {
         Log.d("InverseTrig", "onCreate finished");
 	}
 
+    public void onBackPressed(){
+
+        Intent intent = new Intent(this, MainMenu.class);
+        startActivity(intent);
+        finish();
+    }
+
     public String getQuestion(){
 
         Random generator = new Random();

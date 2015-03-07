@@ -117,6 +117,13 @@ public class ResponseWindow extends Activity {
         }
 	}
 
+    public void onBackPressed(){
+
+            Intent intent = new Intent(this, MainMenu.class);
+            startActivity(intent);
+            finish();
+    }
+
     public void removeLast(View v){
         CharSequence text = responseCopy.getText();
 

@@ -79,6 +79,13 @@ public class RegularTrig extends ListActivity {
 
         Log.d("RegularTrig", "onCreate finished");
 	}
+
+    public void onBackPressed(){
+
+        Intent intent = new Intent(this, MainMenu.class);
+        startActivity(intent);
+        finish();
+    }
 	
 	public String getQuestion(){
 		int denominator, numerator, random;

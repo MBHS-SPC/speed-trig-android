@@ -70,7 +70,7 @@ public class BaseActivity extends ActionBarActivity {
 		// enabling action bar app icon and behaving it as toggle button
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 		getSupportActionBar().setHomeButtonEnabled(true);
-		// getSupportActionBar().setIcon(R.drawable.ic_drawer);
+		getSupportActionBar().setIcon(R.drawable.ic_drawer);
 
 		mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout,
 				R.drawable.ic_drawer, // nav menu toggle icon
@@ -92,8 +92,6 @@ public class BaseActivity extends ActionBarActivity {
 			}
 		};
 		mDrawerLayout.setDrawerListener(mDrawerToggle);
-
-
 	}
 
 	private class SlideMenuClickListener implements
@@ -105,6 +103,18 @@ public class BaseActivity extends ActionBarActivity {
 			displayView(position);
 		}
 	}
+
+    public void onBackPressed(){
+
+        if(!getClass().equals(MainMenu.class)) {
+            Intent intent = new Intent(this, MainMenu.class);
+            startActivity(intent);
+            finish();
+        }
+        else{
+            System.exit(0);
+        }
+    }
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -142,6 +152,11 @@ public class BaseActivity extends ActionBarActivity {
 	 * */
 	private void displayView(int position) {
 
+        // update selected item and title, then close the drawer
+        mDrawerList.setItemChecked(position, true);
+        mDrawerList.setSelection(position);
+        mDrawerLayout.closeDrawer(mDrawerList);
+
 		switch (position) {
 		case 0:
 			Intent intent = new Intent(this, MainMenu.class);
@@ -177,10 +192,7 @@ public class BaseActivity extends ActionBarActivity {
 			break;
 		}
 
-		// update selected item and title, then close the drawer
-		mDrawerList.setItemChecked(position, true);
-		mDrawerList.setSelection(position);
-		mDrawerLayout.closeDrawer(mDrawerList);
+
 	}
 
 	@Override
