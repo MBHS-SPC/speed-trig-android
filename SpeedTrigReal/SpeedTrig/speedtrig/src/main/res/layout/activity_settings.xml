@@ -19,114 +19,208 @@
         tools:context="com.example.speedtrig.Settings"
         tools:ignore="MergeRootFrame" >
 
-    ]]>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            ]]>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Custom Quiz Functions"
+                android:text="Settings"
+                android:id="@+id/title"
+                android:textSize="30dp"
+                android:layout_gravity="center_horizontal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Custom Quiz Parameters"
                 android:id="@+id/textView6"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
                 android:textSize="22dp"
                 android:layout_gravity="center" />
 
-            <CheckBox android:id="@+id/checkbox_sin"
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="sin"
-                android:onClick="onCheckboxClicked"
-                android:checked="true"
-                android:layout_marginLeft="40dp" />
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Active Functions                   Duration"
+                android:id="@+id/textView10"
+                android:layout_marginBottom="5dp"
+                android:textSize="18dp"
+                android:layout_gravity="left|center_horizontal"
+                android:textIsSelectable="false"
+                android:layout_marginLeft="40dp"
+                android:textColor="@color/secondary_text_default_material_light" />
 
-            <CheckBox android:id="@+id/checkbox_cos"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="cos"
-                android:onClick="onCheckboxClicked"
-                android:checked="true"
-                android:layout_marginLeft="40dp" />
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="199dp"
+                android:id="@+id/layout">
 
-            <CheckBox android:id="@+id/checkbox_csc"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="csc"
-                android:onClick="onCheckboxClicked"
-                android:checked="true"
-                android:layout_marginLeft="40dp" />
+                <CheckBox android:id="@+id/checkbox_sin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="sin"
+                    android:onClick="onCheckboxClicked"
+                    android:checked="true"
+                    android:layout_marginLeft="20dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
 
-            <CheckBox android:id="@+id/checkbox_sec"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="sec"
-                android:onClick="onCheckboxClicked"
-                android:checked="true"
-                android:layout_marginLeft="40dp" />
+                <CheckBox android:id="@+id/checkbox_cos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="cos"
+                    android:onClick="onCheckboxClicked"
+                    android:checked="true"
+                    android:layout_below="@+id/checkbox_sin"
+                    android:layout_alignLeft="@+id/checkbox_sin"
+                    android:layout_alignStart="@+id/checkbox_sin" />
 
-            <CheckBox android:id="@+id/checkbox_tan"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="tan"
-                android:onClick="onCheckboxClicked"
-                android:checked="true"
-                android:layout_marginLeft="40dp" />
+                <CheckBox android:id="@+id/checkbox_csc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="csc"
+                    android:onClick="onCheckboxClicked"
+                    android:checked="true"
+                    android:layout_below="@+id/checkbox_cos"
+                    android:layout_alignLeft="@+id/checkbox_sec"
+                    android:layout_alignStart="@+id/checkbox_sec" />
 
-            <CheckBox android:id="@+id/checkbox_cot"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="cot"
-                android:onClick="onCheckboxClicked"
-                android:checked="true"
-                android:layout_marginLeft="40dp" />
+                <CheckBox android:id="@+id/checkbox_sec"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="sec"
+                    android:onClick="onCheckboxClicked"
+                    android:checked="true"
+                    android:layout_below="@+id/checkbox_csc"
+                    android:layout_alignRight="@+id/checkbox_cos"
+                    android:layout_alignEnd="@+id/checkbox_cos" />
 
-            <CheckBox android:id="@+id/checkbox_arccos"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="arccos"
-                android:onClick="onCheckboxClicked"
-                android:checked="true"
-                android:layout_marginLeft="40dp" />
+                <CheckBox android:id="@+id/checkbox_tan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="tan"
+                    android:onClick="onCheckboxClicked"
+                    android:checked="true"
+                    android:layout_below="@+id/checkbox_sec"
+                    android:layout_alignLeft="@+id/checkbox_sec"
+                    android:layout_alignStart="@+id/checkbox_sec" />
 
-            <CheckBox android:id="@+id/checkbox_arcsin"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="arcsin"
-                android:onClick="onCheckboxClicked"
-                android:checked="true"
-                android:layout_marginLeft="40dp" />
+                <CheckBox android:id="@+id/checkbox_cot"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="cot"
+                    android:onClick="onCheckboxClicked"
+                    android:checked="true"
+                    android:layout_below="@+id/checkbox_tan"
+                    android:layout_alignLeft="@+id/checkbox_tan"
+                    android:layout_alignStart="@+id/checkbox_tan" />
 
-            <CheckBox android:id="@+id/checkbox_arccsc"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="arccsc"
-                android:onClick="onCheckboxClicked"
-                android:checked="true"
-                android:layout_marginLeft="40dp" />
+                <CheckBox android:id="@+id/checkbox_arccos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="arccos"
+                    android:onClick="onCheckboxClicked"
+                    android:checked="true"
+                    android:layout_marginLeft="38dp"
+                    android:layout_marginStart="38dp"
+                    android:layout_above="@+id/checkbox_cos"
+                    android:layout_toRightOf="@+id/checkbox_cos"
+                    android:layout_toEndOf="@+id/checkbox_cos" />
 
-            <CheckBox android:id="@+id/checkbox_arcsec"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="arcsec"
-                android:onClick="onCheckboxClicked"
-                android:checked="true"
-                android:layout_marginLeft="40dp" />
+                <CheckBox android:id="@+id/checkbox_arcsin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="arcsin"
+                    android:onClick="onCheckboxClicked"
+                    android:checked="true"
+                    android:layout_alignTop="@+id/checkbox_cos"
+                    android:layout_alignLeft="@+id/checkbox_arccos"
+                    android:layout_alignStart="@+id/checkbox_arccos" />
 
-            <CheckBox android:id="@+id/checkbox_arctan"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="arctan"
-                android:onClick="onCheckboxClicked"
-                android:checked="true"
-                android:layout_marginLeft="40dp" />
+                <CheckBox android:id="@+id/checkbox_arccsc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="arccsc"
+                    android:onClick="onCheckboxClicked"
+                    android:checked="true"
+                    android:layout_above="@+id/checkbox_arcsec"
+                    android:layout_alignLeft="@+id/checkbox_arcsin"
+                    android:layout_alignStart="@+id/checkbox_arcsin" />
 
-            <CheckBox android:id="@+id/checkbox_arccot"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="arccot"
-                android:onClick="onCheckboxClicked"
-                android:checked="true"
-                android:layout_marginLeft="40dp" />
+                <CheckBox android:id="@+id/checkbox_arcsec"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="arcsec"
+                    android:onClick="onCheckboxClicked"
+                    android:checked="true"
+                    android:layout_above="@+id/checkbox_tan"
+                    android:layout_alignLeft="@+id/checkbox_arccsc"
+                    android:layout_alignStart="@+id/checkbox_arccsc" />
+
+                <CheckBox android:id="@+id/checkbox_arctan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="arctan"
+                    android:onClick="onCheckboxClicked"
+                    android:checked="true"
+                    android:layout_above="@+id/checkbox_cot"
+                    android:layout_alignLeft="@+id/checkbox_arcsec"
+                    android:layout_alignStart="@+id/checkbox_arcsec" />
+
+                <CheckBox android:id="@+id/checkbox_arccot"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="arccot"
+                    android:onClick="onCheckboxClicked"
+                    android:checked="true"
+                    android:layout_below="@+id/checkbox_arctan"
+                    android:layout_alignLeft="@+id/checkbox_arctan"
+                    android:layout_alignStart="@+id/checkbox_arctan" />
+
+                <SeekBar
+                    android:layout_width="130dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/seekBar"
+                    android:layout_above="@+id/checkbox_arcsin"
+                    android:layout_toRightOf="@+id/checkbox_arccos"
+                    android:layout_toEndOf="@+id/checkbox_arccos"
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginStart="35dp" />
+
+            </RelativeLayout>
 
             <Button
                 android:id="@+id/reset"
@@ -134,7 +228,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@android:color/black"
                 android:onClick="reset"
-                android:text="Reset Functions"
+                android:text="Reset "
                 android:layout_alignParentBottom="true"
                 android:layout_gravity="center_horizontal" />
 
@@ -184,6 +278,7 @@
                     android:layout_marginLeft="5dp"
                     android:editable="true"
                     android:visibility="invisible" />
+
             </RelativeLayout>
 
             <ListView
