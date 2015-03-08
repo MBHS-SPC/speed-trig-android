@@ -10,6 +10,23 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
         <!-- Add content here -->
+        <!-- Header aligned to top -->
+        <RelativeLayout
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentTop="true"
+            android:background="#ff8d8d8d"
+            android:gravity="center" >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="About"
+                android:textColor="#000"
+                android:textSize="30dp" />
+        </RelativeLayout>
+
         <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
@@ -20,22 +37,11 @@
             android:paddingTop="@dimen/activity_vertical_margin"
             tools:context="com.example.speedtrig.About" >
 
-            <TextView
-                android:id="@+id/header"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="About"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textSize="30dp"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:textColor="@android:color/black" />
-
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:layout_below="@+id/header">
+                android:layout_marginTop="50dp">
 
                 <TextView
                     android:id="@+id/entry1"
@@ -46,7 +52,8 @@
                     android:layout_marginTop="3dp"
                     android:text="      Speed Trig v1.2 is an application designed to help users improve their ability to compute basic trigonometric functions by practicing with digital quizzes on the unit circle.\n     Speed Trig was designed by the Montgomery Blair High School Smartphone Programming Club of 2014-2015 and inspired by the timed unit circle quizzes which are included within the Pre-Calculus curriculum at MBHS."
                     android:textSize="18dp"
-                    android:textIsSelectable="false" />
+                    android:textIsSelectable="false"
+                    android:textColor="@android:color/black" />
 
             </LinearLayout>
 
@@ -56,6 +63,29 @@
                 android:layout_height="wrap_content">
             </ListView>
 
+        </RelativeLayout>
+
+        <!-- Footer aligned to bottom -->
+        <RelativeLayout
+            android:id="@+id/footer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/ripple_material_light"
+            android:gravity="center"
+            android:layout_gravity="center_horizontal|bottom">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Version 1.2"
+                android:textColor="#000"
+                android:textSize="20sp"
+                android:layout_marginLeft="230dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
         </RelativeLayout>
     </FrameLayout>
 

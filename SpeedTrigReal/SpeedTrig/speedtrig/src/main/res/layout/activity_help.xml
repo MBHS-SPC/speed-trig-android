@@ -10,6 +10,23 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
         <!-- Add content here -->
+        <!-- Header aligned to top -->
+        <RelativeLayout
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentTop="true"
+            android:background="#ff8d8d8d"
+            android:gravity="center" >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="Help"
+                android:textColor="#000"
+                android:textSize="30dp" />
+        </RelativeLayout>
+
         <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
@@ -18,25 +35,15 @@
             android:paddingLeft="@dimen/activity_horizontal_margin"
             android:paddingRight="@dimen/activity_horizontal_margin"
             android:paddingTop="@dimen/activity_vertical_margin"
-            tools:context="com.example.speedtrig.Help" >
-
-            <TextView
-                android:id="@+id/header"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Help"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textSize="30dp"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:textColor="@android:color/black" />
+            tools:context="com.example.speedtrig.Help"
+            android:layout_marginTop="50dp">
 
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:layout_below="@+id/header"
-                android:weightSum="1">
+                android:weightSum="1"
+                android:id="@+id/linear_layout">
 
                 <TextView
                     android:id="@+id/entry1"
@@ -48,7 +55,8 @@
                     android:textSize="18dp"
                     android:textIsSelectable="false"
                     android:text="Controls:\nUse &apos;Back&apos; and &apos;Next&apos; buttons to scroll through questions. You can submit your quiz and receive results early with the &apos;Submit&apos; button located on the final question."
-                    android:layout_weight="0.06" />
+                    android:layout_weight="0.06"
+                    android:textColor="@android:color/black" />
 
                 <ListView
                     android:id="@android:id/list"
@@ -58,6 +66,29 @@
 
             </LinearLayout>
 
+        </RelativeLayout>
+
+        <!-- Footer aligned to bottom -->
+        <RelativeLayout
+            android:id="@+id/footer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/ripple_material_light"
+            android:gravity="center"
+            android:layout_gravity="center_horizontal|bottom">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Version 1.2"
+                android:textColor="#000"
+                android:textSize="20sp"
+                android:layout_marginLeft="230dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
         </RelativeLayout>
     </FrameLayout>
 
