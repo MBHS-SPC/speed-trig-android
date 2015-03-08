@@ -227,12 +227,14 @@ public class CustomTrig extends ListActivity {
 
     public String[] generateList() {
         String[] questions = new String[12];
-        Log.d("generateList", "I totes initialized an array " + questions);
         for (int i = 0; i <= 11; i++) {
             String question = getQuestion();
+            Log.d("gen list start question", question);
             while (!Settings.isFunctionActive(question.substring(0, question.indexOf("(")))) {
                 question = getQuestion();
             }
+            Log.d("gen list end question", question);
+
             questions[i] = i + 1 + ". " + question;
         }
         for (String s : questions) {

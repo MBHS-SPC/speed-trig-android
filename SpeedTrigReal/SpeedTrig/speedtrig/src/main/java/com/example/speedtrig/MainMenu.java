@@ -16,8 +16,10 @@ import android.widget.CheckBox;
 
 public class MainMenu extends BaseActivity {
 
-    public static boolean isRegularTrig = true;
-    public static boolean isCustomTrig = false;
+    public static enum QuizType {
+        REGULAR, INVERSE, CUSTOM;
+    }
+    public static QuizType quizType;
     public static final String PREFS_NAME = "MyPrefsFile1";
     public CheckBox dontShowAgain;
     private String[] navMenuTitles;
@@ -144,7 +146,7 @@ public class MainMenu extends BaseActivity {
     public void startRegular(){
 
         RegularTrig.entranceButtonClicked = true;
-        isRegularTrig = true;
+        quizType = QuizType.REGULAR;
         startActivity(new Intent(this, RegularTrig.class));
     }
 
@@ -202,7 +204,7 @@ public class MainMenu extends BaseActivity {
 		//Toast.makeText(this, "Coming Soon!!!", Toast.LENGTH_SHORT).show();
 		//startActivity(new Intent(this, InverseTrig.class));
         InverseTrig.entranceButtonClicked = true;
-        isRegularTrig = false;
+        quizType = QuizType.INVERSE;
         startActivity(new Intent(this, InverseTrig.class));
 	}
 
@@ -260,7 +262,7 @@ public class MainMenu extends BaseActivity {
         //Toast.makeText(this, "Coming Soon!!!", Toast.LENGTH_SHORT).show();
         //startActivity(new Intent(this, InverseTrig.class));
         CustomTrig.entranceButtonClicked = true;
-        isCustomTrig = true;
+        quizType = QuizType.CUSTOM;
         startActivity(new Intent(this, CustomTrig.class));
     }
 

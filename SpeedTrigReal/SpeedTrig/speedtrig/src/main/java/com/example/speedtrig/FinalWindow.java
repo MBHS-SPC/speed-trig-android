@@ -36,25 +36,38 @@ public class FinalWindow extends Activity {
 	public String[] getResults(){
 		String[] results = new String[12];
 
-        if(MainMenu.isRegularTrig) {
-            for (int i = 0; i < RegularTrig.questionList.length; i++) {
-                String question = RegularTrig.questionList[i];
-                String response = RegularTrig.responses.get(question);
-                String correctValue = getCorrectValue(question.substring(question.indexOf('.') + 2));
-                if (response.equals(" ")) response = "NONE";
-                results[i] = formatOutput(question, response, correctValue);
-            }
+        switch (MainMenu.quizType) {
+            case REGULAR:
+                for (int i = 0; i < RegularTrig.questionList.length; i++) {
+                    String question = RegularTrig.questionList[i];
+                    String response = RegularTrig.responses.get(question);
+                    String correctValue = getCorrectValue(question.substring(question.indexOf('.') + 2));
+                    if (response.equals(" ")) response = "NONE";
+                    results[i] = formatOutput(question, response, correctValue);
+                }
+                break;
+
+            case INVERSE:
+                for (int i = 0; i < InverseTrig.questionList.length; i++) {
+                    String question = InverseTrig.questionList[i];
+                    String response = InverseTrig.responses.get(question);
+                    String correctValue = getCorrectValue(question.substring(question.indexOf('.') + 2));
+                    if (response.equals(" ")) response = "NONE";
+                    results[i] = formatOutput(question, response, correctValue);
+                }
+                break;
+
+            case CUSTOM:
+                for (int i = 0; i < CustomTrig.questionList.length; i++) {
+                    String question = CustomTrig.questionList[i];
+                    String response = CustomTrig.responses.get(question);
+                    String correctValue = getCorrectValue(question.substring(question.indexOf('.') + 2));
+                    if (response.equals(" ")) response = "NONE";
+                    results[i] = formatOutput(question, response, correctValue);
+                }
+                break;
         }
 
-        else{
-            for (int i = 0; i < InverseTrig.questionList.length; i++) {
-                String question = InverseTrig.questionList[i];
-                String response = InverseTrig.responses.get(question);
-                String correctValue = getCorrectValue(question.substring(question.indexOf('.') + 2));
-                if (response.equals(" ")) response = "NONE";
-                results[i] = formatOutput(question, response, correctValue);
-            }
-        }
 		return results;
 	}
 
