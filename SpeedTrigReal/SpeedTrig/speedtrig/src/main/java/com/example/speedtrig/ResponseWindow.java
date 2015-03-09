@@ -33,7 +33,6 @@ public class ResponseWindow extends Activity {
     static boolean newQuizStarted = false;
     static boolean submitCalled = false;
 
-    static long quizDuration = 180000;
     long quizTimeRemaining;
     TextView timer;
     CountDownTimer quizTimer;
@@ -46,7 +45,7 @@ public class ResponseWindow extends Activity {
 		responseCopy = (TextView) findViewById(R.id.response);
 
         //quizTimeRemaining = getIntent().getLongExtra(RegularTrig.EXTRA_TIME, Settings.quizDuration);
-        quizTimeRemaining = 180000;
+        quizTimeRemaining = Settings.quizDuration;
         quizTimeRemaining += 100;
         Log.d("time2debug", "sub received"+quizTimeRemaining);
 

@@ -11,6 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.SeekBar;
+import android.widget.TextView;
 
 /**
  * Created by alia7_000 on 2/16/2015.
@@ -32,7 +34,9 @@ public class Settings extends BaseActivity {
     static boolean isArctanActive;
 
     static long quizDuration;
-    EditText quizTimeLimit;
+
+    TextView quizTimeView;
+    SeekBar quizTimeBar;
 
     private String[] navMenuTitles;
     private TypedArray navMenuIcons;
@@ -80,9 +84,35 @@ public class Settings extends BaseActivity {
 
         set(navMenuTitles, navMenuIcons);
 
-        quizTimeLimit = (EditText) findViewById(R.id.editText);
+        quizTimeView = (TextView) findViewById(R.id.timeView);
+        quizTimeBar = (SeekBar) findViewById(R.id.seekBar);
+
+        quizTimeBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                quizDuration = (long) progress * 1000;
+
+                SharedPreferences settings = getPreferences(MODE_PRIVATE);
+                SharedPreferences.Editor editor = settings.edit();
+                editor.putLong("quizDuration", quizDuration);
+                editor.apply();
+
+                quizTimeView.setText(progress/60 + ":" + (progress%60 < 10 ? "0" : "") + progress%60);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+            }
+        });
 
         quizDuration = settings.getLong("quizDuration", 180000);
+        int seconds = (int) (quizDuration / 1000);
+        quizTimeBar.setProgress(seconds);
+        quizTimeView.setText(seconds/60 + ":" + (seconds%60 < 10 ? "0" : "") + seconds%60);
 
         /**
         quizTimeLimit.addTextChangedListener(new TextWatcher(){
@@ -159,19 +189,6 @@ public class Settings extends BaseActivity {
         isArcsecActive = settings.getBoolean("isArcsecActive", true);
         isArctanActive = settings.getBoolean("isArctanActive", true);
         isArccotActive = settings.getBoolean("isArccotActive", true);
-    }
-
-    private void updateQuizDuration(){
-
-        SharedPreferences settings = getPreferences(MODE_PRIVATE);
-        SharedPreferences.Editor editor = settings.edit();
-
-        if(!quizTimeLimit.getText().toString().equals(""))
-            editor.putLong("quizDuration", Long.parseLong(quizTimeLimit.getText().toString()));
-
-        editor.apply();
-
-        quizDuration = settings.getLong("quizDuration", 180000);
     }
 
     public void onCheckboxClicked(View view) {
