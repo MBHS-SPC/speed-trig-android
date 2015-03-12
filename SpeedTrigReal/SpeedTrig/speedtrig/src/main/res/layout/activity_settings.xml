@@ -92,7 +92,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text=" Active Functions                  Duration"
+                android:text=" Active Functions                 Duration"
                 android:id="@+id/textView10"
                 android:layout_marginBottom="5dp"
                 android:textSize="18dp"
@@ -134,8 +134,8 @@
                     android:onClick="onCheckboxClicked"
                     android:checked="true"
                     android:layout_below="@+id/checkbox_cos"
-                    android:layout_alignLeft="@+id/checkbox_sec"
-                    android:layout_alignStart="@+id/checkbox_sec" />
+                    android:layout_alignLeft="@+id/checkbox_cos"
+                    android:layout_alignStart="@+id/checkbox_cos" />
 
                 <CheckBox android:id="@+id/checkbox_sec"
                     android:layout_width="wrap_content"
@@ -144,8 +144,8 @@
                     android:onClick="onCheckboxClicked"
                     android:checked="true"
                     android:layout_below="@+id/checkbox_csc"
-                    android:layout_alignRight="@+id/checkbox_cos"
-                    android:layout_alignEnd="@+id/checkbox_cos" />
+                    android:layout_alignLeft="@+id/checkbox_csc"
+                    android:layout_alignStart="@+id/checkbox_csc" />
 
                 <CheckBox android:id="@+id/checkbox_tan"
                     android:layout_width="wrap_content"
@@ -185,7 +185,7 @@
                     android:text="arcsin"
                     android:onClick="onCheckboxClicked"
                     android:checked="true"
-                    android:layout_alignTop="@+id/checkbox_cos"
+                    android:layout_below="@+id/checkbox_arccos"
                     android:layout_alignLeft="@+id/checkbox_arccos"
                     android:layout_alignStart="@+id/checkbox_arccos" />
 
@@ -195,7 +195,7 @@
                     android:text="arccsc"
                     android:onClick="onCheckboxClicked"
                     android:checked="true"
-                    android:layout_above="@+id/checkbox_arcsec"
+                    android:layout_below="@+id/checkbox_arcsin"
                     android:layout_alignLeft="@+id/checkbox_arcsin"
                     android:layout_alignStart="@+id/checkbox_arcsin" />
 
@@ -205,7 +205,7 @@
                     android:text="arcsec"
                     android:onClick="onCheckboxClicked"
                     android:checked="true"
-                    android:layout_above="@+id/checkbox_tan"
+                    android:layout_below="@+id/checkbox_arccsc"
                     android:layout_alignLeft="@+id/checkbox_arccsc"
                     android:layout_alignStart="@+id/checkbox_arccsc" />
 
@@ -215,7 +215,7 @@
                     android:text="arctan"
                     android:onClick="onCheckboxClicked"
                     android:checked="true"
-                    android:layout_above="@+id/checkbox_cot"
+                    android:layout_below="@+id/checkbox_arcsec"
                     android:layout_alignLeft="@+id/checkbox_arcsec"
                     android:layout_alignStart="@+id/checkbox_arcsec" />
 
@@ -230,16 +230,15 @@
                     android:layout_alignStart="@+id/checkbox_arctan" />
 
                 <SeekBar
-                    android:layout_width="130dp"
+                    android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:id="@+id/seekBar"
-                    android:layout_above="@+id/checkbox_arcsin"
-                    android:layout_toRightOf="@+id/checkbox_arccos"
-                    android:layout_toEndOf="@+id/checkbox_arccos"
-                    android:layout_marginLeft="35dp"
-                    android:layout_marginStart="35dp"
                     android:max="300"
-                    android:progress="90" />
+                    android:progress="90"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginLeft="10dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -247,12 +246,11 @@
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:text="3:00"
                     android:id="@+id/timeView"
-                    android:textSize="25dp"
+                    android:textSize="27dp"
                     android:layout_below="@+id/seekBar"
-                    android:layout_alignLeft="@+id/seekBar"
-                    android:layout_alignStart="@+id/seekBar"
-                    android:layout_marginLeft="40dp"
-                    android:layout_marginTop="5dp" />
+                    android:layout_alignRight="@+id/reset"
+                    android:layout_alignEnd="@+id/reset"
+                    android:layout_marginRight="27dp" />
 
                 <Button
                     android:id="@+id/reset"
@@ -262,11 +260,12 @@
                     android:onClick="reset"
                     android:text="Reset to Default"
                     android:layout_gravity="center_horizontal"
-                    android:layout_below="@+id/checkbox_arcsec"
+                    android:textSize="21dp"
+                    android:layout_alignBottom="@+id/checkbox_arccot"
                     android:layout_alignLeft="@+id/seekBar"
                     android:layout_alignStart="@+id/seekBar"
-                    android:layout_alignRight="@+id/seekBar"
-                    android:layout_alignEnd="@+id/seekBar" />
+                    android:layout_marginBottom="15dp"
+                    android:layout_marginRight="20dp" />
 
             </RelativeLayout>
 

@@ -235,7 +235,7 @@ public class CustomTrig extends ListActivity {
             }
             Log.d("gen list end question", question);
 
-            questions[i] = i + 1 + ". " + question;
+            questions[i] = "#" + i + 1 + ". " + question;
         }
         for (String s : questions) {
             // The numbers preceding the question prevent bad things from happening

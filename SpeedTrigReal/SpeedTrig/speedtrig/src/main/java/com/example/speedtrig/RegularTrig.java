@@ -157,7 +157,7 @@ public class RegularTrig extends ListActivity {
 		for (int i = 0; i <= 11; i++){
             String question = getQuestion();
 
-			questions[i] = i+1 + ". " + question;
+			questions[i] = "#" + i+1 + ". " + question;
 		}
 		for (String s : questions){
 			// The numbers preceding the question prevent bad things from happening
