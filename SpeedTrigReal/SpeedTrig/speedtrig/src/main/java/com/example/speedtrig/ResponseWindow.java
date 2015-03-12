@@ -141,6 +141,23 @@ public class ResponseWindow extends Activity {
             responseCopy.setText(text.subSequence(0,text.length()-3));
         else
             responseCopy.setText(text.subSequence(0,text.length()-1));
+
+        switch (MainMenu.quizType) {
+            case REGULAR:
+                RegularTrig.responses.remove(questionVal);
+                RegularTrig.responses.put(questionVal, responseCopy.getText().toString());
+                break;
+
+            case INVERSE:
+                InverseTrig.responses.remove(questionVal);
+                InverseTrig.responses.put(questionVal, responseCopy.getText().toString());
+                break;
+
+            case CUSTOM:
+                CustomTrig.responses.remove(questionVal);
+                CustomTrig.responses.put(questionVal, responseCopy.getText().toString());
+                break;
+        }
     }
 
     public void startSubmitDialog(View v){
@@ -170,39 +187,27 @@ public class ResponseWindow extends Activity {
     }
 	
 	public void updateEverything(View v){
-        switch (MainMenu.quizType) {
-            case REGULAR:
-                if(responseCopy.getText().toString().length() >= 8) {
-                    Toast.makeText(this, "Character Limit Reached", Toast.LENGTH_SHORT).show();
-                }
-                else{
-                    appendButton(v.getId());
+        if(responseCopy.getText().toString().length() >= 8) {
+            Toast.makeText(this, "Character Limit Reached", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            appendButton(v.getId());
+            switch (MainMenu.quizType) {
+                case REGULAR:
                     RegularTrig.responses.remove(questionVal);
                     RegularTrig.responses.put(questionVal, responseCopy.getText().toString());
-                }
-                break;
+                    break;
 
-            case INVERSE:
-                if(responseCopy.getText().toString().length() >= 8) {
-                    Toast.makeText(this, "Character Limit Reached", Toast.LENGTH_SHORT).show();
-                }
-                else{
-                    appendButton(v.getId());
+                case INVERSE:
                     InverseTrig.responses.remove(questionVal);
                     InverseTrig.responses.put(questionVal, responseCopy.getText().toString());
-                }
-                break;
+                    break;
 
-            case CUSTOM:
-                if(responseCopy.getText().toString().length() >= 8) {
-                    Toast.makeText(this, "Character Limit Reached", Toast.LENGTH_SHORT).show();
-                }
-                else{
-                    appendButton(v.getId());
+                case CUSTOM:
                     CustomTrig.responses.remove(questionVal);
                     CustomTrig.responses.put(questionVal, responseCopy.getText().toString());
-                }
-                break;
+                    break;
+            }
         }
 	}
 	
