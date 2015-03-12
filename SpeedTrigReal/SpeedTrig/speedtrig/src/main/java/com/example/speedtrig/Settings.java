@@ -315,6 +315,8 @@ public class Settings extends BaseActivity {
         editor.putBoolean("isArctanActive", true);
         editor.putBoolean("isArccotActive", true);
 
+        editor.putLong("quizDuration", 180000);
+
         CheckBox checkbox_sin = (CheckBox) findViewById(R.id.checkbox_sin);
         CheckBox checkbox_cos = (CheckBox) findViewById(R.id.checkbox_cos);
         CheckBox checkbox_csc = (CheckBox) findViewById(R.id.checkbox_csc);
@@ -335,6 +337,8 @@ public class Settings extends BaseActivity {
         for(int i = 0; i < functions.length; i++){
                 functionCheckBoxes[i].setChecked(true);
         }
+
+        quizTimeBar.setProgress(180);
 
         editor.apply();
 

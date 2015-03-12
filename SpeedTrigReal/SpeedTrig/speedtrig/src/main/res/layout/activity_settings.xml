@@ -234,7 +234,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/seekBar"
                     android:max="300"
-                    android:progress="90"
+                    android:progress="180"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentEnd="true"
