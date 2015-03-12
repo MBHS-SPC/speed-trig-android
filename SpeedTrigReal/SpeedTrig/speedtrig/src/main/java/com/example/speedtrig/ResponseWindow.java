@@ -104,19 +104,19 @@ public class ResponseWindow extends Activity {
         switch (MainMenu.quizType) {
             case REGULAR:
                 questionVal = getIntent().getStringExtra(RegularTrig.EXTRA_QUESTION);
-                question.setText(questionVal);
+                question.setText("#" + questionVal);
                 responseCopy.setText(getIntent().getStringExtra(RegularTrig.EXTRA_RESPONSE));
                 break;
 
             case INVERSE:
                 questionVal = getIntent().getStringExtra(InverseTrig.EXTRA_QUESTION);
-                question.setText(questionVal);
+                question.setText("#" + questionVal);
                 responseCopy.setText(getIntent().getStringExtra(InverseTrig.EXTRA_RESPONSE));
                 break;
 
             case CUSTOM:
                 questionVal = getIntent().getStringExtra(CustomTrig.EXTRA_QUESTION);
-                question.setText(questionVal);
+                question.setText("#" + questionVal);
                 responseCopy.setText(getIntent().getStringExtra(CustomTrig.EXTRA_RESPONSE));
                 break;
         }
@@ -233,7 +233,7 @@ public class ResponseWindow extends Activity {
                     back_button.setVisibility(TextView.VISIBLE);
                 } else {
                     questionVal = RegularTrig.questionList[questionIndex + 1];
-                    question.setText(questionVal);
+                    question.setText("#" + questionVal);
                     responseCopy.setText(RegularTrig.responses.get(questionVal));
                     back_button.setVisibility(TextView.VISIBLE);
                     if (questionIndex + 1 == RegularTrig.questionList.length - 1) {
@@ -251,7 +251,7 @@ public class ResponseWindow extends Activity {
                     back_button.setVisibility(TextView.VISIBLE);
                 } else {
                     questionVal = InverseTrig.questionList[questionIndex + 1];
-                    question.setText(questionVal);
+                    question.setText("#" + questionVal);
                     responseCopy.setText(InverseTrig.responses.get(questionVal));
                     back_button.setVisibility(TextView.VISIBLE);
                     if (questionIndex + 1 == InverseTrig.questionList.length - 1) {
@@ -269,7 +269,7 @@ public class ResponseWindow extends Activity {
                     back_button.setVisibility(TextView.VISIBLE);
                 } else {
                     questionVal = CustomTrig.questionList[questionIndex + 1];
-                    question.setText(questionVal);
+                    question.setText("#" + questionVal);
                     responseCopy.setText(CustomTrig.responses.get(questionVal));
                     back_button.setVisibility(TextView.VISIBLE);
                     if (questionIndex + 1 == CustomTrig.questionList.length - 1) {
@@ -308,7 +308,7 @@ public class ResponseWindow extends Activity {
                 else {
                     back_button.setVisibility(TextView.VISIBLE);
                     questionVal = RegularTrig.questionList[questionIndex - 1];
-                    question.setText(questionVal);
+                    question.setText("#" + questionVal);
                     responseCopy.setText(RegularTrig.responses.get(questionVal));
                     if (questionIndex - 1 == 0)
                         back_button.setVisibility(TextView.INVISIBLE);
@@ -325,7 +325,7 @@ public class ResponseWindow extends Activity {
                 else {
                     back_button.setVisibility(TextView.VISIBLE);
                     questionVal = InverseTrig.questionList[questionIndex - 1];
-                    question.setText(questionVal);
+                    question.setText("#" + questionVal);
                     responseCopy.setText(InverseTrig.responses.get(questionVal));
                     if (questionIndex - 1 == 0)
                         back_button.setVisibility(TextView.INVISIBLE);
@@ -342,7 +342,7 @@ public class ResponseWindow extends Activity {
                 else {
                     back_button.setVisibility(TextView.VISIBLE);
                     questionVal = CustomTrig.questionList[questionIndex - 1];
-                    question.setText(questionVal);
+                    question.setText("#" + questionVal);
                     responseCopy.setText(CustomTrig.responses.get(questionVal));
                     if (questionIndex - 1 == 0)
                         back_button.setVisibility(TextView.INVISIBLE);
