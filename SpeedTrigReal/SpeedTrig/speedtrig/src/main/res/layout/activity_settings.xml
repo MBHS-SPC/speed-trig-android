@@ -35,7 +35,7 @@
         android:weightSum="1"><![CDATA[
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/container"
-        tools:context="com.example.speedtrig.Settings"
+        tools:context="edu.mbhs.speedtrig.Settings"
         tools:ignore="MergeRootFrame" >
 
 

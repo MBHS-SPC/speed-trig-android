@@ -1,6 +1,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.example.speedtrig.MainMenu" >
+    tools:context="edu.mbhs.speedtrig.MainMenu" >
 
     <item
     android:id="@+id/action_settings"

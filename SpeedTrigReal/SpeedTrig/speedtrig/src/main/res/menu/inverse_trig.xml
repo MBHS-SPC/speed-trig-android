@@ -1,6 +1,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.example.speedtrig.InverseTrig" >
+    tools:context="edu.mbhs.speedtrig.InverseTrig" >
 
     <item
         android:id="@+id/action_settings"

@@ -21,7 +21,7 @@
             android:paddingTop="@dimen/activity_vertical_margin"
             android:background="@android:color/white"
 
-            tools:context="com.example.speedtrig.MainMenu$PlaceholderFragment" >
+            tools:context="edu.mbhs.speedtrig.MainMenu$PlaceholderFragment" >
 
             <RelativeLayout
                 android:layout_width="fill_parent"
