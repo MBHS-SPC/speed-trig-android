@@ -1,8 +1,9 @@
-package com.example.speedtrig;
+package edu.mbhs.speedtrig;
 
-import android.app.ListActivity;
 import android.content.res.TypedArray;
 import android.os.Bundle;
+
+import com.example.speedtrig.R;
 
 /**
  * Created by AliAnwar7477 on 3/7/2015.

@@ -1,4 +1,4 @@
-package com.example.speedtrig;
+package edu.mbhs.speedtrig;
 
 public class NavDrawerItem {
 	private String title;

@@ -1,4 +1,4 @@
-package com.example.speedtrig;
+package edu.mbhs.speedtrig;
 
 import android.content.SharedPreferences;
 import android.content.res.TypedArray;
@@ -10,9 +10,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
-import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.TextView;
+
+import com.example.speedtrig.R;
 
 /**
  * Created by alia7_000 on 2/16/2015.

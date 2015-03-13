@@ -1,4 +1,4 @@
-package com.example.speedtrig;
+package edu.mbhs.speedtrig;
 
 import android.app.Fragment;
 import android.app.ListActivity;
@@ -14,34 +14,36 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.example.speedtrig.R;
+
 import java.util.Hashtable;
 import java.util.Random;
 
 /**
- * Inverse trig. Added 2/15/15 by AliAnwar7477.
+ * Inverse trig. Added 2/27/15 by AliAnwar7477.
  */
 
-public class InverseTrig extends ListActivity {
+public class CustomTrig extends ListActivity {
 
     public static String[] questionList;
     public static final String EXTRA_QUESTION = "edu.mbhs.speedtrig.QUESTION";
     public static final String EXTRA_RESPONSE = "edu.mbhs.speedtrig.RESPONSE";
     public static final String EXTRA_TIME = "edu.mbhs.speedtrig.TIME";
     public static final int TIME_REQUEST = 1;
-    public static Hashtable<String,String> responses = new Hashtable<String,String>();
+    public static Hashtable<String, String> responses = new Hashtable<String, String>();
     public long millisRemaining;
     public CountDownTimer trigTimer;
     public static boolean entranceButtonClicked;
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_inverse_trig);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_inverse_trig);
 
-		if (savedInstanceState == null) {
-			getFragmentManager().beginTransaction()
-					.add(R.id.container, new PlaceholderFragment()).commit();
-		}
+        if (savedInstanceState == null) {
+            getFragmentManager().beginTransaction()
+                    .add(R.id.container, new PlaceholderFragment()).commit();
+        }
 
         Log.d("inverseTrig", "onCreate started");
 
@@ -49,9 +51,9 @@ public class InverseTrig extends ListActivity {
             questionList = generateList();
 
         ListView lv = getListView();
-        Log.d("msg", this+"");
-        Log.d("msg", android.R.layout.simple_list_item_1+"");
-        Log.d("msg", questionList+"");
+        Log.d("msg", this + "");
+        Log.d("msg", android.R.layout.simple_list_item_1 + "");
+        Log.d("msg", questionList + "");
         lv.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, questionList));
         lv.setTextFilterEnabled(true);
 
@@ -84,7 +86,7 @@ public class InverseTrig extends ListActivity {
         startActivityForResult(i, TIME_REQUEST);
 
         Log.d("InverseTrig", "onCreate finished");
-	}
+    }
 
     public void onBackPressed(){
 
@@ -93,24 +95,22 @@ public class InverseTrig extends ListActivity {
         finish();
     }
 
-    public String getQuestion(){
+    public String getQuestion() {
 
         Random generator = new Random();
 
         boolean getRegularTrigQuestion = generator.nextBoolean();
 
-        if(getRegularTrigQuestion){
+        if (getRegularTrigQuestion) {
             RegularTrig rt = new RegularTrig();
             return rt.getQuestion();
-        }
-
-        else{
+        } else {
 
             int random;
             String operation = "", question = "";
 
             random = generator.nextInt(6);
-            switch(random) {
+            switch (random) {
                 case 0:
                     operation = "arcsin";
                     break;
@@ -131,7 +131,7 @@ public class InverseTrig extends ListActivity {
                     break;
             }
 
-            if((operation.equals("arcsin")) || (operation.equals("arccos"))) {
+            if ((operation.equals("arcsin")) || (operation.equals("arccos"))) {
                 random = generator.nextInt(5);
                 switch (random) {
                     case 0:
@@ -164,7 +164,7 @@ public class InverseTrig extends ListActivity {
                 }
             }
 
-            if((operation.equals("arccsc")) || (operation.equals("arcsec"))){
+            if ((operation.equals("arccsc")) || (operation.equals("arcsec"))) {
                 random = generator.nextInt(4);
                 switch (random) {
                     case 0:
@@ -194,7 +194,7 @@ public class InverseTrig extends ListActivity {
                 }
             }
 
-            if((operation.equals("arctan")) || (operation.equals("arccot"))){
+            if ((operation.equals("arctan")) || (operation.equals("arccot"))) {
                 random = generator.nextInt(4);
                 switch (random) {
                     case 0:
@@ -227,21 +227,26 @@ public class InverseTrig extends ListActivity {
         }
     }
 
-    public String[] generateList(){
+    public String[] generateList() {
         String[] questions = new String[12];
-        Log.d("generateList", "I totes initialized an array " + questions);
-        for (int i = 0; i <= 11; i++){
+        for (int i = 0; i <= 11; i++) {
             String question = getQuestion();
-            questions[i] = i+1 + ". " + question;
+            Log.d("gen list start question", question);
+            while (!Settings.isFunctionActive(question.substring(0, question.indexOf("(")))) {
+                question = getQuestion();
+            }
+            Log.d("gen list end question", question);
+
+            questions[i] = i + 1 + ". " + question;
         }
-        for (String s : questions){
+        for (String s : questions) {
             // The numbers preceding the question prevent bad things from happening
             responses.put(s, " ");
         }
         return questions;
     }
 
-    public void onListItemClick (ListView l, View v, int position, long id){
+    public void onListItemClick(ListView l, View v, int position, long id) {
         Intent i = new Intent(this, ResponseWindow.class);
         // pass the question to the response window
         String question = questionList[position];
@@ -263,7 +268,7 @@ public class InverseTrig extends ListActivity {
         if (requestCode == TIME_REQUEST && resultCode == RESULT_OK) {
             // it doesn't matter how the activity was ended
             millisRemaining = data.getLongExtra(EXTRA_TIME, millisRemaining);
-            Log.d("time2debug", "main received: "+millisRemaining);
+            Log.d("time2debug", "main received: " + millisRemaining);
             trigTimer = new CountDownTimer(millisRemaining, 1000) {
                 @Override
                 public void onTick(long millisUntilFinished) {
@@ -281,7 +286,7 @@ public class InverseTrig extends ListActivity {
         }
     }
 
-    public void stopQuiz(){
+    public void stopQuiz() {
         //Looper.prepare();
         //Toast.makeText(this, "You're finished!", Toast.LENGTH_LONG).show();
         Intent i = new Intent(this, FinalWindow.class);
@@ -290,45 +295,45 @@ public class InverseTrig extends ListActivity {
     }
 
     @Override
-    public void finish(){
+    public void finish() {
         trigTimer.cancel();
         super.finish();
     }
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
 
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.inverse_trig, menu);
-		return true;
-	}
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.inverse_trig, menu);
+        return true;
+    }
 
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
-	}
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+        if (id == R.id.action_settings) {
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
-	/**
-	 * A placeholder fragment containing a simple view.
-	 */
-	public static class PlaceholderFragment extends Fragment {
+    /**
+     * A placeholder fragment containing a simple view.
+     */
+    public static class PlaceholderFragment extends Fragment {
 
-		public PlaceholderFragment() {
-		}
+        public PlaceholderFragment() {
+        }
 
-		@Override
-		public View onCreateView(LayoutInflater inflater, ViewGroup container,
-				Bundle savedInstanceState) {
-			View rootView = inflater.inflate(R.layout.fragment_inverse_trig,
-					container, false);
-			return rootView;
-		}
-	}
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                                 Bundle savedInstanceState) {
+            View rootView = inflater.inflate(R.layout.fragment_custom_trig,
+                    container, false);
+            return rootView;
+        }
+    }
 }

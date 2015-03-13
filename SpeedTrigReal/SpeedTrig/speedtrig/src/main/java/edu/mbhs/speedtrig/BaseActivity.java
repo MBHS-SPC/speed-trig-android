@@ -1,4 +1,4 @@
-package com.example.speedtrig;
+package edu.mbhs.speedtrig;
 
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -13,6 +13,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+
+import com.example.speedtrig.R;
 
 import java.util.ArrayList;
 

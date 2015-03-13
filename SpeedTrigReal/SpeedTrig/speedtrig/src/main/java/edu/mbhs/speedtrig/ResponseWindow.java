@@ -1,4 +1,4 @@
-package com.example.speedtrig;
+package edu.mbhs.speedtrig;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -15,6 +15,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.speedtrig.R;
 
 import java.util.Timer;
 import java.util.TimerTask;
