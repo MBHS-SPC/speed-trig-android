@@ -35,7 +35,7 @@
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
                     android:onClick="startRegularDialog"
-                    android:textColor="@android:color/black"
+                    android:textColor="@android:color/white"
                     android:text="Regular Quiz"
                     android:layout_above="@+id/button2"
                     android:layout_alignLeft="@+id/button2"
@@ -47,24 +47,28 @@
                     android:id="@+id/button2"
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
-                    android:textColor="@android:color/black"
+                    android:textColor="@android:color/white"
                     android:onClick="startRegularDialog"
                     android:text="Regular Quiz"
                     android:layout_above="@+id/button14"
                     android:layout_alignLeft="@+id/button14"
                     android:layout_alignStart="@+id/button14"
-                    android:layout_marginBottom="10dp" />
+                    android:layout_marginBottom="10dp"
+                    android:backgroundTint="@color/light_blue_500"
+                    android:textStyle="bold" />
 
                 <Button
                     android:id="@+id/settings"
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
-                    android:textColor="@android:color/black"
+                    android:textColor="@android:color/white"
                     android:onClick="startCustomDialog"
                     android:text="Custom Quiz"
                     android:layout_above="@+id/button13"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginBottom="10dp" />
+                    android:layout_marginBottom="10dp"
+                    android:textStyle="bold"
+                    android:backgroundTint="@color/red_500" />
 
                 <TextView
                     android:id="@+id/textView1"
@@ -105,13 +109,15 @@
                     android:id="@+id/button14"
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
-                    android:textColor="@android:color/black"
+                    android:textColor="@android:color/white"
                     android:onClick="startInverseDialog"
                     android:text="Inverse Quiz"
                     android:layout_above="@+id/settings"
                     android:layout_alignLeft="@+id/settings"
                     android:layout_alignStart="@+id/settings"
-                    android:layout_marginBottom="10dp" />
+                    android:layout_marginBottom="10dp"
+                    android:textStyle="bold"
+                    android:background="@color/orange_500" />
 
                 <!-- sign-in button -->
                 <com.google.android.gms.common.SignInButton
