@@ -270,25 +270,6 @@
             </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/broadSettings"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_alignParentTop="true"
-            android:background="@color/ripple_material_light"
-            android:gravity="center"
-            android:layout_marginBottom="5dp"
-            android:layout_marginTop="5dp">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:text="General Settings"
-                android:textColor="#000"
-                android:textSize="21dp"
-                android:layout_marginBottom="10dp" />
-        </RelativeLayout>
-
-        <RelativeLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent">
 
