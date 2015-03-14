@@ -69,7 +69,6 @@ public class MainMenu extends BaseActivity implements
                         // add other APIs and scopes here as needed
                 .build();
 
-
         navMenuTitles = getResources().getStringArray(R.array.nav_drawer_items); // load titles from strings.xml
 
         navMenuIcons = getResources()

@@ -40,7 +40,8 @@ public class ResponseWindow extends Activity {
     long quizTimeRemaining;
     TextView timer;
     CountDownTimer quizTimer;
-    GoogleApiClient googleApi;
+
+    private GoogleApiClient mGoogleApiClient;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -178,9 +179,9 @@ public class ResponseWindow extends Activity {
         adb.setPositiveButton("Submit", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
                 submitCalled = true;
-                Games.Leaderboards.submitScore(mGoogleApiClient, leaderboard_regular_trig_time, timer.getText());
-                startActivityForResult(Games.Leaderboards.getLeaderboardIntent(mGoogleApiClient,
-                        leaderb), 0);
+                //Games.Leaderboards.submitScore(mGoogleApiClient, "RegularTrigTimeLeaderboard", quizTimeRemaining);
+                //startActivityForResult(Games.Leaderboards.getLeaderboardIntent(mGoogleApiClient,
+                        //"RegularTrigTimeLeaderboard"), 0);
                 finish();
                 return;
             }
