@@ -17,6 +17,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.speedtrig.R;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.games.Games;
 
@@ -24,7 +26,9 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
 
-public class ResponseWindow extends Activity {
+public class ResponseWindow extends Activity implements
+        GoogleApiClient.ConnectionCallbacks,
+        GoogleApiClient.OnConnectionFailedListener {
 
     public static double incompetenceDiminisher = 0.0001;
 
@@ -107,6 +111,17 @@ public class ResponseWindow extends Activity {
 
         quizTimer.start();
 
+        if(GooglePlayServicesUtil.isGooglePlayServicesAvailable(this) != 0)
+            GooglePlayServicesUtil.getErrorDialog(GooglePlayServicesUtil.isGooglePlayServicesAvailable(this), this, 0);
+
+        // Create the Google Api Client with access to the Play Game services
+        mGoogleApiClient = new GoogleApiClient.Builder(this)
+                .addConnectionCallbacks(this)
+                .addOnConnectionFailedListener(this)
+                .addApi(Games.API).addScope(Games.SCOPE_GAMES)
+                        // add other APIs and scopes here as needed
+                .build();
+
         switch (MainMenu.quizType) {
             case REGULAR:
                 questionVal = getIntent().getStringExtra(RegularTrig.EXTRA_QUESTION);
@@ -182,6 +197,13 @@ public class ResponseWindow extends Activity {
                 //Games.Leaderboards.submitScore(mGoogleApiClient, "RegularTrigTimeLeaderboard", quizTimeRemaining);
                 //startActivityForResult(Games.Leaderboards.getLeaderboardIntent(mGoogleApiClient,
                         //"RegularTrigTimeLeaderboard"), 0);
+                if(mGoogleApiClient.isConnected()){
+                    //Games.Achievements.unlock(getApiClient(),
+                            //getString(R.string.correct_guess_achievement));
+                    Games.Leaderboards.submitScore(mGoogleApiClient,
+                            getString(R.string.leaderboard_regular_trig_time),
+                            quizTimeRemaining);
+                }
                 finish();
                 return;
             }
@@ -565,4 +587,18 @@ public class ResponseWindow extends Activity {
         super.finish();
     }
 
+    @Override
+    public void onConnected(Bundle bundle) {
+
+    }
+
+    @Override
+    public void onConnectionSuspended(int i) {
+
+    }
+
+    @Override
+    public void onConnectionFailed(ConnectionResult connectionResult) {
+
+    }
 }

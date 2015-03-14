@@ -69,6 +69,9 @@ public class MainMenu extends BaseActivity implements
                         // add other APIs and scopes here as needed
                 .build();
 
+        findViewById(R.id.show_achievements).setOnClickListener(this);
+        findViewById(R.id.show_leaderboard).setOnClickListener(this);
+
         navMenuTitles = getResources().getStringArray(R.array.nav_drawer_items); // load titles from strings.xml
 
         navMenuIcons = getResources()
@@ -169,6 +172,17 @@ public class MainMenu extends BaseActivity implements
             // show sign-in button, hide the sign-out button
             findViewById(R.id.sign_in_button).setVisibility(View.VISIBLE);
             findViewById(R.id.sign_out_button).setVisibility(View.GONE);
+        }
+
+        else if (v.getId() == R.id.show_achievements){
+            startActivityForResult(Games.Achievements.getAchievementsIntent(
+                    mGoogleApiClient), 1);
+        }
+
+        else if(v.getId() == R.id.show_leaderboard){
+            startActivityForResult(Games.Leaderboards.getLeaderboardIntent(
+                            mGoogleApiClient, getString(R.string.leaderboard_regular_trig_time)),
+                    2);
         }
     }
 
