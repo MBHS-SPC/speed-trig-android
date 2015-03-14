@@ -16,15 +16,16 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_alignParentTop="true"
-            android:background="#ff8d8d8d"
+            android:background="@color/red_500"
             android:gravity="center" >
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:text="About"
-                android:textColor="#000"
-                android:textSize="30dp" />
+                android:textColor="@color/white"
+                android:textSize="30dp"
+                android:textStyle="bold" />
         </RelativeLayout>
 
         <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -58,7 +59,7 @@
             </LinearLayout>
 
             <ListView
-                android:id="@android:id/list"
+                android:id="@+id/"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
             </ListView>
