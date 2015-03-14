@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/BaseGameUtils/BaseGameUtils.iml" filepath="$PROJECT_DIR$/BaseGameUtils/BaseGameUtils.iml" />
       <module fileurl="file://$PROJECT_DIR$/SpeedTrig.iml" filepath="$PROJECT_DIR$/SpeedTrig.iml" />
       <module fileurl="file://$PROJECT_DIR$/speedtrig/speedtrig.iml" filepath="$PROJECT_DIR$/speedtrig/speedtrig.iml" />
     </modules>

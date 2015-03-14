@@ -15,6 +15,7 @@
     <string name="title_activity_trying">Trying</string>
     <string name="title_activity_final_window">FinalWindow</string>
     <string name="timer">ResponseWindow</string>
+    <string name="signin_error">Sign-in failed. Please try again later.</string>
 
     <string-array name="nav_drawer_items">
         <item>Quizzes</item>

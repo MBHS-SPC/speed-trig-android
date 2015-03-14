@@ -1,1 +1,1 @@
-include ':speedtrig'
+include ':speedtrig', ':BaseGameUtils'
