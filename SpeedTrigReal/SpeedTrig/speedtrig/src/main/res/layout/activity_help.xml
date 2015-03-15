@@ -28,6 +28,25 @@
                 android:textStyle="bold" />
         </RelativeLayout>
 
+        <RelativeLayout
+            android:id="@+id/customQuizParameters"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_alignParentTop="true"
+            android:background="@color/blue_grey_100"
+            android:gravity="center"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="50dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="Controls"
+                android:textColor="#000"
+                android:textSize="21dp"
+                android:layout_marginBottom="10dp" />
+        </RelativeLayout>
+
         <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
@@ -37,14 +56,16 @@
             android:paddingRight="@dimen/activity_horizontal_margin"
             android:paddingTop="@dimen/activity_vertical_margin"
             tools:context="edu.mbhs.speedtrig.Help"
-            android:layout_marginTop="50dp">
+            android:layout_marginTop="50dp"
+            android:id="@+id/">
 
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:weightSum="1"
-                android:id="@+id/linear_layout">
+                android:id="@+id/linear_layout"
+                android:layout_marginTop="30dp">
 
                 <TextView
                     android:id="@+id/entry1"
@@ -55,7 +76,7 @@
                     android:layout_marginTop="3dp"
                     android:textSize="18dp"
                     android:textIsSelectable="false"
-                    android:text="Controls:\nUse &apos;Back&apos; and &apos;Next&apos; buttons to scroll through questions. You can submit your quiz and receive results early with the &apos;Submit&apos; button located on the final question."
+                    android:text="Use &apos;Back&apos; and &apos;Next&apos; buttons to scroll through questions. You can submit your quiz and receive results early with the &apos;Submit&apos; button located on the final question."
                     android:layout_weight="0.06"
                     android:textColor="@android:color/black" />
 
