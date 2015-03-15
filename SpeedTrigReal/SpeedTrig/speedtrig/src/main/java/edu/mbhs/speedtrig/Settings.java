@@ -2,6 +2,8 @@ package edu.mbhs.speedtrig;
 
 import android.content.SharedPreferences;
 import android.content.res.TypedArray;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.preference.PreferenceFragment;
 import android.view.LayoutInflater;
@@ -87,6 +89,8 @@ public class Settings extends BaseActivity {
 
         quizTimeView = (TextView) findViewById(R.id.timeView);
         quizTimeBar = (SeekBar) findViewById(R.id.seekBar);
+
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#3f51b5")));
 
         quizTimeBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override

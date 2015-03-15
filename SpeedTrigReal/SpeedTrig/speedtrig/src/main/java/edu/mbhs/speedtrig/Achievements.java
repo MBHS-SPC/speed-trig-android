@@ -8,9 +8,9 @@ import android.os.Bundle;
 import com.example.speedtrig.R;
 
 /**
- * Created by AliAnwar7477 on 3/7/2015.
+ * Created by AliAnwar7477 on 3/15/2015.
  */
-public class Credits extends BaseActivity {
+public class Achievements extends BaseActivity {
 
     private String[] navMenuTitles;
     private TypedArray navMenuIcons;
@@ -18,7 +18,7 @@ public class Credits extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_credits);
+        setContentView(R.layout.activity_about);
 
         navMenuTitles = getResources().getStringArray(R.array.nav_drawer_items); // load titles from strings.xml
 
