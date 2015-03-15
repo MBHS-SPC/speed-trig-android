@@ -12,7 +12,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.TextView;
 
 import com.example.speedtrig.R;
 import com.google.android.gms.common.ConnectionResult;
@@ -84,6 +86,9 @@ public class MainMenu extends BaseActivity /**implements
         // strings.xml
 
         set(navMenuTitles, navMenuIcons);
+
+        Button quizTypeRegular = (Button) findViewById(R.id.button2);
+        quizTypeRegular.setVisibility(Button.VISIBLE);
 
         updateFunctionStates();
         updateQuizDuration();
@@ -339,6 +344,86 @@ public class MainMenu extends BaseActivity /**implements
             adb.show();
         else
             startInverse();
+    }
+
+    public void shiftQuizTypeLeft(View v){
+
+        Button quizTypeRegular = (Button) findViewById(R.id.button2);
+        Button quizTypeInverse = (Button) findViewById(R.id.button16);
+        Button quizTypeCustom = (Button) findViewById(R.id.button17);
+        Button[] quizTypeButtons = {quizTypeRegular, quizTypeInverse, quizTypeCustom};
+
+        TextView quizTypeDuration = (TextView) findViewById(R.id.textView14);
+        TextView quizTypeFunctions = (TextView) findViewById(R.id.textView15);
+        TextView quizTypeOtherInfo = (TextView) findViewById(R.id.textView16);
+
+        if(quizTypeRegular.getVisibility() == Button.VISIBLE){
+            quizTypeRegular.setVisibility(Button.INVISIBLE);
+            quizTypeCustom.setVisibility(Button.VISIBLE);
+
+            quizTypeDuration.setText("Duration: Adjustable");
+            quizTypeFunctions.setText("Functions: Adjustable");
+            quizTypeOtherInfo.setText("Other Info: The duration and functions of a custom quiz can be modified in the \"Settings\" section.");
+        }
+
+        else if(quizTypeInverse.getVisibility() == Button.VISIBLE){
+            quizTypeInverse.setVisibility(Button.INVISIBLE);
+            quizTypeRegular.setVisibility(Button.VISIBLE);
+
+            quizTypeDuration.setText("Duration: 3 min.");
+            quizTypeFunctions.setText("Functions: Non-Inverse Only");
+            quizTypeOtherInfo.setText("Other Info: None.");
+        }
+
+        else if(quizTypeCustom.getVisibility() == Button.VISIBLE){
+            quizTypeCustom.setVisibility(Button.INVISIBLE);
+            quizTypeInverse.setVisibility(Button.VISIBLE);
+
+            quizTypeDuration.setText("Duration: 3 min.");
+            quizTypeFunctions.setText("Functions: Inverse and Non-Inverse");
+            quizTypeOtherInfo.setText("Other Info: None.");
+        }
+
+    }
+
+    public void shiftQuizTypeRight(View v){
+
+        Button quizTypeRegular = (Button) findViewById(R.id.button2);
+        Button quizTypeInverse = (Button) findViewById(R.id.button16);
+        Button quizTypeCustom = (Button) findViewById(R.id.button17);
+        Button[] quizTypeButtons = {quizTypeRegular, quizTypeInverse, quizTypeCustom};
+
+        TextView quizTypeDuration = (TextView) findViewById(R.id.textView14);
+        TextView quizTypeFunctions = (TextView) findViewById(R.id.textView15);
+        TextView quizTypeOtherInfo = (TextView) findViewById(R.id.textView16);
+
+        if(quizTypeInverse.getVisibility() == Button.VISIBLE){
+            quizTypeInverse.setVisibility(Button.INVISIBLE);
+            quizTypeCustom.setVisibility(Button.VISIBLE);
+
+            quizTypeDuration.setText("Duration: Adjustable");
+            quizTypeFunctions.setText("Functions: Adjustable");
+            quizTypeOtherInfo.setText("Other Info: The duration and functions of a custom quiz can be modified in the \"Settings\" section.");
+        }
+
+        else if(quizTypeCustom.getVisibility() == Button.VISIBLE){
+            quizTypeCustom.setVisibility(Button.INVISIBLE);
+            quizTypeRegular.setVisibility(Button.VISIBLE);
+
+            quizTypeDuration.setText("Duration: 3 min.");
+            quizTypeFunctions.setText("Functions: Non-Inverse Only");
+            quizTypeOtherInfo.setText("Other Info: None.");
+        }
+
+        else if(quizTypeRegular.getVisibility() == Button.VISIBLE){
+            quizTypeRegular.setVisibility(Button.INVISIBLE);
+            quizTypeInverse.setVisibility(Button.VISIBLE);
+
+            quizTypeDuration.setText("Duration: 3 min.");
+            quizTypeFunctions.setText("Functions: Inverse and Non-Inverse");
+            quizTypeOtherInfo.setText("Other Info: None.");
+        }
+
     }
 
 	public void startInverse(){
