@@ -22,10 +22,10 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.games.Games;
 import com.google.example.games.basegameutils.BaseGameUtils;
 
-public class MainMenu extends BaseActivity implements
+public class MainMenu extends BaseActivity /**implements
         View.OnClickListener,
         GoogleApiClient.ConnectionCallbacks,
-        GoogleApiClient.OnConnectionFailedListener {
+        GoogleApiClient.OnConnectionFailedListener*/ {
 
     public static enum QuizType {
         REGULAR, INVERSE, CUSTOM;
@@ -35,6 +35,8 @@ public class MainMenu extends BaseActivity implements
     public CheckBox dontShowAgain;
     private String[] navMenuTitles;
     private TypedArray navMenuIcons;
+
+    /**
     private GoogleApiClient mGoogleApiClient;
     private static int RC_SIGN_IN = 9001;
 
@@ -45,6 +47,7 @@ public class MainMenu extends BaseActivity implements
     boolean mInSignInFlow = false; // set to true when you're in the middle of the
     // sign in flow, to know you should not attempt
     // to connect in onStart()
+     */
 
     @Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +58,7 @@ public class MainMenu extends BaseActivity implements
 					//.add(R.id.container, new PlaceholderFragment()).commit();
 		//}
 
+        /**
         findViewById(R.id.sign_in_button).setOnClickListener(this);
         findViewById(R.id.sign_out_button).setOnClickListener(this);
 
@@ -71,6 +75,7 @@ public class MainMenu extends BaseActivity implements
 
         findViewById(R.id.show_achievements).setOnClickListener(this);
         findViewById(R.id.show_leaderboard).setOnClickListener(this);
+         */
 
         navMenuTitles = getResources().getStringArray(R.array.nav_drawer_items); // load titles from strings.xml
 
@@ -83,7 +88,7 @@ public class MainMenu extends BaseActivity implements
         updateFunctionStates();
         updateQuizDuration();
 	}
-
+    /**
     @Override
     protected void onStart() {
         super.onStart();
@@ -98,6 +103,7 @@ public class MainMenu extends BaseActivity implements
         super.onStop();
         mGoogleApiClient.disconnect();
     }
+     */
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -106,6 +112,7 @@ public class MainMenu extends BaseActivity implements
 		return true;
 	}
 
+    /**
     @Override
     public void onConnected(Bundle bundle) {
 
@@ -185,6 +192,7 @@ public class MainMenu extends BaseActivity implements
                     2);
         }
     }
+    */
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {

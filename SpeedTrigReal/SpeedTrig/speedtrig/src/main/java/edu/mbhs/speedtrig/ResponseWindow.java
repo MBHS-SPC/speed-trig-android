@@ -26,9 +26,9 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
 
-public class ResponseWindow extends Activity implements
+public class ResponseWindow extends Activity /**implements
         GoogleApiClient.ConnectionCallbacks,
-        GoogleApiClient.OnConnectionFailedListener {
+        GoogleApiClient.OnConnectionFailedListener*/ {
 
     public static double incompetenceDiminisher = 0.0001;
 
@@ -111,6 +111,7 @@ public class ResponseWindow extends Activity implements
 
         quizTimer.start();
 
+        /**
         if(GooglePlayServicesUtil.isGooglePlayServicesAvailable(this) != 0)
             GooglePlayServicesUtil.getErrorDialog(GooglePlayServicesUtil.isGooglePlayServicesAvailable(this), this, 0);
 
@@ -121,6 +122,7 @@ public class ResponseWindow extends Activity implements
                 .addApi(Games.API).addScope(Games.SCOPE_GAMES)
                         // add other APIs and scopes here as needed
                 .build();
+         */
 
         switch (MainMenu.quizType) {
             case REGULAR:
@@ -587,6 +589,7 @@ public class ResponseWindow extends Activity implements
         super.finish();
     }
 
+    /**
     @Override
     public void onConnected(Bundle bundle) {
 
@@ -601,4 +604,5 @@ public class ResponseWindow extends Activity implements
     public void onConnectionFailed(ConnectionResult connectionResult) {
 
     }
+    */
 }
