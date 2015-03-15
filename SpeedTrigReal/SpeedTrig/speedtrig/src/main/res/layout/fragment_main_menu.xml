@@ -226,7 +226,7 @@
                     android:layout_above="@+id/button14"
                     android:layout_alignLeft="@+id/button19"
                     android:layout_alignStart="@+id/button19"
-                    android:textSize="18dp" />
+                    android:textSize="20dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -238,7 +238,8 @@
                     android:layout_alignLeft="@+id/textView14"
                     android:layout_alignStart="@+id/textView14"
                     android:layout_marginTop="5dp"
-                    android:textSize="18dp" />
+                    android:textSize="20dp"
+                    android:textIsSelectable="false" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -250,7 +251,7 @@
                     android:layout_alignLeft="@+id/textView15"
                     android:layout_alignStart="@+id/textView15"
                     android:layout_marginTop="5dp"
-                    android:textSize="18dp" />
+                    android:textSize="20dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
