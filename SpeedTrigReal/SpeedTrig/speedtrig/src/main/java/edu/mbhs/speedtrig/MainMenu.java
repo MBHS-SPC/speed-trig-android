@@ -249,9 +249,7 @@ public class MainMenu extends BaseActivity /**implements
         dontShowAgain = (CheckBox) eulaLayout.findViewById(R.id.skip);
         adb.setView(eulaLayout);
         adb.setTitle("Regular Quiz");
-        adb.setMessage("You have chosen to take a Regular Speed Trig Quiz." +
-                " You will have three minutes to compute twelve non-inverse trig functions." +
-                "\n\nControls are listed in the \"Help\" section.");
+        adb.setMessage("Start a regular quiz?");
         adb.setPositiveButton("Start Quiz", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
                 String checkBoxResult = "NOT checked";
@@ -307,9 +305,7 @@ public class MainMenu extends BaseActivity /**implements
         dontShowAgain = (CheckBox) eulaLayout.findViewById(R.id.skip);
         adb.setView(eulaLayout);
         adb.setTitle("Inverse Quiz");
-        adb.setMessage("You have chosen to take an Inverse Speed Trig Quiz." +
-                " You will have three minutes to compute twelve trig functions (both inverse and non-inverse)." +
-                "\n\nControls are listed in the \"Help\" section.");
+        adb.setMessage("Start an inverse quiz?");
         adb.setPositiveButton("Start Quiz", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
                 String checkBoxResult = "NOT checked";
@@ -344,6 +340,70 @@ public class MainMenu extends BaseActivity /**implements
             adb.show();
         else
             startInverse();
+    }
+
+    public void startInverse(){
+        //Toast.makeText(this, "Coming Soon!!!", Toast.LENGTH_SHORT).show();
+        //startActivity(new Intent(this, InverseTrig.class));
+        InverseTrig.entranceButtonClicked = true;
+        quizType = QuizType.INVERSE;
+        startActivity(new Intent(this, InverseTrig.class));
+    }
+
+    public void startCustomDialog(View v){
+        //Toast.makeText(this, "Ready!", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "Set!", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "Go!", Toast.LENGTH_SHORT).show();
+
+        AlertDialog.Builder adb = new AlertDialog.Builder(this);
+        LayoutInflater adbInflater = LayoutInflater.from(this);
+        View eulaLayout = adbInflater.inflate(R.layout.checkbox, null);
+        dontShowAgain = (CheckBox) eulaLayout.findViewById(R.id.skip);
+        adb.setView(eulaLayout);
+        adb.setTitle("Custom Quiz");
+        adb.setMessage("Start a custom quiz?");
+        adb.setPositiveButton("Start Quiz", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                String checkBoxResult = "NOT checked";
+                if (dontShowAgain.isChecked())
+                    checkBoxResult = "checked";
+                SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
+                SharedPreferences.Editor editor = settings.edit();
+                editor.putString("skipCustomInstructions", checkBoxResult);
+                // Commit the edits!
+                editor.commit();
+                startCustom();
+                return;
+            }
+        });
+
+        adb.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                String checkBoxResult = "NOT checked";
+                if (dontShowAgain.isChecked())
+                    checkBoxResult = "checked";
+                SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
+                SharedPreferences.Editor editor = settings.edit();
+                editor.putString("skipCustomInstructions", checkBoxResult);
+                // Commit the edits!
+                editor.commit();
+                return;
+            }
+        });
+        SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
+        String skipMessage = settings.getString("skipCustomInstructions", "NOT checked");
+        if (!skipMessage.equals("checked"))
+            adb.show();
+        else
+            startCustom();
+    }
+
+    public void startCustom(){
+        //Toast.makeText(this, "Coming Soon!!!", Toast.LENGTH_SHORT).show();
+        //startActivity(new Intent(this, InverseTrig.class));
+        CustomTrig.entranceButtonClicked = true;
+        quizType = QuizType.CUSTOM;
+        startActivity(new Intent(this, CustomTrig.class));
     }
 
     public void shiftQuizTypeLeft(View v){
@@ -424,72 +484,6 @@ public class MainMenu extends BaseActivity /**implements
             quizTypeOtherInfo.setText("Other Info: None.");
         }
 
-    }
-
-	public void startInverse(){
-		//Toast.makeText(this, "Coming Soon!!!", Toast.LENGTH_SHORT).show();
-		//startActivity(new Intent(this, InverseTrig.class));
-        InverseTrig.entranceButtonClicked = true;
-        quizType = QuizType.INVERSE;
-        startActivity(new Intent(this, InverseTrig.class));
-	}
-
-    public void startCustomDialog(View v){
-        //Toast.makeText(this, "Ready!", Toast.LENGTH_SHORT).show();
-        //Toast.makeText(this, "Set!", Toast.LENGTH_SHORT).show();
-        //Toast.makeText(this, "Go!", Toast.LENGTH_SHORT).show();
-
-        AlertDialog.Builder adb = new AlertDialog.Builder(this);
-        LayoutInflater adbInflater = LayoutInflater.from(this);
-        View eulaLayout = adbInflater.inflate(R.layout.checkbox, null);
-        dontShowAgain = (CheckBox) eulaLayout.findViewById(R.id.skip);
-        adb.setView(eulaLayout);
-        adb.setTitle("Custom Quiz");
-        adb.setMessage("You have chosen to take a Custom Speed Trig Quiz." +
-                " The duration and active functions of a Custom quiz can be altered in the Settings menu. By default, a Custom quiz is three minutes long and has both inverse and non-inverse functions." +
-                "\n\nControls are listed in the \"Help\" section.");
-        adb.setPositiveButton("Start Quiz", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int which) {
-                String checkBoxResult = "NOT checked";
-                if (dontShowAgain.isChecked())
-                    checkBoxResult = "checked";
-                SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
-                SharedPreferences.Editor editor = settings.edit();
-                editor.putString("skipCustomInstructions", checkBoxResult);
-                // Commit the edits!
-                editor.commit();
-                startCustom();
-                return;
-            }
-        });
-
-        adb.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int which) {
-                String checkBoxResult = "NOT checked";
-                if (dontShowAgain.isChecked())
-                    checkBoxResult = "checked";
-                SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
-                SharedPreferences.Editor editor = settings.edit();
-                editor.putString("skipCustomInstructions", checkBoxResult);
-                // Commit the edits!
-                editor.commit();
-                return;
-            }
-        });
-        SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
-        String skipMessage = settings.getString("skipCustomInstructions", "NOT checked");
-        if (!skipMessage.equals("checked"))
-            adb.show();
-        else
-            startCustom();
-    }
-
-    public void startCustom(){
-        //Toast.makeText(this, "Coming Soon!!!", Toast.LENGTH_SHORT).show();
-        //startActivity(new Intent(this, InverseTrig.class));
-        CustomTrig.entranceButtonClicked = true;
-        quizType = QuizType.CUSTOM;
-        startActivity(new Intent(this, CustomTrig.class));
     }
 
     public void startSettings(View v){
