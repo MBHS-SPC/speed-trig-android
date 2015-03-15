@@ -87,7 +87,7 @@
                 android:layout_marginBottom="5dp"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
-                android:id="@+id/" />
+                android:id="@+id/none" />
         </RelativeLayout>
     </FrameLayout>
 
