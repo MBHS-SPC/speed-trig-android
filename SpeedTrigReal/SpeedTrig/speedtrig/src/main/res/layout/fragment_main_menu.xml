@@ -115,12 +115,12 @@
                     android:textColor="@android:color/white"
                     android:onClick="startInverseDialog"
                     android:text="Inverse Quiz"
-                    android:layout_above="@+id/settings"
                     android:layout_alignLeft="@+id/settings"
                     android:layout_alignStart="@+id/settings"
-                    android:layout_marginBottom="10dp"
                     android:textStyle="bold"
-                    android:background="@color/orange_500" />
+                    android:background="@color/orange_500"
+                    android:layout_above="@+id/settings"
+                    android:layout_marginBottom="10dp" />
 
                 <!-- sign-in button -->
                 <com.google.android.gms.common.SignInButton

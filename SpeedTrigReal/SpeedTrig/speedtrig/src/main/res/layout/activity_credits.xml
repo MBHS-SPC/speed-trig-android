@@ -23,7 +23,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:text="Credits"
-                android:textColor="white"
+                android:textColor="@color/white"
                 android:textSize="30dp"
                 android:textStyle="bold" />
         </RelativeLayout>

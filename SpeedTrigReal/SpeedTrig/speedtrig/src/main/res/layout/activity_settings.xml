@@ -257,7 +257,7 @@
                     android:id="@+id/reset"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@android:color/black"
+                    android:textColor="@color/white"
                     android:onClick="reset"
                     android:text="Reset to Default"
                     android:layout_gravity="center_horizontal"
@@ -266,7 +266,9 @@
                     android:layout_alignLeft="@+id/seekBar"
                     android:layout_alignStart="@+id/seekBar"
                     android:layout_marginBottom="15dp"
-                    android:layout_marginRight="20dp" />
+                    android:layout_marginRight="20dp"
+                    android:background="@color/grey_500"
+                    android:textStyle="bold" />
 
             </RelativeLayout>
 
@@ -336,6 +338,18 @@
                 android:editable="true"
                 android:visibility="invisible" />
 
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="OK"
+                android:id="@+id/button16"
+                android:layout_alignTop="@+id/textView"
+                android:layout_centerHorizontal="true"
+                android:onClick="startCustomDialog"
+                android:textStyle="bold"
+                android:background="@color/cyan_500"
+                android:textColor="@color/white"
+                android:textSize="30dp" />
 
 
         </RelativeLayout>
