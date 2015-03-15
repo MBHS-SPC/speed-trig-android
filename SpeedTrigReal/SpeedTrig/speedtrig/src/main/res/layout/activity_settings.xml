@@ -16,16 +16,15 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_alignParentTop="true"
-        android:background="@color/blue_500"
+        android:background="@color/grey_500"
         android:gravity="center" >
             <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:text="Settings"
-            android:textColor="@color/white"
-            android:textSize="30dp"
-                android:textStyle="bold" />
+            android:textColor="@android:color/black"
+            android:textSize="30dp" />
         </RelativeLayout>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -76,7 +75,7 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_alignParentTop="true"
-            android:background="@color/blue_grey_100"
+            android:background="@color/grey_400"
             android:gravity="center"
             android:layout_marginBottom="5dp">
             <TextView
@@ -84,7 +83,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:text="Custom Quiz Parameters"
-                android:textColor="#000"
+                android:textColor="@android:color/black"
                 android:textSize="21dp"
                 android:layout_marginBottom="10dp" />
         </RelativeLayout>
@@ -277,7 +276,7 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_alignParentTop="true"
-            android:background="@color/ripple_material_light"
+            android:background="@color/grey_400"
             android:gravity="center"
             android:layout_marginBottom="5dp"
             android:layout_marginTop="5dp">
@@ -385,7 +384,7 @@
                 android:layout_marginBottom="5dp"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
-                android:id="@+id/" />
+                android:id="@+id/version_text_view_settings" />
         </RelativeLayout>
 
     </FrameLayout>

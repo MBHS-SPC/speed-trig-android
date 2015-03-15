@@ -1,6 +1,8 @@
 package edu.mbhs.speedtrig;
 
 import android.content.res.TypedArray;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
 import com.example.speedtrig.R;
@@ -23,6 +25,8 @@ public class Credits extends BaseActivity {
         navMenuIcons = getResources()
                 .obtainTypedArray(R.array.nav_drawer_icons);// load icons from
         // strings.xml
+
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#3f51b5")));
 
         set(navMenuTitles, navMenuIcons);
     }

@@ -303,8 +303,8 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:choiceMode="singleChoice"
-        android:divider="#FFC0C0C0"
-        android:dividerHeight="1dp"
+        android:divider="#000000"
+        android:dividerHeight="0dp"
         android:background="@android:color/white"/>
 </android.support.v4.widget.DrawerLayout>
 
