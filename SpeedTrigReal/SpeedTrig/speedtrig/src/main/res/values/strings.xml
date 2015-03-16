@@ -19,6 +19,7 @@
 
     <string-array name="nav_drawer_items">
         <item>Quizzes</item>
+        <item>Learn</item>
         <item>Leaderboards</item>
         <item>Achievements</item>
         <item>Settings</item>
@@ -30,6 +31,7 @@
 
     <array name="nav_drawer_icons">
         <item>@drawable/quizzes_icon</item>
+        <item>@drawable/learn_ic_small</item>
         <item>@drawable/leaderboard_icon</item>
         <item>@drawable/achievement_icon_small</item>
         <item>@drawable/settings_icon</item>
