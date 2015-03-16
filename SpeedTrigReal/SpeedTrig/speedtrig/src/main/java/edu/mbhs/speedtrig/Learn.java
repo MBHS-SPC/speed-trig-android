@@ -28,4 +28,4 @@ public class Learn extends BaseActivity {
 
         set(navMenuTitles, navMenuIcons);
     }
-
+}

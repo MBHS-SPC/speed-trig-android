@@ -166,40 +166,40 @@ public class BaseActivity extends ActionBarActivity {
 			finish();// finishes the current activity
 			break;
         case 1:
-            Intent intent1 = new Intent(this, Settings.class);
+            Intent intent1 = new Intent(this, Learn.class);
             startActivity(intent1);
             finish();// finishes the current activity
             break;
         case 2:
-            Intent intent2 = new Intent(this, Help.class);
+            Intent intent2 = new Intent(this, Leaderboards.class);
             startActivity(intent2);
+            finish();// finishes the current activity
+            break;
+        case 3:
+            Intent intent3 = new Intent(this, Achievements.class);
+            startActivity(intent3);
             finish();
             break;
-		case 3:
-			Intent intent3 = new Intent(this, Settings.class);
-			startActivity(intent3);
+		case 4:
+			Intent intent4 = new Intent(this, Settings.class);
+			startActivity(intent4);
 			finish();// finishes the current activity
 			break;
-		case 4:
-		    Intent intent4 = new Intent(this, Help.class);
-		    startActivity(intent4);
-		    finish();
-		    break;
 		case 5:
-		    Intent intent5 = new Intent(this, About.class);
+		    Intent intent5 = new Intent(this, Help.class);
 		    startActivity(intent5);
 		    finish();
 		    break;
 		case 6:
-		    Intent intent6 = new Intent(this, Credits.class);
+		    Intent intent6 = new Intent(this, About.class);
 		    startActivity(intent6);
 		    finish();
 		    break;
-		// case 5:
-		// Intent intent5 = new Intent(this, sixth.class);
-		// startActivity(intent5);
-	    // finish();
-		// break;
+		case 7:
+		    Intent intent7 = new Intent(this, Credits.class);
+		    startActivity(intent7);
+		    finish();
+		    break;
 		default:
 			break;
 		}
