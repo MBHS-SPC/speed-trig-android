@@ -57,6 +57,11 @@
                     android:src="@drawable/unit_circle" />
             </LinearLayout>
 
+            <ScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/scrollView" />
+
         </RelativeLayout>
 
         <!-- Footer aligned to bottom -->

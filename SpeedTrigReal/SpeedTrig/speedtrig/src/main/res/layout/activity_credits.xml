@@ -84,6 +84,17 @@
                     android:text="Ali Anwar"
                     android:textColor="@android:color/black"
                     android:layout_gravity="center_horizontal" />
+                <TextView
+                    android:id="@+id/textView12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/header"
+                    android:layout_below="@+id/header"
+                    android:textSize="20dp"
+                    android:textIsSelectable="false"
+                    android:text="Suyaib Ahmed"
+                    android:textColor="@android:color/black"
+                    android:layout_gravity="center_horizontal" />
 
                 <TextView
                     android:id="@+id/textView6"
@@ -146,6 +157,17 @@
                     android:textSize="20dp"
                     android:textIsSelectable="false"
                     android:text="Brynne Edwards"
+                    android:textColor="@android:color/black"
+                    android:layout_gravity="center_horizontal" />
+                <TextView
+                    android:id="@+id/textView11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/header"
+                    android:layout_below="@+id/header"
+                    android:textSize="20dp"
+                    android:textIsSelectable="false"
+                    android:text="Suyaib Ahmed"
                     android:textColor="@android:color/black"
                     android:layout_gravity="center_horizontal" />
 

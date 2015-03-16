@@ -15,7 +15,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import android.media.MediaPlayer;
 import com.example.speedtrig.R;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
@@ -46,13 +46,18 @@ public class ResponseWindow extends Activity /**implements
     CountDownTimer quizTimer;
 
     private GoogleApiClient mGoogleApiClient;
-	
+
+
+    //Sounds
+    MediaPlayer corSound, wroSound;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_response_window);
 		question = (TextView) findViewById(R.id.question);
 		responseCopy = (TextView) findViewById(R.id.response);
+        corSound = MediaPlayer.create(this,R.raw.rose_correct);
+        wroSound = MediaPlayer.create(this, R.raw.pham_wrong);
 
         //quizTimeRemaining = getIntent().getLongExtra(RegularTrig.EXTRA_TIME, Settings.quizDuration);
         quizTimeRemaining = Settings.quizDuration;
@@ -255,7 +260,9 @@ public class ResponseWindow extends Activity /**implements
         boolean isCorrect = response.equals(correct);
         String text = "#" + questionVal.substring(0, questionVal.indexOf('.')) + " is incorrect!";
         if (isCorrect) text = "#" + questionVal.substring(0, questionVal.indexOf('.')) + " is correct!";
-
+        if (isCorrect) {
+            corSound.start();
+        }else wroSound.start();
         int questionIndex = Integer.parseInt(questionVal.substring(0, questionVal.indexOf('.')))-1;
 
         TextView next_button = (TextView) findViewById(R.id.button11);
