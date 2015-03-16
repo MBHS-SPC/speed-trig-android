@@ -72,11 +72,59 @@
             ]]>
 
         <RelativeLayout
+            android:id="@+id/broadSettings"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_alignParentTop="true"
+            android:background="@color/ripple_material_light"
+            android:gravity="center">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="General Settings"
+                android:textColor="#000"
+                android:textSize="21dp"
+                android:layout_marginBottom="10dp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/broadSettings_relative_layout"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_alignParentTop="true"
+            android:gravity="center">
+
+            <CheckBox android:id="@+id/checkbox_sin_two"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Music "
+                android:onClick="onCheckboxClicked"
+                android:checked="true"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginRight="250dp"
+                android:visibility="visible" />
+
+            <CheckBox
+                android:id="@+id/checkBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="BlairTalks Voices "
+                android:onClick="onCheckboxClicked"
+                android:checked="true"
+                android:layout_below="@+id/checkbox_sin_two"
+                android:layout_alignLeft="@+id/checkbox_sin_two"
+                android:layout_alignStart="@+id/checkbox_sin_two" />
+        </RelativeLayout>
+
+
+        <RelativeLayout
             android:id="@+id/customQuizParameters"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_alignParentTop="true"
-            android:background="@color/blue_grey_100"
+            android:background="@color/ripple_material_light"
             android:gravity="center"
             android:layout_marginBottom="5dp">
             <TextView
@@ -273,25 +321,6 @@
             </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/broadSettings"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_alignParentTop="true"
-            android:background="@color/ripple_material_light"
-            android:gravity="center"
-            android:layout_marginBottom="5dp"
-            android:layout_marginTop="5dp">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:text="General Settings"
-                android:textColor="#000"
-                android:textSize="21dp"
-                android:layout_marginBottom="10dp" />
-        </RelativeLayout>
-
-        <RelativeLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent">
 
@@ -339,17 +368,16 @@
                 android:visibility="invisible" />
 
             <Button
-                android:layout_width="wrap_content"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:text="OK"
+                android:text="Apply Settings"
                 android:id="@+id/button16"
-                android:layout_alignTop="@+id/textView"
-                android:layout_centerHorizontal="true"
                 android:onClick="startCustomDialog"
-                android:textStyle="bold"
-                android:background="@color/cyan_500"
-                android:textColor="@color/white"
-                android:textSize="30dp" />
+                android:background="@color/ripple_material_light"
+                android:textColor="@android:color/black"
+                android:textSize="21dp"
+                android:layout_below="@+id/editText"
+                android:layout_centerHorizontal="true" />
 
 
         </RelativeLayout>

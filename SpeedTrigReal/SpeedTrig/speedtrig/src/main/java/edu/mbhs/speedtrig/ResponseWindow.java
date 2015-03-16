@@ -260,9 +260,11 @@ public class ResponseWindow extends Activity /**implements
         boolean isCorrect = response.equals(correct);
         String text = "#" + questionVal.substring(0, questionVal.indexOf('.')) + " is incorrect!";
         if (isCorrect) text = "#" + questionVal.substring(0, questionVal.indexOf('.')) + " is correct!";
-        if (isCorrect) {
-            corSound.start();
-        }else wroSound.start();
+        if(!response.equals("")) {
+            if (isCorrect) {
+                corSound.start();
+            } else wroSound.start();
+        }
         int questionIndex = Integer.parseInt(questionVal.substring(0, questionVal.indexOf('.')))-1;
 
         TextView next_button = (TextView) findViewById(R.id.button11);
