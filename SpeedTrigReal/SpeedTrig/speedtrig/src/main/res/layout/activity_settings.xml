@@ -104,15 +104,15 @@
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
                 android:layout_marginRight="250dp"
-                android:visibility="visible" />
+                android:visibility="invisible" />
 
             <CheckBox
-                android:id="@+id/checkBox"
+                android:id="@+id/checkbox_blairtalks_sounds"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="BlairTalks Voices "
                 android:onClick="onCheckboxClicked"
-                android:checked="true"
+                android:checked="false"
                 android:layout_below="@+id/checkbox_sin_two"
                 android:layout_alignLeft="@+id/checkbox_sin_two"
                 android:layout_alignStart="@+id/checkbox_sin_two" />

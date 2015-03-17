@@ -38,6 +38,8 @@ public class Settings extends BaseActivity {
 
     static long quizDuration;
 
+    public static boolean areBlairTalksSoundsEnabled;
+
     TextView quizTimeView;
     SeekBar quizTimeBar;
 
@@ -78,6 +80,13 @@ public class Settings extends BaseActivity {
             else
                 functionCheckBoxes[i].setChecked(false);
         }
+
+        CheckBox checkbox_blairtalks_sounds = (CheckBox) findViewById(R.id.checkbox_blairtalks_sounds);
+
+        if(areBlairTalksSoundsEnabled)
+            checkbox_blairtalks_sounds.setChecked(true);
+        else
+            checkbox_blairtalks_sounds.setChecked(false);
 
         navMenuTitles = getResources().getStringArray(R.array.nav_drawer_items); // load titles from strings.xml
 
@@ -293,6 +302,13 @@ public class Settings extends BaseActivity {
                     editor.putBoolean("isArccotActive", true);
                 else
                     editor.putBoolean("isArccotActive", false);
+                break;
+
+            case R.id.checkbox_blairtalks_sounds:
+                if (checked)
+                    editor.putBoolean("areBlairTalksSoundsEnabled", true);
+                else
+                    editor.putBoolean("areBlairTalksSoundsEnabled", false);
                 break;
         }
 

@@ -241,6 +241,13 @@ public class MainMenu extends BaseActivity /**implements
         Settings.quizDuration = settings.getLong("quizDuration", 180000);
         Settings.quizDuration += 100;
     }
+
+    private void updateSoundStatus(){
+
+        SharedPreferences settings = getSharedPreferences("Settings", MODE_PRIVATE);
+
+        Settings.areBlairTalksSoundsEnabled = settings.getBoolean("areBlairTalksSoundsEnabled", false);
+    }
 	
 	public void startRegularDialog(View v){
 		//Toast.makeText(this, "Ready!", Toast.LENGTH_SHORT).show();
