@@ -50,12 +50,16 @@ public class ResponseWindow extends Activity /**implements
 
     //Sounds
     MediaPlayer corSound, wroSound;
+
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_response_window);
 		question = (TextView) findViewById(R.id.question);
 		responseCopy = (TextView) findViewById(R.id.response);
+
+        //Sounds
         corSound = MediaPlayer.create(this,R.raw.rose_correct);
         wroSound = MediaPlayer.create(this, R.raw.pham_wrong);
 
@@ -260,6 +264,7 @@ public class ResponseWindow extends Activity /**implements
         boolean isCorrect = response.equals(correct);
         String text = "#" + questionVal.substring(0, questionVal.indexOf('.')) + " is incorrect!";
         if (isCorrect) text = "#" + questionVal.substring(0, questionVal.indexOf('.')) + " is correct!";
+        //Sounds
         if(!response.equals("")) {
             if (isCorrect) {
                 corSound.start();
