@@ -51,7 +51,7 @@
                     android:layout_alignLeft="@+id/header"
                     android:layout_below="@+id/header"
                     android:layout_marginTop="3dp"
-                    android:text="      Speed Trig v1.2 is an application designed to help users improve their ability to compute basic trigonometric functions by practicing with digital quizzes on the unit circle.\n     Speed Trig was designed by the Montgomery Blair High School Smartphone Programming Club of 2014-2015 and inspired by the timed unit circle quizzes which are included within the Pre-Calculus curriculum at MBHS."
+                    android:text="      Speed Trig v1.3 is an application designed to help users improve their ability to compute basic trigonometric functions by practicing with digital quizzes on the unit circle.\n     Speed Trig was designed by the Montgomery Blair High School Smartphone Programming Club of 2014-2015 and inspired by the timed unit circle quizzes which are included within the Pre-Calculus curriculum at MBHS."
                     android:textSize="18dp"
                     android:textIsSelectable="false"
                     android:textColor="@android:color/black" />
