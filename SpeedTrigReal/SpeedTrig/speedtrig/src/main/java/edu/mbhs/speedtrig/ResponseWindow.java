@@ -17,8 +17,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.media.MediaPlayer;
 import com.example.speedtrig.R;
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.games.Games;
 
@@ -49,7 +47,7 @@ public class ResponseWindow extends Activity /**implements
 
 
     //Sounds
-    MediaPlayer corSound, wroSound;
+    MediaPlayer corSound, wroSound, speedTrigQuizTheme;
 
 
 	@Override
@@ -62,6 +60,10 @@ public class ResponseWindow extends Activity /**implements
         //Sounds
         corSound = MediaPlayer.create(this,R.raw.rose_correct);
         wroSound = MediaPlayer.create(this, R.raw.pham_wrong);
+        speedTrigQuizTheme = MediaPlayer.create(this, R.raw.speed_trig_quiz_theme);
+
+        speedTrigQuizTheme.setLooping(true);
+        //speedTrigQuizTheme.start();
 
         //quizTimeRemaining = getIntent().getLongExtra(RegularTrig.EXTRA_TIME, Settings.quizDuration);
         quizTimeRemaining = Settings.quizDuration;
@@ -265,7 +267,7 @@ public class ResponseWindow extends Activity /**implements
         String text = "#" + questionVal.substring(0, questionVal.indexOf('.')) + " is incorrect!";
         if (isCorrect) text = "#" + questionVal.substring(0, questionVal.indexOf('.')) + " is correct!";
         //Sounds
-        if(MainMenu.areBlairTalksSoundsEnabled) {
+        if(Settings.areBlairTalksSoundsEnabled) {
             if (!response.equals("")) {
                 if (isCorrect) {
                     corSound.start();

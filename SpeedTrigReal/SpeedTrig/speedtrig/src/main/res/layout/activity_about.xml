@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_alignParentTop="true"
-            android:background="@color/red_500"
+            android:background="@color/indigo_500"
             android:gravity="center" >
             <TextView
                 android:layout_width="wrap_content"
@@ -72,7 +72,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:background="@color/ripple_material_light"
+            android:background="@color/indigo_500"
             android:gravity="center"
             android:layout_gravity="center_horizontal|bottom">
 
@@ -80,7 +80,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Version 1.3"
-                android:textColor="#000"
+                android:textColor="@android:color/white"
                 android:textSize="20sp"
                 android:layout_marginLeft="230dp"
                 android:layout_marginTop="5dp"
@@ -97,8 +97,8 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:choiceMode="singleChoice"
-        android:divider="#FFC0C0C0"
-        android:dividerHeight="1dp"
+        android:divider="#000000"
+        android:dividerHeight="0dp"
         android:background="@android:color/white"/>
 </android.support.v4.widget.DrawerLayout>
 

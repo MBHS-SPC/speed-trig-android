@@ -16,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_alignParentTop="true"
-        android:background="@color/blue_500"
+        android:background="@color/indigo_500"
         android:gravity="center" >
             <TextView
             android:layout_width="wrap_content"
@@ -104,7 +104,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
                 android:layout_marginRight="250dp"
-                android:visibility="invisible" />
+                android:visibility="visible" />
 
             <CheckBox
                 android:id="@+id/checkbox_blairtalks_sounds"
@@ -116,6 +116,7 @@
                 android:layout_below="@+id/checkbox_sin_two"
                 android:layout_alignLeft="@+id/checkbox_sin_two"
                 android:layout_alignStart="@+id/checkbox_sin_two" />
+
         </RelativeLayout>
 
 
@@ -424,8 +425,8 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:choiceMode="singleChoice"
-        android:divider="#FFC0C0C0"
-        android:dividerHeight="1dp"
+        android:divider="#000000"
+        android:dividerHeight="0dp"
         android:background="@android:color/white"/>
 </android.support.v4.widget.DrawerLayout>
 

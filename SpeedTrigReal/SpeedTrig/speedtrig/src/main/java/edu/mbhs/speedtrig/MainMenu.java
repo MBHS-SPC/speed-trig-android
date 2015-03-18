@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -39,6 +40,8 @@ public class MainMenu extends BaseActivity /**implements
     public CheckBox dontShowAgain;
     private String[] navMenuTitles;
     private TypedArray navMenuIcons;
+
+    MediaPlayer speedTrigMainTheme;
 
     /**
     private GoogleApiClient mGoogleApiClient;
@@ -92,7 +95,7 @@ public class MainMenu extends BaseActivity /**implements
         Button quizTypeRegular = (Button) findViewById(R.id.button2);
         quizTypeRegular.setVisibility(Button.VISIBLE);
 
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#3f51b5")));
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#303F9F")));
 
         updateFunctionStates();
         updateQuizDuration();
