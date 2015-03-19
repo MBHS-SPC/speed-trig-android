@@ -210,13 +210,13 @@ public class ResponseWindow extends Activity /**implements
                 //Games.Leaderboards.submitScore(mGoogleApiClient, "RegularTrigTimeLeaderboard", quizTimeRemaining);
                 //startActivityForResult(Games.Leaderboards.getLeaderboardIntent(mGoogleApiClient,
                         //"RegularTrigTimeLeaderboard"), 0);
-                if(mGoogleApiClient.isConnected()){
+                //if(mGoogleApiClient.isConnected()){
                     //Games.Achievements.unlock(getApiClient(),
                             //getString(R.string.correct_guess_achievement));
-                    Games.Leaderboards.submitScore(mGoogleApiClient,
-                            getString(R.string.leaderboard_regular_trig_time),
-                            quizTimeRemaining);
-                }
+                    //Games.Leaderboards.submitScore(mGoogleApiClient,
+                            //getString(R.string.leaderboard_regular_trig_time),
+                            //quizTimeRemaining);
+                //}
                 finish();
                 return;
             }

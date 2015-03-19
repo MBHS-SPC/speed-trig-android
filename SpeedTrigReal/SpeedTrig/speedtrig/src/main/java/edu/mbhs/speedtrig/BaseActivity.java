@@ -1,5 +1,7 @@
 package edu.mbhs.speedtrig;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
@@ -7,6 +9,7 @@ import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -171,14 +174,46 @@ public class BaseActivity extends ActionBarActivity {
             finish();// finishes the current activity
             break;
         case 2:
-            Intent intent2 = new Intent(this, Leaderboards.class);
-            startActivity(intent2);
-            finish();// finishes the current activity
+            //Intent intent2 = new Intent(this, Leaderboards.class);
+            //startActivity(intent2);
+            //finish();// finishes the current activity
+            AlertDialog.Builder adb = new AlertDialog.Builder(this);
+            LayoutInflater adbInflater = LayoutInflater.from(this);
+            adb.setView(adbInflater.inflate(R.layout.checkbox_submit_button, null));
+            adb.setTitle("Coming Soon");
+            adb.setMessage("This feature is coming soon.");
+            adb.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                    return;
+                }
+            });
+
+            adb.setNegativeButton("", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                }
+            });
+            adb.show();
             break;
         case 3:
-            Intent intent3 = new Intent(this, Achievements.class);
-            startActivity(intent3);
-            finish();
+            //Intent intent3 = new Intent(this, Achievements.class);
+            //startActivity(intent3);
+            //finish();
+            AlertDialog.Builder adbTwo = new AlertDialog.Builder(this);
+            LayoutInflater adbInflaterTwo = LayoutInflater.from(this);
+            adbTwo.setView(adbInflaterTwo.inflate(R.layout.checkbox_submit_button, null));
+            adbTwo.setTitle("Coming Soon");
+            adbTwo.setMessage("This feature is coming soon.");
+            adbTwo.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                    return;
+                }
+            });
+
+            adbTwo.setNegativeButton("", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                }
+            });
+            adbTwo.show();
             break;
 		case 4:
 			Intent intent4 = new Intent(this, Settings.class);
