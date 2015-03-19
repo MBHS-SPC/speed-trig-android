@@ -95,6 +95,11 @@ public class MainMenu extends BaseActivity /**implements
         Button quizTypeRegular = (Button) findViewById(R.id.button2);
         quizTypeRegular.setVisibility(Button.VISIBLE);
 
+        speedTrigMainTheme = MediaPlayer.create(this, R.raw.speed_trig_main_theme);
+        speedTrigMainTheme.setLooping(true);
+        speedTrigMainTheme.setVolume((float));
+        speedTrigMainTheme.start();
+
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#303F9F")));
 
         updateFunctionStates();
