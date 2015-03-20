@@ -438,17 +438,187 @@ public class ResponseWindow extends Activity /**implements
     }
 
     public String getCorrectValue(String question){
-        boolean flip = false;
-        double operand;
-        double badAnswer = 0;
-        String goodAnswer = "";
 
         if (question.substring(0,3).equals("arc")){
             // I'm an inverse trig problem!!!
-            return "0";
+
+            String operation = question.substring(0, 6);
+            String operand = question.substring(7, question.length() - 1);
+
+            String correctAnswer = "";
+
+            if((operation.equals("arcsin"))) {
+
+                if(operand.equals("0"))
+                    correctAnswer = "0";
+
+                if(operand.equals("1"))
+                    correctAnswer = "π/2";
+
+                if(operand.equals("-1"))
+                    correctAnswer = "-π/2";
+
+                if(operand.equals("1/2"))
+                    correctAnswer = "π/6";
+
+                if(operand.equals("-1/2"))
+                    correctAnswer = "-π/6";
+
+                if(operand.equals("√2/2"))
+                    correctAnswer = "π/4";
+
+                if(operand.equals("-√2/2"))
+                    correctAnswer = "-π/4";
+
+                if(operand.equals("√3/2"))
+                    correctAnswer = "π/3";
+
+                if(operand.equals("-√3/2"))
+                    correctAnswer = "-π/3";
+            }
+
+            if((operation.equals("arccos"))) {
+
+                if(operand.equals("0"))
+                    correctAnswer = "π/2";
+
+                if(operand.equals("1"))
+                    correctAnswer = "0";
+
+                if(operand.equals("-1"))
+                    correctAnswer = "π";
+
+                if(operand.equals("1/2"))
+                    correctAnswer = "π/3";
+
+                if(operand.equals("-1/2"))
+                    correctAnswer = "2π/3";
+
+                if(operand.equals("√2/2"))
+                    correctAnswer = "π/4";
+
+                if(operand.equals("-√2/2"))
+                    correctAnswer = "3π/4";
+
+                if(operand.equals("√3/2"))
+                    correctAnswer = "π/6";
+
+                if(operand.equals("-√3/2"))
+                    correctAnswer = "5π/6";
+            }
+
+            if((operation.equals("arccsc"))) {
+
+                if(operand.equals("1"))
+                    correctAnswer = "π/2";
+
+                if(operand.equals("-1"))
+                    correctAnswer = "-π/2";
+
+                if(operand.equals("2"))
+                    correctAnswer = "π/6";
+
+                if(operand.equals("-2"))
+                    correctAnswer = "-π/6";
+
+                if(operand.equals("√2"))
+                    correctAnswer = "π/4";
+
+                if(operand.equals("-√2"))
+                    correctAnswer = "-π/4";
+
+                if(operand.equals("(2√3)/3"))
+                    correctAnswer = "π/3";
+
+                if(operand.equals("-(2√3)/3"))
+                    correctAnswer = "-π/3";
+            }
+
+            if((operation.equals("arcsec"))) {
+
+                if(operand.equals("1"))
+                    correctAnswer = "0";
+
+                if(operand.equals("-1"))
+                    correctAnswer = "π";
+
+                if(operand.equals("2"))
+                    correctAnswer = "π/3";
+
+                if(operand.equals("-2"))
+                    correctAnswer = "2π/3";
+
+                if(operand.equals("√2"))
+                    correctAnswer = "π/4";
+
+                if(operand.equals("-√2"))
+                    correctAnswer = "3π/4";
+
+                if(operand.equals("(2√3)/3"))
+                    correctAnswer = "π/6";
+
+                if(operand.equals("-(2√3)/3"))
+                    correctAnswer = "5π/6";
+            }
+
+            if((operation.equals("arctan"))) {
+
+                if(operand.equals("0"))
+                    correctAnswer = "0";
+
+                if(operand.equals("1"))
+                    correctAnswer = "π/4";
+
+                if(operand.equals("-1"))
+                    correctAnswer = "-π/4";
+
+                if(operand.equals("√3"))
+                    correctAnswer = "π/3";
+
+                if(operand.equals("-√3"))
+                    correctAnswer = "-π/3";
+
+                if(operand.equals("√3/3"))
+                    correctAnswer = "π/6";
+
+                if(operand.equals("-√3/3"))
+                    correctAnswer = "-π/6";
+            }
+
+            if((operation.equals("arccot"))) {
+
+                if(operand.equals("0"))
+                    correctAnswer = "π/2";
+
+                if(operand.equals("1"))
+                    correctAnswer = "π/4";
+
+                if(operand.equals("-1"))
+                    correctAnswer = "3π/4";
+
+                if(operand.equals("√3"))
+                    correctAnswer = "π/6";
+
+                if(operand.equals("-√3"))
+                    correctAnswer = "5π/6";
+
+                if(operand.equals("√3/3"))
+                    correctAnswer = "π/3";
+
+                if(operand.equals("-√3/3"))
+                    correctAnswer = "2π/3";
+            }
+
+            return  correctAnswer;
         }
 
         else {
+
+            boolean flip = false;
+            double operand;
+            double badAnswer = 0;
+            String goodAnswer = "";
+
             String operation = question.substring(0,3);
             String strOperand = question.substring(4,question.length()-1);
 
@@ -533,18 +703,10 @@ public class ResponseWindow extends Activity /**implements
 
             if (flip)
                 goodAnswer = flipFraction(goodAnswer);
+
+            return goodAnswer;
         }
 
-        return goodAnswer;
-    }
-
-    public String formatOutput(String q, String r, String c){
-        String outputString = q;
-        String spacing = mult(" ", (15-q.length())*2);
-        outputString += spacing + "\t" + r;
-        spacing = mult(" ", 24-r.length()*2);
-        outputString += spacing + "\t" + c;
-        return outputString;
     }
 
     public String mult(String s, int num){
