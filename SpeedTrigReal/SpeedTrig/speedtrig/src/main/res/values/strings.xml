@@ -17,10 +17,30 @@
     <string name="timer">ResponseWindow</string>
     <string name="signin_error">Sign-in failed. Please try again later.</string>
 
-    <string name="cardview02txt">Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah
-    Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah
-    Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah
-    Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah end </string>
+    //Learn Section Card contents
+    <string name="cardview02txt">The "Unit Circle" is a circle with a radius of 1.
+Being so simple, it is a great way to learn and talk about lengths and angles.
+The center is put on a graph where the x axis and y axis cross, so we get this neat arrangement here.</string>
+
+    <string name="cardview03txt">Sine, Cosine and Tangent</string>
+
+    <string name="cardview04txt">The "Unit Circle" is a circle with a radius of 1.
+Being so simple, it is a great way to learn and talk about lengths and angles.
+The center is put on a graph where the x axis and y axis cross, so we get this neat arrangement here.</string>
+
+    <string name="cardview05txt">The "Unit Circle" is a circle with a radius of 1.
+Being so simple, it is a great way to learn and talk about lengths and angles.
+The center is put on a graph where the x axis and y axis cross, so we get this neat arrangement here.</string>
+
+    <string name="cardview06txt">The "Unit Circle" is a circle with a radius of 1.
+Being so simple, it is a great way to learn and talk about lengths and angles.
+The center is put on a graph where the x axis and y axis cross, so we get this neat arrangement here.</string>
+
+    <string name="cardview07txt">The "Unit Circle" is a circle with a radius of 1.
+Being so simple, it is a great way to learn and talk about lengths and angles.
+The center is put on a graph where the x axis and y axis cross, so we get this neat arrangement here.</string>
+
+    //End of Learn section contents
 
     <string-array name="nav_drawer_items">
         <item>Quizzes</item>
