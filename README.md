@@ -24,7 +24,8 @@ With the app, you can:
 
 - Improve your ability to compute basic trigonometric functions
 - Learn about the Unit Circle
--
+
+
 
 
 <h2>Thanks To: </h2>
