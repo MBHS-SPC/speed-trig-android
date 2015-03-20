@@ -97,7 +97,7 @@ public class MainMenu extends BaseActivity /**implements
 
         speedTrigMainTheme = MediaPlayer.create(this, R.raw.speed_trig_main_theme);
         speedTrigMainTheme.setLooping(true);
-        speedTrigMainTheme.setVolume((float));
+        //speedTrigMainTheme.setVolume((float)); //Giving an error while runing the program
         speedTrigMainTheme.start();
 
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#303F9F")));
