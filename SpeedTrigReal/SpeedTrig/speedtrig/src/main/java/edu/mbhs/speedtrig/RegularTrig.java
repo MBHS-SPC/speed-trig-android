@@ -52,7 +52,8 @@ public class RegularTrig extends ListActivity {
 		lv.setTextFilterEnabled(true);
 
 		if (entranceButtonClicked) {
-            trigTimer = new CountDownTimer(Settings.quizDuration, 1000) {
+            System.out.println();
+            trigTimer = new CountDownTimer(3*60*1000, 1000) {
 
                 @Override
                 public void onTick(long millisUntilFinished) {
@@ -65,7 +66,7 @@ public class RegularTrig extends ListActivity {
                 }
             };
             trigTimer.start();
-            millisRemaining = Settings.quizDuration;
+            millisRemaining = 3*60*1000;
             ResponseWindow.newQuizStarted = true;
         }
 

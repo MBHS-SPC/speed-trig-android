@@ -58,7 +58,7 @@ public class InverseTrig extends ListActivity {
         lv.setTextFilterEnabled(true);
 
         if (entranceButtonClicked) {
-            trigTimer = new CountDownTimer(Settings.quizDuration, 1000) {
+            trigTimer = new CountDownTimer(3*60*1000, 1000) {
 
                 @Override
                 public void onTick(long millisUntilFinished) {
@@ -71,7 +71,7 @@ public class InverseTrig extends ListActivity {
                 }
             };
             trigTimer.start();
-            millisRemaining = Settings.quizDuration;
+            millisRemaining = 3*60*1000;
             ResponseWindow.newQuizStarted = true;
         }
 

@@ -66,7 +66,11 @@ public class ResponseWindow extends Activity /**implements
         //speedTrigQuizTheme.start();
 
         //quizTimeRemaining = getIntent().getLongExtra(RegularTrig.EXTRA_TIME, Settings.quizDuration);
-        quizTimeRemaining = Settings.quizDuration;
+        if (MainMenu.quizType == MainMenu.QuizType.CUSTOM)
+            quizTimeRemaining = Settings.quizDuration;
+        else
+            quizTimeRemaining = (long)3*60*1000;
+
         quizTimeRemaining += 100;
         Log.d("time2debug", "sub received"+quizTimeRemaining);
 
