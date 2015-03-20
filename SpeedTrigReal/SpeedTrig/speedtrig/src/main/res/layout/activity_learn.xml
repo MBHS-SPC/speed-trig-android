@@ -59,9 +59,7 @@
                     android:id="@+id/cardview01"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    card_view:cardCornerRadius="3dp"
-
-                    >
+                    card_view:cardCornerRadius="3dp">
 
                     <TextView
                         android:id="@+id/textView18"
@@ -96,10 +94,17 @@
                         android:id="@+id/textView19"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
                         android:text="@string/cardview02txt"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:textStyle="bold" />
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+
+                        android:layout_marginLeft="165dp"/>
+
+                    <ImageView
+                        android:id="@+id/imageView01"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/unitcircle_img01"/>
+
 
                 </android.support.v7.widget.CardView>
 
