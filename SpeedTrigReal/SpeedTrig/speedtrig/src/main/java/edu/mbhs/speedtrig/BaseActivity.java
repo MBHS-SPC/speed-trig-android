@@ -35,6 +35,8 @@ public class BaseActivity extends ActionBarActivity {
 	private ArrayList<NavDrawerItem> navDrawerItems;
 	private NavDrawerListAdapter adapter;
 
+
+
     @Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -75,9 +77,7 @@ public class BaseActivity extends ActionBarActivity {
 		// enabling action bar app icon and behaving it as toggle button
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 		getSupportActionBar().setHomeButtonEnabled(true);
-		getSupportActionBar().setIcon(R.drawable.ic_launcher);
-
-
+		getSupportActionBar().setIcon(R.drawable.ic_drawer);
 
 		mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout,
 				R.drawable.ic_drawer, // nav menu toggle icon

@@ -56,8 +56,6 @@ public class Settings extends BaseActivity {
 
         updateFunctionStates();
 
-        MainMenu.speedTrigMainTheme.start();
-
         CheckBox checkbox_sin = (CheckBox) findViewById(R.id.checkbox_sin);
         CheckBox checkbox_cos = (CheckBox) findViewById(R.id.checkbox_cos);
         CheckBox checkbox_csc = (CheckBox) findViewById(R.id.checkbox_csc);
@@ -209,10 +207,6 @@ public class Settings extends BaseActivity {
         isArcsecActive = settings.getBoolean("isArcsecActive", true);
         isArctanActive = settings.getBoolean("isArctanActive", true);
         isArccotActive = settings.getBoolean("isArccotActive", true);
-    }
-
-    public void onResume(){
-        MainMenu.speedTrigMainTheme.start();
     }
 
     public void onCheckboxClicked(View view) {
