@@ -11,29 +11,12 @@
         android:layout_height="match_parent" >
         <!-- Add content here -->
         <!-- Header aligned to top -->
-        <RelativeLayout
-        android:id="@+id/header"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_alignParentTop="true"
-        android:background="@color/indigo_500"
-        android:gravity="center" >
-            <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:text="Settings"
-            android:textColor="@color/white"
-            android:textSize="30dp"
-                android:textStyle="bold" />
-        </RelativeLayout>
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:orientation="vertical"
             android:layout_width="fill_parent"
             android:layout_height="393dp"
-        android:layout_marginTop="50dp"
-        android:weightSum="1"><![CDATA[
+            android:weightSum="1"><![CDATA[
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/container"
         tools:context="edu.mbhs.speedtrig.Settings"
@@ -104,7 +87,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
                 android:layout_marginRight="250dp"
-                android:visibility="visible" />
+                android:visibility="invisible" />
 
             <CheckBox
                 android:id="@+id/checkbox_blairtalks_sounds"
@@ -115,7 +98,23 @@
                 android:checked="false"
                 android:layout_below="@+id/checkbox_sin_two"
                 android:layout_alignLeft="@+id/checkbox_sin_two"
-                android:layout_alignStart="@+id/checkbox_sin_two" />
+                android:layout_alignStart="@+id/checkbox_sin_two"
+                android:visibility="invisible" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Coming Soon"
+                android:id="@+id/textView17"
+                android:textSize="30dp"
+                android:layout_gravity="left|center_horizontal"
+                android:textIsSelectable="false"
+                android:textColor="@android:color/black"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="180dp"
+                android:layout_marginBottom="30dp" />
 
         </RelativeLayout>
 

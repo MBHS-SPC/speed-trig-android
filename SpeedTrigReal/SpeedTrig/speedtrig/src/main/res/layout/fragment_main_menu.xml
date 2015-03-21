@@ -53,11 +53,10 @@
                     android:textColor="@android:color/black"
                     android:text="Regular "
                     android:backgroundTint="@color/ripple_material_light"
-                    android:layout_alignTop="@+id/button16"
-                    android:layout_alignLeft="@+id/button14"
-                    android:layout_alignStart="@+id/button14"
                     android:textSize="21dp"
-                    android:onClick="startRegularDialog" />
+                    android:onClick="startRegularDialog"
+                    android:layout_alignBottom="@+id/button14"
+                    android:layout_centerHorizontal="true" />
 
                 <Button
                     android:id="@+id/settings"
@@ -114,15 +113,14 @@
                     android:textColor="@android:color/white"
                     android:onClick="startInverseDialog"
                     android:text="Inverse Quiz"
-                    android:layout_alignLeft="@+id/settings"
-                    android:layout_alignStart="@+id/settings"
                     android:textStyle="bold"
                     android:background="@color/orange_500"
-                    android:layout_above="@+id/settings"
+                    android:visibility="invisible"
+                    android:layout_alignLeft="@+id/button1"
+                    android:layout_alignStart="@+id/button1"
+                    android:layout_marginTop="21dp"
                     android:layout_marginBottom="10dp"
-                    android:layout_alignRight="@+id/settings"
-                    android:layout_alignEnd="@+id/settings"
-                    android:visibility="invisible" />
+                    android:layout_alignTop="@+id/button19" />
 
                 <!-- sign-in button -->
                 <com.google.android.gms.common.SignInButton
@@ -157,35 +155,6 @@
                     android:visibility="invisible" />
 
                 <Button
-                    android:id="@+id/button16"
-                    android:layout_width="200dp"
-                    android:layout_height="50dp"
-                    android:textColor="@android:color/black"
-                    android:text="Inverse"
-                    android:layout_alignTop="@+id/button17"
-                    android:layout_alignLeft="@+id/button1"
-                    android:layout_alignStart="@+id/button1"
-                    android:visibility="invisible"
-                    android:clickable="true"
-                    android:textSize="21dp"
-                    android:onClick="startInverseDialog" />
-
-                <Button
-                    android:id="@+id/button17"
-                    android:layout_width="200dp"
-                    android:layout_height="50dp"
-                    android:textColor="@android:color/black"
-                    android:onClick="startCustomDialog"
-                    android:text="Custom"
-                    android:layout_centerVertical="true"
-                    android:layout_alignLeft="@+id/button1"
-                    android:layout_alignStart="@+id/button1"
-                    android:visibility="invisible"
-                    android:textSize="21dp"
-                    android:clickable="true"
-                    android:focusable="false" />
-
-                <Button
                     android:id="@+id/show_leaderboard"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
@@ -198,24 +167,25 @@
                 <Button
                     android:layout_width="45dp"
                     android:layout_height="45dp"
-                    android:id="@+id/button18"
-                    android:background="@drawable/right_quiz_arrow"
-                    android:layout_alignTop="@+id/button19"
-                    android:layout_toRightOf="@+id/button2"
-                    android:layout_toEndOf="@+id/button2"
-                    android:layout_marginLeft="2dp"
-                    android:onClick="shiftQuizTypeRight" />
-
-                <Button
-                    android:layout_width="45dp"
-                    android:layout_height="45dp"
                     android:id="@+id/button19"
                     android:background="@drawable/left_quiz_arrow"
                     android:layout_centerVertical="true"
                     android:layout_toLeftOf="@+id/button2"
                     android:layout_toStartOf="@+id/button2"
                     android:layout_marginRight="2dp"
-                    android:onClick="shiftQuizTypeLeft" />
+                    android:onClick="shiftQuizTypeLeft"
+                    android:visibility="invisible" />
+
+                <Button
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:id="@+id/button18"
+                    android:background="@drawable/left_quiz_arrow"
+                    android:onClick="shiftQuizTypeLeft"
+                    android:layout_alignBottom="@+id/button2"
+                    android:layout_alignLeft="@+id/button19"
+                    android:layout_alignStart="@+id/button19"
+                    android:clickable="true" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -223,10 +193,10 @@
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:text="Duration: 3 Min."
                     android:id="@+id/textView14"
-                    android:layout_above="@+id/button14"
+                    android:textSize="20dp"
+                    android:layout_alignBottom="@+id/show_leaderboard"
                     android:layout_alignLeft="@+id/button19"
-                    android:layout_alignStart="@+id/button19"
-                    android:textSize="20dp" />
+                    android:layout_alignStart="@+id/button19" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -234,12 +204,11 @@
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:text="Functions: Non-Inverse Only"
                     android:id="@+id/textView15"
+                    android:textSize="20dp"
+                    android:textIsSelectable="false"
                     android:layout_below="@+id/textView14"
                     android:layout_alignLeft="@+id/textView14"
-                    android:layout_alignStart="@+id/textView14"
-                    android:layout_marginTop="5dp"
-                    android:textSize="20dp"
-                    android:textIsSelectable="false" />
+                    android:layout_alignStart="@+id/textView14" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -247,22 +216,21 @@
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:text="Other Info: None."
                     android:id="@+id/textView16"
+                    android:textSize="20dp"
                     android:layout_below="@+id/textView15"
                     android:layout_alignLeft="@+id/textView15"
-                    android:layout_alignStart="@+id/textView15"
-                    android:layout_marginTop="5dp"
-                    android:textSize="20dp" />
+                    android:layout_alignStart="@+id/textView15" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="Quiz Type:"
-                    android:id="@+id/textView17"
-                    android:layout_above="@+id/button18"
-                    android:layout_centerHorizontal="true"
-                    android:textSize="18dp"
-                    android:layout_marginBottom="5dp" />
+                <Button
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:id="@+id/button17"
+                    android:background="@drawable/right_quiz_arrow"
+                    android:onClick="shiftQuizTypeRight"
+                    android:layout_alignBottom="@+id/button2"
+                    android:layout_toRightOf="@+id/textView15"
+                    android:layout_toEndOf="@+id/textView15"
+                    android:clickable="true" />
 
             </RelativeLayout>
 

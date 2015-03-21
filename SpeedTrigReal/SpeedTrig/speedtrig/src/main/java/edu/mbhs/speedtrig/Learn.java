@@ -19,6 +19,8 @@ public class Learn extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_learn);
 
+        MainMenu.speedTrigMainTheme.start();
+
         navMenuTitles = getResources().getStringArray(R.array.nav_drawer_items); // load titles from strings.xml
 
         navMenuIcons = getResources().obtainTypedArray(R.array.nav_drawer_icons);// load icons from
@@ -29,5 +31,7 @@ public class Learn extends BaseActivity {
         set(navMenuTitles, navMenuIcons);
     }
 
-
+    public void onResume(){
+        MainMenu.speedTrigMainTheme.start();
+    }
 }
