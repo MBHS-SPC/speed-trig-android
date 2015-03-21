@@ -78,7 +78,7 @@
             android:layout_alignParentTop="true"
             android:gravity="center">
 
-            <CheckBox android:id="@+id/checkbox_sin_two"
+            <CheckBox android:id="@+id/checkbox_music"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Music "
@@ -87,34 +87,19 @@
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
                 android:layout_marginRight="250dp"
-                android:visibility="invisible" />
+                android:visibility="visible" />
 
             <CheckBox
                 android:id="@+id/checkbox_blairtalks_sounds"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="BlairTalks Voices "
+                android:text="BlairTalks Quiz Feedback"
                 android:onClick="onCheckboxClicked"
-                android:checked="false"
-                android:layout_below="@+id/checkbox_sin_two"
-                android:layout_alignLeft="@+id/checkbox_sin_two"
-                android:layout_alignStart="@+id/checkbox_sin_two"
-                android:visibility="invisible" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Coming Soon"
-                android:id="@+id/textView17"
-                android:textSize="30dp"
-                android:layout_gravity="left|center_horizontal"
-                android:textIsSelectable="false"
-                android:textColor="@android:color/black"
-                android:layout_centerVertical="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginLeft="180dp"
-                android:layout_marginBottom="30dp" />
+                android:checked="true"
+                android:layout_below="@+id/checkbox_music"
+                android:layout_alignLeft="@+id/checkbox_music"
+                android:layout_alignStart="@+id/checkbox_music"
+                android:visibility="visible" />
 
         </RelativeLayout>
 
@@ -152,7 +137,7 @@
 
             <RelativeLayout
                 android:layout_width="fill_parent"
-                android:layout_height="199dp"
+                android:layout_height="400dp"
                 android:id="@+id/layout">
 
                 <CheckBox android:id="@+id/checkbox_sin"
@@ -296,27 +281,27 @@
                     android:text="3:00"
                     android:id="@+id/timeView"
                     android:textSize="27dp"
-                    android:layout_below="@+id/seekBar"
-                    android:layout_alignRight="@+id/reset"
-                    android:layout_alignEnd="@+id/reset"
-                    android:layout_marginRight="27dp" />
-
-                <Button
-                    android:id="@+id/reset"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/white"
-                    android:onClick="reset"
-                    android:text="Reset to Default"
-                    android:layout_gravity="center_horizontal"
-                    android:textSize="21dp"
-                    android:layout_alignBottom="@+id/checkbox_arccot"
+                    android:layout_above="@+id/checkbox_arccsc"
                     android:layout_alignLeft="@+id/seekBar"
                     android:layout_alignStart="@+id/seekBar"
-                    android:layout_marginBottom="15dp"
-                    android:layout_marginRight="20dp"
+                    android:layout_marginLeft="49dp"
+                    android:layout_marginStart="49dp" />
+
+                <Button
+                    android:id="@+id/button20"
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/black"
+                    android:onClick="reset"
+                    android:text="Reset to Default"
+                    android:layout_gravity="center_horizontal|bottom"
+                    android:textSize="21dp"
                     android:background="@color/grey_500"
-                    android:textStyle="bold" />
+                    android:clickable="true"
+                    android:layout_alignLeft="@+id/seekBar"
+                    android:layout_alignStart="@+id/seekBar"
+                    android:layout_alignBottom="@+id/checkbox_arccot"
+                    android:visibility="invisible" />
 
             </RelativeLayout>
 

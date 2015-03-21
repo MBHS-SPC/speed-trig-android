@@ -3,6 +3,7 @@ package edu.mbhs.speedtrig;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
 import android.media.MediaPlayer;
@@ -76,7 +77,9 @@ public class BaseActivity extends ActionBarActivity {
 				navDrawerItems);
 		mDrawerList.setAdapter(adapter);
 
-        if(speedTrigMainTheme == null) {
+        updateSoundStatus();
+
+        if(speedTrigMainTheme == null && Settings.isMusicEnabled) {
             speedTrigMainTheme = MediaPlayer.create(this, R.raw.speed_trig_main_theme);
             speedTrigMainTheme.seekTo(speedTrigMainThemeProgress);
             speedTrigMainTheme.setLooping(true);
@@ -87,8 +90,6 @@ public class BaseActivity extends ActionBarActivity {
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 		getSupportActionBar().setHomeButtonEnabled(true);
 		getSupportActionBar().setIcon(R.drawable.ic_launcher);
-
-
 
 		mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout,
 				R.drawable.ic_drawer, // nav menu toggle icon
@@ -139,6 +140,10 @@ public class BaseActivity extends ActionBarActivity {
 		// getSupportMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
+
+    public void on(){
+
+    }
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
@@ -253,15 +258,24 @@ public class BaseActivity extends ActionBarActivity {
 		}
 	}
 
+    private void updateSoundStatus(){
+
+        SharedPreferences settings = getSharedPreferences("Settings", MODE_PRIVATE);
+        Settings.areBlairTalksSoundsEnabled = settings.getBoolean("areBlairTalksSoundsEnabled", true);
+        Settings.isMusicEnabled = settings.getBoolean("isMusicEnabled", true);
+    }
+
     public void onPause(){
         super.onPause();
-        speedTrigMainThemeProgress = speedTrigMainTheme.getCurrentPosition();
-        speedTrigMainTheme.pause();
+        //speedTrigMainThemeProgress = speedTrigMainTheme.getCurrentPosition();
+        if(speedTrigMainTheme != null)
+            speedTrigMainTheme.pause();
     }
 
     public void onResume(){
         super.onResume();
-        speedTrigMainTheme.start();
+        if(speedTrigMainTheme != null && Settings.isMusicEnabled)
+            speedTrigMainTheme.start();
     }
 
 	@Override

@@ -248,13 +248,6 @@ public class MainMenu extends BaseActivity /**implements
         Settings.quizDuration += 100;
     }
 
-    private void updateSoundStatus(){
-
-        SharedPreferences settings = getSharedPreferences("Settings", MODE_PRIVATE);
-
-        Settings.areBlairTalksSoundsEnabled = settings.getBoolean("areBlairTalksSoundsEnabled", false);
-    }
-	
 	public void startRegularDialog(View v){
 		//Toast.makeText(this, "Ready!", Toast.LENGTH_SHORT).show();
 		//Toast.makeText(this, "Set!", Toast.LENGTH_SHORT).show();
