@@ -20,6 +20,8 @@ public class Help extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_help);
 
+        MainMenu.speedTrigMainTheme.start();
+
         navMenuTitles = getResources().getStringArray(R.array.nav_drawer_items); // load titles from strings.xml
 
         navMenuIcons = getResources()
@@ -29,5 +31,9 @@ public class Help extends BaseActivity {
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#3f51b5")));
 
         set(navMenuTitles, navMenuIcons);
+    }
+
+    public void onResume(){
+        MainMenu.speedTrigMainTheme.start();
     }
 }
