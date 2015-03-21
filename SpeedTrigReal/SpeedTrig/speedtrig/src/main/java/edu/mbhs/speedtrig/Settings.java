@@ -17,6 +17,8 @@ import android.widget.TextView;
 
 import com.example.speedtrig.R;
 
+import java.io.IOException;
+
 /**
  * Created by alia7_000 on 2/16/2015.
  */
@@ -211,7 +213,13 @@ public class Settings extends BaseActivity {
         isArccotActive = settings.getBoolean("isArccotActive", true);
     }
 
+    public void onPause(){
+        super.onPause();
+        MainMenu.speedTrigMainTheme.stop();
+    }
+
     public void onResume(){
+        super.onResume();
         MainMenu.speedTrigMainTheme.start();
     }
 

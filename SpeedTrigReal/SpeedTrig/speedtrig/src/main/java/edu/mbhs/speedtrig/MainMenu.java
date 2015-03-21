@@ -27,6 +27,8 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.games.Games;
 import com.google.example.games.basegameutils.BaseGameUtils;
 
+import java.io.IOException;
+
 public class MainMenu extends BaseActivity /**implements
         View.OnClickListener,
         GoogleApiClient.ConnectionCallbacks,
@@ -41,7 +43,7 @@ public class MainMenu extends BaseActivity /**implements
     private String[] navMenuTitles;
     private TypedArray navMenuIcons;
 
-    MediaPlayer speedTrigMainTheme;
+    public static MediaPlayer speedTrigMainTheme;
 
     /**
     private GoogleApiClient mGoogleApiClient;
@@ -98,6 +100,9 @@ public class MainMenu extends BaseActivity /**implements
         speedTrigMainTheme = MediaPlayer.create(this, R.raw.speed_trig_main_theme);
         speedTrigMainTheme.setLooping(true);
         speedTrigMainTheme.start();
+
+        Button quizType = (Button) findViewById(R.id.button2);
+        quizType.setText("Regular");
 
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#303F9F")));
 
@@ -223,7 +228,8 @@ public class MainMenu extends BaseActivity /**implements
 	}
 
     public void onPause(){
-
+        super.onPause();
+        speedTrigMainTheme.start();
     }
 
     public void onResume(){
@@ -440,9 +446,9 @@ public class MainMenu extends BaseActivity /**implements
 
         Button quizType = (Button) findViewById(R.id.button2);
 
-        TextView quizTypeDuration = (TextView) findViewById(R.id.textView14);
-        TextView quizTypeFunctions = (TextView) findViewById(R.id.textView15);
-        TextView quizTypeOtherInfo = (TextView) findViewById(R.id.textView16);
+        TextView quizTypeDuration = (TextView) findViewById(R.id.textView23);
+        TextView quizTypeFunctions = (TextView) findViewById(R.id.textView24);
+        TextView quizTypeOtherInfo = (TextView) findViewById(R.id.textView25);
 
         if(quizType.getText().equals("Regular")){
             quizType.setText("Custom");
@@ -454,9 +460,9 @@ public class MainMenu extends BaseActivity /**implements
                 }
             });
 
-            quizTypeDuration.setText("Duration: Adjustable");
-            quizTypeFunctions.setText("Functions: Adjustable");
-            quizTypeOtherInfo.setText("Other Info: The duration and functions of a custom quiz can be modified in the \"Settings\" section.");
+            quizTypeDuration.setText("Adjustable");
+            quizTypeFunctions.setText("Adjustable");
+            quizTypeOtherInfo.setText("The duration/functions of a custom quiz can be modified in \"Settings\".");
         }
 
         else if(quizType.getText().equals("Inverse")){
@@ -469,9 +475,9 @@ public class MainMenu extends BaseActivity /**implements
                 }
             });
 
-            quizTypeDuration.setText("Duration: 3 min.");
-            quizTypeFunctions.setText("Functions: Non-Inverse Only");
-            quizTypeOtherInfo.setText("Other Info: None.");
+            quizTypeDuration.setText("3 min.");
+            quizTypeFunctions.setText("Non-Inverse Only");
+            quizTypeOtherInfo.setText("None.");
         }
 
         else if(quizType.getText().equals("Custom")){
@@ -480,13 +486,13 @@ public class MainMenu extends BaseActivity /**implements
 
                 @Override
                 public void onClick(View v) {
-                    startRegularDialog(v);
+                    startInverseDialog(v);
                 }
             });
 
-            quizTypeDuration.setText("Duration: 3 min.");
-            quizTypeFunctions.setText("Functions: Inverse and Non-Inverse");
-            quizTypeOtherInfo.setText("Other Info: None.");
+            quizTypeDuration.setText("3 min.");
+            quizTypeFunctions.setText("Inverse, Non-Inverse");
+            quizTypeOtherInfo.setText("None.");
         }
 
     }
@@ -495,9 +501,9 @@ public class MainMenu extends BaseActivity /**implements
 
         Button quizType = (Button) findViewById(R.id.button2);
 
-        TextView quizTypeDuration = (TextView) findViewById(R.id.textView14);
-        TextView quizTypeFunctions = (TextView) findViewById(R.id.textView15);
-        TextView quizTypeOtherInfo = (TextView) findViewById(R.id.textView16);
+        TextView quizTypeDuration = (TextView) findViewById(R.id.textView23);
+        TextView quizTypeFunctions = (TextView) findViewById(R.id.textView24);
+        TextView quizTypeOtherInfo = (TextView) findViewById(R.id.textView25);
 
         if(quizType.getText().equals("Inverse")){
             quizType.setText("Custom");
@@ -509,9 +515,9 @@ public class MainMenu extends BaseActivity /**implements
                 }
             });
 
-            quizTypeDuration.setText("Duration: Adjustable");
-            quizTypeFunctions.setText("Functions: Adjustable");
-            quizTypeOtherInfo.setText("Other Info: The duration and functions of a custom quiz can be modified in the \"Settings\" section.");
+            quizTypeDuration.setText("Adjustable");
+            quizTypeFunctions.setText("Adjustable");
+            quizTypeOtherInfo.setText("The duration/functions of a custom quiz can be modified in \"Settings\".");
         }
 
         else if(quizType.getText().equals("Custom")){
@@ -524,9 +530,9 @@ public class MainMenu extends BaseActivity /**implements
                 }
             });
 
-            quizTypeDuration.setText("Duration: 3 min.");
-            quizTypeFunctions.setText("Functions: Non-Inverse Only");
-            quizTypeOtherInfo.setText("Other Info: None.");
+            quizTypeDuration.setText("3 min.");
+            quizTypeFunctions.setText("Non-Inverse Only");
+            quizTypeOtherInfo.setText("None.");
         }
 
         else if(quizType.getText().equals("Regular")){
@@ -535,13 +541,13 @@ public class MainMenu extends BaseActivity /**implements
 
                 @Override
                 public void onClick(View v) {
-                    startRegularDialog(v);
+                    startInverseDialog(v);
                 }
             });
 
-            quizTypeDuration.setText("Duration: 3 min.");
-            quizTypeFunctions.setText("Functions: Inverse and Non-Inverse");
-            quizTypeOtherInfo.setText("Other Info: None.");
+            quizTypeDuration.setText("3 min.");
+            quizTypeFunctions.setText("Inverse, Non-Inverse");
+            quizTypeOtherInfo.setText("None.");
         }
 
     }

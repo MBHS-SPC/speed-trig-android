@@ -33,7 +33,13 @@ public class Help extends BaseActivity {
         set(navMenuTitles, navMenuIcons);
     }
 
+    public void onPause(){
+        super.onPause();
+        MainMenu.speedTrigMainTheme.stop();
+    }
+
     public void onResume(){
+        super.onResume();
         MainMenu.speedTrigMainTheme.start();
     }
 }

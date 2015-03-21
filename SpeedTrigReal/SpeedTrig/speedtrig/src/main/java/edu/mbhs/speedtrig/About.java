@@ -7,6 +7,8 @@ import android.os.Bundle;
 
 import com.example.speedtrig.R;
 
+import java.io.IOException;
+
 /**
  * Created by AliAnwar7477 on 2/26/2015.
  */
@@ -20,7 +22,8 @@ public class About extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
 
-        MainMenu.speedTrigMainTheme.start();
+        if(!MainMenu.speedTrigMainTheme.isPlaying())
+            MainMenu.speedTrigMainTheme.start();
 
         navMenuTitles = getResources().getStringArray(R.array.nav_drawer_items); // load titles from strings.xml
 
@@ -33,8 +36,15 @@ public class About extends BaseActivity {
         set(navMenuTitles, navMenuIcons);
     }
 
-    public void onResume(){
-        MainMenu.speedTrigMainTheme.start();
+    public void onPause(){
+        super.onPause();
+        if(MainMenu.speedTrigMainTheme.isPlaying())
+            MainMenu.speedTrigMainTheme.stop();
     }
 
+    public void onResume(){
+        super.onResume();
+        if(!MainMenu.speedTrigMainTheme.isPlaying())
+            MainMenu.speedTrigMainTheme.start();
+    }
 }
