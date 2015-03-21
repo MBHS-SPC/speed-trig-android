@@ -66,7 +66,7 @@
                 android:textIsSelectable="false"
                 android:text="Use &apos;Back&apos; and &apos;Next&apos; buttons to scroll through questions. You can submit your quiz and receive results early with the &apos;Submit&apos; button located on the final question."
                 android:layout_weight="0.06"
-                android:textColor="@android:color/black"
+                android:textColor="@color/black"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true" />

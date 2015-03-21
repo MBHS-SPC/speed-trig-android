@@ -40,7 +40,7 @@
                     android:textSize="22dp"
                     android:textIsSelectable="false"
                     android:text="Programming"
-                    android:textColor="@android:color/black"
+                    android:textColor="@color/black"
                     android:layout_gravity="center_horizontal"
                     android:textStyle="bold" />
 
@@ -53,56 +53,7 @@
                     android:textSize="20dp"
                     android:textIsSelectable="false"
                     android:text="Eyob Tsegaye"
-                    android:textColor="@android:color/black"
-                    android:layout_gravity="center_horizontal" />
-
-                <TextView
-                    android:id="@+id/textView12"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignLeft="@+id/header"
-                    android:layout_below="@+id/header"
-                    android:textSize="20dp"
-                    android:textIsSelectable="false"
-                    android:text="Ali Anwar"
-                    android:textColor="@android:color/black"
-                    android:layout_gravity="center_horizontal" />
-                <TextView
-                    android:id="@+id/textView12"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignLeft="@+id/header"
-                    android:layout_below="@+id/header"
-                    android:textSize="20dp"
-                    android:textIsSelectable="false"
-                    android:text="Suyaib Ahmed"
-                    android:textColor="@android:color/black"
-                    android:layout_gravity="center_horizontal" />
-
-                <TextView
-                    android:id="@+id/textView6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignLeft="@+id/header"
-                    android:layout_below="@+id/header"
-                    android:layout_marginTop="15dp"
-                    android:textSize="22dp"
-                    android:textIsSelectable="false"
-                    android:text="Interface Design"
-                    android:textColor="@android:color/black"
-                    android:textStyle="bold"
-                    android:layout_gravity="center_horizontal" />
-
-                <TextView
-                    android:id="@+id/textView6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignLeft="@+id/header"
-                    android:layout_below="@+id/header"
-                    android:textSize="20dp"
-                    android:textIsSelectable="false"
-                    android:text="Ali Anwar"
-                    android:textColor="@android:color/black"
+                    android:textColor="@color/black"
                     android:layout_gravity="center_horizontal" />
 
                 <TextView
@@ -113,12 +64,23 @@
                     android:layout_below="@+id/header"
                     android:textSize="20dp"
                     android:textIsSelectable="false"
+                    android:text="Ali Anwar"
+                    android:textColor="@color/black"
+                    android:layout_gravity="center_horizontal" />
+                <TextView
+                    android:id="@+id/textView14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/header"
+                    android:layout_below="@+id/header"
+                    android:textSize="20dp"
+                    android:textIsSelectable="false"
                     android:text="Suyaib Ahmed"
-                    android:textColor="@android:color/black"
+                    android:textColor="@color/black"
                     android:layout_gravity="center_horizontal" />
 
                 <TextView
-                    android:id="@+id/textView11"
+                    android:id="@+id/textView16"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignLeft="@+id/header"
@@ -126,32 +88,9 @@
                     android:layout_marginTop="15dp"
                     android:textSize="22dp"
                     android:textIsSelectable="false"
-                    android:text="Logo Design"
-                    android:textColor="@android:color/black"
+                    android:text="Interface Design"
+                    android:textColor="@color/black"
                     android:textStyle="bold"
-                    android:layout_gravity="center_horizontal" />
-
-                <TextView
-                    android:id="@+id/textView11"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignLeft="@+id/header"
-                    android:layout_below="@+id/header"
-                    android:textSize="20dp"
-                    android:textIsSelectable="false"
-                    android:text="Brynne Edwards"
-                    android:textColor="@android:color/black"
-                    android:layout_gravity="center_horizontal" />
-                <TextView
-                    android:id="@+id/textView11"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignLeft="@+id/header"
-                    android:layout_below="@+id/header"
-                    android:textSize="20dp"
-                    android:textIsSelectable="false"
-                    android:text="Suyaib Ahmed"
-                    android:textColor="@android:color/black"
                     android:layout_gravity="center_horizontal" />
 
                 <TextView
@@ -160,16 +99,77 @@
                     android:layout_height="wrap_content"
                     android:layout_alignLeft="@+id/header"
                     android:layout_below="@+id/header"
+                    android:textSize="20dp"
+                    android:textIsSelectable="false"
+                    android:text="Ali Anwar"
+                    android:textColor="@color/black"
+                    android:layout_gravity="center_horizontal" />
+
+                <TextView
+                    android:id="@+id/textView18"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/header"
+                    android:layout_below="@+id/header"
+                    android:textSize="20dp"
+                    android:textIsSelectable="false"
+                    android:text="Suyaib Ahmed"
+                    android:textColor="@color/black"
+                    android:layout_gravity="center_horizontal" />
+
+                <TextView
+                    android:id="@+id/textView19"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/header"
+                    android:layout_below="@+id/header"
                     android:layout_marginTop="15dp"
                     android:textSize="22dp"
                     android:textIsSelectable="false"
-                    android:text="SPC President"
-                    android:textColor="@android:color/black"
+                    android:text="Logo Design"
+                    android:textColor="@color/black"
                     android:textStyle="bold"
                     android:layout_gravity="center_horizontal" />
 
                 <TextView
-                    android:id="@+id/textView27"
+                    android:id="@+id/textView20"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/header"
+                    android:layout_below="@+id/header"
+                    android:textSize="20dp"
+                    android:textIsSelectable="false"
+                    android:text="Brynne Edwards"
+                    android:textColor="@color/black"
+                    android:layout_gravity="center_horizontal" />
+                <TextView
+                    android:id="@+id/textView21"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/header"
+                    android:layout_below="@+id/header"
+                    android:textSize="20dp"
+                    android:textIsSelectable="false"
+                    android:text="Suyaib Ahmed"
+                    android:textColor="@color/black"
+                    android:layout_gravity="center_horizontal" />
+
+                <TextView
+                    android:id="@+id/textView22"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/header"
+                    android:layout_below="@+id/header"
+                    android:layout_marginTop="15dp"
+                    android:textSize="22dp"
+                    android:textIsSelectable="false"
+                    android:text="SPC President"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_horizontal" />
+
+                <TextView
+                    android:id="@+id/textView23"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignLeft="@+id/header"
@@ -177,11 +177,11 @@
                     android:textSize="20dp"
                     android:textIsSelectable="false"
                     android:text="Agam Mittal"
-                    android:textColor="@android:color/black"
+                    android:textColor="@color/black"
                     android:layout_gravity="center_horizontal" />
 
                 <TextView
-                    android:id="@+id/textView5"
+                    android:id="@+id/textView24"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignLeft="@+id/header"
@@ -190,12 +190,12 @@
                     android:textSize="22dp"
                     android:textIsSelectable="false"
                     android:text="SPC Sponsor"
-                    android:textColor="@android:color/black"
+                    android:textColor="@color/black"
                     android:textStyle="bold"
                     android:layout_gravity="center_horizontal" />
 
                 <TextView
-                    android:id="@+id/textView5"
+                    android:id="@+id/textView25"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignLeft="@+id/header"
@@ -203,7 +203,7 @@
                     android:textSize="20dp"
                     android:textIsSelectable="false"
                     android:text="William Rose"
-                    android:textColor="@android:color/black"
+                    android:textColor="@color/black"
                     android:layout_gravity="center_horizontal" />
 
             </LinearLayout>

@@ -23,22 +23,11 @@ Being so simple, it is a great way to learn and talk about lengths and angles.
 The center is put on a graph where the x axis and y axis cross, so we get this neat arrangement here.</string>
 
     <string name="cardview03txt">Sine, Cosine and Tangent</string>
-
-    <string name="cardview04txt">The "Unit Circle" is a circle with a radius of 1.
-Being so simple, it is a great way to learn and talk about lengths and angles.
-The center is put on a graph where the x axis and y axis cross, so we get this neat arrangement here.</string>
-
-    <string name="cardview05txt">The "Unit Circle" is a circle with a radius of 1.
-Being so simple, it is a great way to learn and talk about lengths and angles.
-The center is put on a graph where the x axis and y axis cross, so we get this neat arrangement here.</string>
-
-    <string name="cardview06txt">The "Unit Circle" is a circle with a radius of 1.
-Being so simple, it is a great way to learn and talk about lengths and angles.
-The center is put on a graph where the x axis and y axis cross, so we get this neat arrangement here.</string>
-
-    <string name="cardview07txt">The "Unit Circle" is a circle with a radius of 1.
-Being so simple, it is a great way to learn and talk about lengths and angles.
-The center is put on a graph where the x axis and y axis cross, so we get this neat arrangement here.</string>
+    <string name="cardview03atxt">Because the radius is 1, we can directly measure sine, cosine and tangent.
+What happens when the angle, θ, is 0°? cos 0° = 1, sin 0° = 0 and tan 0° = 0
+What happens when θ is 90°?
+cos 90° = 0, sin 90° = 1 and tan 90° is undefined
+</string>
 
     //End of Learn section content
 
