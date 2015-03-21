@@ -17,6 +17,8 @@ import android.widget.TextView;
 
 import com.example.speedtrig.R;
 
+import java.io.IOException;
+
 /**
  * Created by alia7_000 on 2/16/2015.
  */
@@ -38,7 +40,8 @@ public class Settings extends BaseActivity {
 
     static long quizDuration;
 
-    public static boolean areBlairTalksSoundsEnabled;
+    public static boolean areBlairTalksSoundsEnabled = true;
+    public static boolean isMusicEnabled = true;
 
     TextView quizTimeView;
     SeekBar quizTimeBar;
@@ -55,8 +58,6 @@ public class Settings extends BaseActivity {
         SharedPreferences settings = getPreferences(MODE_PRIVATE);
 
         updateFunctionStates();
-
-        MainMenu.speedTrigMainTheme.start();
 
         CheckBox checkbox_sin = (CheckBox) findViewById(R.id.checkbox_sin);
         CheckBox checkbox_cos = (CheckBox) findViewById(R.id.checkbox_cos);
@@ -84,11 +85,17 @@ public class Settings extends BaseActivity {
         }
 
         CheckBox checkbox_blairtalks_sounds = (CheckBox) findViewById(R.id.checkbox_blairtalks_sounds);
+        CheckBox checkbox_music = (CheckBox) findViewById(R.id.checkbox_music);
 
         if(areBlairTalksSoundsEnabled)
             checkbox_blairtalks_sounds.setChecked(true);
         else
             checkbox_blairtalks_sounds.setChecked(false);
+
+        if(isMusicEnabled)
+            checkbox_music.setChecked(true);
+        else
+            checkbox_music.setChecked(false);
 
         navMenuTitles = getResources().getStringArray(R.array.nav_drawer_items); // load titles from strings.xml
 
@@ -107,17 +114,29 @@ public class Settings extends BaseActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
 
-                int roundedProgress = 30 * Math.round(progress / 30);
-                quizTimeBar.setProgress(roundedProgress);
+                if(progress < 30){
+                    quizDuration = (long) 30000;
 
-                quizDuration = (long) roundedProgress * 1000;
+                    SharedPreferences settings = getPreferences(MODE_PRIVATE);
+                    SharedPreferences.Editor editor = settings.edit();
+                    editor.putLong("quizDuration", quizDuration);
+                    editor.apply();
 
-                SharedPreferences settings = getPreferences(MODE_PRIVATE);
-                SharedPreferences.Editor editor = settings.edit();
-                editor.putLong("quizDuration", quizDuration);
-                editor.apply();
+                    quizTimeView.setText(quizDuration/60 + ":" + (quizDuration%60 < 10 ? "0" : "") + quizDuration%60);
+                }
+                else{
+                    int roundedProgress = 30 * Math.round(progress / 30);
+                    quizTimeBar.setProgress(roundedProgress);
 
-                quizTimeView.setText(roundedProgress/60 + ":" + (roundedProgress%60 < 10 ? "0" : "") + roundedProgress%60);
+                    quizDuration = (long) roundedProgress * 1000;
+
+                    SharedPreferences settings = getPreferences(MODE_PRIVATE);
+                    SharedPreferences.Editor editor = settings.edit();
+                    editor.putLong("quizDuration", quizDuration);
+                    editor.apply();
+
+                    quizTimeView.setText(roundedProgress/60 + ":" + (roundedProgress%60 < 10 ? "0" : "") + roundedProgress%60);
+                }
             }
 
             @Override
@@ -209,10 +228,6 @@ public class Settings extends BaseActivity {
         isArcsecActive = settings.getBoolean("isArcsecActive", true);
         isArctanActive = settings.getBoolean("isArctanActive", true);
         isArccotActive = settings.getBoolean("isArccotActive", true);
-    }
-
-    public void onResume(){
-        MainMenu.speedTrigMainTheme.start();
     }
 
     public void onCheckboxClicked(View view) {
@@ -315,6 +330,13 @@ public class Settings extends BaseActivity {
                     editor.putBoolean("areBlairTalksSoundsEnabled", true);
                 else
                     editor.putBoolean("areBlairTalksSoundsEnabled", false);
+                break;
+
+            case R.id.checkbox_music:
+                if (checked)
+                    editor.putBoolean("isMusicEnabled", true);
+                else
+                    editor.putBoolean("isMusicEnabled", false);
                 break;
         }
 

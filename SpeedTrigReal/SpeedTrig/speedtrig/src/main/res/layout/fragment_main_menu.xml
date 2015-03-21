@@ -173,7 +173,6 @@
                     android:layout_toLeftOf="@+id/button2"
                     android:layout_toStartOf="@+id/button2"
                     android:layout_marginRight="2dp"
-                    android:onClick="shiftQuizTypeLeft"
                     android:visibility="invisible" />
 
                 <Button
@@ -182,44 +181,50 @@
                     android:id="@+id/button18"
                     android:background="@drawable/left_quiz_arrow"
                     android:onClick="shiftQuizTypeLeft"
+                    android:clickable="true"
                     android:layout_alignBottom="@+id/button2"
-                    android:layout_alignLeft="@+id/button19"
-                    android:layout_alignStart="@+id/button19"
-                    android:clickable="true" />
+                    android:layout_toLeftOf="@+id/button2"
+                    android:layout_toStartOf="@+id/button2" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="Duration: 3 Min."
+                    android:text="Duration: "
                     android:id="@+id/textView14"
                     android:textSize="20dp"
-                    android:layout_alignBottom="@+id/show_leaderboard"
-                    android:layout_alignLeft="@+id/button19"
-                    android:layout_alignStart="@+id/button19" />
+                    android:layout_alignTop="@+id/sign_in_button"
+                    android:layout_alignLeft="@+id/button18"
+                    android:layout_alignStart="@+id/button18"
+                    android:layout_marginTop="10dp"
+                    android:textStyle="italic" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="Functions: Non-Inverse Only"
+                    android:text="Functions: "
                     android:id="@+id/textView15"
                     android:textSize="20dp"
                     android:textIsSelectable="false"
+                    android:textStyle="italic"
                     android:layout_below="@+id/textView14"
                     android:layout_alignLeft="@+id/textView14"
-                    android:layout_alignStart="@+id/textView14" />
+                    android:layout_alignStart="@+id/textView14"
+                    android:layout_marginTop="10dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="Other Info: None."
+                    android:text="Other Info: "
                     android:id="@+id/textView16"
                     android:textSize="20dp"
+                    android:textStyle="italic"
                     android:layout_below="@+id/textView15"
-                    android:layout_alignLeft="@+id/textView15"
-                    android:layout_alignStart="@+id/textView15" />
+                    android:layout_alignRight="@+id/textView15"
+                    android:layout_alignEnd="@+id/textView15"
+                    android:layout_marginTop="10dp" />
 
                 <Button
                     android:layout_width="45dp"
@@ -227,10 +232,55 @@
                     android:id="@+id/button17"
                     android:background="@drawable/right_quiz_arrow"
                     android:onClick="shiftQuizTypeRight"
+                    android:clickable="true"
                     android:layout_alignBottom="@+id/button2"
+                    android:layout_toRightOf="@+id/button2"
+                    android:layout_toEndOf="@+id/button2" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="3 Min."
+                    android:id="@+id/textView23"
+                    android:textSize="20dp"
+                    android:layout_above="@+id/textView15"
+                    android:layout_toRightOf="@+id/textView14"
+                    android:layout_toEndOf="@+id/textView14" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Non-Inverse Only"
+                    android:id="@+id/textView24"
+                    android:textSize="20dp"
+                    android:textIsSelectable="false"
+                    android:layout_alignTop="@+id/textView15"
                     android:layout_toRightOf="@+id/textView15"
-                    android:layout_toEndOf="@+id/textView15"
-                    android:clickable="true" />
+                    android:layout_alignRight="@+id/button17"
+                    android:layout_alignEnd="@+id/button17" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="None."
+                    android:id="@+id/textView25"
+                    android:textSize="20dp"
+                    android:layout_alignTop="@+id/textView16"
+                    android:layout_toRightOf="@+id/textView16"
+                    android:layout_toEndOf="@+id/textView16" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Quiz Mode:"
+                    android:id="@+id/textView26"
+                    android:textSize="16dp"
+                    android:layout_above="@+id/button2"
+                    android:layout_centerHorizontal="true" />
 
             </RelativeLayout>
 

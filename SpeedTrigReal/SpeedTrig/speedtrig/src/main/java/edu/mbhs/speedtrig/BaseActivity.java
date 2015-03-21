@@ -3,8 +3,10 @@ package edu.mbhs.speedtrig;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
@@ -34,6 +36,9 @@ public class BaseActivity extends ActionBarActivity {
 
 	private ArrayList<NavDrawerItem> navDrawerItems;
 	private NavDrawerListAdapter adapter;
+
+    public static MediaPlayer speedTrigMainTheme;
+    public static int speedTrigMainThemeProgress;
 
     @Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -72,12 +77,19 @@ public class BaseActivity extends ActionBarActivity {
 				navDrawerItems);
 		mDrawerList.setAdapter(adapter);
 
+        updateSoundStatus();
+
+        if(speedTrigMainTheme == null && Settings.isMusicEnabled) {
+            speedTrigMainTheme = MediaPlayer.create(this, R.raw.speed_trig_main_theme);
+            speedTrigMainTheme.seekTo(speedTrigMainThemeProgress);
+            speedTrigMainTheme.setLooping(true);
+            speedTrigMainTheme.start();
+        }
+
 		// enabling action bar app icon and behaving it as toggle button
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 		getSupportActionBar().setHomeButtonEnabled(true);
 		getSupportActionBar().setIcon(R.drawable.ic_launcher);
-
-
 
 		mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout,
 				R.drawable.ic_drawer, // nav menu toggle icon
@@ -128,6 +140,10 @@ public class BaseActivity extends ActionBarActivity {
 		// getSupportMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
+
+    public void on(){
+
+    }
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
@@ -240,9 +256,27 @@ public class BaseActivity extends ActionBarActivity {
 		default:
 			break;
 		}
-
-
 	}
+
+    private void updateSoundStatus(){
+
+        SharedPreferences settings = getSharedPreferences("Settings", MODE_PRIVATE);
+        Settings.areBlairTalksSoundsEnabled = settings.getBoolean("areBlairTalksSoundsEnabled", true);
+        Settings.isMusicEnabled = settings.getBoolean("isMusicEnabled", true);
+    }
+
+    public void onPause(){
+        super.onPause();
+        //speedTrigMainThemeProgress = speedTrigMainTheme.getCurrentPosition();
+        if(speedTrigMainTheme != null)
+            speedTrigMainTheme.pause();
+    }
+
+    public void onResume(){
+        super.onResume();
+        if(speedTrigMainTheme != null && Settings.isMusicEnabled)
+            speedTrigMainTheme.start();
+    }
 
 	@Override
 	public void setTitle(CharSequence title) {
