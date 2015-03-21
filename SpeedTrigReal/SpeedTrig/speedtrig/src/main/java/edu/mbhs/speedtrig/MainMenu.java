@@ -43,8 +43,6 @@ public class MainMenu extends BaseActivity /**implements
     private String[] navMenuTitles;
     private TypedArray navMenuIcons;
 
-    public static MediaPlayer speedTrigMainTheme;
-
     /**
     private GoogleApiClient mGoogleApiClient;
     private static int RC_SIGN_IN = 9001;
@@ -96,10 +94,6 @@ public class MainMenu extends BaseActivity /**implements
 
         Button quizTypeRegular = (Button) findViewById(R.id.button2);
         quizTypeRegular.setVisibility(Button.VISIBLE);
-
-        speedTrigMainTheme = MediaPlayer.create(this, R.raw.speed_trig_main_theme);
-        speedTrigMainTheme.setLooping(true);
-        speedTrigMainTheme.start();
 
         Button quizType = (Button) findViewById(R.id.button2);
         quizType.setText("Regular");
@@ -227,15 +221,6 @@ public class MainMenu extends BaseActivity /**implements
 		return super.onOptionsItemSelected(item);
 	}
 
-    public void onPause(){
-        super.onPause();
-        speedTrigMainTheme.start();
-    }
-
-    public void onResume(){
-        speedTrigMainTheme.start();
-    }
-
     private void updateFunctionStates(){
 
         SharedPreferences settings = getSharedPreferences("Settings", MODE_PRIVATE);
@@ -321,7 +306,6 @@ public class MainMenu extends BaseActivity /**implements
 
     public void startRegular(){
 
-        speedTrigMainTheme.stop();
         RegularTrig.entranceButtonClicked = true;
         quizType = QuizType.REGULAR;
         startActivity(new Intent(this, RegularTrig.class));
@@ -381,7 +365,6 @@ public class MainMenu extends BaseActivity /**implements
         //startActivity(new Intent(this, InverseTrig.class));
         InverseTrig.entranceButtonClicked = true;
         quizType = QuizType.INVERSE;
-        speedTrigMainTheme.stop();
         startActivity(new Intent(this, InverseTrig.class));
     }
 
@@ -438,7 +421,6 @@ public class MainMenu extends BaseActivity /**implements
         //startActivity(new Intent(this, InverseTrig.class));
         CustomTrig.entranceButtonClicked = true;
         quizType = QuizType.CUSTOM;
-        speedTrigMainTheme.stop();
         startActivity(new Intent(this, CustomTrig.class));
     }
 

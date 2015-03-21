@@ -22,9 +22,6 @@ public class About extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
 
-        if(!MainMenu.speedTrigMainTheme.isPlaying())
-            MainMenu.speedTrigMainTheme.start();
-
         navMenuTitles = getResources().getStringArray(R.array.nav_drawer_items); // load titles from strings.xml
 
         navMenuIcons = getResources()
@@ -34,17 +31,5 @@ public class About extends BaseActivity {
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#3f51b5")));
 
         set(navMenuTitles, navMenuIcons);
-    }
-
-    public void onPause(){
-        super.onPause();
-        if(MainMenu.speedTrigMainTheme.isPlaying())
-            MainMenu.speedTrigMainTheme.stop();
-    }
-
-    public void onResume(){
-        super.onResume();
-        if(!MainMenu.speedTrigMainTheme.isPlaying())
-            MainMenu.speedTrigMainTheme.start();
     }
 }

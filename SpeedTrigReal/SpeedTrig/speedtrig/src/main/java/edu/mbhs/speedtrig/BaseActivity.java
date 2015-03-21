@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
@@ -34,6 +35,9 @@ public class BaseActivity extends ActionBarActivity {
 
 	private ArrayList<NavDrawerItem> navDrawerItems;
 	private NavDrawerListAdapter adapter;
+
+    public static MediaPlayer speedTrigMainTheme;
+    public static int speedTrigMainThemeProgress;
 
     @Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -71,6 +75,13 @@ public class BaseActivity extends ActionBarActivity {
 		adapter = new NavDrawerListAdapter(getApplicationContext(),
 				navDrawerItems);
 		mDrawerList.setAdapter(adapter);
+
+        if(speedTrigMainTheme == null) {
+            speedTrigMainTheme = MediaPlayer.create(this, R.raw.speed_trig_main_theme);
+            speedTrigMainTheme.seekTo(speedTrigMainThemeProgress);
+            speedTrigMainTheme.setLooping(true);
+            speedTrigMainTheme.start();
+        }
 
 		// enabling action bar app icon and behaving it as toggle button
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -240,9 +251,18 @@ public class BaseActivity extends ActionBarActivity {
 		default:
 			break;
 		}
-
-
 	}
+
+    public void onPause(){
+        super.onPause();
+        speedTrigMainThemeProgress = speedTrigMainTheme.getCurrentPosition();
+        speedTrigMainTheme.pause();
+    }
+
+    public void onResume(){
+        super.onResume();
+        speedTrigMainTheme.start();
+    }
 
 	@Override
 	public void setTitle(CharSequence title) {
