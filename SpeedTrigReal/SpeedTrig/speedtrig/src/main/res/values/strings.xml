@@ -23,11 +23,41 @@ Being so simple, it is a great way to learn and talk about lengths and angles.
 The center is put on a graph where the x axis and y axis cross, so we get this neat arrangement here.</string>
 
     <string name="cardview03txt">Sine, Cosine and Tangent</string>
+
     <string name="cardview03atxt">Because the radius is 1, we can directly measure sine, cosine and tangent.
-What happens when the angle, θ, is 0°? cos 0° = 1, sin 0° = 0 and tan 0° = 0
-What happens when θ is 90°?
-cos 90° = 0, sin 90° = 1 and tan 90° is undefined
-</string>
+    What happens when the angle, θ, is 0°? cos 0° = 1, sin 0° = 0 and tan 0° = 0
+    What happens when θ is 90°?
+    cos 90° = 0, sin 90° = 1 and tan 90° is undefined.
+    </string>
+
+    <string name="cardview04txt">Sine is a trigonometric function describing the ratio between the opposite
+    side and the hypotenuse in a right triangle. As a function it is usually abbreviated sin.</string>
+
+    <string name="cardview05txt">Cosine is a trigonometric function describing the ratio of the adjacent
+        side to the hypotenuse in a right triangle. It is often abbreviated cos. </string>
+
+    <string name="cardview06txt">Tangent of an angle in a right triangle is defined as the ratio of
+        the opposite and adjacent sides. The tangent is a trigonometric function of the angle and is
+        often abbreviated tan.</string>
+
+    <string name="cardview07txt">The secant is a trigonometric function describing the ratio of the
+        hypotenuse to the adjacent side in a right triangle. It is often abbreviated sec.</string>
+
+    <string name="cardview08txt">The cosecant is a trigonometric function describing the ratio of the
+        hypotenuse to the opposite side in a right triangle. It is often abbreviated as cosec, cose, or csc.</string>
+
+    <string name="cardview09txt">Cotangent is a trigonometric function describing the ratio of the
+        adjacent side to the opposite side in a right triangle. It is often abbreviated cotan or cot. </string>
+
+    <string name="cardview10txt"></string>
+    <string name="cardview11txt"></string>
+    <string name="cardview12txt"></string>
+    <string name="cardview13txt"></string>
+    <string name="cardview14txt"></string>
+    <string name="cardview15txt"></string>
+    <string name="cardview16txt"></string>
+    <string name="cardview17txt"></string>
+    <string name="cardview18txt"></string>
 
     //End of Learn section content
 
