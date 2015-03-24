@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.speedtrig.R;
 
@@ -237,6 +238,27 @@ public class Settings extends BaseActivity {
 
         // Is the view now checked?
         boolean checked = ((CheckBox) view).isChecked();
+
+        // if no functions are checked, tell the user
+        int numChecked = 0;
+        numChecked += isSinActive ? 1 : 0;
+        numChecked += isCosActive ? 1 : 0;
+        numChecked += isTanActive ? 1 : 0;
+        numChecked += isCscActive ? 1 : 0;
+        numChecked += isSecActive ? 1 : 0;
+        numChecked += isCotActive ? 1 : 0;
+        numChecked += isArcsinActive ? 1 : 0;
+        numChecked += isArccosActive ? 1 : 0;
+        numChecked += isArctanActive ? 1 : 0;
+        numChecked += isArccscActive ? 1 : 0;
+        numChecked += isArcsecActive ? 1 : 0;
+        numChecked += isArccotActive ? 1 : 0;
+
+        if (numChecked == 1 && !checked) {
+            Toast.makeText(this, "You must select at least one function", Toast.LENGTH_SHORT).show();
+            ((CheckBox) view).setChecked(true);
+            return;
+        }
 
         // Check which checkbox was clicked
         switch(view.getId()) {
