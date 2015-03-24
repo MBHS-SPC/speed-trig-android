@@ -114,30 +114,23 @@ public class Settings extends BaseActivity {
         quizTimeBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                int roundedProgress = 30 * Math.round(progress / 30);
+                quizTimeBar.setProgress(roundedProgress);
 
-                if(progress < 30){
-                    quizDuration = (long) 30000;
-
-                    SharedPreferences settings = getPreferences(MODE_PRIVATE);
-                    SharedPreferences.Editor editor = settings.edit();
-                    editor.putLong("quizDuration", quizDuration);
-                    editor.apply();
-
-                    quizTimeView.setText(quizDuration/60 + ":" + (quizDuration%60 < 10 ? "0" : "") + quizDuration%60);
+                // Come on, don't give yourself no time... -_-
+                if (roundedProgress == 0) {
+                    quizTimeBar.setProgress((int) (quizDuration / 1000));
+                    return;
                 }
-                else{
-                    int roundedProgress = 30 * Math.round(progress / 30);
-                    quizTimeBar.setProgress(roundedProgress);
 
-                    quizDuration = (long) roundedProgress * 1000;
+                quizDuration = (long) roundedProgress * 1000;
 
-                    SharedPreferences settings = getPreferences(MODE_PRIVATE);
-                    SharedPreferences.Editor editor = settings.edit();
-                    editor.putLong("quizDuration", quizDuration);
-                    editor.apply();
+                SharedPreferences settings = getPreferences(MODE_PRIVATE);
+                SharedPreferences.Editor editor = settings.edit();
+                editor.putLong("quizDuration", quizDuration);
+                editor.apply();
 
-                    quizTimeView.setText(roundedProgress/60 + ":" + (roundedProgress%60 < 10 ? "0" : "") + roundedProgress%60);
-                }
+                quizTimeView.setText(roundedProgress/60 + ":" + (roundedProgress%60 < 10 ? "0" : "") + roundedProgress%60);
             }
 
             @Override
