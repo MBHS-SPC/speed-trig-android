@@ -4,6 +4,7 @@ import android.content.SharedPreferences;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.preference.PreferenceFragment;
 import android.view.LayoutInflater;
@@ -59,6 +60,7 @@ public class Settings extends BaseActivity {
         SharedPreferences settings = getPreferences(MODE_PRIVATE);
 
         updateFunctionStates();
+        updateSoundStatus();
 
         CheckBox checkbox_sin = (CheckBox) findViewById(R.id.checkbox_sin);
         CheckBox checkbox_cos = (CheckBox) findViewById(R.id.checkbox_cos);
@@ -224,7 +226,7 @@ public class Settings extends BaseActivity {
         isArccotActive = settings.getBoolean("isArccotActive", true);
     }
 
-    public void onCheckboxClicked(View view) {
+    public void onCheckboxClicked(View view) throws IOException {
 
         SharedPreferences settings = getPreferences(MODE_PRIVATE);
         SharedPreferences.Editor editor = settings.edit();
@@ -348,10 +350,23 @@ public class Settings extends BaseActivity {
                 break;
 
             case R.id.checkbox_music:
-                if (checked)
+                if (checked) {
                     editor.putBoolean("isMusicEnabled", true);
-                else
+                    if (speedTrigMainTheme != null) {
+                        speedTrigMainTheme.prepare();
+                        speedTrigMainTheme.start();
+                    }
+                    else {
+                        speedTrigMainTheme = MediaPlayer.create(this, R.raw.speed_trig_main_theme);
+                        speedTrigMainTheme.seekTo(speedTrigMainThemeProgress);
+                        speedTrigMainTheme.setLooping(true);
+                        speedTrigMainTheme.start();
+                    }
+                }
+                else {
                     editor.putBoolean("isMusicEnabled", false);
+                    speedTrigMainTheme.stop();
+                }
                 break;
         }
 

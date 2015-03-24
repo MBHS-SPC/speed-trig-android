@@ -258,7 +258,7 @@ public class BaseActivity extends ActionBarActivity {
 		}
 	}
 
-    private void updateSoundStatus(){
+    protected void updateSoundStatus(){
 
         SharedPreferences settings = getSharedPreferences("Settings", MODE_PRIVATE);
         Settings.areBlairTalksSoundsEnabled = settings.getBoolean("areBlairTalksSoundsEnabled", true);
