@@ -21,32 +21,32 @@
             android:paddingTop="@dimen/activity_vertical_margin"
             tools:context="edu.mbhs.speedtrig.About" >
 
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:layout_marginTop="50dp"
-                android:id="@+id/linearLayout2">
-
-                <TextView
-                    android:id="@+id/entry1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="      Speed Trig v1.3 is an application designed to help users improve their ability to compute basic trigonometric functions by practicing with digital quizzes on the unit circle.\n     Speed Trig was designed by the Montgomery Blair High School Smartphone Programming Club of 2014-2015 and inspired by the timed unit circle quizzes which are included within the Pre-Calculus curriculum at MBHS."
-                    android:textSize="18dp"
-                    android:textIsSelectable="false"
-                    android:textColor="@color/black" />
-
-            </LinearLayout>
-
-            <ListView
-                android:id="@+id/list_view"
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/entry1"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/linearLayout2"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true">
-            </ListView>
+                android:text="      Speed Trig v1.3 is an application designed to help users improve their ability to compute basic trigonometric functions by practicing with digital quizzes on the unit circle.\n     Speed Trig was designed by the Montgomery Blair High School Smartphone Programming Club of 2014-2015 and inspired by the timed unit circle quizzes which are included within the Pre-Calculus curriculum at MBHS."
+                android:textSize="18dp"
+                android:textIsSelectable="false"
+                android:textColor="@color/black" />
+
+            <ImageButton
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:id="@+id/imageButton"
+                android:layout_marginLeft="200dp"
+                android:layout_marginTop="450dp"
+                android:background="@drawable/google_ic"
+                android:clickable="true" />
+
+            <ImageButton
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:id="@+id/imageButton2"
+                android:background="@drawable/fb_ic"
+                android:layout_marginLeft="260dp"
+                android:layout_marginTop="450dp"
+                android:clickable="true" />
 
         </RelativeLayout>
 

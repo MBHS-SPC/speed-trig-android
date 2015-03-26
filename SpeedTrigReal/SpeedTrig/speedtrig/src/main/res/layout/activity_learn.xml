@@ -120,8 +120,6 @@
                         />
                 </android.support.v7.widget.CardView>
 
-
-
                 <!--Card Four-->
                 <android.support.v7.widget.CardView
 
@@ -144,10 +142,6 @@
 
                 </android.support.v7.widget.CardView>
 
-
-
-
-                <!--Sin-->
                 <android.support.v7.widget.CardView
 
                     xmlns:card_view="http://schemas.android.com/apk/res-auto"
@@ -155,6 +149,133 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/cardview04"
+                    android:layout_marginTop="6dp"
+                    card_view:cardCornerRadius="3dp">
+
+                    <ImageView
+                        android:id="@+id/imageView18"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:src="@drawable/triangle" />
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/cardview06"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/cardview05"
+                    android:layout_marginTop="6dp"
+                    card_view:cardCornerRadius="3dp">
+
+                    <ImageView
+                        android:id="@+id/imageView19"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:src="@drawable/sohcahtoa_01" />
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/cardview07"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/cardview06"
+                    android:layout_marginTop="6dp"
+                    card_view:cardCornerRadius="3dp">
+
+                    <ImageView
+                        android:id="@+id/imageView20"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:src="@drawable/trigexample_04a" />
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/cardview08"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/cardview07"
+                    android:layout_marginTop="6dp"
+                    card_view:cardCornerRadius="3dp">
+
+                    <ImageView
+                        android:id="@+id/imageView21"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:src="@drawable/trigexample_02b" />
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/cardview09"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/cardview08"
+                    android:layout_marginTop="6dp"
+                    card_view:cardCornerRadius="3dp">
+
+                    <ImageView
+                        android:id="@+id/imageView22"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:src="@drawable/trigexample_03c" />
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/cardview10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/cardview09"
+                    android:layout_marginTop="6dp"
+                    card_view:cardCornerRadius="3dp">
+
+                    <ImageView
+                        android:id="@+id/imageView23"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:src="@drawable/trigexample_01d" />
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/cardview11"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/cardview10"
+                    android:layout_marginTop="6dp"
+                    card_view:cardCornerRadius="3dp">
+
+                    <ImageView
+                        android:id="@+id/imageView24"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:src="@drawable/q1_unitcircle" />
+
+                </android.support.v7.widget.CardView>
+
+                <!--Sin-->
+                <android.support.v7.widget.CardView
+
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/cardview12"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/cardview11"
                     android:layout_marginTop="6dp"
                     card_view:cardCornerRadius="3dp">
 
@@ -197,10 +318,10 @@
                 <android.support.v7.widget.CardView
 
                     xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                    android:id="@+id/cardview06"
+                    android:id="@+id/cardview13"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/cardview05"
+                    android:layout_below="@id/cardview12"
                     android:layout_marginTop="6dp"
                     card_view:cardCornerRadius="3dp">
 
@@ -243,10 +364,10 @@
                 <android.support.v7.widget.CardView
 
                     xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                    android:id="@+id/cardview07"
+                    android:id="@+id/cardview14"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/cardview06"
+                    android:layout_below="@id/cardview13"
                     android:layout_marginTop="6dp"
                     card_view:cardCornerRadius="3dp">
 
@@ -289,10 +410,10 @@
                 <android.support.v7.widget.CardView
 
                     xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                    android:id="@+id/cardview08"
+                    android:id="@+id/cardview15"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/cardview07"
+                    android:layout_below="@id/cardview14"
                     android:layout_marginTop="6dp"
                     card_view:cardCornerRadius="3dp">
 
@@ -326,10 +447,10 @@
                 <android.support.v7.widget.CardView
 
                     xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                    android:id="@+id/cardview09"
+                    android:id="@+id/cardview16"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/cardview08"
+                    android:layout_below="@id/cardview15"
                     android:layout_marginTop="6dp"
                     card_view:cardCornerRadius="3dp">
 
@@ -363,10 +484,10 @@
                 <android.support.v7.widget.CardView
 
                     xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                    android:id="@+id/cardview10"
+                    android:id="@+id/cardview17"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/cardview09"
+                    android:layout_below="@id/cardview16"
                     android:layout_marginTop="6dp"
                     card_view:cardCornerRadius="3dp">
 
@@ -394,41 +515,6 @@
 
                 </android.support.v7.widget.CardView>
 
-                <android.support.v7.widget.CardView
-
-                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                    android:id="@+id/cardview11"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/cardview10"
-                    android:layout_marginTop="6dp"
-                    card_view:cardCornerRadius="3dp">
-
-                    <ImageView
-                        android:id="@+id/imageView18"
-                        android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
-                        android:src="@drawable/triangle" />
-
-                </android.support.v7.widget.CardView>
-
-                <android.support.v7.widget.CardView
-
-                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                    android:id="@+id/cardview12"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/cardview11"
-                    android:layout_marginTop="6dp"
-                    card_view:cardCornerRadius="3dp">
-
-                    <ImageView
-                        android:id="@+id/imageView19"
-                        android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
-                        android:src="@drawable/sohcahtoa_01" />
-
-                </android.support.v7.widget.CardView>
 
                 <!--Add More Cards From Here-->
 
@@ -457,7 +543,7 @@
                 android:layout_marginBottom="5dp"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
-                 />
+                />
         </RelativeLayout>
 
 
