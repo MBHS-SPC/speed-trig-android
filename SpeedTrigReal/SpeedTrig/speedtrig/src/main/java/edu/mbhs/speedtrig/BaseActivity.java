@@ -171,7 +171,7 @@ public class BaseActivity extends ActionBarActivity {
 	}
 
 	/**
-	 * Diplaying fragment view for selected nav drawer list item
+	 * Displaying fragment view for selected nav drawer list item
 	 * */
 	private void displayView(int position) {
 
