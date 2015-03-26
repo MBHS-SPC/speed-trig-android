@@ -21,6 +21,16 @@
             android:paddingTop="@dimen/activity_vertical_margin"
             tools:context="edu.mbhs.speedtrig.About" >
 
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:id="@+id/imageView2"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginLeft="100dp"
+                android:src="@drawable/ic_launcher" />
+
             <TextView
                 android:id="@+id/entry1"
                 android:layout_width="wrap_content"
@@ -28,7 +38,8 @@
                 android:text="      Speed Trig v1.3 is an application designed to help users improve their ability to compute basic trigonometric functions by practicing with digital quizzes on the unit circle.\n     Speed Trig was designed by the Montgomery Blair High School Smartphone Programming Club of 2014-2015 and inspired by the timed unit circle quizzes which are included within the Pre-Calculus curriculum at MBHS."
                 android:textSize="18dp"
                 android:textIsSelectable="false"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:layout_marginTop="110dp"/>
 
             <ImageButton
                 android:layout_width="50dp"
