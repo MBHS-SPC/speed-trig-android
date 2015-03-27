@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
@@ -39,6 +41,8 @@ public class BaseActivity extends ActionBarActivity {
 
     public static MediaPlayer speedTrigMainTheme;
     public static int speedTrigMainThemeProgress;
+
+    public static View currentSelectedItemView = null;
 
     @Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -118,6 +122,8 @@ public class BaseActivity extends ActionBarActivity {
 		@Override
 		public void onItemClick(AdapterView<?> parent, View view, int position,
 				long id) {
+            view.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#963f51b5")));
+            currentSelectedItemView = view;
 			// display view for selected nav drawer item
 			displayView(position);
 		}
@@ -270,12 +276,16 @@ public class BaseActivity extends ActionBarActivity {
         //speedTrigMainThemeProgress = speedTrigMainTheme.getCurrentPosition();
         if(speedTrigMainTheme != null)
             speedTrigMainTheme.pause();
+        if(currentSelectedItemView != null)
+            currentSelectedItemView.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#963f51b5")));
     }
 
     public void onResume(){
         super.onResume();
         if(speedTrigMainTheme != null && Settings.isMusicEnabled)
             speedTrigMainTheme.start();
+        if(currentSelectedItemView != null)
+            currentSelectedItemView.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#963f51b5")));
     }
 
 	@Override

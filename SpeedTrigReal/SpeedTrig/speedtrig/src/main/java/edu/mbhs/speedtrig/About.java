@@ -35,6 +35,8 @@ public class About extends BaseActivity {
         ImageView googlePlusButton = (ImageView) findViewById(R.id.imageButton);
         ImageView faceBookButton = (ImageView) findViewById(R.id.imageButton2);
 
+        BaseActivity.currentSelectedItemView.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#963f51b5")));
+
         googlePlusButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
