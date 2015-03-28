@@ -22,8 +22,8 @@
             tools:context="edu.mbhs.speedtrig.About" >
 
             <ImageView
-                android:layout_width="120dp"
-                android:layout_height="120dp"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
                 android:id="@+id/imageView2"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentLeft="true"

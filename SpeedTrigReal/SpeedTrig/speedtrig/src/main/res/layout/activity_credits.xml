@@ -208,15 +208,6 @@
 
             </LinearLayout>
 
-            <ListView
-                android:id="@android:id/list"
-                android:layout_width="match_parent"
-                android:layout_height="112dp"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentBottom="true">
-            </ListView>
-
         </RelativeLayout>
 
         <!-- Footer aligned to bottom -->

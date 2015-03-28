@@ -34,19 +34,6 @@
                 android:layout_alignParentEnd="true">
 
                 <Button
-                    android:id="@+id/button1"
-                    android:layout_width="200dp"
-                    android:layout_height="wrap_content"
-                    android:onClick="startRegularDialog"
-                    android:textColor="@android:color/white"
-                    android:text="Regular Quiz"
-                    android:layout_above="@+id/button2"
-                    android:layout_alignLeft="@+id/button2"
-                    android:layout_alignStart="@+id/button2"
-                    android:layout_marginBottom="10dp"
-                    android:visibility="invisible" />
-
-                <Button
                     android:id="@+id/button2"
                     android:layout_width="200dp"
                     android:layout_height="50dp"
@@ -58,53 +45,12 @@
                     android:layout_alignBottom="@+id/button14"
                     android:layout_centerHorizontal="true" />
 
-                <Button
-                    android:id="@+id/settings"
-                    android:layout_width="200dp"
-                    android:layout_height="wrap_content"
-                    android:textColor="@android:color/white"
-                    android:onClick="startCustomDialog"
-                    android:text="Custom Quiz"
-                    android:layout_above="@+id/button13"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginBottom="10dp"
-                    android:backgroundTint="@color/ripple_material_light"
-                    android:visibility="invisible" />
-
                 <TextView
                     android:id="@+id/textView1"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@android:color/holo_green_dark"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textSize="40dp"
-                    android:background="@drawable/logo_version_four"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginTop="43dp" />
+                    android:layout_height="200dp"
+                    android:background="@drawable/speedtriglogo01"/>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/textView2"
-                    android:textColor="@android:color/holo_green_dark"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textStyle="italic"
-                    android:layout_below="@+id/textView1"
-                    android:layout_centerHorizontal="true"
-                    android:background="@drawable/mbhsspc_version_two" />
-
-                <Button
-                    android:id="@+id/button13"
-                    android:layout_width="200dp"
-                    android:layout_height="wrap_content"
-                    android:textColor="@android:color/white"
-                    android:onClick="startAbout"
-                    android:text="About"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignLeft="@+id/settings"
-                    android:layout_alignStart="@+id/settings"
-                    android:layout_marginBottom="20dp"
-                    android:visibility="invisible" />
 
                 <Button
                     android:id="@+id/button14"
@@ -116,11 +62,11 @@
                     android:textStyle="bold"
                     android:background="@color/orange_500"
                     android:visibility="invisible"
-                    android:layout_alignLeft="@+id/button1"
-                    android:layout_alignStart="@+id/button1"
                     android:layout_marginTop="21dp"
                     android:layout_marginBottom="10dp"
-                    android:layout_alignTop="@+id/button19" />
+                    android:layout_alignLeft="@+id/button2"
+                    android:layout_alignStart="@+id/button2"
+                    android:layout_centerVertical="true" />
 
                 <!-- sign-in button -->
                 <com.google.android.gms.common.SignInButton
@@ -140,40 +86,7 @@
                     android:text="Sign Out"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentEnd="true"
-                    android:layout_alignTop="@+id/button13"
                     android:visibility="gone" />
-
-                <Button
-                    android:id="@+id/show_achievements"
-                    android:layout_width="44dp"
-                    android:layout_height="44dp"
-                    android:textStyle="bold"
-                    android:background="@drawable/achievement_icon_small"
-                    android:layout_below="@+id/settings"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentEnd="true"
-                    android:visibility="invisible" />
-
-                <Button
-                    android:id="@+id/show_leaderboard"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:background="@drawable/leaderboard_icon"
-                    android:layout_alignLeft="@+id/show_achievements"
-                    android:layout_alignStart="@+id/show_achievements"
-                    android:visibility="invisible"
-                    android:layout_below="@+id/button14" />
-
-                <Button
-                    android:layout_width="45dp"
-                    android:layout_height="45dp"
-                    android:id="@+id/button19"
-                    android:background="@drawable/left_quiz_arrow"
-                    android:layout_centerVertical="true"
-                    android:layout_toLeftOf="@+id/button2"
-                    android:layout_toStartOf="@+id/button2"
-                    android:layout_marginRight="2dp"
-                    android:visibility="invisible" />
 
                 <Button
                     android:layout_width="45dp"
