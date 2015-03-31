@@ -35,7 +35,7 @@ public class ResponseWindow extends Activity /**implements
 
 	TextView question;
 	TextView responseCopy;
-	String questionVal;
+    int questionIndex;
     boolean finishCalled = false;
     boolean quizDone = false;
 
@@ -147,26 +147,10 @@ public class ResponseWindow extends Activity /**implements
 
         questions = generateList();
 
-        switch (MainMenu.quizType) {
-            case REGULAR:
-                questionVal = getIntent().getStringExtra(RegularTrig.EXTRA_QUESTION);
-                question.setText("#" + questionVal);
-                responseCopy.setText(getIntent().getStringExtra(RegularTrig.EXTRA_RESPONSE));
-                break;
-
-            case INVERSE:
-                questionVal = getIntent().getStringExtra(InverseTrig.EXTRA_QUESTION);
-                question.setText("#" + questionVal);
-                responseCopy.setText(getIntent().getStringExtra(InverseTrig.EXTRA_RESPONSE));
-                break;
-
-            case CUSTOM:
-                questionVal = getIntent().getStringExtra(CustomTrig.EXTRA_QUESTION);
-                question.setText("#" + questionVal);
-                responseCopy.setText(getIntent().getStringExtra(CustomTrig.EXTRA_RESPONSE));
-                break;
-        }
-	}
+        questionIndex = 0;
+        question.setText("#" + questions[questionIndex]);
+        responseCopy.setText(responses[0]);
+    }
 
     public String[] generateList(){
         String[] questions = new String[12];
@@ -226,22 +210,7 @@ public class ResponseWindow extends Activity /**implements
         else
             responseCopy.setText(text.subSequence(0,text.length()-1));
 
-        switch (MainMenu.quizType) {
-            case REGULAR:
-                RegularTrig.responses.remove(questionVal);
-                RegularTrig.responses.put(questionVal, responseCopy.getText().toString());
-                break;
-
-            case INVERSE:
-                InverseTrig.responses.remove(questionVal);
-                InverseTrig.responses.put(questionVal, responseCopy.getText().toString());
-                break;
-
-            case CUSTOM:
-                CustomTrig.responses.remove(questionVal);
-                CustomTrig.responses.put(questionVal, responseCopy.getText().toString());
-                break;
-        }
+        responses[questionIndex] = responseCopy.getText().toString();
     }
 
     public void startSubmitDialog(View v){
@@ -286,22 +255,7 @@ public class ResponseWindow extends Activity /**implements
         }
         else {
             appendButton(v.getId());
-            switch (MainMenu.quizType) {
-                case REGULAR:
-                    RegularTrig.responses.remove(questionVal);
-                    RegularTrig.responses.put(questionVal, responseCopy.getText().toString());
-                    break;
-
-                case INVERSE:
-                    InverseTrig.responses.remove(questionVal);
-                    InverseTrig.responses.put(questionVal, responseCopy.getText().toString());
-                    break;
-
-                case CUSTOM:
-                    CustomTrig.responses.remove(questionVal);
-                    CustomTrig.responses.put(questionVal, responseCopy.getText().toString());
-                    break;
-            }
+            responses[questionIndex] = responseCopy.getText().toString();
         }
 	}
 	
@@ -311,11 +265,12 @@ public class ResponseWindow extends Activity /**implements
     }
 
     public void openNextQuestion(View v) {
+        String questionVal = questions[questionIndex];
         String response = responseCopy.getText().toString().trim();
         String correct = getCorrectValue(questionVal.substring(questionVal.indexOf('.') + 2)).trim();
         boolean isCorrect = response.equals(correct);
-        String text = "#" + questionVal.substring(0, questionVal.indexOf('.')) + " is incorrect!";
-        if (isCorrect) text = "#" + questionVal.substring(0, questionVal.indexOf('.')) + " is correct!";
+        String text = "#" + (questionIndex + 1) + " is incorrect!";
+        if (isCorrect) text = "#" + (questionIndex + 1) + " is correct!";
         //Sounds
         if(Settings.areBlairTalksSoundsEnabled) {
             if (!response.equals("")) {
@@ -324,66 +279,25 @@ public class ResponseWindow extends Activity /**implements
                 } else wroSound.start();
             }
         }
-        int questionIndex = Integer.parseInt(questionVal.substring(0, questionVal.indexOf('.')))-1;
 
         TextView next_button = (TextView) findViewById(R.id.button11);
         TextView submit_button = (TextView) findViewById(R.id.button15);
         TextView back_button = (TextView) findViewById(R.id.button12);
 
-        switch(MainMenu.quizType) {
-            case REGULAR:
-                // if it's the last question, don't let them go further
-                if (questionIndex == RegularTrig.questionList.length - 1) {
-                    next_button.setVisibility(TextView.INVISIBLE);
-                    submit_button.setVisibility(TextView.VISIBLE);
-                    back_button.setVisibility(TextView.VISIBLE);
-                } else {
-                    questionVal = RegularTrig.questionList[questionIndex + 1];
-                    question.setText("#" + questionVal);
-                    responseCopy.setText(RegularTrig.responses.get(questionVal));
-                    back_button.setVisibility(TextView.VISIBLE);
-                    if (questionIndex + 1 == RegularTrig.questionList.length - 1) {
-                        next_button.setVisibility(TextView.INVISIBLE);
-                        submit_button.setVisibility(TextView.VISIBLE);
-                    }
-                }
-                break;
-
-            case INVERSE:
-                // if it's the last question, don't let them go further
-                if (questionIndex == InverseTrig.questionList.length - 1) {
-                    next_button.setVisibility(TextView.INVISIBLE);
-                    submit_button.setVisibility(TextView.VISIBLE);
-                    back_button.setVisibility(TextView.VISIBLE);
-                } else {
-                    questionVal = InverseTrig.questionList[questionIndex + 1];
-                    question.setText("#" + questionVal);
-                    responseCopy.setText(InverseTrig.responses.get(questionVal));
-                    back_button.setVisibility(TextView.VISIBLE);
-                    if (questionIndex + 1 == InverseTrig.questionList.length - 1) {
-                        next_button.setVisibility(TextView.INVISIBLE);
-                        submit_button.setVisibility(TextView.VISIBLE);
-                    }
-                }
-                break;
-
-            case CUSTOM:
-                // if it's the last question, don't let them go further
-                if (questionIndex == CustomTrig.questionList.length - 1) {
-                    next_button.setVisibility(TextView.INVISIBLE);
-                    submit_button.setVisibility(TextView.VISIBLE);
-                    back_button.setVisibility(TextView.VISIBLE);
-                } else {
-                    questionVal = CustomTrig.questionList[questionIndex + 1];
-                    question.setText("#" + questionVal);
-                    responseCopy.setText(CustomTrig.responses.get(questionVal));
-                    back_button.setVisibility(TextView.VISIBLE);
-                    if (questionIndex + 1 == CustomTrig.questionList.length - 1) {
-                        next_button.setVisibility(TextView.INVISIBLE);
-                        submit_button.setVisibility(TextView.VISIBLE);
-                    }
-                }
-                break;
+        // if it's the last question, don't let them go further
+        if (questionIndex == questions.length - 1) {
+            next_button.setVisibility(TextView.INVISIBLE);
+            submit_button.setVisibility(TextView.VISIBLE);
+            back_button.setVisibility(TextView.VISIBLE);
+        } else {
+            questionIndex++;
+            question.setText("#" + questions[questionIndex]);
+            responseCopy.setText(responses[questionIndex]);
+            back_button.setVisibility(TextView.VISIBLE);
+            if (questionIndex == questions.length - 1) {
+                next_button.setVisibility(TextView.INVISIBLE);
+                submit_button.setVisibility(TextView.VISIBLE);
+            }
         }
 
         if(!response.equals(""))
@@ -397,63 +311,24 @@ public class ResponseWindow extends Activity /**implements
         //String text = "Incorrect!";
         //if (isCorrect) text = "Correct!";
 
-        int questionIndex = Integer.parseInt(questionVal.substring(0, questionVal.indexOf('.')))-1;
-
         TextView next_button = (TextView) findViewById(R.id.button11);
         TextView submit_button = (TextView) findViewById(R.id.button15);
         TextView back_button = (TextView) findViewById(R.id.button12);
 
-        switch(MainMenu.quizType) {
-            case REGULAR:
-                next_button.setVisibility(TextView.VISIBLE);
-                submit_button.setVisibility(TextView.INVISIBLE);
 
-                // if it's the second question, don't let them go further
-                if (questionIndex == 0)
-                    back_button.setVisibility(TextView.INVISIBLE);
-                else {
-                    back_button.setVisibility(TextView.VISIBLE);
-                    questionVal = RegularTrig.questionList[questionIndex - 1];
-                    question.setText("#" + questionVal);
-                    responseCopy.setText(RegularTrig.responses.get(questionVal));
-                    if (questionIndex - 1 == 0)
-                        back_button.setVisibility(TextView.INVISIBLE);
-                }
-                break;
-
-            case INVERSE:
-                next_button.setVisibility(TextView.VISIBLE);
-                submit_button.setVisibility(TextView.INVISIBLE);
-
-                // if it's the first question, don't let them go further
-                if (questionIndex == 0)
-                    back_button.setVisibility(TextView.INVISIBLE);
-                else {
-                    back_button.setVisibility(TextView.VISIBLE);
-                    questionVal = InverseTrig.questionList[questionIndex - 1];
-                    question.setText("#" + questionVal);
-                    responseCopy.setText(InverseTrig.responses.get(questionVal));
-                    if (questionIndex - 1 == 0)
-                        back_button.setVisibility(TextView.INVISIBLE);
-                }
-                break;
-
-            case CUSTOM:
-                next_button.setVisibility(TextView.VISIBLE);
-                submit_button.setVisibility(TextView.INVISIBLE);
-
-                // if it's the second question, don't let them go further
-                if (questionIndex == 0)
-                    back_button.setVisibility(TextView.INVISIBLE);
-                else {
-                    back_button.setVisibility(TextView.VISIBLE);
-                    questionVal = CustomTrig.questionList[questionIndex - 1];
-                    question.setText("#" + questionVal);
-                    responseCopy.setText(CustomTrig.responses.get(questionVal));
-                    if (questionIndex - 1 == 0)
-                        back_button.setVisibility(TextView.INVISIBLE);
-                }
-                break;
+        next_button.setVisibility(TextView.VISIBLE);
+        submit_button.setVisibility(TextView.INVISIBLE);
+        
+        // if it's the first question, don't let them go further
+        if (questionIndex == 0)
+            back_button.setVisibility(TextView.INVISIBLE);
+        else {
+            back_button.setVisibility(TextView.VISIBLE);
+            questionIndex--;
+            question.setText("#" + questions[questionIndex]);
+            responseCopy.setText(responses[questionIndex]);
+            if (questionIndex == 0)
+                back_button.setVisibility(TextView.INVISIBLE);
         }
 
         //Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
@@ -803,6 +678,7 @@ public class ResponseWindow extends Activity /**implements
         if (!finishCalled && !quizDone) {
             // Looper.prepare();
             String response = responseCopy.getText().toString().trim();
+            String questionVal = questions[questionIndex];
             String correct = getCorrectValue(questionVal.substring(questionVal.indexOf('.') + 2)).trim();
             boolean isCorrect = response.equals(correct);
             String text = "Incorrect!";
