@@ -46,7 +46,8 @@ public class ResponseWindow extends Activity /**implements
     TextView timer;
     CountDownTimer quizTimer;
 
-    Hashtable<String, String> responses = new Hashtable<>();
+    String[] questions;
+    String[] responses;
 
     private GoogleApiClient mGoogleApiClient;
 
@@ -144,6 +145,8 @@ public class ResponseWindow extends Activity /**implements
                 .build();
          */
 
+        questions = generateList();
+
         switch (MainMenu.quizType) {
             case REGULAR:
                 questionVal = getIntent().getStringExtra(RegularTrig.EXTRA_QUESTION);
@@ -196,9 +199,9 @@ public class ResponseWindow extends Activity /**implements
                     questions[i] = i + 1 + ". " + question;
                 }
         }
-        for (String s : questions){
+        for (int i = 0; i < responses.length; i++){
             // The numbers preceding the question prevent bad things from happening
-            responses.put(s, " ");
+            responses[i] = " ";
         }
         return questions;
     }
