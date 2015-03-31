@@ -161,14 +161,12 @@ public class ResponseWindow extends Activity /**implements
             case REGULAR:
                 for (int i = 0; i <= 11; i++) {
                     String question = QuestionGenerator.genRegular();
-
                     questions[i] = i + 1 + ". " + question;
                 }
                 break;
             case INVERSE:
                 for (int i = 0; i <= 11; i++) {
                     String question = QuestionGenerator.genInverse();
-
                     questions[i] = i + 1 + ". " + question;
                 }
                 break;
@@ -180,7 +178,6 @@ public class ResponseWindow extends Activity /**implements
                         question = QuestionGenerator.genCustom();
                     }
                     Log.d("gen list end question", question);
-
                     questions[i] = i + 1 + ". " + question;
                 }
         }
@@ -355,10 +352,6 @@ public class ResponseWindow extends Activity /**implements
 		return super.onOptionsItemSelected(item);
 	}
 
-    public void submitData(View view){
-        finish();
-    }
-
     @Override
     public void onPause(){
         super.onPause();
@@ -378,7 +371,10 @@ public class ResponseWindow extends Activity /**implements
             if (isCorrect) text = "Correct!";
             //Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
             quizTimer.cancel();
-            startActivity(new Intent(this, FinalWindow.class));
+            Intent i = new Intent(this, FinalWindow.class);
+            i.putExtra("questions", questions);
+            i.putExtra("responses", responses);
+            startActivity(i);
             //Intent i = new Intent();
             //i.putExtra(RegularTrig.EXTRA_TIME, quizTimeRemaining);
             //setResult(RESULT_OK, i);

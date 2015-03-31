@@ -14,8 +14,6 @@ import edu.mbhs.speedtrig.util.QuestionSolver;
 
 public class FinalWindow extends Activity {
 	
-	public static double incompetenceDiminisher = 0.0001;
-	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -39,36 +37,15 @@ public class FinalWindow extends Activity {
 	public String[] getResults(){
 		String[] results = new String[12];
 
-        switch (MainMenu.quizType) {
-            case REGULAR:
-                for (int i = 0; i < RegularTrig.questionList.length; i++) {
-                    String question = RegularTrig.questionList[i];
-                    String response = RegularTrig.responses.get(question);
-                    String correctValue = QuestionSolver.solve(question.substring(question.indexOf('.') + 2));
-                    if (response.equals(" ")) response = "NONE";
-                    results[i] = formatOutput(question, response, correctValue);
-                }
-                break;
+        String[] questions = getIntent().getStringArrayExtra("questions");
+        String[] responses = getIntent().getStringArrayExtra("responses");
 
-            case INVERSE:
-                for (int i = 0; i < InverseTrig.questionList.length; i++) {
-                    String question = InverseTrig.questionList[i];
-                    String response = InverseTrig.responses.get(question);
-                    String correctValue = QuestionSolver.solve(question.substring(question.indexOf('.') + 2));
-                    if (response.equals(" ")) response = "NONE";
-                    results[i] = formatOutput(question, response, correctValue);
-                }
-                break;
-
-            case CUSTOM:
-                for (int i = 0; i < CustomTrig.questionList.length; i++) {
-                    String question = CustomTrig.questionList[i];
-                    String response = CustomTrig.responses.get(question);
-                    String correctValue = QuestionSolver.solve(question.substring(question.indexOf('.') + 2));
-                    if (response.equals(" ")) response = "NONE";
-                    results[i] = formatOutput(question, response, correctValue);
-                }
-                break;
+        for (int i = 0; i < questions.length; i++) {
+            String question = questions[i];
+            String response = responses[i];
+            String correctValue = QuestionSolver.solve(question.substring(question.indexOf('.') + 2));
+            if (responses.equals(" ")) response = "NONE";
+            results[i] = formatOutput(question, response, correctValue);
         }
 
 		return results;

@@ -298,10 +298,8 @@ public class MainMenu extends BaseActivity /**implements
 	}
 
     public void startRegular(){
-
-        RegularTrig.entranceButtonClicked = true;
         quizType = QuizType.REGULAR;
-        startActivity(new Intent(this, RegularTrig.class));
+        startActivity(new Intent(this, ResponseWindow.class));
     }
 
     public void startInverseDialog(View v){
@@ -353,12 +351,8 @@ public class MainMenu extends BaseActivity /**implements
     }
 
     public void startInverse(){
-
-        //Toast.makeText(this, "Coming Soon!!!", Toast.LENGTH_SHORT).show();
-        //startActivity(new Intent(this, InverseTrig.class));
-        InverseTrig.entranceButtonClicked = true;
         quizType = QuizType.INVERSE;
-        startActivity(new Intent(this, InverseTrig.class));
+        startActivity(new Intent(this, ResponseWindow.class));
     }
 
     public void startCustomDialog(View v){
@@ -410,11 +404,8 @@ public class MainMenu extends BaseActivity /**implements
     }
 
     public void startCustom(){
-        //Toast.makeText(this, "Coming Soon!!!", Toast.LENGTH_SHORT).show();
-        //startActivity(new Intent(this, InverseTrig.class));
-        CustomTrig.entranceButtonClicked = true;
         quizType = QuizType.CUSTOM;
-        startActivity(new Intent(this, CustomTrig.class));
+        startActivity(new Intent(this, ResponseWindow.class));
     }
 
     public void shiftQuizTypeLeft(View v){
