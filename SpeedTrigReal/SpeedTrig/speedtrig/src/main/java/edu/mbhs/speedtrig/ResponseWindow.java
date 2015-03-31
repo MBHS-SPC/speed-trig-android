@@ -20,9 +20,12 @@ import com.example.speedtrig.R;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.games.Games;
 
+import java.util.Hashtable;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
+
+import edu.mbhs.speedtrig.util.QuestionGenerator;
 
 public class ResponseWindow extends Activity /**implements
         GoogleApiClient.ConnectionCallbacks,
@@ -42,6 +45,8 @@ public class ResponseWindow extends Activity /**implements
     long quizTimeRemaining;
     TextView timer;
     CountDownTimer quizTimer;
+
+    Hashtable<String, String> responses = new Hashtable<>();
 
     private GoogleApiClient mGoogleApiClient;
 
@@ -159,6 +164,44 @@ public class ResponseWindow extends Activity /**implements
                 break;
         }
 	}
+
+    public String[] generateList(){
+        String[] questions = new String[12];
+        Log.d("generateList", "I totes initialized an array "+questions);
+
+        switch (MainMenu.quizType) {
+            case REGULAR:
+                for (int i = 0; i <= 11; i++) {
+                    String question = QuestionGenerator.genRegular();
+
+                    questions[i] = i + 1 + ". " + question;
+                }
+                break;
+            case INVERSE:
+                for (int i = 0; i <= 11; i++) {
+                    String question = QuestionGenerator.genInverse();
+
+                    questions[i] = i + 1 + ". " + question;
+                }
+                break;
+            case CUSTOM:
+                for (int i = 0; i <= 11; i++) {
+                    String question = QuestionGenerator.genCustom();
+                    Log.d("gen list start question", question);
+                    while (!Settings.isFunctionActive(question.substring(0, question.indexOf("(")))) {
+                        question = QuestionGenerator.genCustom();
+                    }
+                    Log.d("gen list end question", question);
+
+                    questions[i] = i + 1 + ". " + question;
+                }
+        }
+        for (String s : questions){
+            // The numbers preceding the question prevent bad things from happening
+            responses.put(s, " ");
+        }
+        return questions;
+    }
 
     public void onBackPressed(){
 
