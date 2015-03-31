@@ -2,8 +2,6 @@ package edu.mbhs.speedtrig.util;
 
 import java.util.Random;
 
-import edu.mbhs.speedtrig.RegularTrig;
-
 /**
  * Created by eyob-- on 3/31/15.
  */
@@ -70,8 +68,7 @@ public class QuestionGenerator {
         boolean getRegularTrigQuestion = generator.nextBoolean();
 
         if(getRegularTrigQuestion){
-            RegularTrig rt = new RegularTrig();
-            return rt.getQuestion();
+            return genRegular();
         }
 
         else{
@@ -204,8 +201,7 @@ public class QuestionGenerator {
         boolean getRegularTrigQuestion = generator.nextBoolean();
 
         if (getRegularTrigQuestion) {
-            RegularTrig rt = new RegularTrig();
-            return rt.getQuestion();
+            return genRegular();
         } else {
 
             int random;

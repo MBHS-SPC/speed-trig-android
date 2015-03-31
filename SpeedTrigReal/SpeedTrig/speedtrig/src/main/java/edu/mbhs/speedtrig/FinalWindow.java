@@ -44,7 +44,7 @@ public class FinalWindow extends Activity {
             String question = questions[i];
             String response = responses[i];
             String correctValue = QuestionSolver.solve(question.substring(question.indexOf('.') + 2));
-            if (responses.equals(" ")) response = "NONE";
+            if (response == null || response.equals("")) response = "NONE";
             results[i] = formatOutput(question, response, correctValue);
         }
 

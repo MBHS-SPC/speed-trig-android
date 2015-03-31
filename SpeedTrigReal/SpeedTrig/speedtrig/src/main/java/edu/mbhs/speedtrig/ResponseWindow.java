@@ -47,8 +47,8 @@ public class ResponseWindow extends Activity /**implements
     TextView timer;
     CountDownTimer quizTimer;
 
-    String[] questions;
-    String[] responses;
+    String[] questions = new String[12];
+    String[] responses = new String[12];
 
     private GoogleApiClient mGoogleApiClient;
 
@@ -181,10 +181,7 @@ public class ResponseWindow extends Activity /**implements
                     questions[i] = i + 1 + ". " + question;
                 }
         }
-        for (int i = 0; i < responses.length; i++){
-            // The numbers preceding the question prevent bad things from happening
-            responses[i] = " ";
-        }
+
         return questions;
     }
 
