@@ -99,7 +99,7 @@ public class FinalWindow extends Activity {
 		return super.onOptionsItemSelected(item);
 	}
 
-    public void finish(){
-        startActivity(new Intent(this, MainMenu.class));
+    public void finish() {
+        super.finish();
     }
 }
