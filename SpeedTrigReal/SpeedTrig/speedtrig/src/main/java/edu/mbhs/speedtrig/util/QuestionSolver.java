@@ -297,8 +297,8 @@ public class QuestionSolver {
         }
 
         if (flipped.charAt(0) == flipped.charAt(flipped.length()-1) && flipped.contains("/")){
-            // it's either going to be "2 root 3 over 3" or "2 over root 2"
-            if (flipped.length() == 5) flipped = "√3";
+            // it's either going to be "2 root 3 over 3" or "2 root 2 over 2"
+            if (flipped.charAt(2) == 3) flipped = "√3";
             else flipped = "√2";
         }
 
