@@ -23,9 +23,20 @@ public class QuestionGenerator {
         }
         else {
             // generate nice unit circle value
-            int hand = (int)(Math.random()*12);
-            numerator = simplify(hand, 6)[0];
-            denominator = simplify(hand, 6)[1];
+            int rand = (int)(Math.random()*4);
+            if (rand == 0) {
+                // generate a pi/4 type value
+                int hand = (int) (Math.random() * 4);
+                hand = hand * 2 + 1;
+                numerator = hand;
+                denominator = 4;
+            }
+            else {
+                // generate any other kind of value
+                int hand = (int) (Math.random() * 12);
+                numerator = simplify(hand, 6)[0];
+                denominator = simplify(hand, 6)[1];
+            }
         }
 
         random = (int)(Math.random()*6);
