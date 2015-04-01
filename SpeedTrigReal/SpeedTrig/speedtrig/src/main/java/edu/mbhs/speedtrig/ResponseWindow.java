@@ -42,6 +42,7 @@ public class ResponseWindow extends Activity /**implements
 
     static boolean newQuizStarted = false;
     static boolean submitCalled = false;
+    static boolean earlyExit = false;
 
     long quizTimeRemaining;
     TextView timer;
@@ -186,10 +187,7 @@ public class ResponseWindow extends Activity /**implements
     }
 
     public void onBackPressed(){
-
-            Intent intent = new Intent(this, MainMenu.class);
-            startActivity(intent);
-            finish();
+            startExitDialog();
     }
 
     public void removeLast(View v){
@@ -239,6 +237,26 @@ public class ResponseWindow extends Activity /**implements
         adb.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
                 return;
+            }
+        });
+        adb.show();
+    }
+
+    public void startExitDialog() {
+        AlertDialog.Builder adb = new AlertDialog.Builder(this);
+        LayoutInflater adbInflater = LayoutInflater.from(this);
+        adb.setView(adbInflater.inflate(R.layout.checkbox_submit_button, null));
+        adb.setTitle("Exit?");
+        adb.setMessage("Are you sure you want to end your quiz? You will not receive a quiz score.");
+        adb.setPositiveButton("Exit", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                earlyExit = true;
+                finish();
+            }
+        });
+
+        adb.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
             }
         });
         adb.show();
@@ -368,10 +386,13 @@ public class ResponseWindow extends Activity /**implements
             if (isCorrect) text = "Correct!";
             //Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
             quizTimer.cancel();
-            Intent i = new Intent(this, FinalWindow.class);
-            i.putExtra("questions", questions);
-            i.putExtra("responses", responses);
-            startActivity(i);
+
+            if (!earlyExit) {
+                Intent i = new Intent(this, FinalWindow.class);
+                i.putExtra("questions", questions);
+                i.putExtra("responses", responses);
+                startActivity(i);
+            }
             //Intent i = new Intent();
             //i.putExtra(RegularTrig.EXTRA_TIME, quizTimeRemaining);
             //setResult(RESULT_OK, i);
