@@ -210,18 +210,18 @@ public class QuestionSolver {
                     break;
             }
 
-            if (!strOperand.contains("\u03C0"))
+            if (!strOperand.contains("π"))
                 operand = 0;
             else if (!strOperand.contains("/")){
                 int number;
-                if (strOperand.substring(0,strOperand.length()-1).equals("")) number = 1;
+                if (strOperand.equals("π")) number = 1;
                 else number = Integer.parseInt(strOperand.substring(0,strOperand.length()-1));
                 operand = Math.PI * number;
             }
             else {	// Note: operator contains both a pi and a fraction ('/')
                 int numerator;
-                if (strOperand.substring(0,strOperand.indexOf('\u03C0')).equals("")) numerator = 1;
-                else numerator = Integer.parseInt(strOperand.substring(0,strOperand.indexOf('\u03C0')));
+                if (strOperand.substring(0,strOperand.indexOf('π')).isEmpty()) numerator = 1;
+                else numerator = Integer.parseInt(strOperand.substring(0,strOperand.indexOf('π')));
                 operand = Math.PI * numerator /
                         Integer.parseInt(strOperand.substring(strOperand.indexOf('/')+1));
             }
@@ -245,11 +245,11 @@ public class QuestionSolver {
                 // +- root 3 over 2
             else if (Math.abs(badAnswer-Math.sqrt(3)/2) < incompetenceDiminisher ||
                     Math.abs(badAnswer+Math.sqrt(3)/2) < incompetenceDiminisher)
-                goodAnswer = (Math.signum(badAnswer)==1 ? "" : "-") + "\u221A3/2";
+                goodAnswer = (Math.signum(badAnswer)==1 ? "" : "-") + "√3/2";
                 // +- root 2 over 2
             else if (Math.abs(badAnswer-Math.sqrt(2)/2) < incompetenceDiminisher ||
                     Math.abs(badAnswer+Math.sqrt(2)/2) < incompetenceDiminisher)
-                goodAnswer = (Math.signum(badAnswer)==1 ? "" : "-") + "\u221A2/2";
+                goodAnswer = (Math.signum(badAnswer)==1 ? "" : "-") + "√2/2";
                 // +- 1/2
             else if (Math.abs(badAnswer-0.5) < incompetenceDiminisher ||
                     Math.abs(badAnswer+0.5) < incompetenceDiminisher)
@@ -260,11 +260,11 @@ public class QuestionSolver {
                 // +- root 3 over 3
             else if (Math.abs(badAnswer-Math.sqrt(3)/3) < incompetenceDiminisher ||
                     Math.abs(badAnswer+Math.sqrt(3)/3) < incompetenceDiminisher)
-                goodAnswer = (Math.signum(badAnswer)==1 ? "" : "-") + "\u221A3/3";
+                goodAnswer = (Math.signum(badAnswer)==1 ? "" : "-") + "√3/3";
                 // +- root 3
             else if (Math.abs(badAnswer-Math.sqrt(3)) < incompetenceDiminisher ||
                     Math.abs(badAnswer+Math.sqrt(3)) < incompetenceDiminisher)
-                goodAnswer = (Math.signum(badAnswer)==1 ? "" : "-") + "\u221A3";
+                goodAnswer = (Math.signum(badAnswer)==1 ? "" : "-") + "√3";
                 // DNE = tan(pi/2)
             else if (badAnswer-10 > 0)
                 goodAnswer = "DNE";
@@ -291,15 +291,15 @@ public class QuestionSolver {
 
         if (frac.contains("/"))
             flipped += frac.substring(frac.indexOf('/')+1);
-        if (frac.contains("\u221A")){
-            char coolChar = frac.charAt(frac.indexOf("\u221A")+1);
-            flipped += "\u221A" + coolChar + "/" + coolChar;
+        if (frac.contains("√")){
+            char coolChar = frac.charAt(frac.indexOf("√")+1);
+            flipped += "√" + coolChar + "/" + coolChar;
         }
 
         if (flipped.charAt(0) == flipped.charAt(flipped.length()-1) && flipped.contains("/")){
             // it's either going to be "2 root 3 over 3" or "2 over root 2"
-            if (flipped.length() == 5) flipped = "\u221A3";
-            else flipped = "\u221A2";
+            if (flipped.length() == 5) flipped = "√3";
+            else flipped = "√2";
         }
 
         if (frac.charAt(0) == '-') flipped = "-" + flipped;
