@@ -94,9 +94,7 @@ public class MainMenu extends BaseActivity /**implements
 
         Button quizTypeRegular = (Button) findViewById(R.id.button2);
         quizTypeRegular.setVisibility(Button.VISIBLE);
-
-        Button quizType = (Button) findViewById(R.id.button2);
-        quizType.setText("Regular");
+        quizTypeRegular.setText("Regular");
 
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#303F9F")));
 
