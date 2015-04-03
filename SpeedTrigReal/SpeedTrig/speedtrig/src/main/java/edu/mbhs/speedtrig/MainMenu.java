@@ -294,7 +294,7 @@ public class MainMenu extends BaseActivity /**implements
             adb.show();
         }
         else
-            startInverse();
+            startRegular();
 	}
 
     public void startRegular(){
