@@ -249,7 +249,7 @@ public class Settings extends BaseActivity {
         numChecked += isArcsecActive ? 1 : 0;
         numChecked += isArccotActive ? 1 : 0;
 
-        if (numChecked == 1 && !checked) {
+        if (numChecked == 1 && !checked && view.getId() != R.id.checkbox_blairtalks_sounds && view.getId() != R.id.checkbox_music) {
             Toast.makeText(this, "You must select at least one function", Toast.LENGTH_SHORT).show();
             ((CheckBox) view).setChecked(true);
             return;
