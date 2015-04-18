@@ -515,6 +515,34 @@
 
                 </android.support.v7.widget.CardView>
 
+                <!--Link to Speed Trig Quiz Generator Online-->
+                <android.support.v7.widget.CardView
+
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/cardview18"
+                    android:layout_below="@id/cardview17"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    card_view:cardCornerRadius="3dp">
+
+                    <ImageView
+                        android:id="@+id/imageView28"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/triggenonline"
+                        android:clickable="true"/>
+
+                    <TextView
+                        android:id="@+id/textView28"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:text="Touch Image to Enter the Website"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        />
+
+                </android.support.v7.widget.CardView>
 
                 <!--Add More Cards From Here-->
 
