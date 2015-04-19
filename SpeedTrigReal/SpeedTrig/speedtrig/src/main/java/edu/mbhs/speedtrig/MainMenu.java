@@ -18,6 +18,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
+import android.widget.Toolbar;
+import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v4.widget.DrawerLayout;
 
 import com.example.speedtrig.R;
 import com.google.android.gms.common.ConnectionResult;
@@ -60,6 +63,9 @@ public class MainMenu extends BaseActivity /**implements
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_main_menu);
+
+
+
 		//if (savedInstanceState == null) {
 			//getFragmentManager().beginTransaction()
 					//.add(R.id.container, new PlaceholderFragment()).commit();

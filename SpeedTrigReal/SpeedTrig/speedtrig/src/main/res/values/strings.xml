@@ -49,17 +49,17 @@ The center is put on a graph where the x axis and y axis cross, so we get this n
     <string name="cardview09txt">Cotangent is a trigonometric function describing the ratio of the
         adjacent side to the opposite side in a right triangle. It is often abbreviated cotan or cot. </string>
 
-    <string name="cardview10txt"></string>
-    <string name="cardview11txt"></string>
-    <string name="cardview12txt"></string>
-    <string name="cardview13txt"></string>
-    <string name="cardview14txt"></string>
-    <string name="cardview15txt"></string>
-    <string name="cardview16txt"></string>
-    <string name="cardview17txt"></string>
-    <string name="cardview18txt"></string>
-
     //End of Learn section content
+
+    //DrawerArrowToggle
+    <style name="AppTheme" parent="Theme.AppCompat.Light">
+        <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
+    </style>
+
+    <style name="DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
+        <item name="spinBars">true</item>
+        <item name="color">@android:color/white</item>
+    </style>
 
     <string-array name="nav_drawer_items">
         <item>Quizzes</item>
