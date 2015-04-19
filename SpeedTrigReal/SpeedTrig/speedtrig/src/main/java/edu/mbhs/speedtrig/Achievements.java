@@ -22,8 +22,7 @@ public class Achievements extends BaseActivity {
 
         navMenuTitles = getResources().getStringArray(R.array.nav_drawer_items); // load titles from strings.xml
 
-        navMenuIcons = getResources()
-                .obtainTypedArray(R.array.nav_drawer_icons);// load icons from
+        navMenuIcons = getResources().obtainTypedArray(R.array.nav_drawer_icons);// load icons from
         // strings.xml
 
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#3f51b5")));

@@ -25,6 +25,7 @@ public class Learn extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_learn);
 
+        // (START) URL for The Online Speed Trig Quiz Generator
         ImageView TrigGenOnline = (ImageView) findViewById(R.id.imageView28);
 
         TrigGenOnline.setOnClickListener(new View.OnClickListener() {
@@ -35,6 +36,7 @@ public class Learn extends BaseActivity {
                 startActivity(TrigGenOnline);
             }
         });
+        //(END) URL for The Online Speed Trig Quiz Generator
 
         navMenuTitles = getResources().getStringArray(R.array.nav_drawer_items); // load titles from strings.xml
 
