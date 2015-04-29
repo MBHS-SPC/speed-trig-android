@@ -2,6 +2,7 @@ package edu.mbhs.speedtrig;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -13,11 +14,12 @@ import com.example.speedtrig.R;
 import edu.mbhs.speedtrig.util.QuestionSolver;
 
 public class FinalWindow extends Activity {
-	
+    private MediaPlayer streetFailed;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_final_window);
+        streetFailed = MediaPlayer.create(this,R.raw.street_failed);
 		String[] results;
 		results = getResults();
 		((TextView) findViewById(R.id.entry1)).setText(results[0]);
@@ -36,7 +38,7 @@ public class FinalWindow extends Activity {
 	
 	public String[] getResults(){
 		String[] results = new String[12];
-
+        int  numRight = 0;
         String[] questions = getIntent().getStringArrayExtra("questions");
         String[] responses = getIntent().getStringArrayExtra("responses");
 
@@ -44,10 +46,15 @@ public class FinalWindow extends Activity {
             String question = questions[i];
             String response = responses[i];
             String correctValue = QuestionSolver.solve(question.substring(question.indexOf('.') + 2));
+            if(correctValue.equals(response)) numRight++;
             if (response == null || response.equals("")) response = "NONE";
             results[i] = formatOutput(question, response, correctValue);
         }
-
+        if(numRight < results.length/2){
+            if(Settings.areBlairTalksSoundsEnabled){
+                streetFailed.start();
+            }
+        }
 		return results;
 	}
 
