@@ -1,4 +1,4 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -6,9 +6,14 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:rowCount="14"
+    android:columnCount="3"
+    android:alignmentMode="alignBounds"
+
     tools:context="edu.mbhs.speedtrig.FinalWindow" >
 
-    <TextView
+
+    <!--TextView
         android:id="@+id/header"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -17,136 +22,355 @@
         android:textSize="23dp"
         android:visibility="invisible"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_row="0"
+        /-->
 
     <TextView
         android:id="@+id/entry1"
+        android:layout_row="1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/header"
-        android:layout_below="@+id/header"
         android:layout_marginTop="20dp"
         android:text="TextView"
-        android:textSize="15dp" />
-
+        android:textSize="15dp"
+        android:layout_column="0" />
     <TextView
-        android:id="@+id/entry2"
+        android:id="@+id/entry1_2"
+        android:layout_row="1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/entry1"
-        android:layout_below="@+id/entry1"
+        android:layout_marginTop="20dp"
+        android:text="TextView"
+        android:textSize="15dp"
+        android:layout_column="1" />
+    <TextView
+        android:id="@+id/entry1_3"
+        android:layout_row="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="TextView"
+        android:textSize="15dp"
+        android:layout_column="2" />
+    <TextView
+    android:id="@+id/entry2"
+    android:layout_row="2"
+    android:layout_column="0"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:text="TextView"
+    android:textSize="15dp" />
+    <TextView
+        android:id="@+id/entry2_3"
+        android:layout_row="2"
+        android:layout_column="2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="TextView"
+        android:textSize="15dp" />
+    <TextView
+        android:id="@+id/entry2_2"
+        android:layout_row="2"
+        android:layout_column="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="TextView"
         android:textSize="15dp" />
     
     <TextView
         android:id="@+id/entry3"
+        android:layout_row="3"
+        android:layout_column="0"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/entry2"
-        android:layout_below="@+id/entry2"
         android:layout_marginTop="10dp"
         android:text="TextView"
         android:textSize="15dp" />
-    
+    <TextView
+        android:id="@+id/entry3_2"
+        android:layout_row="3"
+        android:layout_column="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="TextView"
+        android:textSize="15dp" />
+    <TextView
+        android:id="@+id/entry3_3"
+        android:layout_row="3"
+        android:layout_column="2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="TextView"
+        android:textSize="15dp" />
     <TextView
         android:id="@+id/entry4"
+        android:layout_row="4"
+        android:layout_column="0"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/entry3"
-        android:layout_below="@+id/entry3"
         android:layout_marginTop="10dp"
         android:text="TextView"
         android:textSize="15dp" />
-    
+    <TextView
+        android:id="@+id/entry4_2"
+        android:layout_row="4"
+        android:layout_column="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="TextView"
+        android:textSize="15dp" />
+    <TextView
+        android:id="@+id/entry4_3"
+        android:layout_row="4"
+        android:layout_column="2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="TextView"
+        android:textSize="15dp" />
     <TextView
         android:id="@+id/entry5"
+        android:layout_row="5"
+        android:layout_column="0"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/entry4"
-        android:layout_below="@+id/entry4"
         android:layout_marginTop="10dp"
         android:text="TextView"
         android:textSize="15dp" />
-    
+    <TextView
+        android:id="@+id/entry5_2"
+        android:layout_row="5"
+        android:layout_column="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="TextView"
+        android:textSize="15dp" />
+    <TextView
+        android:id="@+id/entry5_3"
+        android:layout_row="5"
+        android:layout_column="2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="TextView"
+        android:textSize="15dp" />
     <TextView
         android:id="@+id/entry6"
+        android:layout_row="6"
+        android:layout_column="0"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/entry5"
-        android:layout_below="@+id/entry5"
         android:layout_marginTop="10dp"
         android:text="TextView"
         android:textSize="15dp" />
-    
     <TextView
-        android:id="@+id/entry7"
+        android:id="@+id/entry6_2"
+        android:layout_row="6"
+        android:layout_column="1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/entry6"
+        android:layout_marginTop="10dp"
+        android:text="TextView"
+        android:textSize="15dp" />
+    <TextView
+        android:id="@+id/entry6_3"
+        android:layout_row="6"
+        android:layout_column="2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="TextView"
+        android:textSize="15dp" />
+    <TextView
+        android:id="@+id/entry7"
+        android:layout_row="7"
+        android:layout_column="0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/entry6"
         android:layout_marginTop="10dp"
         android:text="TextView"
         android:textSize="15dp" />
-    
     <TextView
-        android:id="@+id/entry8"
+        android:id="@+id/entry7_2"
+        android:layout_row="7"
+        android:layout_column="1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/entry7"
+        android:layout_below="@+id/entry6"
+        android:layout_marginTop="10dp"
+        android:text="TextView"
+        android:textSize="15dp" />
+    <TextView
+        android:id="@+id/entry7_3"
+        android:layout_row="7"
+        android:layout_column="2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/entry6"
+        android:layout_marginTop="10dp"
+        android:text="TextView"
+        android:textSize="15dp" />
+    <TextView
+        android:id="@+id/entry8"
+        android:layout_row="8"
+        android:layout_column="0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/entry7"
         android:layout_marginTop="10dp"
         android:text="TextView"
         android:textSize="15dp" />
-    
     <TextView
-        android:id="@+id/entry9"
+        android:id="@+id/entry8_2"
+        android:layout_row="8"
+        android:layout_column="1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/entry8"
-        android:layout_below="@+id/entry8"
+        android:layout_below="@+id/entry7"
         android:layout_marginTop="10dp"
         android:text="TextView"
         android:textSize="15dp" />
-    
+    <TextView
+        android:id="@+id/entry8_3"
+        android:layout_row="8"
+        android:layout_column="2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/entry7"
+        android:layout_marginTop="10dp"
+        android:text="TextView"
+        android:textSize="15dp" />
     <TextView
         android:id="@+id/entry10"
+        android:layout_row="10"
+        android:layout_column="0"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/entry9"
-        android:layout_below="@+id/entry9"
         android:layout_marginTop="10dp"
         android:text="TextView"
         android:textSize="15dp" />
-    
+    <TextView
+        android:id="@+id/entry10_2"
+        android:layout_row="10"
+        android:layout_column="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="TextView"
+        android:textSize="15dp" />
+    <TextView
+    android:id="@+id/entry10_3"
+    android:layout_row="10"
+    android:layout_column="2"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:text="TextView"
+    android:textSize="15dp" />
+    <TextView
+        android:id="@+id/entry9"
+        android:layout_row="9"
+        android:layout_column="0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="TextView"
+        android:textSize="15dp" />
+    <TextView
+        android:id="@+id/entry9_2"
+        android:layout_row="9"
+        android:layout_column="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="TextView"
+        android:textSize="15dp" />
+    <TextView
+        android:id="@+id/entry9_3"
+        android:layout_row="9"
+        android:layout_column="2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="TextView"
+        android:textSize="15dp" />
     <TextView
         android:id="@+id/entry11"
+        android:layout_row="11"
+        android:layout_column="0"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/entry10"
-        android:layout_below="@+id/entry10"
         android:layout_marginTop="10dp"
         android:text="TextView"
         android:textSize="15dp" />
-    
     <TextView
-        android:id="@+id/entry12"
+        android:id="@+id/entry11_2"
+        android:layout_row="11"
+        android:layout_column="1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/entry11"
-        android:layout_below="@+id/entry11"
+        android:layout_marginTop="10dp"
+        android:text="TextView"
+        android:textSize="15dp" />
+    <TextView
+        android:id="@+id/entry11_3"
+        android:layout_row="11"
+        android:layout_column="2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="TextView"
+        android:textSize="15dp" />
+    <TextView
+        android:id="@+id/entry12"
+        android:layout_row="12"
+        android:layout_column="0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="TextView"
+        android:textSize="15dp" />
+    <TextView
+        android:id="@+id/entry12_2"
+        android:layout_row="12"
+        android:layout_column="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="TextView"
         android:textSize="15dp" />
 
+    <TextView
+        android:id="@+id/entry12_3"
+        android:layout_row="12"
+        android:layout_column="2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="TextView"
+        android:textSize="15dp" />
     <Button
         android:id="@+id/mainMenuButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Main Menu"
         android:onClick="destroyActivity"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_gravity="center"
+        tools:layout_collumnSpan="3"
+        tools:layout_rowSpan="1"
+        android:layout_column="0"
+        android:layout_row="13"
+
+        android:layout_columnSpan="3" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -154,11 +378,11 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Question"
         android:id="@+id/textView7"
-        android:layout_alignTop="@+id/header"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:textSize="21dp"
-        android:layout_marginRight="15dp" />
+        android:layout_column="0"
+        android:layout_row="0"
+        android:textSize="20dp"
+        android:layout_marginRight="15dp"
+       />
 
     <TextView
         android:layout_width="wrap_content"
@@ -166,11 +390,11 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Your Ans."
         android:id="@+id/textView8"
-        android:textSize="21dp"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/textView7"
-        android:layout_toEndOf="@+id/textView7"
-        android:layout_marginRight="15dp" />
+        android:textSize="20dp"
+        android:layout_column="1"
+        android:layout_row="0"
+        android:layout_marginRight="15dp"
+     />
 
     <TextView
         android:layout_width="wrap_content"
@@ -178,9 +402,8 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Correct Ans."
         android:id="@+id/textView9"
-        android:textSize="21dp"
-        android:layout_alignTop="@+id/header"
-        android:layout_toRightOf="@+id/textView8"
-        android:layout_toEndOf="@+id/textView8" />
+        android:textSize="20dp"
+        android:layout_column="2"
+        android:layout_row="0"/>
 
-</RelativeLayout>
+</GridLayout>
