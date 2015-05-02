@@ -1,0 +1,248 @@
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- The main content view -->
+    <FrameLayout
+        android:id="@+id/content_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+        <!-- Add content here -->
+        <!-- Header aligned to top -->
+
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="@dimen/activity_vertical_margin"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingTop="@dimen/activity_vertical_margin"
+            tools:context="edu.mbhs.speedtrig.Credits">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:id="@+id/linearLayout"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true">
+
+                <TextView
+                    android:id="@+id/textView10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/header"
+                    android:layout_below="@+id/header"
+                    android:textSize="22dp"
+                    android:textIsSelectable="false"
+                    android:text="Programming"
+                    android:textColor="@color/black"
+                    android:layout_gravity="center_horizontal"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/header"
+                    android:layout_below="@+id/header"
+                    android:textSize="20dp"
+                    android:textIsSelectable="false"
+                    android:text="Eyob Tsegaye"
+                    android:textColor="@color/black"
+                    android:layout_gravity="center_horizontal" />
+
+                <TextView
+                    android:id="@+id/textView13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/header"
+                    android:layout_below="@+id/header"
+                    android:textSize="20dp"
+                    android:textIsSelectable="false"
+                    android:text="Ali Anwar"
+                    android:textColor="@color/black"
+                    android:layout_gravity="center_horizontal" />
+                <TextView
+                    android:id="@+id/textView14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/header"
+                    android:layout_below="@+id/header"
+                    android:textSize="20dp"
+                    android:textIsSelectable="false"
+                    android:text="Suyaib Ahmed"
+                    android:textColor="@color/black"
+                    android:layout_gravity="center_horizontal" />
+
+                <TextView
+                    android:id="@+id/textView16"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/header"
+                    android:layout_below="@+id/header"
+                    android:layout_marginTop="15dp"
+                    android:textSize="22dp"
+                    android:textIsSelectable="false"
+                    android:text="Interface Design"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_horizontal" />
+
+                <TextView
+                    android:id="@+id/textView17"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/header"
+                    android:layout_below="@+id/header"
+                    android:textSize="20dp"
+                    android:textIsSelectable="false"
+                    android:text="Ali Anwar"
+                    android:textColor="@color/black"
+                    android:layout_gravity="center_horizontal" />
+
+                <TextView
+                    android:id="@+id/textView18"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/header"
+                    android:layout_below="@+id/header"
+                    android:textSize="20dp"
+                    android:textIsSelectable="false"
+                    android:text="Suyaib Ahmed"
+                    android:textColor="@color/black"
+                    android:layout_gravity="center_horizontal" />
+
+                <TextView
+                    android:id="@+id/textView19"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/header"
+                    android:layout_below="@+id/header"
+                    android:layout_marginTop="15dp"
+                    android:textSize="22dp"
+                    android:textIsSelectable="false"
+                    android:text="Logo Design"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_horizontal" />
+
+                <TextView
+                    android:id="@+id/textView20"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/header"
+                    android:layout_below="@+id/header"
+                    android:textSize="20dp"
+                    android:textIsSelectable="false"
+                    android:text="Brynne Edwards"
+                    android:textColor="@color/black"
+                    android:layout_gravity="center_horizontal" />
+                <TextView
+                    android:id="@+id/textView21"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/header"
+                    android:layout_below="@+id/header"
+                    android:textSize="20dp"
+                    android:textIsSelectable="false"
+                    android:text="Suyaib Ahmed"
+                    android:textColor="@color/black"
+                    android:layout_gravity="center_horizontal" />
+
+                <TextView
+                    android:id="@+id/textView22"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/header"
+                    android:layout_below="@+id/header"
+                    android:layout_marginTop="15dp"
+                    android:textSize="22dp"
+                    android:textIsSelectable="false"
+                    android:text="SPC President"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_horizontal" />
+
+                <TextView
+                    android:id="@+id/textView23"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/header"
+                    android:layout_below="@+id/header"
+                    android:textSize="20dp"
+                    android:textIsSelectable="false"
+                    android:text="Agam Mittal"
+                    android:textColor="@color/black"
+                    android:layout_gravity="center_horizontal" />
+
+                <TextView
+                    android:id="@+id/textView24"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/header"
+                    android:layout_below="@+id/header"
+                    android:layout_marginTop="15dp"
+                    android:textSize="22dp"
+                    android:textIsSelectable="false"
+                    android:text="SPC Sponsor"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_horizontal" />
+
+                <TextView
+                    android:id="@+id/textView25"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/header"
+                    android:layout_below="@+id/header"
+                    android:textSize="20dp"
+                    android:textIsSelectable="false"
+                    android:text="William Rose"
+                    android:textColor="@color/black"
+                    android:layout_gravity="center_horizontal" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <!-- Footer aligned to bottom -->
+        <RelativeLayout
+            android:id="@+id/footer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/indigo_500"
+            android:gravity="center"
+            android:layout_gravity="center_horizontal|bottom">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Version 1.4"
+                android:textColor="@android:color/white"
+                android:textSize="20sp"
+                android:layout_marginLeft="230dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:id="@+id/none" />
+        </RelativeLayout>
+    </FrameLayout>
+
+    <!-- The navigation drawer -->
+    <ListView android:id="@+id/left_drawer"
+        android:layout_width="260dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:choiceMode="singleChoice"
+        android:divider="#000000"
+        android:dividerHeight="0dp"
+        android:background="@android:color/white"/>
+</android.support.v4.widget.DrawerLayout>
+

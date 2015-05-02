@@ -1,0 +1,416 @@
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- The main content view -->
+    <FrameLayout
+        android:id="@+id/content_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+        <!-- Add content here -->
+        <!-- Header aligned to top -->
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="393dp"
+            android:weightSum="1"><![CDATA[
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/container"
+        tools:context="edu.mbhs.speedtrig.Settings"
+        tools:ignore="MergeRootFrame" >
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            ]]>
+
+        <RelativeLayout
+            android:id="@+id/broadSettings"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_alignParentTop="true"
+            android:background="@color/ripple_material_light"
+            android:gravity="center">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="General Settings"
+                android:textColor="#000"
+                android:textSize="21dp"
+                android:layout_marginBottom="10dp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/broadSettings_relative_layout"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_alignParentTop="true"
+            android:gravity="center">
+
+            <CheckBox android:id="@+id/checkbox_music"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Music "
+                android:onClick="onCheckboxClicked"
+                android:checked="true"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginRight="250dp"
+                android:visibility="visible" />
+
+            <CheckBox
+                android:id="@+id/checkbox_blairtalks_sounds"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="BlairTalks Quiz Feedback"
+                android:onClick="onCheckboxClicked"
+                android:checked="true"
+                android:layout_below="@+id/checkbox_music"
+                android:layout_alignLeft="@+id/checkbox_music"
+                android:layout_alignStart="@+id/checkbox_music"
+                android:visibility="visible" />
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/customQuizParameters"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_alignParentTop="true"
+            android:background="#963f51b5"
+            android:gravity="center"
+            android:layout_marginBottom="5dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="Custom Quiz Parameters"
+                android:textColor="#000"
+                android:textSize="21dp"
+                android:layout_marginBottom="10dp" />
+        </RelativeLayout>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text=" Active Functions                 Duration"
+                android:id="@+id/textView10"
+                android:layout_marginBottom="5dp"
+                android:textSize="18dp"
+                android:layout_gravity="left|center_horizontal"
+                android:textIsSelectable="false"
+                android:layout_marginLeft="40dp"
+                android:textColor="@android:color/black" />
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="400dp"
+                android:id="@+id/layout">
+
+                <CheckBox android:id="@+id/checkbox_sin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="sin"
+                    android:onClick="onCheckboxClicked"
+                    android:checked="true"
+                    android:layout_marginLeft="20dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
+
+                <CheckBox android:id="@+id/checkbox_cos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="cos"
+                    android:onClick="onCheckboxClicked"
+                    android:checked="true"
+                    android:layout_below="@+id/checkbox_sin"
+                    android:layout_alignLeft="@+id/checkbox_sin"
+                    android:layout_alignStart="@+id/checkbox_sin" />
+
+                <CheckBox android:id="@+id/checkbox_csc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="csc"
+                    android:onClick="onCheckboxClicked"
+                    android:checked="true"
+                    android:layout_below="@+id/checkbox_cos"
+                    android:layout_alignLeft="@+id/checkbox_cos"
+                    android:layout_alignStart="@+id/checkbox_cos" />
+
+                <CheckBox android:id="@+id/checkbox_sec"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="sec"
+                    android:onClick="onCheckboxClicked"
+                    android:checked="true"
+                    android:layout_below="@+id/checkbox_csc"
+                    android:layout_alignLeft="@+id/checkbox_csc"
+                    android:layout_alignStart="@+id/checkbox_csc" />
+
+                <CheckBox android:id="@+id/checkbox_tan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="tan"
+                    android:onClick="onCheckboxClicked"
+                    android:checked="true"
+                    android:layout_below="@+id/checkbox_sec"
+                    android:layout_alignLeft="@+id/checkbox_sec"
+                    android:layout_alignStart="@+id/checkbox_sec" />
+
+                <CheckBox android:id="@+id/checkbox_cot"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="cot"
+                    android:onClick="onCheckboxClicked"
+                    android:checked="true"
+                    android:layout_below="@+id/checkbox_tan"
+                    android:layout_alignLeft="@+id/checkbox_tan"
+                    android:layout_alignStart="@+id/checkbox_tan" />
+
+                <CheckBox android:id="@+id/checkbox_arccos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="arccos"
+                    android:onClick="onCheckboxClicked"
+                    android:checked="true"
+                    android:layout_marginLeft="38dp"
+                    android:layout_marginStart="38dp"
+                    android:layout_above="@+id/checkbox_cos"
+                    android:layout_toRightOf="@+id/checkbox_cos"
+                    android:layout_toEndOf="@+id/checkbox_cos" />
+
+                <CheckBox android:id="@+id/checkbox_arcsin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="arcsin"
+                    android:onClick="onCheckboxClicked"
+                    android:checked="true"
+                    android:layout_below="@+id/checkbox_arccos"
+                    android:layout_alignLeft="@+id/checkbox_arccos"
+                    android:layout_alignStart="@+id/checkbox_arccos" />
+
+                <CheckBox android:id="@+id/checkbox_arccsc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="arccsc"
+                    android:onClick="onCheckboxClicked"
+                    android:checked="true"
+                    android:layout_below="@+id/checkbox_arcsin"
+                    android:layout_alignLeft="@+id/checkbox_arcsin"
+                    android:layout_alignStart="@+id/checkbox_arcsin" />
+
+                <CheckBox android:id="@+id/checkbox_arcsec"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="arcsec"
+                    android:onClick="onCheckboxClicked"
+                    android:checked="true"
+                    android:layout_below="@+id/checkbox_arccsc"
+                    android:layout_alignLeft="@+id/checkbox_arccsc"
+                    android:layout_alignStart="@+id/checkbox_arccsc" />
+
+                <CheckBox android:id="@+id/checkbox_arctan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="arctan"
+                    android:onClick="onCheckboxClicked"
+                    android:checked="true"
+                    android:layout_below="@+id/checkbox_arcsec"
+                    android:layout_alignLeft="@+id/checkbox_arcsec"
+                    android:layout_alignStart="@+id/checkbox_arcsec" />
+
+                <CheckBox android:id="@+id/checkbox_arccot"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="arccot"
+                    android:onClick="onCheckboxClicked"
+                    android:checked="true"
+                    android:layout_below="@+id/checkbox_arctan"
+                    android:layout_alignLeft="@+id/checkbox_arctan"
+                    android:layout_alignStart="@+id/checkbox_arctan" />
+
+                <SeekBar
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/seekBar"
+                    android:max="300"
+                    android:progress="180"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginLeft="10dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="3:00"
+                    android:id="@+id/timeView"
+                    android:textSize="27dp"
+                    android:layout_above="@+id/checkbox_arccsc"
+                    android:layout_alignLeft="@+id/seekBar"
+                    android:layout_alignStart="@+id/seekBar"
+                    android:layout_marginLeft="49dp"
+                    android:layout_marginStart="49dp" />
+
+                <Button
+                    android:id="@+id/button20"
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/black"
+                    android:onClick="reset"
+                    android:text="Reset to Default"
+                    android:layout_gravity="center_horizontal|bottom"
+                    android:textSize="21dp"
+                    android:background="@color/grey_500"
+                    android:clickable="true"
+                    android:layout_alignLeft="@+id/seekBar"
+                    android:layout_alignStart="@+id/seekBar"
+                    android:layout_alignBottom="@+id/checkbox_arccot"
+                    android:visibility="invisible" />
+
+            </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <EditText
+                android:layout_width="34dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/editText"
+                android:layout_gravity="center_horizontal|right"
+                android:editable="true"
+                android:text="1"
+                android:textAlignment="center"
+                android:layout_alignParentTop="true"
+                android:layout_toRightOf="@+id/textView"
+                android:layout_toEndOf="@+id/textView"
+                android:layout_marginLeft="10dp"
+                android:visibility="invisible" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Quiz Time Limit:"
+                android:id="@+id/textView"
+                android:textSize="18dp"
+                android:layout_alignBottom="@+id/editText"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginLeft="17dp"
+                android:layout_marginStart="17dp"
+                android:layout_marginBottom="5dp"
+                android:visibility="invisible" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="min"
+                android:id="@+id/textView3"
+                android:textSize="18dp"
+                android:layout_alignTop="@+id/textView"
+                android:layout_toRightOf="@+id/editText"
+                android:layout_toEndOf="@+id/editText"
+                android:layout_marginLeft="5dp"
+                android:editable="true"
+                android:visibility="invisible" />
+
+            <Button
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:text="Apply Settings"
+                android:id="@+id/button16"
+                android:onClick="startCustomDialog"
+                android:background="@color/ripple_material_light"
+                android:textColor="@android:color/black"
+                android:textSize="21dp"
+                android:layout_below="@+id/editText"
+                android:layout_centerHorizontal="true" />
+
+
+        </RelativeLayout>
+
+
+
+            <ListView
+                android:id="@android:id/list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            </ListView>
+
+        </LinearLayout>
+
+        <!-- Footer aligned to bottom -->
+        <RelativeLayout
+            android:id="@+id/footer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/indigo_500"
+            android:gravity="center"
+            android:layout_gravity="center_horizontal|bottom">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Version 1.4"
+                android:textColor="@android:color/white"
+                android:textSize="20sp"
+                android:layout_marginLeft="230dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:id="@+id/none" />
+        </RelativeLayout>
+
+    </FrameLayout>
+
+    <!-- The navigation drawer -->
+    <ListView android:id="@+id/left_drawer"
+        android:layout_width="260dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:choiceMode="singleChoice"
+        android:divider="#000000"
+        android:dividerHeight="0dp"
+        android:background="@android:color/white"/>
+</android.support.v4.widget.DrawerLayout>
+

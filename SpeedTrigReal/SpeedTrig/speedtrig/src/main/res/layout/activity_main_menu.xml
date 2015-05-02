@@ -1,0 +1,71 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:context="edu.mbhs.speedtrig.MainMenu"
+    tools:ignore="MergeRootFrame"  >
+
+
+
+<TextView
+android:id="@+id/textView1"
+android:typeface="serif"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_alignParentTop="true"
+android:layout_centerHorizontal="true"
+android:layout_marginTop="63dp"
+android:text="aaaa@string/title leedle"
+android:textColor="@android:color/holo_green_dark"
+android:textAppearance="?android:attr/textAppearanceLarge" />
+
+<Button
+android:id="@+id/button1"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_alignParentLeft="true"
+android:layout_alignParentBottom="true"
+android:layout_marginBottom="63dp"
+android:layout_marginLeft="5dp"
+android:onClick="startRegular"
+android:text="@string/option1"
+   />
+
+<Button
+android:id="@+id/button2"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_alignParentRight="true"
+android:layout_alignParentBottom="true"
+android:layout_marginBottom="63dp"
+android:layout_marginRight="5dp"
+    android:textColor="@android:color/holo_blue_dark"
+android:onClick="startInverse"
+android:text="@string/option2"
+   />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="By MBHS SPC"
+        android:id="@+id/textView2"
+        android:layout_below="@+id/textView1"
+        android:layout_centerHorizontal="true"
+
+        android:textColor="@android:color/holo_blue_dark"
+        android:textAppearance="?android:attr/textAppearanceLarge"/>
+
+    <Button
+        android:id="@+id/settings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/holo_green_dark"
+        android:onClick="startSettings"
+        android:text="Settings"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/button2"
+        android:layout_alignEnd="@+id/button2" />
+
+</RelativeLayout>

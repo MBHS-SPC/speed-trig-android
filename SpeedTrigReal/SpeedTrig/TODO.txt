@@ -4,3 +4,4 @@
 - Inverse Trig
 - Record Scores / Average scores
 - Settings window where stuff can be changed (time, clear scores, background change?)
+-Add sounds Correct answers(Alright) wrong(This is Mr. pham)

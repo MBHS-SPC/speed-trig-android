@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <string name="app_name">Speed Trig</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_main_menu">MainMenu</string>
+    <string name="option1">Regular Trig</string>
+    <string name="option2">Inverse Trig</string>
+    <string android:id="@+id/string1" name="title" android:layout_width="wrap_content" android:layout_height="wrap_content">The Official Speed Trig App</string>
+    <string name="title_activity_regular_trig">RegularTrig</string>
+    <string name="title_activity_inverse_trig">InverseTrig</string>
+    <string name="title_activity_response_window">ResponseWindow</string>
+    <string name="title_activity_tester">Tester</string>
+    <string name="title_activity_trying">Trying</string>
+    <string name="title_activity_final_window">FinalWindow</string>
+    <string name="timer">ResponseWindow</string>
+    <string name="signin_error">Sign-in failed. Please try again later.</string>
+
+    //Learn Section Card content
+    <string name="cardview02txt">The "Unit Circle" is a circle with a radius of 1.
+Being so simple, it is a great way to learn and talk about lengths and angles.
+The center is put on a graph where the x axis and y axis cross, so we get this neat arrangement here.</string>
+
+    <string name="cardview03txt">Sine, Cosine and Tangent</string>
+
+    <string name="cardview03atxt">Because the radius is 1, we can directly measure sine, cosine and tangent.
+    What happens when the angle, θ, is 0°? cos 0° = 1, sin 0° = 0 and tan 0° = 0
+    What happens when θ is 90°?
+    cos 90° = 0, sin 90° = 1 and tan 90° is undefined.
+    </string>
+
+    <string name="cardview04txt">Sine is a trigonometric function describing the ratio between the opposite
+    side and the hypotenuse in a right triangle. As a function it is usually abbreviated sin.</string>
+
+    <string name="cardview05txt">Cosine is a trigonometric function describing the ratio of the adjacent
+        side to the hypotenuse in a right triangle. It is often abbreviated cos. </string>
+
+    <string name="cardview06txt">Tangent of an angle in a right triangle is defined as the ratio of
+        the opposite and adjacent sides. The tangent is a trigonometric function of the angle and is
+        often abbreviated tan.</string>
+
+    <string name="cardview07txt">The secant is a trigonometric function describing the ratio of the
+        hypotenuse to the adjacent side in a right triangle. It is often abbreviated sec.</string>
+
+    <string name="cardview08txt">The cosecant is a trigonometric function describing the ratio of the
+        hypotenuse to the opposite side in a right triangle. It is often abbreviated as cosec, cose, or csc.</string>
+
+    <string name="cardview09txt">Cotangent is a trigonometric function describing the ratio of the
+        adjacent side to the opposite side in a right triangle. It is often abbreviated cotan or cot. </string>
+
+    //End of Learn section content
+
+    //DrawerArrowToggle
+    <style name="AppTheme" parent="Theme.AppCompat.Light">
+        <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
+    </style>
+
+    <style name="DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
+        <item name="spinBars">true</item>
+        <item name="color">@android:color/white</item>
+    </style>
+
+    <string-array name="nav_drawer_items">
+        <item>Quizzes</item>
+        <item>Learn</item>
+        <item>Leaderboards</item>
+        <item>Achievements</item>
+        <item>Settings</item>
+        <item>Help</item>
+        <item>About</item>
+        <item>Credits</item>
+        <!-- <item>Sixth</item> -->
+    </string-array>
+
+    <array name="nav_drawer_icons">
+        <item>@drawable/quizzes_icon</item>
+        <item>@drawable/learn_ic_small</item>
+        <item>@drawable/leaderboard_icon</item>
+        <item>@drawable/achievement_icon_small</item>
+        <item>@drawable/settings_icon</item>
+        <item>@drawable/help_icon</item>
+        <item>@drawable/about_icon</item>
+        <item>@drawable/credits_icon</item>
+        <!--
+      <item>@drawable/ic_launcher</item>
+      -->
+    </array>
+
+</resources>
