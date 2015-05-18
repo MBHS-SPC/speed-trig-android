@@ -254,7 +254,8 @@
         android:layout_alignTop="@+id/button11"
         android:layout_toLeftOf="@+id/button9"
         android:layout_toStartOf="@+id/button9"
-        android:layout_alignParentStart="false" />
+        android:layout_alignParentStart="false"
+        android:layout_alignParentLeft="false"/>
 
     <Button
         android:id="@+id/button15"

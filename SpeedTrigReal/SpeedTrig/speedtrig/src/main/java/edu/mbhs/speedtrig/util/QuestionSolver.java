@@ -182,7 +182,7 @@ public class QuestionSolver {
             return  correctAnswer;
         }
 
-        else {
+        else if(question.charAt(0) >= 57 && question.charAt(0) <= 127){
 
             boolean flip = false;
             double operand;
@@ -276,7 +276,12 @@ public class QuestionSolver {
 
             return goodAnswer;
         }
+        else{
 
+
+
+            return " ";
+        }
     }
 
     private static String flipFraction(String frac){

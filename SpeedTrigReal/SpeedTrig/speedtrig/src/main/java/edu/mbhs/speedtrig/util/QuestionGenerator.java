@@ -217,7 +217,46 @@ public class QuestionGenerator {
             return genInverse();
         }
     }
+    public static String genAngle() {
 
+
+
+        int denominator, numerator, random;
+        String question ="";
+
+        random = (int)(Math.random()*10);
+        if (random < 3) {
+            // generate random number from 2*rand_denom to 20
+            random = (int)(Math.random() * 5) + 1;
+            denominator = random == 5 ? 6 : random;
+            numerator = (int)(Math.random()*(21-2*denominator))+2*denominator;
+            int num = numerator;
+            numerator = simplify(num, denominator)[0];
+            denominator = simplify(num, denominator)[1];
+        }
+        else {
+            // generate nice unit circle value
+            int rand = (int)(Math.random()*4);
+            if (rand == 0) {
+                // generate a pi/4 type value
+                int hand = (int) (Math.random() * 4);
+                hand = hand * 2 + 1;
+                numerator = hand;
+                denominator = 4;
+            }
+            else {
+                // generate any other kind of value
+                int hand = (int) (Math.random() * 12);
+                numerator = simplify(hand, 6)[0];
+                denominator = simplify(hand, 6)[1];
+            }
+        }
+        if (numerator != 1) question += numerator;
+        if (numerator != 0){
+            question += "\u03C0";
+            if (denominator != 1) question += "/" + denominator;}
+        return question;
+    }
     private static int[] simplify (int numer, int denom){
         for (int i = Math.min(numer, denom); i > 1; i--){
             if ((double)numer/i == (numer/i) && (double)denom/i == (denom/i)){

@@ -38,7 +38,7 @@ public class MainMenu extends BaseActivity /**implements
         GoogleApiClient.OnConnectionFailedListener*/ {
 
     public static enum QuizType {
-        REGULAR, INVERSE, CUSTOM;
+        REGULAR, INVERSE, CUSTOM, ANGLE;
     }
     public static QuizType quizType;
     public static final String PREFS_NAME = "MyPrefsFile1";
@@ -355,12 +355,61 @@ public class MainMenu extends BaseActivity /**implements
         else
             startInverse();
     }
-
     public void startInverse(){
         quizType = QuizType.INVERSE;
         startActivity(new Intent(this, ResponseWindow.class));
     }
+    public void startAngleDialog(View v) {
+        //Toast.makeText(this, "Ready!", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "Set!", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "Go!", Toast.LENGTH_SHORT).show();
 
+        AlertDialog.Builder adb = new AlertDialog.Builder(this);
+        LayoutInflater adbInflater = LayoutInflater.from(this);
+        View eulaLayout = adbInflater.inflate(R.layout.checkbox, null);
+        dontShowAgain = (CheckBox) eulaLayout.findViewById(R.id.skip);
+        adb.setView(eulaLayout);
+        adb.setTitle("Angle Quiz");
+        adb.setMessage("Start an angle quiz?");
+        adb.setPositiveButton("Start Quiz", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                String checkBoxResult = "NOT checked";
+                if (dontShowAgain.isChecked())
+                    checkBoxResult = "checked";
+                SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
+                SharedPreferences.Editor editor = settings.edit();
+                editor.putString("skipAngleInstructions", checkBoxResult);
+                // Commit the edits!
+                editor.commit();
+                startAngle();
+                return;
+            }
+        });
+
+        adb.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                String checkBoxResult = "NOT checked";
+                if (dontShowAgain.isChecked())
+                    checkBoxResult = "checked";
+                SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
+                SharedPreferences.Editor editor = settings.edit();
+                editor.putString("skipAngleInstructions", checkBoxResult);
+                // Commit the edits!
+                editor.commit();
+                return;
+            }
+        });
+        SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
+        String skipMessage = settings.getString("skipAngleInstructions", "NOT checked");
+        if (!skipMessage.equals("checked"))
+            adb.show();
+        else
+            startAngle();
+    }
+    public void startAngle(){
+        quizType = QuizType.ANGLE;
+        startActivity(new Intent(this, MovementResponseWindow.class));
+    }
     public void startCustomDialog(View v){
         //Toast.makeText(this, "Ready!", Toast.LENGTH_SHORT).show();
         //Toast.makeText(this, "Set!", Toast.LENGTH_SHORT).show();
@@ -423,18 +472,18 @@ public class MainMenu extends BaseActivity /**implements
         TextView quizTypeOtherInfo = (TextView) findViewById(R.id.textView25);
 
         if(quizType.getText().equals("Regular")){
-            quizType.setText("Custom");
+            quizType.setText("Angle");
             quizType.setOnClickListener(new Button.OnClickListener(){
 
                 @Override
                 public void onClick(View v) {
-                    startCustomDialog(v);
+                    startAngleDialog(v);
                 }
             });
 
-            quizTypeDuration.setText("Adjustable");
-            quizTypeFunctions.setText("Adjustable");
-            quizTypeOtherInfo.setText("The duration/functions of a custom quiz can be modified in \"Settings\".");
+            quizTypeDuration.setText("1 min.");
+            quizTypeFunctions.setText("Angles to positions.");
+            quizTypeOtherInfo.setText("When an angle appears, swipe your phone in the direction of that angle.");
         }
 
         else if(quizType.getText().equals("Inverse")){
@@ -466,6 +515,21 @@ public class MainMenu extends BaseActivity /**implements
             quizTypeFunctions.setText("Inverse, Non-Inverse");
             quizTypeOtherInfo.setText("None.");
         }
+        else if(quizType.getText().equals("Angle")) {
+            quizType.setText("Custom");
+            quizType.setOnClickListener(new Button.OnClickListener(){
+
+                @Override
+                public void onClick(View v) {
+                    startCustomDialog(v);
+                }
+            });
+
+            quizTypeDuration.setText("Adjustable");
+            quizTypeFunctions.setText("Adjustable");
+            quizTypeOtherInfo.setText("The duration/functions of a custom quiz can be modified in \"Settings\".");
+        }
+
 
     }
 
@@ -493,18 +557,18 @@ public class MainMenu extends BaseActivity /**implements
         }
 
         else if(quizType.getText().equals("Custom")){
-            quizType.setText("Regular");
+            quizType.setText("Angle");
             quizType.setOnClickListener(new Button.OnClickListener(){
 
                 @Override
                 public void onClick(View v) {
-                    startRegularDialog(v);
+                    startAngleDialog(v);
                 }
             });
 
-            quizTypeDuration.setText("3 min.");
-            quizTypeFunctions.setText("Non-Inverse Only");
-            quizTypeOtherInfo.setText("None.");
+            quizTypeDuration.setText("1 min.");
+            quizTypeFunctions.setText("Angles to positions.");
+            quizTypeOtherInfo.setText("When an angle appears, swipe your phone in the direction of that angle.");
         }
 
         else if(quizType.getText().equals("Regular")){
@@ -521,7 +585,20 @@ public class MainMenu extends BaseActivity /**implements
             quizTypeFunctions.setText("Inverse, Non-Inverse");
             quizTypeOtherInfo.setText("None.");
         }
+        else if(quizType.getText().equals("Angle")) {
+            quizType.setText("Regular");
+            quizType.setOnClickListener(new Button.OnClickListener() {
 
+                @Override
+                public void onClick(View v) {
+                    startRegularDialog(v);
+                }
+            });
+
+            quizTypeDuration.setText("3 min.");
+            quizTypeFunctions.setText("Non-Inverse Only");
+            quizTypeOtherInfo.setText("None.");
+        }
     }
 
     public void startSettings(View v){

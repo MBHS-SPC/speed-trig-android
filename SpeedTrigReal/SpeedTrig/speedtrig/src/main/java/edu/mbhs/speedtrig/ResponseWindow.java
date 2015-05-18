@@ -61,7 +61,8 @@ public class ResponseWindow extends Activity /**implements
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_response_window);
+        if(MainMenu.quizType == MainMenu.QuizType.ANGLE) setContentView(R.layout.activity_movement_response_window);
+        else setContentView(R.layout.activity_response_window);
 		question = (TextView) findViewById(R.id.question);
 		responseCopy = (TextView) findViewById(R.id.response);
 
@@ -76,13 +77,16 @@ public class ResponseWindow extends Activity /**implements
         //quizTimeRemaining = getIntent().getLongExtra(RegularTrig.EXTRA_TIME, Settings.quizDuration);
         if (MainMenu.quizType == MainMenu.QuizType.CUSTOM)
             quizTimeRemaining = Settings.quizDuration;
+        else if(MainMenu.quizType == MainMenu.QuizType.ANGLE){
+            quizTimeRemaining = (long) 60*1000;
+        }
         else
             quizTimeRemaining = (long)3*60*1000;
 
         quizTimeRemaining += 100;
 
         TextView back_button = (TextView) findViewById(R.id.button12);
-        back_button.setVisibility(TextView.INVISIBLE);
+        if(MainMenu.quizType != MainMenu.QuizType.ANGLE) back_button.setVisibility(TextView.INVISIBLE);
 
         timer = (TextView) findViewById(R.id.timerTextView);
 
@@ -177,6 +181,13 @@ public class ResponseWindow extends Activity /**implements
                     }
                     questions[i] = i + 1 + ". " + question;
                 }
+                break;
+            case ANGLE:
+                for(int i = 0; i <= 11; i++) {
+                    String question = QuestionGenerator.genAngle();
+                    questions[i] = i + 1 + ". " + question;
+                }
+
         }
 
         return questions;

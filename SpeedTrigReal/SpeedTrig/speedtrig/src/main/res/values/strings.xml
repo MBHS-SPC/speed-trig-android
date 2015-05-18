@@ -86,5 +86,6 @@ The center is put on a graph where the x axis and y axis cross, so we get this n
       <item>@drawable/ic_launcher</item>
       -->
     </array>
+    <string name="title_activity_movement_response_window">MovementResponseWindow</string>
 
 </resources>
