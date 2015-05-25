@@ -30,9 +30,12 @@
         android:textSize="28dp"
         android:layout_alignTop="@+id/auxiliary"
         android:layout_below = "@+id/timerTextView"
-        android:layout_toRightOf="@+id/auxiliary"
-        android:layout_alignRight="@+id/button"
-        android:layout_alignEnd="@+id/button" />
+        android:layout_centerHorizontal="true"
+        android:layout_alignRight="@+id/auxiliary"
+        android:layout_toEndOf="@+id/auxiliary"
+        android:layout_alignParentStart="false"
+        android:layout_alignParentEnd="true"
+        android:editable="false" />
     <TextView
         android:id="@+id/timerTextView"
         android:layout_width="wrap_content"
@@ -49,10 +52,11 @@
         android:id="@+id/auxiliary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
+        android:layout_centerHorizontal="false"
         android:layout_centerVertical="true"
         android:text="Your Answer: "
         android:textSize="28dp"
+
         android:layout_below="@+id/question"
 
         android:layout_marginBottom="10dp" />

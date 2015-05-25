@@ -60,7 +60,7 @@ public class MovementResponseWindow extends ResponseWindow implements SensorEven
             double xel = event.values[0];
             double yell = event.values[1];
             double mag = Math.sqrt(xel * xel + yell * yell);
-            if (mag >= 7){
+            if (mag >= 4){
                 stahp = true;
                 xel /= mag;
                 yell /= mag;
@@ -75,6 +75,7 @@ public class MovementResponseWindow extends ResponseWindow implements SensorEven
                 angle /= Math.PI;
                 double[] posibilities = {0,1/6.0,1/4.0,1/3.0,1/2.0,2/3.0,3/4.0,5/6.0,1.0,7/6.0,5/4.0,4/3.0,3/2.0,5/3.0,7/4.0,11/6.0,2.0};
                 String[] answers = {"0","\u03C0/6","\u03C0/4","\u03C0/3","\u03C0/2","2\u03C0/3","3\u03C0/4","5\u03C0/6","\u03C0","7\u03C0/6","5\u03C0/4","4\u03C0/3","3\u03C0/2","5\u03C0/3","7\u03C0/4","11\u03C0/6","2\u03C0"};
+                answers[0] = answers[answers.length-1];
                 int mindex = 0;
                 double minval = 200;
                 for(int i = 0; i<posibilities.length; i++){
@@ -112,26 +113,29 @@ public class MovementResponseWindow extends ResponseWindow implements SensorEven
     @Override
     public void openNextQuestion(View v){
         stahp = false;
-        String questionVal = questions[questionIndex];
+        String questionVal = questions[questionIndex].substring(questions[questionIndex].indexOf(' ')+1);
         String response = responseCopy.getText().toString().trim();
-        boolean isCorrect;
-        if(response.equals("0")) isCorrect = questionVal.substring(questionVal.indexOf('.') + 2).equals("0");
-        else{
-            if(!questionVal.contains("?")) isCorrect = false;
+        boolean isCorrect = false;
+        if(response.length() > 0){
+            if(!questionVal.contains("\u03C0")) isCorrect = false;
             else {
                 double resp, ans;
-                if((response.charAt(0) + "").equals("?")) resp = Math.PI;
-                else resp= Integer.parseInt(response.substring(0, response.indexOf("?"))) * Math.PI ;
-                if(!(response.charAt(response.length()-1) + "").equals("?"))
-                    resp /= Integer.parseInt(response.substring(response.indexOf("?")+1));
+                if((response.charAt(0) + "").equals("\u03C0")) resp = Math.PI;
+                else resp= Integer.parseInt(response.substring(0, response.indexOf("\u03C0"))) * Math.PI ;
+                if(!(response.charAt(response.length()-1) + "").equals("\u03C0"))
+                    resp /= Integer.parseInt(response.substring(response.indexOf("\u03C0")+2));
 
-                if((questionVal.charAt(0) + "").equals("?")) ans = Math.PI;
-                else ans= Integer.parseInt(questionVal.substring(0, questionVal.indexOf("?"))) * Math.PI ;
-                if(!(questionVal.charAt(questionVal.length()-1) + "").equals("?"))
-                    ans /= Integer.parseInt(questionVal.substring(questionVal.indexOf("?")+1));
-                isCorrect = Math.abs(Math.cos(resp) - Math.cos(ans)) < 0.01 && Math.abs(Math.sin(resp) - Math.sin(ans)) < 0.01;
+                if((questionVal.charAt(0) + "").equals("\u03C0")) ans = Math.PI;
+                else ans= Integer.parseInt(questionVal.substring(0, questionVal.indexOf("\u03C0"))) * Math.PI ;
+                if(!(questionVal.charAt(questionVal.length()-1) + "").equals("\u03C0"))
+                    ans /= Integer.parseInt(questionVal.substring(questionVal.indexOf("\u03C0")+2));
+                isCorrect = Math.abs(Math.cos(resp) - Math.cos(ans)) < 0.1 && Math.abs(Math.sin(resp) - Math.sin(ans)) < 0.1;
+                Log.d("bluh",""+resp+" "+ans);
             }
     }
+        else{
+            return;
+        }
       //  String correct = QuestionSolver.solve(questionVal.substring(questionVal.indexOf('.') + 2)).trim();
         String text = "#" + (questionIndex + 1) + " is incorrect!";
         if (isCorrect) text = "#" + (questionIndex + 1) + " is correct!";
@@ -146,13 +150,13 @@ public class MovementResponseWindow extends ResponseWindow implements SensorEven
 
         TextView next_button = (TextView) findViewById(R.id.button11);
         TextView submit_button = (TextView) findViewById(R.id.button15);
-        TextView back_button = (TextView) findViewById(R.id.button12);
+       // TextView back_button = (TextView) findViewById(R.id.button12);
 
         // if it's the last question, don't let them go further
         if (questionIndex == questions.length - 1) {
             next_button.setVisibility(TextView.INVISIBLE);
             submit_button.setVisibility(TextView.VISIBLE);
-            back_button.setVisibility(TextView.VISIBLE);
+           // back_button.setVisibility(TextView.VISIBLE);
         } else {
             questionIndex++;
             question.setText("#" + questions[questionIndex]);

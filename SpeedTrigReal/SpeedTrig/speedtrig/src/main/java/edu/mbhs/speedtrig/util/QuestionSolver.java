@@ -7,194 +7,191 @@ public class QuestionSolver {
 
     private static double incompetenceDiminisher = 0.0001;
 
-    public static String solve(String question){
+    public static String solve(String question) {
 
-        if (question.substring(0,3).equals("arc")){
+        if (question.substring(0, 3).equals("arc")) {
             // I'm an inverse trig problem!!!
 
             String operation = question.substring(0, 6);
             String operand = question.substring(7, question.length() - 1);
 
             String correctAnswer = "";
+            if ((operation.equals("arcsin"))) {
 
-            if((operation.equals("arcsin"))) {
-
-                if(operand.equals("0"))
+                if (operand.equals("0"))
                     correctAnswer = "0";
 
-                if(operand.equals("1"))
+                if (operand.equals("1"))
                     correctAnswer = "π/2";
 
-                if(operand.equals("-1"))
+                if (operand.equals("-1"))
                     correctAnswer = "-π/2";
 
-                if(operand.equals("1/2"))
+                if (operand.equals("1/2"))
                     correctAnswer = "π/6";
 
-                if(operand.equals("-1/2"))
+                if (operand.equals("-1/2"))
                     correctAnswer = "-π/6";
 
-                if(operand.equals("√2/2"))
+                if (operand.equals("√2/2"))
                     correctAnswer = "π/4";
 
-                if(operand.equals("-√2/2"))
+                if (operand.equals("-√2/2"))
                     correctAnswer = "-π/4";
 
-                if(operand.equals("√3/2"))
+                if (operand.equals("√3/2"))
                     correctAnswer = "π/3";
 
-                if(operand.equals("-√3/2"))
+                if (operand.equals("-√3/2"))
                     correctAnswer = "-π/3";
             }
 
-            if((operation.equals("arccos"))) {
+            if ((operation.equals("arccos"))) {
 
-                if(operand.equals("0"))
+                if (operand.equals("0"))
                     correctAnswer = "π/2";
 
-                if(operand.equals("1"))
+                if (operand.equals("1"))
                     correctAnswer = "0";
 
-                if(operand.equals("-1"))
+                if (operand.equals("-1"))
                     correctAnswer = "π";
 
-                if(operand.equals("1/2"))
+                if (operand.equals("1/2"))
                     correctAnswer = "π/3";
 
-                if(operand.equals("-1/2"))
+                if (operand.equals("-1/2"))
                     correctAnswer = "2π/3";
 
-                if(operand.equals("√2/2"))
+                if (operand.equals("√2/2"))
                     correctAnswer = "π/4";
 
-                if(operand.equals("-√2/2"))
+                if (operand.equals("-√2/2"))
                     correctAnswer = "3π/4";
 
-                if(operand.equals("√3/2"))
+                if (operand.equals("√3/2"))
                     correctAnswer = "π/6";
 
-                if(operand.equals("-√3/2"))
+                if (operand.equals("-√3/2"))
                     correctAnswer = "5π/6";
             }
 
-            if((operation.equals("arccsc"))) {
+            if ((operation.equals("arccsc"))) {
 
-                if(operand.equals("1"))
+                if (operand.equals("1"))
                     correctAnswer = "π/2";
 
-                if(operand.equals("-1"))
+                if (operand.equals("-1"))
                     correctAnswer = "-π/2";
 
-                if(operand.equals("2"))
+                if (operand.equals("2"))
                     correctAnswer = "π/6";
 
-                if(operand.equals("-2"))
+                if (operand.equals("-2"))
                     correctAnswer = "-π/6";
 
-                if(operand.equals("√2"))
+                if (operand.equals("√2"))
                     correctAnswer = "π/4";
 
-                if(operand.equals("-√2"))
+                if (operand.equals("-√2"))
                     correctAnswer = "-π/4";
 
-                if(operand.equals("(2√3)/3"))
+                if (operand.equals("(2√3)/3"))
                     correctAnswer = "π/3";
 
-                if(operand.equals("-(2√3)/3"))
+                if (operand.equals("-(2√3)/3"))
                     correctAnswer = "-π/3";
             }
 
-            if((operation.equals("arcsec"))) {
+            if ((operation.equals("arcsec"))) {
 
-                if(operand.equals("1"))
+                if (operand.equals("1"))
                     correctAnswer = "0";
 
-                if(operand.equals("-1"))
+                if (operand.equals("-1"))
                     correctAnswer = "π";
 
-                if(operand.equals("2"))
+                if (operand.equals("2"))
                     correctAnswer = "π/3";
 
-                if(operand.equals("-2"))
+                if (operand.equals("-2"))
                     correctAnswer = "2π/3";
 
-                if(operand.equals("√2"))
+                if (operand.equals("√2"))
                     correctAnswer = "π/4";
 
-                if(operand.equals("-√2"))
+                if (operand.equals("-√2"))
                     correctAnswer = "3π/4";
 
-                if(operand.equals("(2√3)/3"))
+                if (operand.equals("(2√3)/3"))
                     correctAnswer = "π/6";
 
-                if(operand.equals("-(2√3)/3"))
+                if (operand.equals("-(2√3)/3"))
                     correctAnswer = "5π/6";
             }
 
-            if((operation.equals("arctan"))) {
+            if ((operation.equals("arctan"))) {
 
-                if(operand.equals("0"))
+                if (operand.equals("0"))
                     correctAnswer = "0";
 
-                if(operand.equals("1"))
+                if (operand.equals("1"))
                     correctAnswer = "π/4";
 
-                if(operand.equals("-1"))
+                if (operand.equals("-1"))
                     correctAnswer = "-π/4";
 
-                if(operand.equals("√3"))
+                if (operand.equals("√3"))
                     correctAnswer = "π/3";
 
-                if(operand.equals("-√3"))
+                if (operand.equals("-√3"))
                     correctAnswer = "-π/3";
 
-                if(operand.equals("√3/3"))
+                if (operand.equals("√3/3"))
                     correctAnswer = "π/6";
 
-                if(operand.equals("-√3/3"))
+                if (operand.equals("-√3/3"))
                     correctAnswer = "-π/6";
             }
 
-            if((operation.equals("arccot"))) {
+            if ((operation.equals("arccot"))) {
 
-                if(operand.equals("0"))
+                if (operand.equals("0"))
                     correctAnswer = "π/2";
 
-                if(operand.equals("1"))
+                if (operand.equals("1"))
                     correctAnswer = "π/4";
 
-                if(operand.equals("-1"))
+                if (operand.equals("-1"))
                     correctAnswer = "3π/4";
 
-                if(operand.equals("√3"))
+                if (operand.equals("√3"))
                     correctAnswer = "π/6";
 
-                if(operand.equals("-√3"))
+                if (operand.equals("-√3"))
                     correctAnswer = "5π/6";
 
-                if(operand.equals("√3/3"))
+                if (operand.equals("√3/3"))
                     correctAnswer = "π/3";
 
-                if(operand.equals("-√3/3"))
+                if (operand.equals("-√3/3"))
                     correctAnswer = "2π/3";
             }
 
-            return  correctAnswer;
-        }
-
-        else if(question.charAt(0) >= 57 && question.charAt(0) <= 127){
+            return correctAnswer;
+        } else if (question.charAt(0) >= 57 && question.charAt(0) <= 127) {
 
             boolean flip = false;
             double operand;
             double badAnswer = 0;
             String goodAnswer = "";
 
-            String operation = question.substring(0,3);
-            String strOperand = question.substring(4,question.length()-1);
+            String operation = question.substring(0, 3);
+            String strOperand = question.substring(4, question.length() - 1);
 
             // some mathing skills <-- yes that's a word
             //takes the character in second place
-            switch (operation.charAt(1)){
+            switch (operation.charAt(1)) {
                 case 'e'://secant
                     operation = "cos";
                     flip = true;
@@ -204,7 +201,8 @@ public class QuestionSolver {
                     flip = true;
                     break;
                 case 'o'://cotangent
-                    if (operation.charAt(2) == 's') break; // because cot and cos have the same second letter
+                    if (operation.charAt(2) == 's')
+                        break; // because cot and cos have the same second letter
                     operation = "tan";
                     flip = true;
                     break;
@@ -212,21 +210,20 @@ public class QuestionSolver {
 
             if (!strOperand.contains("π"))
                 operand = 0;
-            else if (!strOperand.contains("/")){
+            else if (!strOperand.contains("/")) {
                 int number;
                 if (strOperand.equals("π")) number = 1;
-                else number = Integer.parseInt(strOperand.substring(0,strOperand.length()-1));
+                else number = Integer.parseInt(strOperand.substring(0, strOperand.length() - 1));
                 operand = Math.PI * number;
-            }
-            else {	// Note: operator contains both a pi and a fraction ('/')
+            } else {    // Note: operator contains both a pi and a fraction ('/')
                 int numerator;
-                if (strOperand.substring(0,strOperand.indexOf('π')).isEmpty()) numerator = 1;
-                else numerator = Integer.parseInt(strOperand.substring(0,strOperand.indexOf('π')));
+                if (strOperand.substring(0, strOperand.indexOf('π')).isEmpty()) numerator = 1;
+                else numerator = Integer.parseInt(strOperand.substring(0, strOperand.indexOf('π')));
                 operand = Math.PI * numerator /
-                        Integer.parseInt(strOperand.substring(strOperand.indexOf('/')+1));
+                        Integer.parseInt(strOperand.substring(strOperand.indexOf('/') + 1));
             }
             //GET THA FIRST CHAR
-            switch (operation.charAt(0)){
+            switch (operation.charAt(0)) {
                 case 's'://sin
                     badAnswer = Math.sin(operand);
                     break;
@@ -239,34 +236,34 @@ public class QuestionSolver {
             }
             // I'm sorry, lots of bad code... It's a chiseled unit circle
             // +- 1
-            if (Math.abs(badAnswer-1) < incompetenceDiminisher ||
-                    Math.abs(badAnswer+1) < incompetenceDiminisher)
-                goodAnswer = (Math.signum(badAnswer)==1 ? "" : "-") + "1";
+            if (Math.abs(badAnswer - 1) < incompetenceDiminisher ||
+                    Math.abs(badAnswer + 1) < incompetenceDiminisher)
+                goodAnswer = (Math.signum(badAnswer) == 1 ? "" : "-") + "1";
                 // +- root 3 over 2
-            else if (Math.abs(badAnswer-Math.sqrt(3)/2) < incompetenceDiminisher ||
-                    Math.abs(badAnswer+Math.sqrt(3)/2) < incompetenceDiminisher)
-                goodAnswer = (Math.signum(badAnswer)==1 ? "" : "-") + "√3/2";
+            else if (Math.abs(badAnswer - Math.sqrt(3) / 2) < incompetenceDiminisher ||
+                    Math.abs(badAnswer + Math.sqrt(3) / 2) < incompetenceDiminisher)
+                goodAnswer = (Math.signum(badAnswer) == 1 ? "" : "-") + "√3/2";
                 // +- root 2 over 2
-            else if (Math.abs(badAnswer-Math.sqrt(2)/2) < incompetenceDiminisher ||
-                    Math.abs(badAnswer+Math.sqrt(2)/2) < incompetenceDiminisher)
-                goodAnswer = (Math.signum(badAnswer)==1 ? "" : "-") + "√2/2";
+            else if (Math.abs(badAnswer - Math.sqrt(2) / 2) < incompetenceDiminisher ||
+                    Math.abs(badAnswer + Math.sqrt(2) / 2) < incompetenceDiminisher)
+                goodAnswer = (Math.signum(badAnswer) == 1 ? "" : "-") + "√2/2";
                 // +- 1/2
-            else if (Math.abs(badAnswer-0.5) < incompetenceDiminisher ||
-                    Math.abs(badAnswer+0.5) < incompetenceDiminisher)
-                goodAnswer = (Math.signum(badAnswer)==1 ? "" : "-") + "1/2";
+            else if (Math.abs(badAnswer - 0.5) < incompetenceDiminisher ||
+                    Math.abs(badAnswer + 0.5) < incompetenceDiminisher)
+                goodAnswer = (Math.signum(badAnswer) == 1 ? "" : "-") + "1/2";
                 // 0
             else if (Math.abs(badAnswer) < incompetenceDiminisher)
                 goodAnswer = "0";
                 // +- root 3 over 3
-            else if (Math.abs(badAnswer-Math.sqrt(3)/3) < incompetenceDiminisher ||
-                    Math.abs(badAnswer+Math.sqrt(3)/3) < incompetenceDiminisher)
-                goodAnswer = (Math.signum(badAnswer)==1 ? "" : "-") + "√3/3";
+            else if (Math.abs(badAnswer - Math.sqrt(3) / 3) < incompetenceDiminisher ||
+                    Math.abs(badAnswer + Math.sqrt(3) / 3) < incompetenceDiminisher)
+                goodAnswer = (Math.signum(badAnswer) == 1 ? "" : "-") + "√3/3";
                 // +- root 3
-            else if (Math.abs(badAnswer-Math.sqrt(3)) < incompetenceDiminisher ||
-                    Math.abs(badAnswer+Math.sqrt(3)) < incompetenceDiminisher)
-                goodAnswer = (Math.signum(badAnswer)==1 ? "" : "-") + "√3";
+            else if (Math.abs(badAnswer - Math.sqrt(3)) < incompetenceDiminisher ||
+                    Math.abs(badAnswer + Math.sqrt(3)) < incompetenceDiminisher)
+                goodAnswer = (Math.signum(badAnswer) == 1 ? "" : "-") + "√3";
                 // DNE = tan(pi/2)
-            else if (badAnswer-10 > 0)
+            else if (badAnswer - 10 > 0)
                 goodAnswer = "DNE";
             else
                 goodAnswer = "Java is incompetent";
@@ -275,16 +272,44 @@ public class QuestionSolver {
                 goodAnswer = flipFraction(goodAnswer);
 
             return goodAnswer;
-        }
-        else{
+        } else {
+            String questionVal = question.substring(question.indexOf(' ') + 1);
+
+            boolean isCorrect = false;
 
 
+            double resp, ans;
+            if ((questionVal.charAt(0) + "").equals("\u03C0")) ans = Math.PI;
+            else
+                ans = Integer.parseInt(questionVal.substring(0, questionVal.indexOf("\u03C0"))) * Math.PI;
+            if (!(questionVal.charAt(questionVal.length() - 1) + "").equals("\u03C0"))
+                ans /= Integer.parseInt(questionVal.substring(questionVal.indexOf("\u03C0") + 2));
+            double xel = Math.cos(ans);
+            double yell = Math.sin(ans);
+            if (xel < 0 && yell < 0) {
+                ans = Math.PI + Math.atan(yell / xel);
+            } else if (yell > 0) {
+                ans = Math.acos(xel);
+            } else ans = 2 * Math.PI + Math.asin(yell);
+            ans /= Math.PI;
+            double[] posibilities = {0, 1 / 6.0, 1 / 4.0, 1 / 3.0, 1 / 2.0, 2 / 3.0, 3 / 4.0, 5 / 6.0, 1.0, 7 / 6.0, 5 / 4.0, 4 / 3.0, 3 / 2.0, 5 / 3.0, 7 / 4.0, 11 / 6.0, 2.0};
+            String[] answers = {"0", "\u03C0/6", "\u03C0/4", "\u03C0/3", "\u03C0/2", "2\u03C0/3", "3\u03C0/4", "5\u03C0/6", "\u03C0", "7\u03C0/6", "5\u03C0/4", "4\u03C0/3", "3\u03C0/2", "5\u03C0/3", "7\u03C0/4", "11\u03C0/6", "2\u03C0"};
+            answers[0] = answers[answers.length - 1];
+            int mindex = 0;
+            double minval = 200;
+            for (int i = 0; i < posibilities.length; i++) {
+                double temp = Math.abs(posibilities[i] - ans);
+                if (temp < minval) {
+                    mindex = i;
+                    minval = temp;
+                }
+            }
+            return answers[mindex];
 
-            return " ";
         }
     }
 
-    private static String flipFraction(String frac){
+    private static String flipFraction(String frac) {
         String flipped = "";
 
         if (frac.equals("0"))
@@ -295,13 +320,13 @@ public class QuestionSolver {
             return frac;
 
         if (frac.contains("/"))
-            flipped += frac.substring(frac.indexOf('/')+1);
-        if (frac.contains("√")){
-            char coolChar = frac.charAt(frac.indexOf("√")+1);
+            flipped += frac.substring(frac.indexOf('/') + 1);
+        if (frac.contains("√")) {
+            char coolChar = frac.charAt(frac.indexOf("√") + 1);
             flipped += "√" + coolChar + "/" + coolChar;
         }
 
-        if (flipped.charAt(0) == flipped.charAt(flipped.length()-1) && flipped.contains("/")){
+        if (flipped.charAt(0) == flipped.charAt(flipped.length() - 1) && flipped.contains("/")) {
             // it's either going to be "2 root 3 over 3" or "2 root 2 over 2"
             if (flipped.charAt(2) == 3) flipped = "√3";
             else flipped = "√2";

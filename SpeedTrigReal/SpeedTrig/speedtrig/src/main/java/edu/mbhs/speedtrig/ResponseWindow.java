@@ -186,7 +186,7 @@ public class ResponseWindow extends Activity /**implements
                 for(int i = 0; i <= 11; i++) {
                     String question = QuestionGenerator.genAngle();
                     questions[i] = i + 1 + ". " + question;
-                }
+            }
 
         }
 
