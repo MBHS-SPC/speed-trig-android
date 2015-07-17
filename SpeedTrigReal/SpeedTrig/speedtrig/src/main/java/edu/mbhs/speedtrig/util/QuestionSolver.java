@@ -296,9 +296,9 @@ public class QuestionSolver {
             flipped += "√" + coolChar + "/" + coolChar;
         }
 
-        if (flipped.charAt(0) == flipped.charAt(flipped.length()-1) && flipped.contains("/")){
-            // it's either going to be "2 root 3 over 3" or "2 root 2 over 2"
-            if (flipped.charAt(2) == 3) flipped = "√3";
+        if (flipped.charAt(0) == flipped.charAt(flipped.length()-1) && flipped.contains("/")) {
+            // it's either going to be "3 root 3 over 3" or "2 root 2 over 2"
+            if (flipped.charAt(2) == '3') flipped = "√3";
             else flipped = "√2";
         }
 
