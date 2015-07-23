@@ -2,21 +2,33 @@ package edu.mbhs.speedtrig.util;
 
 /**
  * Created by eyob-- on 3/31/15.
+ * Class used to solve questions given by QuestionGenerator
  */
 public class QuestionSolver {
 
-    private static double incompetenceDiminisher = 0.0001;
+    /**
+     * Precision used to verify that a raw value is equivalent to a mathematical expression
+     * such as 3.14159 == "π"
+     */
+    private static double precision = 0.0001;
 
+    /**
+     * Solves a simple trig question and returns a String answer
+     * @param question question such as "cos(π/3)" using any of the 6 regular trig functions
+     *                 or their inverse functions (such as "arccos")
+     * @return a String of the condensed form of the answer such as "√3/2"
+     */
     public static String solve(String question){
-
         if (question.substring(0,3).equals("arc")){
-            // I'm an inverse trig problem!!!
+            // Inverse trig problems
 
+            // Extract operation and operand
             String operation = question.substring(0, 6);
             String operand = question.substring(7, question.length() - 1);
 
             String correctAnswer = "";
 
+            // hard-code check for answer
             if((operation.equals("arcsin"))) {
 
                 if(operand.equals("0"))
@@ -183,49 +195,54 @@ public class QuestionSolver {
         }
 
         else {
+            // Regular trig problem
 
-            boolean flip = false;
-            double operand;
-            double badAnswer = 0;
-            String goodAnswer = "";
+            boolean flip = false;   // whether the operation is a reciprocal trig operation (sec, csc, cot)
+            double operand;         // numerical value passed into the trig function
+            double badAnswer = 0;   // raw value of answer (as opposed to String form)
+            String goodAnswer = ""; // String form of answer
 
+            // example: operation="csc", strOperand="3π/4"
             String operation = question.substring(0,3);
             String strOperand = question.substring(4,question.length()-1);
 
-            // some mathing skills <-- yes that's a word
-            //takes the character in second place
+            // identify reciprocal operations
             switch (operation.charAt(1)){
-                case 'e'://secant
+                case 'e':   //secant
                     operation = "cos";
                     flip = true;
                     break;
-                case 's'://cosecant
+                case 's':   //cosecant
                     operation = "sin";
                     flip = true;
                     break;
-                case 'o'://cotangent
+                case 'o':   //cotangent
                     if (operation.charAt(2) == 's') break; // because cot and cos have the same second letter
                     operation = "tan";
                     flip = true;
                     break;
             }
 
-            if (!strOperand.contains("π"))
+            if (!strOperand.contains("π"))  // if it doesn't have a 'π', then it's 0
                 operand = 0;
-            else if (!strOperand.contains("/")){
-                int number;
+            else if (!strOperand.contains("/")){    // if it doesn't have a '/', then it's just k*Math.PI
+                int number;     // k to be multiplied by Math.PI
+                // if there's no k, 1 is implied
                 if (strOperand.equals("π")) number = 1;
                 else number = Integer.parseInt(strOperand.substring(0,strOperand.length()-1));
                 operand = Math.PI * number;
             }
-            else {	// Note: operator contains both a pi and a fraction ('/')
+            else {  // Note: operator contains both a pi and a fraction ('/')
                 int numerator;
                 if (strOperand.substring(0,strOperand.indexOf('π')).isEmpty()) numerator = 1;
                 else numerator = Integer.parseInt(strOperand.substring(0,strOperand.indexOf('π')));
+                // simply operand = pi * num / denom
                 operand = Math.PI * numerator /
                         Integer.parseInt(strOperand.substring(strOperand.indexOf('/')+1));
             }
-            //GET THA FIRST CHAR
+
+            // retrieve the bad answer by identifying the operation and applying it
+            // (reciprocal functions evaluated as the original function)
             switch (operation.charAt(0)){
                 case 's'://sin
                     badAnswer = Math.sin(operand);
@@ -237,40 +254,42 @@ public class QuestionSolver {
                     badAnswer = Math.tan(operand);
                     break;
             }
-            // I'm sorry, lots of bad code... It's a chiseled unit circle
+
+            // brute-force compare to known possible answers and build good answers
             // +- 1
-            if (Math.abs(badAnswer-1) < incompetenceDiminisher ||
-                    Math.abs(badAnswer+1) < incompetenceDiminisher)
+            if (Math.abs(badAnswer-1) < precision ||
+                    Math.abs(badAnswer+1) < precision)
                 goodAnswer = (Math.signum(badAnswer)==1 ? "" : "-") + "1";
                 // +- root 3 over 2
-            else if (Math.abs(badAnswer-Math.sqrt(3)/2) < incompetenceDiminisher ||
-                    Math.abs(badAnswer+Math.sqrt(3)/2) < incompetenceDiminisher)
+            else if (Math.abs(badAnswer-Math.sqrt(3)/2) < precision ||
+                    Math.abs(badAnswer+Math.sqrt(3)/2) < precision)
                 goodAnswer = (Math.signum(badAnswer)==1 ? "" : "-") + "√3/2";
                 // +- root 2 over 2
-            else if (Math.abs(badAnswer-Math.sqrt(2)/2) < incompetenceDiminisher ||
-                    Math.abs(badAnswer+Math.sqrt(2)/2) < incompetenceDiminisher)
+            else if (Math.abs(badAnswer-Math.sqrt(2)/2) < precision ||
+                    Math.abs(badAnswer+Math.sqrt(2)/2) < precision)
                 goodAnswer = (Math.signum(badAnswer)==1 ? "" : "-") + "√2/2";
                 // +- 1/2
-            else if (Math.abs(badAnswer-0.5) < incompetenceDiminisher ||
-                    Math.abs(badAnswer+0.5) < incompetenceDiminisher)
+            else if (Math.abs(badAnswer-0.5) < precision ||
+                    Math.abs(badAnswer+0.5) < precision)
                 goodAnswer = (Math.signum(badAnswer)==1 ? "" : "-") + "1/2";
                 // 0
-            else if (Math.abs(badAnswer) < incompetenceDiminisher)
+            else if (Math.abs(badAnswer) < precision)
                 goodAnswer = "0";
                 // +- root 3 over 3
-            else if (Math.abs(badAnswer-Math.sqrt(3)/3) < incompetenceDiminisher ||
-                    Math.abs(badAnswer+Math.sqrt(3)/3) < incompetenceDiminisher)
+            else if (Math.abs(badAnswer-Math.sqrt(3)/3) < precision ||
+                    Math.abs(badAnswer+Math.sqrt(3)/3) < precision)
                 goodAnswer = (Math.signum(badAnswer)==1 ? "" : "-") + "√3/3";
                 // +- root 3
-            else if (Math.abs(badAnswer-Math.sqrt(3)) < incompetenceDiminisher ||
-                    Math.abs(badAnswer+Math.sqrt(3)) < incompetenceDiminisher)
+            else if (Math.abs(badAnswer-Math.sqrt(3)) < precision ||
+                    Math.abs(badAnswer+Math.sqrt(3)) < precision)
                 goodAnswer = (Math.signum(badAnswer)==1 ? "" : "-") + "√3";
                 // DNE = tan(pi/2)
             else if (badAnswer-10 > 0)
                 goodAnswer = "DNE";
             else
-                goodAnswer = "Java is incompetent";
+                goodAnswer = "ERROR";
 
+            // if it was a reciprocal function, reciprocate the answer
             if (flip)
                 goodAnswer = flipFraction(goodAnswer);
 
@@ -279,6 +298,12 @@ public class QuestionSolver {
 
     }
 
+    /**
+     * Returns the reciprocal of a fraction (only works for fractions given by solve())
+     * @param frac any integer, rational fraction, or irrational fraction of the forms
+     *             √a or √a/b in String form
+     * @return the reciprocal of frac in String form
+     */
     private static String flipFraction(String frac){
         String flipped = "";
 
@@ -290,18 +315,22 @@ public class QuestionSolver {
             return frac;
 
         if (frac.contains("/"))
+            // what was in the denominator comes to the numerator
             flipped += frac.substring(frac.indexOf('/')+1);
         if (frac.contains("√")){
-            char coolChar = frac.charAt(frac.indexOf("√")+1);
-            flipped += "√" + coolChar + "/" + coolChar;
+            char numUnderRoot = frac.charAt(frac.indexOf("√")+1);
+            // reciprocal of √a is √a/a, so reciprocal of √a/b is b√a/a
+            flipped += "√" + numUnderRoot + "/" + numUnderRoot;
         }
 
+        // if the resulting fraction can be simplified
         if (flipped.charAt(0) == flipped.charAt(flipped.length()-1) && flipped.contains("/")) {
             // it's either going to be "3 root 3 over 3" or "2 root 2 over 2"
             if (flipped.charAt(2) == '3') flipped = "√3";
             else flipped = "√2";
         }
 
+        // if the fraction was negative, make the reciprocal negative
         if (frac.charAt(0) == '-') flipped = "-" + flipped;
 
         return flipped;
