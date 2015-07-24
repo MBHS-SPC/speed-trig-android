@@ -4,41 +4,48 @@ import java.util.Random;
 
 /**
  * Created by eyob-- on 3/31/15.
+ * Class used to generate questions for Speed Trig quizzes
  */
 public class QuestionGenerator {
 
+    /**
+     * Generate a random regular trig question
+     * @return a random question String. example: "cos(3π/2)"
+     */
     public static String genRegular(){
         int denominator, numerator, random;
         String operation = "", question;
 
-        random = (int)(Math.random()*10);
-        if (random == 0) {
-            // generate random number from 2*rand_denom to 20
+        random = (int)(Math.random()*10);   // 1/10 chance of getting a fraction >= 2*pi
+        if (random == 0) {  // generate a "harder" problem: fraction >= 2*pi
+            // generate a denominator of 1,2,3,4,or 6
             random = (int)(Math.random() * 5) + 1;
             denominator = random == 5 ? 6 : random;
-            numerator = (int)(Math.random()*(21-2*denominator))+2*denominator;
-            int num = numerator;
-            numerator = simplify(num, denominator)[0];
-            denominator = simplify(num, denominator)[1];
+            // generate a numerator from 2*denom to 20
+            numerator = (int)(Math.random() * (21 - 2 * denominator)) + 2 * denominator;
+
+            // simplify the fraction "numerator/denominator"
+            int[] fraction = simplify(numerator, denominator);
+            numerator = fraction[0];
+            denominator = fraction[1];
         }
-        else {
-            // generate nice unit circle value
+        else {  // generate "nice" unit circle value: 0 <= fraction < 2*pi
             int rand = (int)(Math.random()*4);
-            if (rand == 0) {
-                // generate a pi/4 type value
-                int hand = (int) (Math.random() * 4);
-                hand = hand * 2 + 1;
-                numerator = hand;
+            if (rand == 0) {    // generate a pi/4 type value
+                numerator = (int) (Math.random() * 4) * 2 + 1;
                 denominator = 4;
             }
-            else {
-                // generate any other kind of value
-                int hand = (int) (Math.random() * 12);
-                numerator = simplify(hand, 6)[0];
-                denominator = simplify(hand, 6)[1];
+            else {  // generate any other kind of value (pi/3, pi/6, pi/2, pi, 0, ...)
+                // if you take a number from 0 to 11 and divide it by 12, you'll get one of the
+                // other unit circle values
+                numerator = (int) (Math.random() * 12);
+                int[] fraction = simplify(numerator, 6);
+                numerator = fraction[0];
+                denominator = fraction[1];
             }
         }
 
+        // get an operation
         random = (int)(Math.random()*6);
         switch(random) {
             case 0:
@@ -61,6 +68,8 @@ public class QuestionGenerator {
                 break;
         }
 
+        //format the String question. example:  numerator=3, denominator=2, operation="cos"
+        //                                      question="cos(3π/2)"
         question = operation + "(";
         if (numerator != 1) question += numerator;
         if (numerator != 0){
@@ -72,6 +81,10 @@ public class QuestionGenerator {
         return question;
     }
 
+    /**
+     * Generate a random inverse trig question or a regular trig question
+     * @return a random question String. example: "arccos(1/2)"
+     */
     public static String genInverse(){
 
         Random generator = new Random();
@@ -205,6 +218,10 @@ public class QuestionGenerator {
         }
     }
 
+    /**
+     * Generate a random custom quiz question
+     * @return a random question String
+     */
     public static String genCustom() {
 
         Random generator = new Random();
@@ -218,6 +235,13 @@ public class QuestionGenerator {
         }
     }
 
+    /**
+     * Simplifies a fraction
+     * @param numer numerator of the fraction
+     * @param denom denominator of the fraction
+     * @return array of length 2 such that arr[0] is the simplified numerator and arr[1] is the
+     * simplified denominator
+     */
     private static int[] simplify (int numer, int denom){
         for (int i = Math.min(numer, denom); i > 1; i--){
             if ((double)numer/i == (numer/i) && (double)denom/i == (denom/i)){
