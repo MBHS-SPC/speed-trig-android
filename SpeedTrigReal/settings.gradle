@@ -1,2 +1,0 @@
-include ':speedtrig'
-project(':speedtrig').projectDir = new File('SpeedTrig/speedtrig')
