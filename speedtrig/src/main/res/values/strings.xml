@@ -48,6 +48,12 @@ The center is put on a graph where the x axis and y axis cross, so we get this n
 
     <string name="cardview09txt">Cotangent is a trigonometric function describing the ratio of the
         adjacent side to the opposite side in a right triangle. It is often abbreviated cotan or cot. </string>
+    <string name="unit_circle_sin_default">sin:&#160;</string>
+    <string name="unit_circle_csc_default">csc:&#160;</string>
+    <string name="unit_circle_cos_default">cos:&#160;</string>
+    <string name="unit_circle_sec_default">sec:&#160;</string>
+    <string name="unit_circle_tan_default">tan:&#160;</string>
+    <string name="unit_circle_cot_default">cot:&#160;</string>
 
     //End of Learn section content
 

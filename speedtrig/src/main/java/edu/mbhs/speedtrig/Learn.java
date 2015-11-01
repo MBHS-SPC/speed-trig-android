@@ -38,6 +38,13 @@ public class Learn extends BaseActivity {
         });
         //(END) URL for The Online Speed Trig Quiz Generator
 
+        ((ImageView) findViewById(R.id.unit_circle_link)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Learn.this, UnitCircle.class));
+            }
+        });
+
         navMenuTitles = getResources().getStringArray(R.array.nav_drawer_items); // load titles from strings.xml
 
         navMenuIcons = getResources().obtainTypedArray(R.array.nav_drawer_icons);// load icons from

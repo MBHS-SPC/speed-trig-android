@@ -46,12 +46,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
-                        android:text="Unit Circle"
+                        android:text="Interactive Unit Circle"
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:textStyle="bold" />
 
                     <ImageView
-                        android:id="@+id/imageView"
+                        android:id="@+id/unit_circle_link"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@drawable/unit_circle" />
