@@ -200,7 +200,6 @@ public class QuestionSolver {
             boolean flip = false;   // whether the operation is a reciprocal trig operation (sec, csc, cot)
             double operand;         // numerical value passed into the trig function
             double badAnswer = 0;   // raw value of answer (as opposed to String form)
-            String goodAnswer = ""; // String form of answer
 
             // example: operation="csc", strOperand="3π/4"
             String operation = question.substring(0,3);
@@ -255,47 +254,53 @@ public class QuestionSolver {
                     break;
             }
 
-            // brute-force compare to known possible answers and build good answers
-            // +- 1
-            if (Math.abs(badAnswer-1) < precision ||
-                    Math.abs(badAnswer+1) < precision)
-                goodAnswer = (Math.signum(badAnswer)==1 ? "" : "-") + "1";
-                // +- root 3 over 2
-            else if (Math.abs(badAnswer-Math.sqrt(3)/2) < precision ||
-                    Math.abs(badAnswer+Math.sqrt(3)/2) < precision)
-                goodAnswer = (Math.signum(badAnswer)==1 ? "" : "-") + "√3/2";
-                // +- root 2 over 2
-            else if (Math.abs(badAnswer-Math.sqrt(2)/2) < precision ||
-                    Math.abs(badAnswer+Math.sqrt(2)/2) < precision)
-                goodAnswer = (Math.signum(badAnswer)==1 ? "" : "-") + "√2/2";
-                // +- 1/2
-            else if (Math.abs(badAnswer-0.5) < precision ||
-                    Math.abs(badAnswer+0.5) < precision)
-                goodAnswer = (Math.signum(badAnswer)==1 ? "" : "-") + "1/2";
-                // 0
-            else if (Math.abs(badAnswer) < precision)
-                goodAnswer = "0";
-                // +- root 3 over 3
-            else if (Math.abs(badAnswer-Math.sqrt(3)/3) < precision ||
-                    Math.abs(badAnswer+Math.sqrt(3)/3) < precision)
-                goodAnswer = (Math.signum(badAnswer)==1 ? "" : "-") + "√3/3";
-                // +- root 3
-            else if (Math.abs(badAnswer-Math.sqrt(3)) < precision ||
-                    Math.abs(badAnswer+Math.sqrt(3)) < precision)
-                goodAnswer = (Math.signum(badAnswer)==1 ? "" : "-") + "√3";
-                // DNE = tan(pi/2)
-            else if (badAnswer-10 > 0)
-                goodAnswer = "DNE";
-            else
-                goodAnswer = "ERROR";
-
-            // if it was a reciprocal function, reciprocate the answer
-            if (flip)
-                goodAnswer = flipFraction(goodAnswer);
-
-            return goodAnswer;
+            return getClosestAnswer(badAnswer, flip);
         }
 
+    }
+
+    public static String getClosestAnswer(double rawAnswer, boolean reciprocalFunction) {
+        String goodAnswer;
+
+        // brute-force compare to known possible answers and build good answers
+        // +- 1
+        if (Math.abs(rawAnswer-1) < precision ||
+                Math.abs(rawAnswer+1) < precision)
+            goodAnswer = (Math.signum(rawAnswer)==1 ? "" : "-") + "1";
+            // +- root 3 over 2
+        else if (Math.abs(rawAnswer-Math.sqrt(3)/2) < precision ||
+                Math.abs(rawAnswer+Math.sqrt(3)/2) < precision)
+            goodAnswer = (Math.signum(rawAnswer)==1 ? "" : "-") + "√3/2";
+            // +- root 2 over 2
+        else if (Math.abs(rawAnswer-Math.sqrt(2)/2) < precision ||
+                Math.abs(rawAnswer+Math.sqrt(2)/2) < precision)
+            goodAnswer = (Math.signum(rawAnswer)==1 ? "" : "-") + "√2/2";
+            // +- 1/2
+        else if (Math.abs(rawAnswer-0.5) < precision ||
+                Math.abs(rawAnswer+0.5) < precision)
+            goodAnswer = (Math.signum(rawAnswer)==1 ? "" : "-") + "1/2";
+            // 0
+        else if (Math.abs(rawAnswer) < precision)
+            goodAnswer = "0";
+            // +- root 3 over 3
+        else if (Math.abs(rawAnswer-Math.sqrt(3)/3) < precision ||
+                Math.abs(rawAnswer+Math.sqrt(3)/3) < precision)
+            goodAnswer = (Math.signum(rawAnswer)==1 ? "" : "-") + "√3/3";
+            // +- root 3
+        else if (Math.abs(rawAnswer-Math.sqrt(3)) < precision ||
+                Math.abs(rawAnswer+Math.sqrt(3)) < precision)
+            goodAnswer = (Math.signum(rawAnswer)==1 ? "" : "-") + "√3";
+            // DNE = tan(pi/2)
+        else if (rawAnswer-10 > 0 || rawAnswer + 10 < 0)
+            goodAnswer = "DNE";
+        else
+            goodAnswer = "ERROR";
+
+        // if it was a reciprocal function, reciprocate the answer
+        if (reciprocalFunction)
+            goodAnswer = flipFraction(goodAnswer);
+
+        return goodAnswer;
     }
 
     /**

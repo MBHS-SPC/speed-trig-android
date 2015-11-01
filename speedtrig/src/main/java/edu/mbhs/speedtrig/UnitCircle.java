@@ -10,9 +10,11 @@ import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
-import android.widget.Toast;
+import android.widget.TextView;
 
 import com.example.speedtrig.R;
+
+import edu.mbhs.speedtrig.util.QuestionSolver;
 
 public class UnitCircle extends Activity implements SurfaceHolder.Callback {
 
@@ -20,6 +22,7 @@ public class UnitCircle extends Activity implements SurfaceHolder.Callback {
 
     SurfaceView surfaceView;
     float cx, cy, bigRadius, buttonRadius;
+    float thetaSelected = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,8 +37,13 @@ public class UnitCircle extends Activity implements SurfaceHolder.Callback {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 if (event.getActionMasked() == MotionEvent.ACTION_DOWN) {
+
                     double theta = angleClosestTo(event.getX(), event.getY());
-                    Toast.makeText(UnitCircle.this, theta+"", Toast.LENGTH_SHORT).show();
+                    if (theta == -1) return true;
+
+                    thetaSelected = (float) theta;
+                    attemptDraw(surfaceView.getHolder());
+                    updateValues();
                 }
                 return true;
             }
@@ -44,6 +52,7 @@ public class UnitCircle extends Activity implements SurfaceHolder.Callback {
 
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
+        updateValues();
         attemptDraw(holder);
     }
 
@@ -58,11 +67,10 @@ public class UnitCircle extends Activity implements SurfaceHolder.Callback {
     }
 
     private void attemptDraw(SurfaceHolder holder) {
-        Log.i(TAG, "Trying to draw...");
 
         Canvas canvas = holder.lockCanvas();
         if (canvas == null) {
-            Log.e(TAG, "Cannot draw onto null canvas");
+            Log.e(TAG, "Cannot draw on null canvas");
         }
         else {
             drawCircle(canvas);
@@ -90,29 +98,27 @@ public class UnitCircle extends Activity implements SurfaceHolder.Callback {
         canvas.drawLine(cx, cy - lineRadius, cx, cy + lineRadius, paint);
 
 
-
         // Draw tiny circle "buttons"
 
         // first angle (default) will already be "selected"
-        paint.setColor(Color.CYAN);
-        paint.setStyle(Paint.Style.FILL);
         buttonRadius = bigRadius / 15;
-        float buttonX = 0, buttonY = 0;
+        float buttonX, buttonY;
 
         // pi/6, pi/3, pi/2, 2pi/3, 5pi/6, pi, 7pi/6, 4pi/3, 3pi/2, 5pi/3, 11pi/6
         for (float theta = 0; Math.abs(theta - 2 * Math.PI) > 0.001; theta += Math.PI / 6) {
-            Log.d(TAG, "theta: "+theta);
             buttonX = cx + (float) Math.cos(theta) * bigRadius;
             buttonY = cy - (float) Math.sin(theta) * bigRadius;
             // draw filled in circle first
+            if (Math.abs(theta - thetaSelected) < 0.001)    // if this angle is selected
+                paint.setColor(Color.CYAN);
+            else
+                paint.setColor(Color.WHITE);
+            paint.setStyle(Paint.Style.FILL);
             canvas.drawCircle(buttonX, buttonY, buttonRadius-2.5f, paint);
             // then draw outline circle
             paint.setColor(Color.BLACK);
             paint.setStyle(Paint.Style.STROKE);
             canvas.drawCircle(buttonX, buttonY, buttonRadius, paint);
-            // and change the paint back for the next filled in circle
-            paint.setColor(Color.WHITE);
-            paint.setStyle(Paint.Style.FILL);
         }
 
         // pi/4, 3pi/4, 5pi/4, 7pi/4
@@ -120,14 +126,16 @@ public class UnitCircle extends Activity implements SurfaceHolder.Callback {
             buttonX = cx + (float) Math.cos(theta) * bigRadius;
             buttonY = cy - (float) Math.sin(theta) * bigRadius;
             // draw filled in circle first
+            if (Math.abs(theta - thetaSelected) < 0.001)    // if this angle is selected
+                paint.setColor(Color.CYAN);
+            else
+                paint.setColor(Color.WHITE);
+            paint.setStyle(Paint.Style.FILL);
             canvas.drawCircle(buttonX, buttonY, buttonRadius-2.5f, paint);
             // then draw outline circle
             paint.setColor(Color.BLACK);
             paint.setStyle(Paint.Style.STROKE);
             canvas.drawCircle(buttonX, buttonY, buttonRadius, paint);
-            // and change the paint back for the next filled in circle
-            paint.setColor(Color.WHITE);
-            paint.setStyle(Paint.Style.FILL);
         }
     }
 
@@ -168,5 +176,64 @@ public class UnitCircle extends Activity implements SurfaceHolder.Callback {
         }
 
         return closestAngle;
+    }
+
+    /**
+     * Update the TextViews with the function values corresponding to thetaSelected
+     */
+    private void updateValues() {
+        final double theta = thetaSelected;
+        TextView function;
+        double functionValue;
+
+        /*
+        For each function, get the corresponding TextView, evaluate the function normally,
+        then get convert the answer to a nice String using QuestionSolver.getClosestAnswer()
+         */
+
+        // sin
+        function = (TextView) findViewById(R.id.unit_text_sin);
+        functionValue = Math.sin(theta);
+        function.setText(String.format("%s%s",
+                getString(R.string.unit_circle_sin_default),
+                QuestionSolver.getClosestAnswer(functionValue, false))
+        );
+
+        // csc
+        function = (TextView) findViewById(R.id.unit_text_csc);
+        function.setText(String.format("%s%s",
+                getString(R.string.unit_circle_csc_default),
+                QuestionSolver.getClosestAnswer(functionValue, true))
+        );
+
+        // cos
+        function = (TextView) findViewById(R.id.unit_text_cos);
+        functionValue = Math.cos(theta);
+        function.setText(String.format("%s%s",
+                getString(R.string.unit_circle_cos_default),
+                QuestionSolver.getClosestAnswer(functionValue, false))
+        );
+
+        // sec
+        function = (TextView) findViewById(R.id.unit_text_sec);
+        function.setText(String.format("%s%s",
+                getString(R.string.unit_circle_sec_default),
+                QuestionSolver.getClosestAnswer(functionValue, true))
+        );
+
+        // tan
+        function = (TextView) findViewById(R.id.unit_text_tan);
+        functionValue = Math.tan(theta);
+        function.setText(String.format("%s%s",
+                getString(R.string.unit_circle_tan_default),
+                QuestionSolver.getClosestAnswer(functionValue, false))
+        );
+
+        // cot
+        function = (TextView) findViewById(R.id.unit_text_cot);
+        function.setText(String.format("%s%s",
+                getString(R.string.unit_circle_cot_default),
+                QuestionSolver.getClosestAnswer(functionValue, true))
+        );
     }
 }
