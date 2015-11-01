@@ -15,6 +15,7 @@ import android.widget.TextView;
 import com.example.speedtrig.R;
 
 import edu.mbhs.speedtrig.util.QuestionSolver;
+import edu.mbhs.speedtrig.util.Util;
 
 public class UnitCircle extends Activity implements SurfaceHolder.Callback {
 
@@ -182,6 +183,12 @@ public class UnitCircle extends Activity implements SurfaceHolder.Callback {
      * Update the TextViews with the function values corresponding to thetaSelected
      */
     private void updateValues() {
+        // update angle TextView
+        ((TextView) findViewById(R.id.unit_text_angle)).setText(String.format("%s%s",
+                getString(R.string.unit_circle_angle_default),
+                Util.getPiFraction(thetaSelected))
+        );
+
         final double theta = thetaSelected;
         TextView function;
         double functionValue;
@@ -235,5 +242,7 @@ public class UnitCircle extends Activity implements SurfaceHolder.Callback {
                 getString(R.string.unit_circle_cot_default),
                 QuestionSolver.getClosestAnswer(functionValue, true))
         );
+
+
     }
 }

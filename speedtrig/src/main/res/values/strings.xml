@@ -54,6 +54,7 @@ The center is put on a graph where the x axis and y axis cross, so we get this n
     <string name="unit_circle_sec_default">sec:&#160;</string>
     <string name="unit_circle_tan_default">tan:&#160;</string>
     <string name="unit_circle_cot_default">cot:&#160;</string>
+    <string name="unit_circle_angle_default">angle:&#160;</string>
 
     //End of Learn section content
 
