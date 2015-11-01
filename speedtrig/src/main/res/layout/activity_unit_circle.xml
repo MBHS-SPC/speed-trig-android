@@ -9,10 +9,11 @@
     tools:context="edu.mbhs.speedtrig.UnitCircle">
 
     <SurfaceView
+        android:id="@+id/interactive_unit_circle"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_gravity="center_horizontal"
-        android:layout_weight="2"></SurfaceView>
+        android:layout_weight="2"/>
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
