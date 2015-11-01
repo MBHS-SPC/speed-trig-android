@@ -28,8 +28,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Large Text"
-                android:id="@+id/textView5"
+                android:text="@string/unit_circle_sin_default"
+                android:id="@+id/unit_text_sin"
                 android:layout_column="0"
                 android:layout_weight="0.5" />
 
@@ -37,8 +37,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Large Text"
-                android:id="@+id/textView6"
+                android:text="@string/unit_circle_csc_default"
+                android:id="@+id/unit_text_csc"
                 android:layout_column="1"
                 android:layout_weight="0.5" />
         </TableRow>
@@ -51,8 +51,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Large Text"
-                android:id="@+id/textView11"
+                android:text="@string/unit_circle_cos_default"
+                android:id="@+id/unit_text_cos"
                 android:layout_column="0"
                 android:layout_weight="0.5" />
 
@@ -60,8 +60,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Large Text"
-                android:id="@+id/textView12"
+                android:text="@string/unit_circle_sec_default"
+                android:id="@+id/unit_text_sec"
                 android:layout_column="1"
                 android:layout_weight="0.5" />
         </TableRow>
@@ -74,8 +74,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Large Text"
-                android:id="@+id/textView29"
+                android:text="@string/unit_circle_tan_default"
+                android:id="@+id/unit_text_tan"
                 android:layout_column="0"
                 android:layout_weight="0.5" />
 
@@ -83,8 +83,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Large Text"
-                android:id="@+id/textView30"
+                android:text="@string/unit_circle_cot_default"
+                android:id="@+id/unit_text_cot"
                 android:layout_column="1"
                 android:layout_weight="0.5" />
         </TableRow>
