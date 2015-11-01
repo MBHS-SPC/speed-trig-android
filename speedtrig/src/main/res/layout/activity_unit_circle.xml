@@ -17,9 +17,8 @@
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:gravity="center_vertical">
 
         <TableRow
             android:layout_width="match_parent"
@@ -35,7 +34,7 @@
 
         </TableRow>
 
-        <TableRow
+        <TableRow android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
