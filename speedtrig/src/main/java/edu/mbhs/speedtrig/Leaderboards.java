@@ -6,21 +6,20 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
 /**
- * Created by AliAnwar7477 on 3/15/2015.
+ * Activity for the leaderboards page
+ * @author AliAnwar7477
+ * Created on 3/15/2015.
  */
 public class Leaderboards extends BaseActivity{
-
-    private String[] navMenuTitles;
-    private TypedArray navMenuIcons;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_leaderboards);
 
-        navMenuTitles = getResources().getStringArray(R.array.nav_drawer_items); // load titles from strings.xml
+        String[] navMenuTitles = getResources().getStringArray(R.array.nav_drawer_items); // load titles from strings.xml
 
-        navMenuIcons = getResources()
+        TypedArray navMenuIcons = getResources()
                 .obtainTypedArray(R.array.nav_drawer_icons);// load icons from
         // strings.xml
 

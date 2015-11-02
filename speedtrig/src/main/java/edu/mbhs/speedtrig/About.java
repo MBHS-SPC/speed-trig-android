@@ -5,19 +5,19 @@ import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
 /**
- * Created by AliAnwar7477 on 2/26/2015.
+ * Activity for the about page
+ * @author AliAnwar7477
+ * Created on 2/26/2015
  */
 public class About extends BaseActivity {
 
-    private String[] navMenuTitles;
-    private TypedArray navMenuIcons;
-
-    @Override
+    @Override @SuppressWarnings("deprecation")
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
@@ -30,7 +30,10 @@ public class About extends BaseActivity {
         ImageView googlePlusButton = (ImageView) findViewById(R.id.imageButton);
         ImageView faceBookButton = (ImageView) findViewById(R.id.imageButton2);
 
-        BaseActivity.currentSelectedItemView.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#963f51b5")));
+        if (Build.VERSION.SDK_INT > 15)
+            BaseActivity.currentSelectedItemView.setBackground(new ColorDrawable(Color.parseColor("#963f51b5")));
+        else
+            BaseActivity.currentSelectedItemView.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#963f51b5")));
 
         googlePlusButton.setOnClickListener(new View.OnClickListener() {
 
@@ -51,9 +54,9 @@ public class About extends BaseActivity {
         });
 //End of Social Media Buttons
 
-        navMenuTitles = getResources().getStringArray(R.array.nav_drawer_items); // load titles from strings.xml
+        String[] navMenuTitles = getResources().getStringArray(R.array.nav_drawer_items); // load titles from strings.xml
 
-        navMenuIcons = getResources()
+        TypedArray navMenuIcons = getResources()
                 .obtainTypedArray(R.array.nav_drawer_icons);// load icons from
         // strings.xml
 

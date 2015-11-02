@@ -1,5 +1,6 @@
 package edu.mbhs.speedtrig;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -9,8 +10,9 @@ import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.media.MediaPlayer;
+import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.app.ActionBarDrawerToggle;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
@@ -19,7 +21,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
 
@@ -27,15 +28,12 @@ public class BaseActivity extends ActionBarActivity {
 	private DrawerLayout mDrawerLayout;
 	private ListView mDrawerList;
 	private ActionBarDrawerToggle mDrawerToggle;
-	protected RelativeLayout _completeLayout, _activityLayout;
+
 	// nav drawer title
 	private CharSequence mDrawerTitle;
 
 	// used to store app title
 	private CharSequence mTitle;
-
-	private ArrayList<NavDrawerItem> navDrawerItems;
-	private NavDrawerListAdapter adapter;
 
     public static MediaPlayer speedTrigMainTheme;
     public static int speedTrigMainThemeProgress;
@@ -58,12 +56,12 @@ public class BaseActivity extends ActionBarActivity {
 		mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 		mDrawerList = (ListView) findViewById(R.id.left_drawer);
 
-		navDrawerItems = new ArrayList<NavDrawerItem>();
+		ArrayList<NavDrawerItem> navDrawerItems = new ArrayList<>();
 
 		// adding nav drawer items
 		if (navMenuIcons == null) {
-			for (int i = 0; i < navMenuTitles.length; i++) {
-				navDrawerItems.add(new NavDrawerItem(navMenuTitles[i]));
+			for (String navMenuTitle : navMenuTitles) {
+				navDrawerItems.add(new NavDrawerItem(navMenuTitle));
 			}
 		} else {
 			for (int i = 0; i < navMenuTitles.length; i++) {
@@ -75,7 +73,7 @@ public class BaseActivity extends ActionBarActivity {
 		mDrawerList.setOnItemClickListener(new SlideMenuClickListener());
 
 		// setting the nav drawer list adapter
-		adapter = new NavDrawerListAdapter(getApplicationContext(),
+		NavDrawerListAdapter adapter = new NavDrawerListAdapter(getApplicationContext(),
 				navDrawerItems);
 		mDrawerList.setAdapter(adapter);
 
@@ -94,7 +92,7 @@ public class BaseActivity extends ActionBarActivity {
 		getSupportActionBar().setIcon(R.drawable.ic_launcher);
 
 		mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout,
-				R.drawable.ic_drawer, // nav menu toggle icon
+				//R.drawable.ic_drawer, // nav menu toggle icon
 				R.string.app_name, // nav drawer open - description for
 				// accessibility
 				R.string.app_name // nav drawer close - description for
@@ -117,10 +115,13 @@ public class BaseActivity extends ActionBarActivity {
 
 	private class SlideMenuClickListener implements
 			ListView.OnItemClickListener {
-		@Override
+		@Override @SuppressWarnings("deprecation")
 		public void onItemClick(AdapterView<?> parent, View view, int position,
 				long id) {
-            view.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#963f51b5")));
+			if (Build.VERSION.SDK_INT > 15)
+				view.setBackground(new ColorDrawable(Color.parseColor("#963f51b5")));
+			else
+            	view.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#963f51b5")));
             currentSelectedItemView = view;
 			// display view for selected nav drawer item
 			displayView(position);
@@ -176,7 +177,8 @@ public class BaseActivity extends ActionBarActivity {
 
 	/**
 	 * Displaying fragment view for selected nav drawer list item
-	 * */
+	 */
+	@SuppressLint("InflateParams")
 	private void displayView(int position) {
 
         // update selected item and title, then close the drawer
@@ -201,12 +203,13 @@ public class BaseActivity extends ActionBarActivity {
             //finish();// finishes the current activity
             AlertDialog.Builder adb = new AlertDialog.Builder(this);
             LayoutInflater adbInflater = LayoutInflater.from(this);
+
             adb.setView(adbInflater.inflate(R.layout.checkbox_submit_button, null));
             adb.setTitle("Coming Soon");
             adb.setMessage("This feature is coming soon.");
             adb.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
-                    return;
+
                 }
             });
 
@@ -227,7 +230,6 @@ public class BaseActivity extends ActionBarActivity {
             adbTwo.setMessage("This feature is coming soon.");
             adbTwo.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
-                    return;
                 }
             });
 
@@ -269,27 +271,37 @@ public class BaseActivity extends ActionBarActivity {
         Settings.isMusicEnabled = settings.getBoolean("isMusicEnabled", true);
     }
 
+	@SuppressWarnings("deprecation")
     public void onPause(){
         super.onPause();
         //speedTrigMainThemeProgress = speedTrigMainTheme.getCurrentPosition();
         if(speedTrigMainTheme != null)
             speedTrigMainTheme.pause();
-        if(currentSelectedItemView != null)
-            currentSelectedItemView.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#963f51b5")));
+        if(currentSelectedItemView != null) {
+			if (Build.VERSION.SDK_INT > 15)
+				currentSelectedItemView.setBackground(new ColorDrawable(Color.parseColor("#963f51b5")));
+			else
+				currentSelectedItemView.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#963f51b5")));
+		}
     }
 
+	@SuppressWarnings("deprecation")
     public void onResume(){
         super.onResume();
         if(speedTrigMainTheme != null && Settings.isMusicEnabled)
             speedTrigMainTheme.start();
-        if(currentSelectedItemView != null)
-            currentSelectedItemView.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#963f51b5")));
+		if(currentSelectedItemView != null) {
+			if (Build.VERSION.SDK_INT > 15)
+				currentSelectedItemView.setBackground(new ColorDrawable(Color.parseColor("#963f51b5")));
+			else
+				currentSelectedItemView.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#963f51b5")));
+		}
     }
 
 	@Override
 	public void setTitle(CharSequence title) {
 		mTitle = title;
-		getActionBar().setTitle(mTitle);
+		getSupportActionBar().setTitle(mTitle);
 	}
 
 	/**

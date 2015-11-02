@@ -7,12 +7,6 @@ package edu.mbhs.speedtrig.util;
 public class QuestionSolver {
 
     /**
-     * Precision used to verify that a raw value is equivalent to a mathematical expression
-     * such as 3.14159 == "π"
-     */
-    private static double precision = 0.0001;
-
-    /**
      * Solves a simple trig question and returns a String answer
      * @param question question such as "cos(π/3)" using any of the 6 regular trig functions
      *                 or their inverse functions (such as "arccos")
@@ -260,6 +254,13 @@ public class QuestionSolver {
     }
 
     public static String getClosestAnswer(double rawAnswer, boolean reciprocalFunction) {
+
+        /*
+         * Precision used to verify that a raw value is equivalent to a mathematical expression
+         * such as 3.14159 == "π"
+         */
+        final double precision = 0.0001;
+
         String goodAnswer;
 
         // brute-force compare to known possible answers and build good answers
@@ -312,12 +313,15 @@ public class QuestionSolver {
     private static String flipFraction(String frac){
         String flipped = "";
 
-        if (frac.equals("0"))
-            return "DNE";
-        else if (frac.equals("DNE"))
-            return "0";
-        else if (frac.equals("-1") || frac.equals("1"))
-            return frac;
+        switch (frac) {
+            case "0":
+                return "DNE";
+            case "DNE":
+                return "0";
+            case "-1":
+            case "1":
+                return frac;
+        }
 
         if (frac.contains("/"))
             // what was in the denominator comes to the numerator

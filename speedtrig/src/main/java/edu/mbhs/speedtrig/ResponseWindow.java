@@ -1,5 +1,6 @@
 package edu.mbhs.speedtrig;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -16,8 +17,6 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.common.api.GoogleApiClient;
-
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
@@ -29,15 +28,12 @@ public class ResponseWindow extends Activity /**implements
         GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener*/ {
 
-    public static double incompetenceDiminisher = 0.0001;
-
 	TextView question;
 	TextView responseCopy;
     int questionIndex;
     boolean finishCalled = false;
     boolean quizDone = false;
 
-    static boolean newQuizStarted = false;
     static boolean submitCalled = false;
     static boolean earlyExit = false;
 
@@ -48,11 +44,11 @@ public class ResponseWindow extends Activity /**implements
     String[] questions = new String[12];
     String[] responses = new String[12];
 
-    private GoogleApiClient mGoogleApiClient;
+    //private GoogleApiClient mGoogleApiClient;
 
 
     //Sounds
-    MediaPlayer corSound, wroSound, speedTrigQuizTheme;
+    MediaPlayer corSound, wroSound; //, speedTrigQuizTheme;
 
 
 	@Override
@@ -116,7 +112,7 @@ public class ResponseWindow extends Activity /**implements
             }
 
             public void onFinish() {
-                timer.setText("Time's Up!");
+                timer.setText(R.string.times_up);
 
                 new Timer().schedule(new TimerTask() {
                     @Override
@@ -146,7 +142,7 @@ public class ResponseWindow extends Activity /**implements
         questions = generateList();
 
         questionIndex = 0;
-        question.setText("#" + questions[questionIndex]);
+        question.setText(String.format("#%s", questions[questionIndex]));
         responseCopy.setText(responses[0]);
     }
 
@@ -199,6 +195,7 @@ public class ResponseWindow extends Activity /**implements
         responses[questionIndex] = responseCopy.getText().toString();
     }
 
+    @SuppressLint("InflateParams")
     public void startSubmitDialog(View v){
         //Toast.makeText(this, "Ready!", Toast.LENGTH_SHORT).show();
         //Toast.makeText(this, "Set!", Toast.LENGTH_SHORT).show();
@@ -223,18 +220,18 @@ public class ResponseWindow extends Activity /**implements
                             //quizTimeRemaining);
                 //}
                 finish();
-                return;
             }
         });
 
         adb.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
-                return;
+
             }
         });
         adb.show();
     }
 
+    @SuppressLint("InflateParams")
     public void startExitDialog() {
         AlertDialog.Builder adb = new AlertDialog.Builder(this);
         LayoutInflater adbInflater = LayoutInflater.from(this);
@@ -297,7 +294,7 @@ public class ResponseWindow extends Activity /**implements
             back_button.setVisibility(TextView.VISIBLE);
         } else {
             questionIndex++;
-            question.setText("#" + questions[questionIndex]);
+            question.setText(String.format("#%s", questions[questionIndex]));
             responseCopy.setText(responses[questionIndex]);
             back_button.setVisibility(TextView.VISIBLE);
             if (questionIndex == questions.length - 1) {
@@ -311,12 +308,6 @@ public class ResponseWindow extends Activity /**implements
     }
 
     public void openPreviousQuestion(View v) {
-        String response = responseCopy.getText().toString().trim();
-        //String correct = getCorrectValue(questionVal.substring(questionVal.indexOf('.') + 2)).trim();
-        //boolean isCorrect = response.equals(correct);
-        //String text = "Incorrect!";
-        //if (isCorrect) text = "Correct!";
-
         TextView next_button = (TextView) findViewById(R.id.button11);
         TextView submit_button = (TextView) findViewById(R.id.button15);
         TextView back_button = (TextView) findViewById(R.id.button12);
@@ -331,7 +322,7 @@ public class ResponseWindow extends Activity /**implements
         else {
             back_button.setVisibility(TextView.VISIBLE);
             questionIndex--;
-            question.setText("#" + questions[questionIndex]);
+            question.setText(String.format("#%s", questions[questionIndex]));
             responseCopy.setText(responses[questionIndex]);
             if (questionIndex == 0)
                 back_button.setVisibility(TextView.INVISIBLE);
@@ -350,15 +341,12 @@ public class ResponseWindow extends Activity /**implements
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
-	}
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+        return id == R.id.action_settings || super.onOptionsItemSelected(item);
+    }
 
     @Override
     public void onPause(){
@@ -370,14 +358,6 @@ public class ResponseWindow extends Activity /**implements
     @Override
     public void finish(){
         if (!finishCalled && !quizDone) {
-            // Looper.prepare();
-            String response = responseCopy.getText().toString().trim();
-            String questionVal = questions[questionIndex];
-            String correct = QuestionSolver.solve(questionVal.substring(questionVal.indexOf('.') + 2)).trim();
-            boolean isCorrect = response.equals(correct);
-            String text = "Incorrect!";
-            if (isCorrect) text = "Correct!";
-            //Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
             quizTimer.cancel();
 
             if (!earlyExit) {
@@ -386,10 +366,6 @@ public class ResponseWindow extends Activity /**implements
                 i.putExtra("responses", responses);
                 startActivity(i);
             }
-            //Intent i = new Intent();
-            //i.putExtra(RegularTrig.EXTRA_TIME, quizTimeRemaining);
-            //setResult(RESULT_OK, i);
-            //Log.d("time2debug", "sub sent: " + quizTimeRemaining);
         }
         finishCalled = true;
         super.finish();

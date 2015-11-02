@@ -1,5 +1,6 @@
 package edu.mbhs.speedtrig;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -36,7 +37,7 @@ public class NavDrawerListAdapter extends BaseAdapter {
         return position;
     }
 
-    @Override
+    @Override @SuppressLint("InflateParams")
     public View getView(int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
             LayoutInflater mInflater = (LayoutInflater)

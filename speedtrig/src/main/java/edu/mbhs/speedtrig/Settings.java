@@ -20,7 +20,9 @@ import android.widget.Toast;
 import java.io.IOException;
 
 /**
- * Created by alia7_000 on 2/16/2015.
+ * Activity for the settings page
+ * @author Alia7477
+ * Created on 2/16/2015.
  */
 public class Settings extends BaseActivity {
 
@@ -45,9 +47,6 @@ public class Settings extends BaseActivity {
 
     TextView quizTimeView;
     SeekBar quizTimeBar;
-
-    private String[] navMenuTitles;
-    private TypedArray navMenuIcons;
 
     String[] functions = {"sin", "cos", "csc", "sec", "tan", "cot", "arcsin", "arccos", "arccsc", "arcsec", "arctan", "arccot"};
 
@@ -98,9 +97,9 @@ public class Settings extends BaseActivity {
         else
             checkbox_music.setChecked(false);
 
-        navMenuTitles = getResources().getStringArray(R.array.nav_drawer_items); // load titles from strings.xml
+        String[] navMenuTitles = getResources().getStringArray(R.array.nav_drawer_items); // load titles from strings.xml
 
-        navMenuIcons = getResources()
+        TypedArray navMenuIcons = getResources()
                 .obtainTypedArray(R.array.nav_drawer_icons);// load icons from
         // strings.xml
 
@@ -130,7 +129,7 @@ public class Settings extends BaseActivity {
                 editor.putLong("quizDuration", quizDuration);
                 editor.apply();
 
-                quizTimeView.setText(roundedProgress/60 + ":" + (roundedProgress%60 < 10 ? "0" : "") + roundedProgress%60);
+                quizTimeView.setText(String.format("%d:%02d", roundedProgress/60, roundedProgress%60));
             }
 
             @Override
@@ -145,7 +144,7 @@ public class Settings extends BaseActivity {
         quizDuration = settings.getLong("quizDuration", 180000);
         int seconds = (int) (quizDuration / 1000);
         quizTimeBar.setProgress(seconds);
-        quizTimeView.setText(seconds/60 + ":" + (seconds%60 < 10 ? "0" : "") + seconds%60);
+        quizTimeView.setText(String.format("%d:%02d", seconds/60, seconds%60));
 
         /**
         quizTimeLimit.addTextChangedListener(new TextWatcher(){
@@ -176,31 +175,44 @@ public class Settings extends BaseActivity {
 
         boolean booleanToReturn = true;
 
-        if(operation.equals("sin"))
-            booleanToReturn = isSinActive;
-        else if(operation.equals("cos"))
-            booleanToReturn = isCosActive;
-        else if(operation.equals("csc"))
-            booleanToReturn = isCscActive;
-        else if(operation.equals("sec"))
-            booleanToReturn = isSecActive;
-        else if(operation.equals("tan"))
-            booleanToReturn = isTanActive;
-        else if(operation.equals("cot"))
-            booleanToReturn = isCotActive;
-
-        else if(operation.equals("arcsin"))
-            booleanToReturn = isArcsinActive;
-        else if(operation.equals("arccos"))
-            booleanToReturn = isArccosActive;
-        else if(operation.equals("arccsc"))
-            booleanToReturn = isArccscActive;
-        else if(operation.equals("arcsec"))
-            booleanToReturn = isArcsecActive;
-        else if(operation.equals("arctan"))
-            booleanToReturn = isArctanActive;
-        else if(operation.equals("arccot"))
-            booleanToReturn = isArccotActive;
+        switch (operation) {
+            case "sin":
+                booleanToReturn = isSinActive;
+                break;
+            case "cos":
+                booleanToReturn = isCosActive;
+                break;
+            case "csc":
+                booleanToReturn = isCscActive;
+                break;
+            case "sec":
+                booleanToReturn = isSecActive;
+                break;
+            case "tan":
+                booleanToReturn = isTanActive;
+                break;
+            case "cot":
+                booleanToReturn = isCotActive;
+                break;
+            case "arcsin":
+                booleanToReturn = isArcsinActive;
+                break;
+            case "arccos":
+                booleanToReturn = isArccosActive;
+                break;
+            case "arccsc":
+                booleanToReturn = isArccscActive;
+                break;
+            case "arcsec":
+                booleanToReturn = isArcsecActive;
+                break;
+            case "arctan":
+                booleanToReturn = isArctanActive;
+                break;
+            case "arccot":
+                booleanToReturn = isArccotActive;
+                break;
+        }
 
         return booleanToReturn;
     }
@@ -436,10 +448,7 @@ public class Settings extends BaseActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
+        return id == R.id.action_settings || super.onOptionsItemSelected(item);
     }
 
     /**
@@ -453,9 +462,7 @@ public class Settings extends BaseActivity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_inverse_trig,
-                    container, false);
-            return rootView;
+            return inflater.inflate(R.layout.fragment_inverse_trig, container, false);
         }
     }
 }

@@ -55,6 +55,19 @@ The center is put on a graph where the x axis and y axis cross, so we get this n
     <string name="unit_circle_tan_default">tan:&#160;</string>
     <string name="unit_circle_cot_default">cot:&#160;</string>
     <string name="unit_circle_angle_default">angle:&#160;</string>
+    <string name="quiz_text_regular">Regular</string>
+    <string name="quiz_text_custom">Custom</string>
+    <string name="quiz_duration_custom">Adjustable</string>
+    <string name="quiz_functions_custom">Adjustable</string>
+    <string name="quiz_info_custom">The duration/functions of a custom quiz can be modified in \"Settings\".</string>
+    <string name="quiz_duration_regular">3 min.</string>
+    <string name="quiz_functions_regular">Non-Inverse Only</string>
+    <string name="quiz_info_regular">None.</string>
+    <string name="quiz_text_inverse">Inverse</string>
+    <string name="quiz_duration_inverse">3 min.</string>
+    <string name="quiz_functions_inverse">Inverse, Non-Inverse</string>
+    <string name="quiz_info_inverse">None.</string>
+    <string name="times_up">Time\'s Up!</string>
 
     //End of Learn section content
 
