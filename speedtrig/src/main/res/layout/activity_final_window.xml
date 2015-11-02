@@ -12,27 +12,12 @@
 
     tools:context="edu.mbhs.speedtrig.FinalWindow" >
 
-
-    <!--TextView
-        android:id="@+id/header"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Question    Response    Answer"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textSize="23dp"
-        android:visibility="invisible"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_row="0"
-        /-->
-
     <TextView
         android:id="@+id/entry1"
         android:layout_row="1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:text="TextView"
         android:textSize="@dimen/final_window_textSize"
         android:layout_column="0" />
     <TextView
@@ -41,7 +26,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:text="TextView"
         android:textSize="@dimen/final_window_textSize"
         android:layout_column="1" />
     <TextView
@@ -50,18 +34,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:text="TextView"
         android:textSize="@dimen/final_window_textSize"
         android:layout_column="2" />
     <TextView
-    android:id="@+id/entry2"
-    android:layout_row="2"
-    android:layout_column="0"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="10dp"
-    android:text="TextView"
-    android:textSize="@dimen/final_window_textSize" />
+        android:id="@+id/entry2"
+        android:layout_row="2"
+        android:layout_column="0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textSize="@dimen/final_window_textSize" />
     <TextView
         android:id="@+id/entry2_3"
         android:layout_row="2"
@@ -69,7 +51,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="TextView"
         android:textSize="@dimen/final_window_textSize" />
     <TextView
         android:id="@+id/entry2_2"
@@ -78,9 +59,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="TextView"
         android:textSize="@dimen/final_window_textSize"/>
-    
+
     <TextView
         android:id="@+id/entry3"
         android:layout_row="3"
@@ -88,7 +68,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="TextView"
         android:textSize="@dimen/final_window_textSize" />
     <TextView
         android:id="@+id/entry3_2"
@@ -97,7 +76,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="TextView"
         android:textSize="@dimen/final_window_textSize" />
     <TextView
         android:id="@+id/entry3_3"
@@ -106,7 +84,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="TextView"
         android:textSize="@dimen/final_window_textSize" />
     <TextView
         android:id="@+id/entry4"
@@ -115,7 +92,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="TextView"
         android:textSize="@dimen/final_window_textSize"/>
     <TextView
         android:id="@+id/entry4_2"
@@ -124,7 +100,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="TextView"
         android:textSize="@dimen/final_window_textSize" />
     <TextView
         android:id="@+id/entry4_3"
@@ -133,7 +108,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="TextView"
         android:textSize="@dimen/final_window_textSize" />
     <TextView
         android:id="@+id/entry5"
@@ -142,7 +116,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="TextView"
         android:textSize="@dimen/final_window_textSize" />
     <TextView
         android:id="@+id/entry5_2"
@@ -151,7 +124,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="TextView"
         android:textSize="@dimen/final_window_textSize" />
     <TextView
         android:id="@+id/entry5_3"
@@ -160,7 +132,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="TextView"
         android:textSize="@dimen/final_window_textSize" />
     <TextView
         android:id="@+id/entry6"
@@ -169,7 +140,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="TextView"
         android:textSize="@dimen/final_window_textSize" />
     <TextView
         android:id="@+id/entry6_2"
@@ -178,7 +148,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="TextView"
         android:textSize="@dimen/final_window_textSize" />
     <TextView
         android:id="@+id/entry6_3"
@@ -187,7 +156,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="TextView"
         android:textSize="@dimen/final_window_textSize" />
     <TextView
         android:id="@+id/entry7"
@@ -195,9 +163,7 @@
         android:layout_column="0"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/entry6"
         android:layout_marginTop="10dp"
-        android:text="TextView"
         android:textSize="@dimen/final_window_textSize" />
     <TextView
         android:id="@+id/entry7_2"
@@ -205,9 +171,7 @@
         android:layout_column="1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/entry6"
         android:layout_marginTop="10dp"
-        android:text="TextView"
         android:textSize="@dimen/final_window_textSize" />
     <TextView
         android:id="@+id/entry7_3"
@@ -215,9 +179,7 @@
         android:layout_column="2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/entry6"
         android:layout_marginTop="10dp"
-        android:text="TextView"
         android:textSize="@dimen/final_window_textSize" />
     <TextView
         android:id="@+id/entry8"
@@ -225,9 +187,7 @@
         android:layout_column="0"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/entry7"
         android:layout_marginTop="10dp"
-        android:text="TextView"
         android:textSize="@dimen/final_window_textSize" />
     <TextView
         android:id="@+id/entry8_2"
@@ -235,9 +195,7 @@
         android:layout_column="1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/entry7"
         android:layout_marginTop="10dp"
-        android:text="TextView"
         android:textSize="@dimen/final_window_textSize" />
     <TextView
         android:id="@+id/entry8_3"
@@ -245,9 +203,7 @@
         android:layout_column="2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/entry7"
         android:layout_marginTop="10dp"
-        android:text="TextView"
         android:textSize="@dimen/final_window_textSize" />
     <TextView
         android:id="@+id/entry10"
@@ -256,7 +212,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="TextView"
         android:textSize="@dimen/final_window_textSize" />
     <TextView
         android:id="@+id/entry10_2"
@@ -265,17 +220,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="TextView"
         android:textSize="@dimen/final_window_textSize" />
     <TextView
-    android:id="@+id/entry10_3"
-    android:layout_row="10"
-    android:layout_column="2"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="10dp"
-    android:text="TextView"
-    android:textSize="@dimen/final_window_textSize" />
+        android:id="@+id/entry10_3"
+        android:layout_row="10"
+        android:layout_column="2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textSize="@dimen/final_window_textSize" />
     <TextView
         android:id="@+id/entry9"
         android:layout_row="9"
@@ -283,7 +236,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="TextView"
         android:textSize="@dimen/final_window_textSize" />
     <TextView
         android:id="@+id/entry9_2"
@@ -292,7 +244,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="TextView"
         android:textSize="@dimen/final_window_textSize" />
     <TextView
         android:id="@+id/entry9_3"
@@ -301,7 +252,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="TextView"
         android:textSize="@dimen/final_window_textSize" />
     <TextView
         android:id="@+id/entry11"
@@ -310,7 +260,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="TextView"
         android:textSize="@dimen/final_window_textSize" />
     <TextView
         android:id="@+id/entry11_2"
@@ -319,7 +268,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="TextView"
         android:textSize="@dimen/final_window_textSize" />
     <TextView
         android:id="@+id/entry11_3"
@@ -328,7 +276,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="TextView"
         android:textSize="@dimen/final_window_textSize" />
     <TextView
         android:id="@+id/entry12"
@@ -337,7 +284,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="TextView"
         android:textSize="@dimen/final_window_textSize" />
     <TextView
         android:id="@+id/entry12_2"
@@ -346,7 +292,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="TextView"
         android:textSize="@dimen/final_window_textSize" />
 
     <TextView
@@ -356,13 +301,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="TextView"
         android:textSize="@dimen/final_window_textSize" />
     <Button
         android:id="@+id/mainMenuButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Main Menu"
+        android:text="@string/button_main_menu"
         android:onClick="destroyActivity"
         android:layout_gravity="center"
         tools:layout_rowSpan="1"
@@ -375,33 +319,35 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Question"
+        android:text="@string/header_question"
         android:id="@+id/textView7"
         android:layout_column="0"
         android:layout_row="0"
-        android:textSize="19dp"
+        android:textSize="19sp"
         android:layout_marginRight="11dp"
-       />
+        android:layout_marginEnd="11dp"
+        />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Your Ans."
+        android:text="@string/header_response"
         android:id="@+id/textView8"
-        android:textSize="19dp"
+        android:textSize="19sp"
         android:layout_column="1"
         android:layout_row="0"
         android:layout_marginRight="11dp"
-     />
+        android:layout_marginEnd="11dp"
+        />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Correct Ans."
+        android:text="@string/header_answer"
         android:id="@+id/textView9"
-        android:textSize="19dp"
+        android:textSize="19sp"
         android:layout_column="2"
         android:layout_row="0"/>
 

@@ -22,10 +22,11 @@
         android:id="@+id/response"
         android:layout_width="70dp"
         android:layout_height="wrap_content"
-        android:text=" "
-        android:textSize="18dp"
+        android:text="@string/blank_response"
+        android:textSize="18sp"
         android:layout_alignTop="@+id/auxiliary"
         android:layout_toRightOf="@+id/auxiliary"
+        android:layout_toEndOf="@+id/auxiliary"
         android:layout_alignRight="@+id/button"
         android:layout_alignEnd="@+id/button" />
 
@@ -33,8 +34,8 @@
         android:id="@+id/auxiliary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Your Answer: "
-        android:textSize="18dp"
+        android:text="@string/answer_prompt"
+        android:textSize="18sp"
         android:layout_above="@+id/buttonNeg"
         android:layout_alignLeft="@+id/button_dne"
         android:layout_alignStart="@+id/button_dne"
@@ -47,16 +48,18 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/buttonRoot"
         android:layout_toLeftOf="@+id/buttonRoot"
-        android:text="-"
-        android:onClick="updateEverything"/>"
+        android:layout_toStartOf="@+id/buttonRoot"
+        android:text="@string/minus"
+        android:onClick="updateEverything"/>
     <Button
         android:id="@+id/buttonRoot"
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/button1"
+        android:layout_alignStart="@+id/button1"
         android:layout_above="@+id/button1"
-        android:text="&#8730;"
+        android:text="@string/sqrt"
         android:onClick="updateEverything" />
 
     <Button
@@ -66,7 +69,8 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/buttonRoot"
         android:layout_toRightOf="@+id/buttonRoot"
-        android:text="/"
+        android:layout_toEndOf="@+id/buttonRoot"
+        android:text="@string/division"
         android:onClick="updateEverything" />
 
     <Button
@@ -76,7 +80,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:text="2"
+        android:text="@string/two"
         android:onClick="updateEverything" />
 
     <Button
@@ -86,7 +90,8 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/button1"
         android:layout_toRightOf="@+id/button1"
-        android:text="3"
+        android:layout_toEndOf="@+id/button1"
+        android:text="@string/three"
         android:onClick="updateEverything" />
 
     <Button
@@ -94,7 +99,7 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="1"
+        android:text="@string/one"
         android:onClick="updateEverything"
         android:layout_below="@+id/buttonNeg"
         android:layout_toLeftOf="@+id/buttonRoot"
@@ -107,8 +112,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/button1"
+        android:layout_alignStart="@+id/button1"
         android:layout_below="@+id/button1"
-        android:text="5"
+        android:text="@string/five"
         android:onClick="updateEverything" />
 
     <Button
@@ -118,7 +124,8 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/button4"
         android:layout_toRightOf="@+id/button4"
-        android:text="6"
+        android:layout_toEndOf="@+id/button4"
+        android:text="@string/six"
         android:onClick="updateEverything" />
 
     <Button
@@ -128,7 +135,8 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/button4"
         android:layout_toLeftOf="@+id/button4"
-        android:text="4"
+        android:layout_toStartOf="@+id/button4"
+        android:text="@string/four"
         android:onClick="updateEverything" />
 
     <Button
@@ -137,8 +145,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/button4"
+        android:layout_alignStart="@+id/button4"
         android:layout_below="@+id/button4"
-        android:text="8"
+        android:text="@string/eight"
         android:onClick="updateEverything" />
 
     <Button
@@ -148,7 +157,8 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/button7"
         android:layout_toRightOf="@+id/button7"
-        android:text="9"
+        android:layout_toEndOf="@+id/button7"
+        android:text="@string/nine"
         android:onClick="updateEverything" />
 
     <Button
@@ -158,7 +168,8 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/button7"
         android:layout_toLeftOf="@+id/button7"
-        android:text="7"
+        android:layout_toStartOf="@+id/button7"
+        android:text="@string/seven"
         android:onClick="updateEverything" />
 
     <Button
@@ -166,10 +177,11 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="0"
+        android:text="@string/zero"
         android:onClick="updateEverything"
         android:layout_below="@+id/buttonNeg"
         android:layout_toLeftOf="@+id/button3"
+        android:layout_toStartOf="@+id/button3"
         android:layout_alignLeft="@+id/button_dne"
         android:layout_alignStart="@+id/button_dne" />
 
@@ -177,8 +189,8 @@
         android:id="@+id/button_submit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Back To List"
-        android:textSize="21dp"
+        android:text="@string/back_to_list"
+        android:textSize="21sp"
         android:layout_alignTop="@+id/timerTextView"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
@@ -191,7 +203,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/button10"
         android:onClick="removeLast"
-        android:text="Backspace"
+        android:text="@string/backspace"
         android:layout_below="@+id/button7"
         android:layout_alignRight="@+id/button8"
         android:layout_alignEnd="@+id/button8"
@@ -202,7 +214,7 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="DNE"
+        android:text="@string/dne"
         android:id="@+id/button_dne"
         android:onClick="updateEverything"
         android:layout_above="@+id/button3"
@@ -214,7 +226,7 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="\u03C0"
+        android:text="@string/pi"
         android:onClick="updateEverything"
         android:layout_above="@+id/button2"
         android:layout_toRightOf="@+id/buttonDiv"
@@ -229,17 +241,18 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:textSize="34dp"
+        android:textSize="34sp"
         android:layout_marginTop="5dp"
-        android:layout_marginLeft="5dp" />
+        android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp" />
 
     <Button
         android:id="@+id/button11"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:text="Next"
+        android:text="@string/next_button"
         android:onClick="openNextQuestion"
-        android:textSize="21dp"
+        android:textSize="21sp"
         android:layout_alignParentBottom="true"
         android:layout_alignRight="@+id/button_submit"
         android:layout_alignEnd="@+id/button_submit" />
@@ -248,21 +261,22 @@
         android:id="@+id/button12"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:text="Back"
+        android:text="@string/back_button"
         android:onClick="openPreviousQuestion"
-        android:textSize="21dp"
+        android:textSize="21sp"
         android:layout_alignTop="@+id/button11"
         android:layout_toLeftOf="@+id/button9"
         android:layout_toStartOf="@+id/button9"
+        android:layout_alignParentLeft="false"
         android:layout_alignParentStart="false" />
 
     <Button
         android:id="@+id/button15"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:text="Submit"
+        android:text="@string/submit_button"
         android:onClick="startSubmitDialog"
-        android:textSize="21dp"
+        android:textSize="21sp"
         android:layout_alignTop="@+id/button11"
         android:layout_alignRight="@+id/button11"
         android:layout_alignEnd="@+id/button11"

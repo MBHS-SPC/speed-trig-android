@@ -451,18 +451,4 @@ public class Settings extends BaseActivity {
         return id == R.id.action_settings || super.onOptionsItemSelected(item);
     }
 
-    /**
-     * A placeholder fragment containing a simple view.
-     */
-    public static class PlaceholderFragment extends PreferenceFragment {
-
-        public PlaceholderFragment() {
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            return inflater.inflate(R.layout.fragment_inverse_trig, container, false);
-        }
-    }
 }

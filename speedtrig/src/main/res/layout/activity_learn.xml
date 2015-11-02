@@ -24,7 +24,7 @@
             <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:paddingBottom="@dimen/activity_vertical_margin"
                 android:paddingLeft="@dimen/activity_horizontal_margin"
                 android:paddingRight="@dimen/activity_horizontal_margin"
@@ -46,15 +46,17 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
-                        android:text="Interactive Unit Circle"
+                        android:text="@string/interactive_circle_title"
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:textStyle="bold" />
 
-                    <ImageView
+                    <ImageButton
                         android:id="@+id/unit_circle_link"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/unit_circle" />
+                        android:src="@drawable/unit_circle"
+                        android:onClick="startInteractiveUnitCircle"
+                        android:contentDescription="@string/interactive_circle_title" />
 
 
                 </android.support.v7.widget.CardView>
@@ -78,13 +80,15 @@
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:textStyle="bold"
                         android:layout_marginLeft="165dp"
+                        android:layout_marginStart="165dp"
                         android:layout_marginTop="10dp"/>
 
                     <ImageView
                         android:id="@+id/imageView01"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/unitcircle_img01"/>
+                        android:src="@drawable/unitcircle_img01"
+                        android:contentDescription="@string/description_unit_circle" />
 
 
                 </android.support.v7.widget.CardView>
@@ -117,7 +121,7 @@
                         android:layout_width="335dp"
                         android:layout_height="235dp"
                         android:src="@drawable/circle_unit_sct"
-                        />
+                        android:contentDescription="@string/description_visual_trig" />
                 </android.support.v7.widget.CardView>
 
                 <!--Card Four-->
@@ -136,6 +140,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="5dp"
+                        android:layout_marginStart="5dp"
                         android:text="@string/cardview03atxt"
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:textStyle="bold" />
@@ -156,7 +161,8 @@
                         android:id="@+id/imageView18"
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
-                        android:src="@drawable/triangle" />
+                        android:src="@drawable/triangle"
+                        android:contentDescription="@string/description_learning_triangle" />
 
                 </android.support.v7.widget.CardView>
 
@@ -174,7 +180,8 @@
                         android:id="@+id/imageView19"
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
-                        android:src="@drawable/sohcahtoa_01" />
+                        android:src="@drawable/sohcahtoa_01"
+                        android:contentDescription="@string/description_learning_sohcahtoa" />
 
                 </android.support.v7.widget.CardView>
 
@@ -192,7 +199,8 @@
                         android:id="@+id/imageView20"
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
-                        android:src="@drawable/trigexample_04a" />
+                        android:src="@drawable/trigexample_04a"
+                        android:contentDescription="@string/learning_description_pi3" />
 
                 </android.support.v7.widget.CardView>
 
@@ -210,7 +218,8 @@
                         android:id="@+id/imageView21"
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
-                        android:src="@drawable/trigexample_02b" />
+                        android:src="@drawable/trigexample_02b"
+                        android:contentDescription="@string/learning_description_pi6" />
 
                 </android.support.v7.widget.CardView>
 
@@ -228,7 +237,8 @@
                         android:id="@+id/imageView22"
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
-                        android:src="@drawable/trigexample_03c" />
+                        android:src="@drawable/trigexample_03c"
+                        android:contentDescription="@string/learning_description_recip_pi6" />
 
                 </android.support.v7.widget.CardView>
 
@@ -246,7 +256,8 @@
                         android:id="@+id/imageView23"
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
-                        android:src="@drawable/trigexample_01d" />
+                        android:src="@drawable/trigexample_01d"
+                        android:contentDescription="@string/learning_description_recip_pi3" />
 
                 </android.support.v7.widget.CardView>
 
@@ -264,7 +275,8 @@
                         android:id="@+id/imageView24"
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
-                        android:src="@drawable/q1_unitcircle" />
+                        android:src="@drawable/q1_unitcircle"
+                        android:contentDescription="@string/learning_description_trig_degrees"/>
 
                 </android.support.v7.widget.CardView>
 
@@ -283,14 +295,16 @@
                         android:id="@+id/imageView03"
                         android:layout_width="335dp"
                         android:layout_height="235dp"
-                        android:src="@drawable/sine_pi"/>
+                        android:src="@drawable/sine_pi"
+                        android:contentDescription="@string/learning_description_sin_graph"/>
 
                     <ImageView
                         android:id="@+id/imageView04"
                         android:layout_marginTop="218dp"
                         android:layout_width="90dp"
                         android:layout_height="120dp"
-                        android:src="@drawable/sine"/>
+                        android:src="@drawable/sine"
+                        android:contentDescription="@string/learning_description_sin_sample"/>
 
                     <TextView
                         android:id="@+id/textView22"
@@ -298,7 +312,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="220dp"
                         android:layout_marginLeft="100dp"
-                        android:text="@string/cardview04txt"
+                        android:layout_marginStart="100dp"
+                        android:text="@string/learning_description_sine"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:textStyle="bold" />
 
@@ -306,10 +321,12 @@
                         android:id="@+id/imageView05"
                         android:layout_marginTop="280dp"
                         android:layout_marginLeft="100dp"
+                        android:layout_marginStart="100dp"
                         android:layout_width="200dp"
                         android:layout_height="100dp"
                         android:layout_below="@+id/textView22"
-                        android:src="@drawable/sine_equals"/>
+                        android:src="@drawable/sine_equals"
+                        android:contentDescription="@string/learning_description_sine_other"/>
 
                 </android.support.v7.widget.CardView>
 
@@ -330,14 +347,16 @@
                         android:id="@+id/imageView06"
                         android:layout_width="335dp"
                         android:layout_height="235dp"
-                        android:src="@drawable/cosine_pi"/>
+                        android:src="@drawable/cosine_pi"
+                        android:contentDescription="@string/learning_description_cos_graph"/>
 
                     <ImageView
                         android:id="@+id/imageView07"
                         android:layout_marginTop="218dp"
                         android:layout_width="90dp"
                         android:layout_height="120dp"
-                        android:src="@drawable/cosine"/>
+                        android:src="@drawable/cosine"
+                        android:contentDescription="@string/learning_description_cos_sample" />
 
                     <TextView
                         android:id="@+id/textView23"
@@ -345,7 +364,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="220dp"
                         android:layout_marginLeft="100dp"
-                        android:text="@string/cardview05txt"
+                        android:layout_marginStart="100dp"
+                        android:text="@string/learning_description_cos"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:textStyle="bold" />
 
@@ -353,10 +373,12 @@
                         android:id="@+id/imageView08"
                         android:layout_marginTop="280dp"
                         android:layout_marginLeft="100dp"
+                        android:layout_marginStart="100dp"
                         android:layout_width="200dp"
                         android:layout_height="100dp"
                         android:layout_below="@+id/textView23"
-                        android:src="@drawable/cosine_equals"/>
+                        android:src="@drawable/cosine_equals"
+                        android:contentDescription="@string/learning_description_cos_other"/>
 
                 </android.support.v7.widget.CardView>
 
@@ -377,14 +399,16 @@
                         android:id="@+id/imageView09"
                         android:layout_width="335dp"
                         android:layout_height="235dp"
-                        android:src="@drawable/tangent_pi"/>
+                        android:src="@drawable/tangent_pi"
+                        android:contentDescription="@string/learning_description_tan_graph" />
 
                     <ImageView
                         android:id="@+id/imageView10"
                         android:layout_marginTop="218dp"
                         android:layout_width="90dp"
                         android:layout_height="120dp"
-                        android:src="@drawable/tangent"/>
+                        android:src="@drawable/tangent"
+                        android:contentDescription="@string/learning_description_tan_sample" />
 
                     <TextView
                         android:id="@+id/textView24"
@@ -392,7 +416,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="220dp"
                         android:layout_marginLeft="100dp"
-                        android:text="@string/cardview06txt"
+                        android:layout_marginStart="100dp"
+                        android:text="@string/learning_description_tan"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:textStyle="bold" />
 
@@ -400,10 +425,12 @@
                         android:id="@+id/imageView11"
                         android:layout_marginTop="290dp"
                         android:layout_marginLeft="100dp"
+                        android:layout_marginStart="100dp"
                         android:layout_width="200dp"
                         android:layout_height="100dp"
                         android:layout_below="@+id/textView24"
-                        android:src="@drawable/tangent_equals"/>
+                        android:src="@drawable/tangent_equals"
+                        android:contentDescription="@string/learning_description_tan_other" />
 
                 </android.support.v7.widget.CardView>
 
@@ -424,14 +451,15 @@
                         android:id="@+id/imageView12"
                         android:layout_width="335dp"
                         android:layout_height="235dp"
-                        android:src="@drawable/sec_pi"/>
+                        android:src="@drawable/sec_pi"
+                        android:contentDescription="@string/learning_description_sec_graph" />
 
                     <TextView
                         android:id="@+id/textView25"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="220dp"
-                        android:text="@string/cardview07txt"
+                        android:text="@string/learning_description_sec"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:textStyle="bold" />
 
@@ -441,7 +469,8 @@
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
                         android:layout_below="@+id/textView25"
-                        android:src="@drawable/secant_equals"/>
+                        android:src="@drawable/secant_equals"
+                        android:contentDescription="@string/learning_description_sec_other" />
 
                 </android.support.v7.widget.CardView>
 
@@ -462,14 +491,15 @@
                         android:id="@+id/imageView13"
                         android:layout_width="335dp"
                         android:layout_height="235dp"
-                        android:src="@drawable/csc_pi"/>
+                        android:src="@drawable/csc_pi"
+                        android:contentDescription="@string/learning_description_csc_graph" />
 
                     <TextView
                         android:id="@+id/textView26"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="220dp"
-                        android:text="@string/cardview08txt"
+                        android:text="@string/learning_description_csc"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:textStyle="bold" />
 
@@ -479,7 +509,8 @@
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
                         android:layout_below="@+id/textView26"
-                        android:src="@drawable/cosecant_equals"/>
+                        android:src="@drawable/cosecant_equals"
+                        android:contentDescription="@string/learning_description_csc_other" />
 
                 </android.support.v7.widget.CardView>
 
@@ -500,14 +531,15 @@
                         android:id="@+id/imageView16"
                         android:layout_width="335dp"
                         android:layout_height="235dp"
-                        android:src="@drawable/cot_pi"/>
+                        android:src="@drawable/cot_pi"
+                        android:contentDescription="@string/learning_description_cot_graph" />
 
                     <TextView
                         android:id="@+id/textView27"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="220dp"
-                        android:text="@string/cardview09txt"
+                        android:text="@string/learning_description_cot"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:textStyle="bold" />
 
@@ -517,7 +549,8 @@
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
                         android:layout_below="@id/textView27"
-                        android:src="@drawable/cotangent_equals"/>
+                        android:src="@drawable/cotangent_equals"
+                        android:contentDescription="@string/learning_description_cot_other"/>
 
                 </android.support.v7.widget.CardView>
 
@@ -537,14 +570,15 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@drawable/triggenonline"
-                        android:clickable="true"/>
+                        android:clickable="true"
+                        android:contentDescription="@string/description_online_gen_link" />
 
                     <TextView
                         android:id="@+id/textView28"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
-                        android:text="Touch Image to Enter the Website"
+                        android:text="@string/online_quiz_hint"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         />
 
@@ -561,7 +595,6 @@
             android:id="@+id/footer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
             android:background="@color/indigo_500"
             android:gravity="center"
             android:layout_gravity="center_horizontal|bottom">
@@ -569,10 +602,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Version 1.4"
+                android:text="@string/app_version"
                 android:textColor="@android:color/white"
                 android:textSize="20sp"
                 android:layout_marginLeft="230dp"
+                android:layout_marginStart="230dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
                 android:layout_alignParentRight="true"

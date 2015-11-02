@@ -30,23 +30,23 @@ The center is put on a graph where the x axis and y axis cross, so we get this n
     cos 90° = 0, sin 90° = 1 and tan 90° is undefined.
     </string>
 
-    <string name="cardview04txt">Sine is a trigonometric function describing the ratio between the opposite
+    <string name="learning_description_sine">Sine is a trigonometric function describing the ratio between the opposite
     side and the hypotenuse in a right triangle. As a function it is usually abbreviated sin.</string>
 
-    <string name="cardview05txt">Cosine is a trigonometric function describing the ratio of the adjacent
+    <string name="learning_description_cos">Cosine is a trigonometric function describing the ratio of the adjacent
         side to the hypotenuse in a right triangle. It is often abbreviated cos. </string>
 
-    <string name="cardview06txt">Tangent of an angle in a right triangle is defined as the ratio of
+    <string name="learning_description_tan">Tangent of an angle in a right triangle is defined as the ratio of
         the opposite and adjacent sides. The tangent is a trigonometric function of the angle and is
         often abbreviated tan.</string>
 
-    <string name="cardview07txt">The secant is a trigonometric function describing the ratio of the
+    <string name="learning_description_sec">The secant is a trigonometric function describing the ratio of the
         hypotenuse to the adjacent side in a right triangle. It is often abbreviated sec.</string>
 
-    <string name="cardview08txt">The cosecant is a trigonometric function describing the ratio of the
+    <string name="learning_description_csc">The cosecant is a trigonometric function describing the ratio of the
         hypotenuse to the opposite side in a right triangle. It is often abbreviated as cosec, cose, or csc.</string>
 
-    <string name="cardview09txt">Cotangent is a trigonometric function describing the ratio of the
+    <string name="learning_description_cot">Cotangent is a trigonometric function describing the ratio of the
         adjacent side to the opposite side in a right triangle. It is often abbreviated cotan or cot. </string>
     <string name="unit_circle_sin_default">sin:&#160;</string>
     <string name="unit_circle_csc_default">csc:&#160;</string>
@@ -68,6 +68,96 @@ The center is put on a graph where the x axis and y axis cross, so we get this n
     <string name="quiz_functions_inverse">Inverse, Non-Inverse</string>
     <string name="quiz_info_inverse">None.</string>
     <string name="times_up">Time\'s Up!</string>
+    <string name="description_logo">Speed Trig Logo</string>
+    <string name="about_text">&#009;&#009;Speed Trig v1.4 is an application designed to help users improve their ability to compute basic trigonometric functions by practicing with digital quizzes on the unit circle.\n&#009;&#009;Speed Trig was designed by the Montgomery Blair High School Smartphone Programming Club of 2014&#8211;2015 and inspired by the timed unit circle quizzes which are included within the Pre-Calculus curriculum at MBHS.</string>
+    <string name="app_version">Version 1.4</string>
+    <string name="description_gplus_link">Link to Google+ Page</string>
+    <string name="description_fb_link">Link to Facebook Page</string>
+    <string name="credits_programming_title">Programming</string>
+    <string name="name_eyob">Eyob Tsegaye</string>
+    <string name="name_alianwar7477">Ali Anwar</string>
+    <string name="name_suyhmedu">Suyaib Ahmed</string>
+    <string name="credits_design_title">Interface Design</string>
+    <string name="credits_logo_title">Logo Design</string>
+    <string name="name_brynne">Brynne Edwards</string>
+    <string name="credits_president_title">SPC President</string>
+    <string name="name_agam1997">Agam Mittal</string>
+    <string name="credits_sponsor_title">SPC Sponsor</string>
+    <string name="name_sponsor">William Rose</string>
+    <string name="button_main_menu">Main Menu</string>
+    <string name="header_question">Question</string>
+    <string name="header_response">Your Ans.</string>
+    <string name="header_answer">Correct Ans.</string>
+    <string name="help_header_controls">Controls</string>
+    <string name="help_controls_text">Use \'Back\' and \'Next\' buttons to scroll through questions. You can submit your quiz and receive results early with the \'Submit\' button located on the final question.</string>
+    <string name="interactive_circle_title">Interactive Unit Circle</string>
+    <string name="description_unit_circle">Unit Circle Description</string>
+    <string name="description_visual_trig">Visual representation of sine, cosine, and tangent functions</string>
+    <string name="description_learning_triangle">Triangle with labeled sides</string>
+    <string name="description_learning_sohcahtoa">Normal trigonometric functions expressed in terms of the mneumonic SOHCAHTOA</string>
+    <string name="learning_description_pi3">Sine, cosine, and tangent evaluated on π/3</string>
+    <string name="learning_description_pi6">Sine, cosine, and tangent functions evaluated on π/6</string>
+    <string name="learning_description_recip_pi6">Secant, cosecant, and cotangent functions evaluated at π/6</string>
+    <string name="learning_description_recip_pi3">Secant, cosecant, and cotangent functions evluated at π/3</string>
+    <string name="learning_description_trig_degrees">All trig functions evaluated at 0, 30, 45, 60, and 90 degrees</string>
+    <string name="learning_description_sin_graph">Graph of the sine function</string>
+    <string name="learning_description_sin_sample">Sample values of the sine function</string>
+    <string name="learning_description_sine_other">Other functions equivalent to the sine function</string>
+    <string name="learning_description_cos_graph">Graph of the cosine function</string>
+    <string name="learning_description_cos_sample">Sample values of the cosine function</string>
+    <string name="learning_description_cos_other">Other functions equivalent to the cosine function</string>
+    <string name="learning_description_tan_graph">Graph of the tangent function</string>
+    <string name="learning_description_tan_sample">Sample values for the tangent function</string>
+    <string name="learning_description_tan_other">Other functions equivalent to the tangent function</string>
+    <string name="learning_description_sec_graph">Graph of the secant function</string>
+    <string name="learning_description_sec_other">Other functions equivalent to the secant function</string>
+    <string name="learning_description_csc_graph">Graph of the cosecant function</string>
+    <string name="learning_description_csc_other">Other functions equivalent to the cosecant function</string>
+    <string name="learning_description_cot_graph">Graph of the cotangent function</string>
+    <string name="learning_description_cot_other">Other functions equivalent to the cotangent function</string>
+    <string name="description_online_gen_link">Link to the online speed trig quiz generator</string>
+    <string name="online_quiz_hint">Touch Image to Enter the Website</string>
+    <string name="blank_response" />
+    <string name="answer_prompt">Your Answer:</string>
+    <string name="minus">-</string>
+    <string name="sqrt">√</string>
+    <string name="division">/</string>
+    <string name="two">2</string>
+    <string name="three">3</string>
+    <string name="one">1</string>
+    <string name="five">5</string>
+    <string name="six">6</string>
+    <string name="four">4</string>
+    <string name="eight">8</string>
+    <string name="nine">9</string>
+    <string name="seven">7</string>
+    <string name="zero">0</string>
+    <string name="back_to_list">Back To List</string>
+    <string name="backspace">Backspace</string>
+    <string name="dne">DNE</string>
+    <string name="pi">π</string>
+    <string name="next_button">Next</string>
+    <string name="back_button">Back</string>
+    <string name="submit_button">Submit</string>
+    <string name="general_settings_header">General Settings</string>
+    <string name="music_checkbox">Music</string>
+    <string name="blairtalks_checkbox">BlairTalks Quiz Feedback</string>
+    <string name="custom_quiz_settings">Custom Quiz Parameters</string>
+    <string name="sin">sin</string>
+    <string name="cos">cos</string>
+    <string name="csc">csc</string>
+    <string name="sec">sec</string>
+    <string name="tan">tan</string>
+    <string name="cot">cot</string>
+    <string name="arccos">arccos</string>
+    <string name="arcsin">arcsin</string>
+    <string name="arccsc">arccsc</string>
+    <string name="arcsec">arcsec</string>
+    <string name="arctan">arctan</string>
+    <string name="arccot">arccot</string>
+    <string name="default_duration">3:00</string>
+    <string name="reset_settings">Reset to Default</string>
+    <string name="do_not_show_again">Do not show this message again.</string>
 
     //End of Learn section content
 

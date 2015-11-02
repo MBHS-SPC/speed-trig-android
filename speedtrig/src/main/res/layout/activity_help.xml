@@ -16,7 +16,6 @@
             android:id="@+id/customQuizParameters"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:layout_alignParentTop="true"
             android:background="@color/blue_grey_100"
             android:gravity="center"
             android:layout_marginBottom="5dp">
@@ -24,9 +23,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:text="Controls"
+                android:text="@string/help_header_controls"
                 android:textColor="#000"
-                android:textSize="21dp"
+                android:textSize="21sp"
                 android:layout_marginBottom="10dp" />
         </RelativeLayout>
 
@@ -62,10 +61,9 @@
                 android:id="@+id/entry1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="18dp"
+                android:textSize="18sp"
                 android:textIsSelectable="false"
-                android:text="Use &apos;Back&apos; and &apos;Next&apos; buttons to scroll through questions. You can submit your quiz and receive results early with the &apos;Submit&apos; button located on the final question."
-                android:layout_weight="0.06"
+                android:text="@string/help_controls_text"
                 android:textColor="@color/black"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentLeft="true"
@@ -78,7 +76,6 @@
             android:id="@+id/footer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
             android:background="@color/indigo_500"
             android:gravity="center"
             android:layout_gravity="center_horizontal|bottom">
@@ -86,10 +83,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Version 1.4"
+                android:text="@string/app_version"
                 android:textColor="@android:color/white"
                 android:textSize="20sp"
                 android:layout_marginLeft="230dp"
+                android:layout_marginStart="230dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
                 android:layout_alignParentRight="true"
