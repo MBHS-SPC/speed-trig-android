@@ -9,10 +9,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.example.speedtrig.R;
-
-import java.io.IOException;
-
 /**
  * Created by suyhmed on 3/15/15.
  */

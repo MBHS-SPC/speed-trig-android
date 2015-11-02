@@ -12,8 +12,6 @@ import android.view.SurfaceView;
 import android.view.View;
 import android.widget.TextView;
 
-import com.example.speedtrig.R;
-
 import edu.mbhs.speedtrig.util.QuestionSolver;
 import edu.mbhs.speedtrig.util.Util;
 

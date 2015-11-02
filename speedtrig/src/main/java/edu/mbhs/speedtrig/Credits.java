@@ -5,8 +5,6 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
-import com.example.speedtrig.R;
-
 /**
  * Created by AliAnwar7477 on 3/7/2015.
  */

@@ -17,8 +17,6 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.speedtrig.R;
-
 import java.io.IOException;
 
 /**

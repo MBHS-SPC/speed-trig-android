@@ -9,8 +9,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
-import com.example.speedtrig.R;
-
 import edu.mbhs.speedtrig.util.QuestionSolver;
 
 public class FinalWindow extends Activity {
