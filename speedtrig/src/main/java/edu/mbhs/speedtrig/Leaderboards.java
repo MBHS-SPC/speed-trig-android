@@ -4,6 +4,7 @@ import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.view.View;
 
 /**
  * Activity for the leaderboards page
@@ -26,5 +27,8 @@ public class Leaderboards extends BaseActivity{
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#3f51b5")));
 
         set(navMenuTitles, navMenuIcons);
+    }
+
+    public void btnPressed(View view) {
     }
 }

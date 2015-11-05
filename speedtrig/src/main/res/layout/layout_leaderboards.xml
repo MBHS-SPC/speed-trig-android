@@ -28,7 +28,7 @@
             android:id="@+id/sign_out_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sign Out"
+            android:text="@string/sign_out"
             android:visibility="gone" />
     </LinearLayout>
 
@@ -43,7 +43,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:text="Guess the number!"
+            android:text="@string/guess_number"
             android:textSize="30sp"
             android:textStyle="bold" />
 
@@ -56,7 +56,8 @@
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal" >
+                android:orientation="horizontal"
+                style="?android:attr/buttonBarStyle" >
 
                 <Button
                     android:id="@+id/btn7"
@@ -69,10 +70,11 @@
                     android:onClick="btnPressed"
                     android:padding="5dp"
                     android:tag="7"
-                    android:text="7"
+                    android:text="@string/seven"
                     android:textColor="#ffffffff"
                     android:textSize="30sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    style="?android:attr/buttonBarButtonStyle" />
 
                 <Button
                     android:id="@+id/btn8"
@@ -85,10 +87,11 @@
                     android:onClick="btnPressed"
                     android:padding="5dp"
                     android:tag="8"
-                    android:text="8"
+                    android:text="@string/eight"
                     android:textColor="#ffffffff"
                     android:textSize="30sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    style="?android:attr/buttonBarButtonStyle" />
 
                 <Button
                     android:id="@+id/btn9"
@@ -101,17 +104,19 @@
                     android:onClick="btnPressed"
                     android:padding="5dp"
                     android:tag="9"
-                    android:text="9"
+                    android:text="@string/nine"
                     android:textColor="#ffffffff"
                     android:textSize="30sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    style="?android:attr/buttonBarButtonStyle" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:orientation="horizontal" >
+                android:orientation="horizontal"
+                style="?android:attr/buttonBarStyle" >
 
                 <Button
                     android:id="@+id/btn4"
@@ -124,10 +129,11 @@
                     android:onClick="btnPressed"
                     android:padding="5dp"
                     android:tag="4"
-                    android:text="4"
+                    android:text="@string/four"
                     android:textColor="#ffffffff"
                     android:textSize="30sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    style="?android:attr/buttonBarButtonStyle" />
 
                 <Button
                     android:id="@+id/btn5"
@@ -140,10 +146,11 @@
                     android:onClick="btnPressed"
                     android:padding="5dp"
                     android:tag="5"
-                    android:text="5"
+                    android:text="@string/five"
                     android:textColor="#ffffffff"
                     android:textSize="30sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    style="?android:attr/buttonBarButtonStyle" />
 
                 <Button
                     android:id="@+id/btn6"
@@ -156,17 +163,19 @@
                     android:onClick="btnPressed"
                     android:padding="5dp"
                     android:tag="6"
-                    android:text="6"
+                    android:text="@string/six"
                     android:textColor="#ffffffff"
                     android:textSize="30sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    style="?android:attr/buttonBarButtonStyle" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:orientation="horizontal" >
+                android:orientation="horizontal"
+                style="?android:attr/buttonBarStyle" >
 
                 <Button
                     android:id="@+id/btn1"
@@ -179,10 +188,11 @@
                     android:onClick="btnPressed"
                     android:padding="5dp"
                     android:tag="1"
-                    android:text="1"
+                    android:text="@string/one"
                     android:textColor="#ffffffff"
                     android:textSize="30sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    style="?android:attr/buttonBarButtonStyle" />
 
                 <Button
                     android:id="@+id/btn2"
@@ -195,10 +205,11 @@
                     android:onClick="btnPressed"
                     android:padding="5dp"
                     android:tag="2"
-                    android:text="2"
+                    android:text="@string/two"
                     android:textColor="#ffffffff"
                     android:textSize="30sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    style="?android:attr/buttonBarButtonStyle" />
 
                 <Button
                     android:id="@+id/btn3"
@@ -211,17 +222,19 @@
                     android:onClick="btnPressed"
                     android:padding="5dp"
                     android:tag="3"
-                    android:text="3"
+                    android:text="@string/three"
                     android:textColor="#ffffffff"
                     android:textSize="30sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    style="?android:attr/buttonBarButtonStyle" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:orientation="horizontal" >
+                android:orientation="horizontal"
+                style="?android:attr/buttonBarStyle" >
 
                 <Button
                     android:id="@+id/btn0"
@@ -234,10 +247,11 @@
                     android:onClick="btnPressed"
                     android:padding="5dp"
                     android:tag="0"
-                    android:text="0"
+                    android:text="@string/zero"
                     android:textColor="#ffffffff"
                     android:textSize="30sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    style="?android:attr/buttonBarButtonStyle" />
 
                 <Button
                     android:id="@+id/btnAgain"
@@ -251,10 +265,11 @@
                     android:onClick="btnPressed"
                     android:padding="5dp"
                     android:tag="-1"
-                    android:text="Again"
+                    android:text="@string/again_button"
                     android:textColor="#ffffff00"
                     android:textSize="30sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    style="?android:attr/buttonBarButtonStyle" />
             </LinearLayout>
         </LinearLayout>
     </RelativeLayout>
@@ -265,7 +280,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/gameArea"
         android:gravity="center"
-        android:orientation="horizontal" >
+        android:orientation="horizontal"
+        style="?android:attr/buttonBarStyle" >
 
         <!-- show achievements -->
 
@@ -273,7 +289,8 @@
             android:id="@+id/show_achievements"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Achievements" />
+            android:text="@string/achievements_title"
+            style="?android:attr/buttonBarButtonStyle" />
 
         <!-- show leaderboards -->
 
@@ -281,7 +298,8 @@
             android:id="@+id/show_leaderboard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Leaderboard" />
+            android:text="@string/leaderboard_title"
+            style="?android:attr/buttonBarButtonStyle" />
     </LinearLayout>
 
 </RelativeLayout>

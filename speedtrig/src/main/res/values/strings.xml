@@ -158,6 +158,15 @@ The center is put on a graph where the x axis and y axis cross, so we get this n
     <string name="default_duration">3:00</string>
     <string name="reset_settings">Reset to Default</string>
     <string name="do_not_show_again">Do not show this message again.</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="guess_number">Guess the number!</string>
+    <string name="again_button">Again</string>
+    <string name="achievements_title">Achievements</string>
+    <string name="leaderboard_title">Leaderboard</string>
+    <string name="duration_indicator">Duration:&#160;</string>
+    <string name="functions_indicator">Functions:&#160;</string>
+    <string name="other_info_indicator">Other Info:&#160;</string>
+    <string name="quiz_mode_indicator">Quiz Mode:</string>
 
     //End of Learn section content
 
